@@ -21,6 +21,7 @@
 | `track_title`        | string    | not null                       |
 | `artist_id`          | string    | not null                       |
 | `album_id`           | string    | not null                       |
+| `album_order`        | string    | not null                       |
 | `track_length`       | float     | not null                       |
 | `track_db_location`  | string    | not null                       |
 | `created_at`         | datetime  | not null                       |

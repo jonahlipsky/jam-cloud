@@ -10,7 +10,7 @@ const receiveCurrentUser = currentUser => ({
 });
 
 const signoutCurrentUser = () => ({
-  type: LOGOUT_CURRENT_USER
+  type: SIGNOUT_CURRENT_USER
 });
 
 const receiveSessionErrors = errors => ({

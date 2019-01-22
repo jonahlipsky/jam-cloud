@@ -1,0 +1,32 @@
+in root.html.erb
+
+<% if logged_in? %>
+  <script id='bootstrap-current-user' type='text/javascript'>
+    window.currentUser = <%= render("/api/users/user.json.jbuilder", user: current_user).html_safe %>
+  </script>
+<% end %>
+
+
+Hey everyone! Please take a look at the blabber repo we created today for reference of the JSON file! https://github.com/simcha-c/blabber
+Also, some useful commands for installing heroku:
+
+
+`brew install heroku/brew/heroku` - install heroku CLI
+`brew upgrade heroku` - updates heroku CLI
+
+`heroku run bundle exec rake db:migrate` - migrates all of our tables and sets up our databases
+`heroku run bundle exec rake db:seed` - seeds our data
+
+`node -v` (checks node version)
+`npm -v`  (checks npm version)
+
+Example of putting image on the window:
+
+`    <script type="text/javascript">
+        window.blabbersURL = "<%= image_url('blabbers.jpg') %>"
+   </script>` - puts an image on the window
+
+`<img src={window.blabbersURL} />;` -displays an image in React
+
+Please also reference the following repo for more info:
+https://github.com/appacademy/curriculum/blob/master/full-stack-project/resources/helpful_tools/heroku-deployment.md

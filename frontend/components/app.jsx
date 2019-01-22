@@ -18,6 +18,7 @@ const App = (props) => (
       <h1>Header</h1>
     </header>
     <Switch>
+      <ProtectedRoute exact path='/discover' component={StreamContainer} />
       <AuthRoute exact path='/' component={SplashContainer} />
       <ProtectedRoute exact path='/stream' component={StreamContainer} />
     </Switch>

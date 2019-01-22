@@ -26,7 +26,7 @@ export const signin = user => dispatch => {
   );
 };
 
-export const logout = () => dispatch => (
+export const signout = () => dispatch => (
   SESSION_API_UTIl.signout().then(user => dispatch(signoutCurrentUser()))
 );
 

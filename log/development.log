@@ -758,3 +758,15 @@ Started POST "/api/user" for 127.0.0.1 at 2019-01-22 16:42:06 -0500
 SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
   app/controllers/api/users_controller.rb:15:in `'
 
+Started GET "/" for 127.0.0.1 at 2019-01-22 17:41:35 -0500
+  [1m[35m (21.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/aa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "XGw53B0y4DGfmczOrAJPWg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (41.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (207.3ms)
+Completed 200 OK in 4170ms (Views: 4140.3ms | ActiveRecord: 8.5ms)
+
+

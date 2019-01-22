@@ -1,8 +1,12 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
   def create
-    user = User.find_by_credentials(sign_in_params)
-    if user
-      login(user)
+    username, password = params[:user][:username], params[:user][:password]
+    # debugger
+    @user = User.find_by_credentials(username, password)
+    if @user
+      login(@user)
+      debugger
+      render 'api/users/show'
     else
       render ["Invalid credentials"], status: 401
     end
@@ -12,9 +16,4 @@ class SessionsController < ApplicationController
     logout!
   end
 
-  private
-
-  def sign_in_params
-    params.require(:user).permit(:username, :password)
-  end
 end

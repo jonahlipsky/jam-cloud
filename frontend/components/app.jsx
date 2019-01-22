@@ -1,9 +1,26 @@
+import SplashContainer from './splash_container';
+import StreamContainer from './stream/stream_container';
+
 import React from 'react';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import {
+  Route,
+  Redirect,
+  Switch,
+  Link,
+  HashRouter,
+} from 'react-router-dom';
 
 
-const App =  (props) => (
+const App = (props) => (
   <div>
-    App Element!
+    <header>
+      <h1>Header</h1>
+    </header>
+    <Switch>
+      <AuthRoute exact path='/' component={SplashContainer} />
+      <ProtectedRoute exact path='/stream' component={StreamContainer} />
+    </Switch>
   </div>
 )
 

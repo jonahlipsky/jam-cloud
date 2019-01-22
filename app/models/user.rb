@@ -17,6 +17,8 @@ class User < ApplicationRecord
   validates :username, :email, :session_token, presence: true, uniqueness: true
   validates :password_digest, :age, :gender, presence: true
   validates :password, length: { minimum: 6, allow_nil: true } 
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates :gender, inclusion: { in: ["Male", "Female", "Other", "Trans"] }
 
   after_initialize :ensure_session_token
   attr_reader :password

@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/.bin/webpack --mode=production",
+    "start": "./node_modules/.bin/webpack --mode=production",
     "webpack": "webpack --watch --mode=development"
   },
   "repository": {
@@ -19,6 +21,10 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

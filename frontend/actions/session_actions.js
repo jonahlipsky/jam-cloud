@@ -18,12 +18,13 @@ const receiveSessionErrors = errors => ({
   errors
 });
 
-export const signin = user => dispatch => (
-  SESSION_API_UTIl.signin(user).then(
+export const signin = user => dispatch => {
+  
+  return SESSION_API_UTIl.signin(user).then(
     user => dispatch(receiveCurrentUser(user)),
     err => dispatch(receiveSessionErrors(err.responseJSON))
-  )
-);
+  );
+};
 
 export const logout = () => dispatch => (
   SESSION_API_UTIl.signout().then(user => dispatch(signoutCurrentUser()))

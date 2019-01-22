@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(username, password)
     if @user
       login(@user)
-      debugger
+      # debugger
       render 'api/users/show'
     else
       render ["Invalid credentials"], status: 401

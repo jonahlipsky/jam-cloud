@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signin, signup } from '../../../actions/session_actions';
+import ModalFormVariable from './stage_1';
 
 const mapDispatchToProps = dispatch => ({
   signin: user => dispatch(signin(user)),
@@ -50,15 +51,9 @@ class ModalAuthForm extends React.Component {
       <div className="modal-form">
         <form className="options" onSubmit={this.handleSubmit}>
 
-          <input id='email' type="text" 
-            placeholder={'Please input your email address'} value={this.state.email}
-            onChange={this.handleChange('email')}/>
-          <input id='password' type="password" placeholder="Enter password" 
-            value={this.state.password} onChange={this.handleChange('password')}/>
-
           <ModalFormVariable variable1={'email'} variable2={'password'}
             handleVar1Change={this.handleChange('email').bind(this)}
-            handleVar2Change={this.handleChange('password'.bind(this))}/>
+            handleVar2Change={this.handleChange('password').bind(this)}/>
             
           <input id='submit' type="submit" value={submitButtonValue}/>
         </form>

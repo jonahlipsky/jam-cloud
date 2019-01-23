@@ -1,0 +1,19 @@
+.nav_background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+  background: rgb(60, 60, 60);
+}
+
+.nav_bar_main_frame{
+  width: 85%;
+  max-width: 1250px;
+  height: 100%;
+  background: #ccc;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

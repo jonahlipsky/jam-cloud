@@ -1,4 +1,4 @@
-import SplashContainer from './splash_container';
+import SplashContainer from './splash/splash_container';
 import StreamContainer from './stream/stream_container';
 
 import React from 'react';
@@ -14,9 +14,6 @@ import {
 
 const App = (props) => (
   <div>
-    <header>
-      <h1>Header</h1>
-    </header>
     <Switch>
       <ProtectedRoute exact path='/discover' component={StreamContainer} />
       <AuthRoute exact path='/' component={SplashContainer} />

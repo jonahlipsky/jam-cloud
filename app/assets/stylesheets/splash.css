@@ -1,0 +1,42 @@
+.splash-image{
+  height: 450px;
+  width: 100%;
+  background-image: linear-gradient(to right, red, yellow);
+  margin: auto;
+  display: flex;
+}
+
+.splash-modals{
+  position: absolute;
+  top: 25px;
+  right: 250px;
+}
+
+.splash-modals button{
+  margin-left: 10px;
+}
+
+.splash-welcome-text{
+  margin: auto;
+  width: 50%;
+  text-align: center; 
+}
+
+.splash-welcome-text * {
+  margin: 20px;
+}
+
+.splash-welcome-text h1 {
+  font-size: 30pt;
+}
+
+.splash-welcome-text h2 {
+  font-size: 14pt;
+}
+.splash-welcome-text a {
+  font-size: 14pt;
+  background-color: #f50;
+  padding: 10px;
+  border-radius: 3px;
+}
+

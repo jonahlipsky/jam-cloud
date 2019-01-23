@@ -40,19 +40,55 @@
   border-radius: 3px;
 }
 
+.js-modal-close {
+  display: none;
+}
+
+.js-modal-open{
+  display: block;
+}
+
 .modal{
+  /* display: none; */
+}
+
+.modal-screen{
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.8)
+  background: rgba(219, 219, 219, 0.8);
+
 }
 
 .modal-form{
   position: absolute;
   left: 50%;
-  margin-left: -100px;
-  width: 200px;
+  margin-left: -225px;
+  width: 450px;
+  bottom: 50%;
+  margin-bottom: -310px;
+  height: 620px;
+  background-color: white;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-form .options{
+  width: 90%;
+  height: 30%;
+  margin: auto;
+  border: 1px solid red;
+  
+}
+
+.modal-form #email, .modal-form #password {
+  width: 90%;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
 }

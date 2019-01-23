@@ -1,0 +1,15 @@
+adjust user model so that it can accept either a username, renamed to profile-url, or an e-mail. 
+
+Either should work. 
+The regex for profile-url should accept a string of firstname-lastname-integer
+The regex for e-mail should accept a valid e-mail
+If neither regex patterns is supplied, then it should return a 401 status.
+  Changes need to be made to the following database-level functions:
+    -user model needs to be updated to receive first
+
+[COMPLETE] For the signin option, it should only require an e-mail. 
+  That's in session create. 
+
+
+For the signup option, it is a 3-phase signup. Though soundcloud will make an account after
+only partial information, I will wait until all information is supplied to dispatch the create action.

@@ -6,13 +6,13 @@
   display: flex;
 }
 
-.splash-modals{
+.splash-auth-btns{
   position: absolute;
   top: 25px;
   right: 250px;
 }
 
-.splash-modals button{
+.splash-auth-btns button{
   margin-left: 10px;
 }
 
@@ -40,3 +40,75 @@
   border-radius: 3px;
 }
 
+.js-modal-close {
+  display: none;
+}
+
+.js-modal-open{
+  display: block;
+}
+
+.modal{
+  /* display: none; */
+}
+
+.modal-screen{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(219, 219, 219, 0.8);
+
+}
+
+.modal-form{
+  position: absolute;
+  left: 50%;
+  margin-left: -225px;
+  width: 450px;
+  bottom: 50%;
+  margin-bottom: -310px;
+  height: 620px;
+  background-color: white;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-form .options{
+  width: 90%;
+  height: 30%;
+  margin: auto;
+  
+}
+
+.options *{
+  width: 90%;
+  margin: 10px;
+  padding: 7px 9px;
+  border-radius: 3px;
+}
+
+.modal-form #email, .modal-form #password {
+  border: 1px solid #ccc;
+  font-size: 13pt;
+}
+
+.modal-form #submit {
+  border: 1px solid #f50;
+  background-color: #f50;
+  color: white;
+  text-align: center;
+}
+
+.modal-screen .modal-close {
+  position: absolute; 
+  top: 50px;
+  right: 50px;
+  color: black;
+  font-weight: 700;
+  font-size: 20pt;
+}

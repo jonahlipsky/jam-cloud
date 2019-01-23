@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => ({
 class ModalAuthForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { email: '', password: ''};
+    this.state = { email: '', password: '', age: '', gender: '', username: '', stage: 1};
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -45,14 +45,21 @@ class ModalAuthForm extends React.Component {
     } else {
       submitButtonValue = 'Sign Up';
     }
+
     return(
       <div className="modal-form">
         <form className="options" onSubmit={this.handleSubmit}>
+
           <input id='email' type="text" 
             placeholder={'Please input your email address'} value={this.state.email}
             onChange={this.handleChange('email')}/>
           <input id='password' type="password" placeholder="Enter password" 
             value={this.state.password} onChange={this.handleChange('password')}/>
+
+          <ModalFormVariable variable1={'email'} variable2={'password'}
+            handleVar1Change={this.handleChange('email').bind(this)}
+            handleVar2Change={this.handleChange('password'.bind(this))}/>
+            
           <input id='submit' type="submit" value={submitButtonValue}/>
         </form>
       </div>

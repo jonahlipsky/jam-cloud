@@ -21,7 +21,8 @@ class ModalAuthForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const user = {email: this.state.email, password: this.state.password};
-    if(this.state.formType === 'signin'){
+    // debugger
+    if(this.props.formType === 'signin'){
       this.props.signin(user);
     } else {
       this.props.signup(user);

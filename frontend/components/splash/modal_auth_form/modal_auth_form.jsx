@@ -8,7 +8,6 @@ const mapDispatchToProps = dispatch => ({
   signup: user => dispatch(signup(user))
 });
 
-
 class ModalAuthForm extends React.Component {
   constructor(props){
     super(props);
@@ -18,11 +17,9 @@ class ModalAuthForm extends React.Component {
 
   }
 
-
   handleSubmit(e){
     e.preventDefault();
     let user;
-    // debugger
     if(this.state.stage === 1){
       if(this.props.formType === 'signin'){
         user = {email: this.state.email, password: this.state.password};
@@ -35,13 +32,14 @@ class ModalAuthForm extends React.Component {
     } else if(this.state.stage === 3){
       user = {email: this.state.email, password: this.state.password, 
         gender: this.state.gender, age: this.state.age, username: this.state.username};
+      this.setState({ email: '', password: '', age: '', gender: '', 
+      username: '', stage: 1, variable1: 'email', variable2: 'password'});
       this.props.signup(user);
     }
   }
 
   handleChange(field){
     return e => {
-      // debugger
       this.setState({[field]: e.target.value});
     };
   }
@@ -62,7 +60,6 @@ class ModalAuthForm extends React.Component {
     let var1Name = this.state.variable1;
     let var2Name = this.state.variable2;
 
-    // debugger
     return(
       <div className="modal-form">
         <form className="options" onSubmit={this.handleSubmit}>

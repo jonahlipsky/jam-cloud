@@ -5,7 +5,6 @@ class ModalFormVariable extends React.Component{
     super(props);
     this.state = {email: '', password: '', age: '', gender: '--Select Gender--', 
     username: ''};
-    // debugger
   }
 
   handleChange(field, varNum){
@@ -21,7 +20,6 @@ class ModalFormVariable extends React.Component{
 
   render(){    
     let var1, var2;
-    // debugger
     if(this.props.stage === 1){
 
       var1=<input id='email' type="text" 
@@ -54,7 +52,6 @@ class ModalFormVariable extends React.Component{
       </label>
       var2=''
     }
-
 
     return(
       <>

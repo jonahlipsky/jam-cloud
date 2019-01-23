@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signin, signup } from '../../../actions/session_actions';
-import ModalFormVariable from './stage_1';
+import ModalFormVariable from './modal_form_variable';
 
 const mapDispatchToProps = dispatch => ({
   signin: user => dispatch(signin(user)),
@@ -12,7 +12,8 @@ const mapDispatchToProps = dispatch => ({
 class ModalAuthForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { email: '', password: '', age: '', gender: '', username: '', stage: 1};
+    this.state = { email: '', password: '', age: '', gender: '', 
+    username: '', stage: 1, variable1: 'email', variable2: 'password'};
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -20,16 +21,27 @@ class ModalAuthForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    const user = {email: this.state.email, password: this.state.password};
-    if(this.props.formType === 'signin'){
-      this.props.signin(user);
-    } else {
+    let user;
+    // debugger
+    if(this.state.stage === 1){
+      if(this.props.formType === 'signin'){
+        user = {email: this.state.email, password: this.state.password};
+        this.props.signin(user);
+      } else {
+        this.setState({stage: 2, variable1: 'age', variable2: 'gender'});
+      }
+    } else if(this.state.stage === 2){
+      this.setState({stage: 3, variable1: 'username', variable2: '_'});
+    } else if(this.state.stage === 3){
+      user = {email: this.state.email, password: this.state.password, 
+        gender: this.state.gender, age: this.state.age, username: this.state.username};
       this.props.signup(user);
     }
   }
 
   handleChange(field){
     return e => {
+      // debugger
       this.setState({[field]: e.target.value});
     };
   }
@@ -44,16 +56,22 @@ class ModalAuthForm extends React.Component {
     else if (this.props.formType === 'signin'){
       submitButtonValue = 'Sign In';
     } else {
-      submitButtonValue = 'Sign Up';
+      submitButtonValue = 'Continue';
     }
 
+    let var1Name = this.state.variable1;
+    let var2Name = this.state.variable2;
+
+    // debugger
     return(
       <div className="modal-form">
         <form className="options" onSubmit={this.handleSubmit}>
 
-          <ModalFormVariable variable1={'email'} variable2={'password'}
-            handleVar1Change={this.handleChange('email').bind(this)}
-            handleVar2Change={this.handleChange('password').bind(this)}/>
+          <ModalFormVariable variable1={this.state.variable1} 
+            variable2={this.state.variable2}
+            handleVar1Change={this.handleChange(var1Name).bind(this)}
+            handleVar2Change={this.handleChange(var2Name).bind(this)}
+            stage={this.state.stage}/>
             
           <input id='submit' type="submit" value={submitButtonValue}/>
         </form>

@@ -11,9 +11,62 @@
   width: 85%;
   max-width: 1250px;
   height: 100%;
-  background: #ccc;
+  /* background: #ccc; */
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+}
+
+.nav_bar_main_frame .logo{
+  position: relative;
+  background: #f50;
+  width: 70px;
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+.logo .fa-cloud{
+  font-size: 20pt;  
+  color: white;
+}
+
+.logo .fa-music{
+  position: absolute;
+  top: 21px;
+  right: 30px;
+  font-size: 10pt;
+  color: rgb(100,100,100)
+}
+
+.nav_bar_main_frame .left-btns{
+  border-right: 2px solid rgb(45, 45, 45);
+  width: 100px;
+  height: 100%;
+  text-align: center;
+  color: white;
+}
+
+.search-bar-container{
+  width: 430px;
+  height: 100%;
+  display: flex;
+  position: relative
+}
+
+.search-bar-container input{
+  background: white;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  margin: 10px 15px;
+  text-indent: 10px;
+}
+
+.search-bar-container i{
+  position: absolute;
+  right: 25px;
+  top: 18px;
+  color: rgb(60, 60, 60);
 }

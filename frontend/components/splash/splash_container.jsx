@@ -10,7 +10,6 @@ class Splash extends React.Component {
   
   toggleModal({formType, action}){
     return e => {
-      // debugger
       if(action === 'open'){
         this.setState({modal: 'modal js-modal-open', formType});
       } else {
@@ -24,7 +23,6 @@ class Splash extends React.Component {
   render(){
 
     const formTypeForAuth = this.state.formType;
-    // debugger
     return(
       <div className="splash-image">
         <div className="splash-auth-btns">
@@ -35,6 +33,7 @@ class Splash extends React.Component {
 
         <div className='splash-welcome-text'>
           <h1>Discover music on Jam-Cloud</h1>
+
           <h2>Upload your own tracks, comment on others, find songs, connect
             with artists, and stay up to date about their latest  releases!</h2>
           <Link to="/upload">Start Uploading Today</Link>
@@ -47,8 +46,9 @@ class Splash extends React.Component {
           <div className="modal-screen">
             <button className="modal-close" 
               onClick={this.toggleModal({ formType: '', action: 'close' })}>
-              X
-            </button>
+              <i className="fas fa-times"></i>
+            </button>                        
+            
           </div>
   
         </div>

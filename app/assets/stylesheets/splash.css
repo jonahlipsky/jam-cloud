@@ -112,3 +112,8 @@
   font-weight: 700;
   font-size: 20pt;
 }
+
+.modal-close i{
+  font-size: 24px;
+  color: black;
+}

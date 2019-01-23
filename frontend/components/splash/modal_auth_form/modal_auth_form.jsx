@@ -11,7 +11,6 @@ const mapDispatchToProps = dispatch => ({
 class ModalAuthForm extends React.Component {
   constructor(props){
     super(props);
-    // debugger
     this.state = { email: '', password: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -21,7 +20,6 @@ class ModalAuthForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const user = {email: this.state.email, password: this.state.password};
-    // debugger
     if(this.props.formType === 'signin'){
       this.props.signin(user);
     } else {
@@ -37,7 +35,6 @@ class ModalAuthForm extends React.Component {
 
   render(){
     let submitButtonValue;
-    // debugger
     if (this.state.stage === 2){
       submitButtonValue = 'Continue';
     } else if (this.state.stage === 3){

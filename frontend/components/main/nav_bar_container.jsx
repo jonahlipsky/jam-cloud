@@ -4,7 +4,6 @@ import NavBar from './nav_bar';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = state => {
-  // debugger
   let userId = state.session.id;
   let user = state.entities.users[userId];
   return({

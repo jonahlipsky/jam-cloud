@@ -11,10 +11,11 @@
   width: 85%;
   max-width: 1250px;
   height: 100%;
-  /* background: #ccc; */
+  /* background: #eee; */
   margin: auto;
   display: flex;
   flex-direction: row;
+  /* border: 1px solid red; */
   /* justify-content: space-between; */
 }
 
@@ -45,14 +46,15 @@
   width: 100px;
   height: 100%;
   text-align: center;
-  color: white;
+  color: #eee;
 }
 
 .search-bar-container{
-  width: 430px;
+  width: 570px;
   height: 100%;
   display: flex;
   position: relative
+
 }
 
 .search-bar-container input{
@@ -69,4 +71,28 @@
   right: 25px;
   top: 18px;
   color: rgb(60, 60, 60);
+}
+
+.nav_bar_main_frame .upload{
+  text-align: center;
+  width: 100px;
+  color: #eee;
+}
+
+.profile-dropdown{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile-dropdown *{
+  /* margin: 3px; */
+  color: #eee;
+  margin: 0 6px;
+}
+
+.fa-bell, .fa-envelope, .fa-ellipsis-h{
+  color: #eee;
+  align-self: center;
+  margin: 0 15px;
 }

@@ -82,13 +82,33 @@
   width: 90%;
   height: 30%;
   margin: auto;
-  border: 1px solid red;
   
 }
 
-.modal-form #email, .modal-form #password {
+.options *{
   width: 90%;
   margin: 10px;
-  padding: 5px;
+  padding: 7px 9px;
+  border-radius: 3px;
+}
+
+.modal-form #email, .modal-form #password {
   border: 1px solid #ccc;
+  font-size: 13pt;
+}
+
+.modal-form #submit {
+  border: 1px solid #f50;
+  background-color: #f50;
+  color: white;
+  text-align: center;
+}
+
+.modal-screen .modal-close {
+  position: absolute; 
+  top: 50px;
+  right: 50px;
+  color: black;
+  font-weight: 700;
+  font-size: 20pt;
 }

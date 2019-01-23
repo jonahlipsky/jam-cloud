@@ -46,10 +46,12 @@ class ModalAuthForm extends React.Component {
 
   render(){
     let submitButtonValue;
+    let headerText = 'Launch a JamCloud Account';
     if (this.state.stage === 2){
       submitButtonValue = 'Continue';
     } else if (this.state.stage === 3){
       submitButtonValue = 'Create Account';
+      headerText = "Please enter a username for display";
     }
     else if (this.props.formType === 'signin'){
       submitButtonValue = 'Sign In';
@@ -62,6 +64,7 @@ class ModalAuthForm extends React.Component {
 
     return(
       <div className="modal-form">
+        <h1>{headerText}</h1>
         <form className="options" onSubmit={this.handleSubmit}>
 
           <ModalFormVariable variable1={this.state.variable1} 

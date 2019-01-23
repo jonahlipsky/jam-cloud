@@ -19,6 +19,7 @@ html, body {
   height: 100%;
   margin: 0;
   background-color: #f2f2f2;
+  font-family: "Avant Garde", sans-serif;
 }
 
 #root{

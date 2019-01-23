@@ -26,17 +26,16 @@ class Splash extends React.Component {
     return(
       <div className="splash-image">
         <div className="splash-auth-btns">
-          <button onClick={this.toggleModal({formType: 'signin', action: 'open' })}>Sign In</button>
-          <button onClick={this.toggleModal({formType: 'signup', action: 'open' })}>Create Account</button>
-          <button>For Creators</button>
+          <div><button id='sign-in-btn' onClick={this.toggleModal({formType: 'signin', action: 'open' })}><p>Sign In</p></button></div>
+          <button id='sign-up-btn' onClick={this.toggleModal({formType: 'signup', action: 'open' })}>Create Account</button>
         </div>
 
         <div className='splash-welcome-text'>
-          <h1>Discover music on Jam-Cloud</h1>
+          <h1>Discover music on JamCloud</h1>
 
           <h2>Upload your own tracks, comment on others, find songs, connect
             with artists, and stay up to date about their latest  releases!</h2>
-          <Link to="/upload">Start Uploading Today</Link>
+          <Link to="/upload">Upload Your First Track Today</Link>
         </div>
 
         <div className={this.state.modal}>

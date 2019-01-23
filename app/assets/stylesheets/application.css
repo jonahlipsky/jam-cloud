@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #f2f2f2;
+}
+
+#root{
+  background-color: white;
+  width: 85%;
+  max-width: 1250px;
+  height: 100%;
+  margin: auto;
+}

@@ -10,7 +10,7 @@ const receiveCurrentUser = currentUser => ({
 });
 
 const signoutCurrentUser = () => ({
-  type: LOGOUT_CURRENT_USER
+  type: SIGNOUT_CURRENT_USER
 });
 
 const receiveSessionErrors = errors => ({
@@ -18,14 +18,15 @@ const receiveSessionErrors = errors => ({
   errors
 });
 
-export const signin = user => dispatch => (
-  SESSION_API_UTIl.signin(user).then(
+export const signin = user => dispatch => {
+  
+  return SESSION_API_UTIl.signin(user).then(
     user => dispatch(receiveCurrentUser(user)),
     err => dispatch(receiveSessionErrors(err.responseJSON))
-  )
-);
+  );
+};
 
-export const logout = () => dispatch => (
+export const signout = () => dispatch => (
   SESSION_API_UTIl.signout().then(user => dispatch(signoutCurrentUser()))
 );
 

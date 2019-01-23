@@ -4,9 +4,9 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_CURRENT_USER:
-      return { id: action.user.id }
+      return { id: action.currentUser.id };
     case SIGNOUT_CURRENT_USER:
-      return { id: null }
+      return { id: null };
     default: 
       return state;
   }

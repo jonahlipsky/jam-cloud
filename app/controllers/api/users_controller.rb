@@ -5,6 +5,7 @@ class Api::UsersController < ApplicationController
       render :show
     else
       render @user.errors.full_messages, status: 401
+    end
   end
 
   private

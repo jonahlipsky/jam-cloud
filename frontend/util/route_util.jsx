@@ -23,7 +23,6 @@ const Protected = ({component: Component, exact, path, loggedIn}) => (
 )
 
 const mapStateToProps = state => {
-  debugger
   return({
     loggedIn: Boolean(state.session.id)
   })

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ModalAuthForm from './modal_auth_form';
+import ModalAuthForm from './modal_auth_form/modal_auth_form';
 
 class Splash extends React.Component {
   constructor(props){
@@ -10,7 +10,7 @@ class Splash extends React.Component {
   
   toggleModal({formType, action}){
     return e => {
-      debugger
+      // debugger
       if(action === 'open'){
         this.setState({modal: 'modal js-modal-open', formType});
       } else {
@@ -24,7 +24,7 @@ class Splash extends React.Component {
   render(){
 
     const formTypeForAuth = this.state.formType;
-    debugger
+    // debugger
     return(
       <div className="splash-image">
         <div className="splash-auth-btns">

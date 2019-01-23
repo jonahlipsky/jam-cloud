@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signin, signup } from '../../actions/session_actions';
+import { signin, signup } from '../../../actions/session_actions';
 
 const mapDispatchToProps = dispatch => ({
   signin: user => dispatch(signin(user)),
@@ -13,6 +13,7 @@ class ModalAuthForm extends React.Component {
     super(props);
     // debugger
     this.state = { email: '', password: ''};
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -36,7 +37,12 @@ class ModalAuthForm extends React.Component {
   render(){
     let submitButtonValue;
     // debugger
-    if (this.props.formType === 'signin'){
+    if (this.state.stage === 2){
+      submitButtonValue = 'Continue';
+    } else if (this.state.stage === 3){
+      submitButtonValue = 'Create Account';
+    }
+    else if (this.props.formType === 'signin'){
       submitButtonValue = 'Sign In';
     } else {
       submitButtonValue = 'Sign Up';

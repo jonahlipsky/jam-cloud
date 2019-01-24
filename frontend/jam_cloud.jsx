@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signout = session_actions.signout;
   window.signup = session_actions.signup;
   window.fetchAllUsers = session_actions.fetchAllUsers;
+  window.sendStageErrors = session_actions.sendStageErrors;
   window.dispatch = store.dispatch;
   window.incrementStage = incrementStage;
 

@@ -4,7 +4,17 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const SIGNOUT_CURRENT_USER = "SIGNOUT_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
+export const SEND_STAGE_ERRORS = "SEND_STAGE_ERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
+export const sendStageErrors = (errors) => ({
+  type: SEND_STAGE_ERRORS,
+  errors
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
+});
 
 
 export const fetchAllUsers = () => dispatch => {

@@ -17,10 +17,18 @@ on sign in
   /include errors styling in login form
 
 on sign up
-  stage 1 - first check if email is legit and password is greater than 6 characters
-  stage 2 - make sure they entered an integer
-  stage 3 - make sure the username is unique
+  /stage 1 - first check if email is legit and password is greater than 6 characters
+  /stage 2 - make sure they entered an integer
+  /stage 3 - make sure the username is unique
     if all succeed, submit
+
+  to do this:
+  /make SESSION_STAGE_ERRORS
+  /have incrementStage clear session errors
+  /map dispatch to props for checkStageErrors and incrementStage
+  /create checkStageErrors
+
+
 
 on close of modal
   reset all data in the modal form

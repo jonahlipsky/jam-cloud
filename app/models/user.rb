@@ -17,9 +17,14 @@ class User < ApplicationRecord
   validates :username, :email, :session_token, presence: true, uniqueness: true
   validates :password_digest, :age, :gender, presence: true
   validates :password, length: { minimum: 6, allow_nil: true } 
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create 
+  
+  # /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  #this regexp is from https://www.w3resource.com/javascript/form/email-validation.php
+  #the commented out one is used on the frontend
+  
   validates :gender, inclusion: { in: ["Male", "Female", "Other", "Trans", "Prefer Not To Say"] }
-
   after_initialize :ensure_session_token
   attr_reader :password
 

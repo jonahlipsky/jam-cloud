@@ -1,10 +1,37 @@
 
 
+
+When Splash Page Renders, fetch all users and e-mails.
+Create Jbuilder support for returning all users
+create backend route
+create controller actions
+create api util actions
+Update users reducer to receive them
+
+-then-
+on sign in
+  add error option to checking credentials
+  dispatch errors 
+  create an errors reducer to handle those
+  include errors styling in login form
+
+on sign up
+  stage 1 - first check if email is legit and password is greater than 6 characters
+  stage 2 - make sure they entered an integer
+  stage 3 - make sure the username is unique
+    if all succeed, submit
+
+on close of modal
+  reset all data in the modal form
+  dispatch action to do this
+  maintain all state in props except for what is currently being edited
+____
+
 [COMPLETE] For the signin option, it should only require an e-mail. 
   That's in session create. 
 
 
-For the signup option, it is a 3-phase signup. Though soundcloud will make an account after
+[complete] For the signup option, it is a 3-phase signup. Though soundcloud will make an account after
 only partial information, I will wait until all information is supplied to dispatch the create action.
 Can only supply e-mail in phase 1.
 

@@ -43,7 +43,6 @@
   margin: auto;
   width: 50%;
   text-align: center; 
-  /* border: 1px solid red; */
 }
 
 .splash-welcome-text *{
@@ -77,16 +76,8 @@
 }
 
 .form-down{
-  /* animation-name: form-down;
-  animation-duration: 10s; */
-  /* top: 75px; */
   transform: translateY(715px)
 }
-
-/* .form-up{
-  animation-name: form-up;
-  animation-duration: 10s;
-} */
 
 @keyframes form-down {
   from {top: -620;}

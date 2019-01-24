@@ -75,14 +75,29 @@
 .js-modal-close {
   display: none;
 }
+/* 
+.form-down{
+  animation-name: form-down;
+  animation-duration: 10s;
+}
+
+.form-up{
+  animation-name: form-up;
+  animation-duration: 10s;
+}
+
+@keyframes form-down {
+  from {top: -620;}
+  to {top: 75;}
+}
+
+@keyframes form-up{
+  from {top: 75;}
+  to {top: -620}
+} */
 
 .js-modal-open{
   display: block;
-}
-
-.modal{
-  /* display: none; */
-
 }
 
 .modal-screen{
@@ -96,11 +111,12 @@
 }
 
 .modal-form{
-  position: absolute;
+  position: fixed;
   left: 50%;
   margin-left: -225px;
   width: 450px;
   height: 620px;
+  top: 75px;
   background-color: white;
   z-index: 3;
   display: flex;
@@ -139,11 +155,9 @@
 
 .modal-screen .modal-close {
   position: absolute; 
-  top: 50px;
-  right: 50px;
+  top: 10px;
+  right: 20px;
   color: black;
-  font-weight: 700;
-  font-size: 20pt;
 }
 
 .modal-close i{

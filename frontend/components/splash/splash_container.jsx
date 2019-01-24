@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
 class Splash extends React.Component {
   constructor(props){
     super(props);
-    this.state = {modal: 'modal js-modal-close', formType: ''};
+    this.state = {modal: 'modal js-modal-close', formType: '', animation: ''};
   }
   
   componentDidMount(){
@@ -29,9 +29,9 @@ class Splash extends React.Component {
   toggleModal({formType, action}){
     return e => {
       if(action === 'open'){
-        this.setState({modal: 'modal js-modal-open', formType});
+        this.setState({modal: 'modal js-modal-open', formType, animation: 'form-down'});
       } else {
-        this.setState({modal: 'modal js-modal-close', formType});
+        this.setState({modal: 'modal js-modal-close', formType, animation: 'form-up'});
         this.props.incrementStage(0);
       }
     };
@@ -59,7 +59,7 @@ class Splash extends React.Component {
 
         <div className={this.state.modal}>
 
-          <ModalAuthForm stage={this.state.stage} formType={formTypeForAuth}/>
+          <ModalAuthForm stage={this.state.stage} formType={formTypeForAuth} animation={this.state.animation}/>
 
           <div className="modal-screen" onClick={this.toggleModal({ formType: '', action: 'close' })}>
             <button className="modal-close" >

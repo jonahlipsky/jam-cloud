@@ -41,16 +41,6 @@ class ModalAuthForm extends React.Component {
     this.setState({email: '', password: '', age: '', gender: '', 
     username: '', variable1: 'email', variable2: 'password'});
   }
-
-  // componentDidMount(){
-  //   if(this.props.stage === 1){
-  //     this.setState({variable1: 'email', variable2: 'password'});
-  //   } else if (this.props.stage === 2){
-  //     this.setState({variable1: 'age', variable2: 'gender'});
-  //   } else {
-  //     this.setState({variable1: 'username', variable2: '_'});
-  //   }
-  // }
   
   checkEmailPassword(){
     let errors = [];
@@ -144,11 +134,12 @@ class ModalAuthForm extends React.Component {
 
     let var1Name = this.state.variable1;
     let var2Name = this.state.variable2;
+    let animation = this.props.animation;
     let errors = this.props.errors.map((er) => {
       return <li>{er}</li>
     });
     return(
-      <div className="modal-form">
+      <div className={`modal-form ${animation}`}>
         <h1>{headerText}</h1>
         <form className="options" onSubmit={this.handleSubmit}>
 

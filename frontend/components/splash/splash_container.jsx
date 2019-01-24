@@ -4,14 +4,15 @@ import ModalAuthForm from './modal_auth_form/modal_auth_form';
 import { withRouter } from 'react-router-dom';
 import { incrementStage } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-
+import { fetchAllUsers } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
   stage: state.session.stage
 });
 
 const mapDispatchToProps = dispatch => ({
-  incrementStage: (prevStage) => dispatch(incrementStage(prevStage))
+  incrementStage: (prevStage) => dispatch(incrementStage(prevStage)),
+  fetchAllUsers: () => dispatch(fetchAllUsers())
 });
 
 class Splash extends React.Component {
@@ -22,6 +23,7 @@ class Splash extends React.Component {
   
   componentDidMount(){
     this.props.incrementStage(0);
+    this.props.fetchAllUsers();
   }
 
   toggleModal({formType, action}){

@@ -9,9 +9,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+    render :index
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :age, :gender)
   end
+
 end

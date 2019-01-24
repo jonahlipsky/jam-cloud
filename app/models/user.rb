@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
+#  id              :bigint(8)        not null, primary key
 #  username        :string           not null
 #  email           :string           not null
 #  password_digest :string           not null
@@ -27,6 +27,8 @@ class User < ApplicationRecord
   validates :gender, inclusion: { in: ["Male", "Female", "Other", "Trans", "Prefer Not To Say"] }
   after_initialize :ensure_session_token
   attr_reader :password
+
+  # has_many :tracks
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64

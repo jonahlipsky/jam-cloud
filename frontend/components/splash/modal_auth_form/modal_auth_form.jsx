@@ -13,7 +13,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  stage: state.session.stage
+  stage: state.session.stage,
+  errors: state.errors.session
 });
 
 class ModalAuthForm extends React.Component {
@@ -76,7 +77,9 @@ class ModalAuthForm extends React.Component {
 
     let var1Name = this.state.variable1;
     let var2Name = this.state.variable2;
-
+    let errors = this.props.errors.map((er) => {
+      return <li>{er}</li>
+    });
     return(
       <div className="modal-form">
         <h1>{headerText}</h1>
@@ -87,7 +90,9 @@ class ModalAuthForm extends React.Component {
             handleVar1Change={this.handleChange(var1Name).bind(this)}
             handleVar2Change={this.handleChange(var2Name).bind(this)}
             stage={this.props.stage}/>
-            
+          <ul className='session-errors'>
+            {errors}
+          </ul>
           <input id='submit' type="submit" value={submitButtonValue}/>
         </form>
       </div>

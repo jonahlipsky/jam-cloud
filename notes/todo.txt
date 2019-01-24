@@ -11,10 +11,10 @@
 
 -then-
 on sign in
-  add error option to checking credentials
-  dispatch errors 
-  create an errors reducer to handle those
-  include errors styling in login form
+  /add error option to checking credentials
+  /dispatch errors 
+  /create an errors reducer to handle those
+  /include errors styling in login form
 
 on sign up
   stage 1 - first check if email is legit and password is greater than 6 characters

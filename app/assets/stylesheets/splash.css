@@ -168,3 +168,6 @@
   font-size: 12pt;
 }
 
+.session-errors{
+  color: red;
+}

@@ -4,12 +4,13 @@
   background-image: linear-gradient(to right, rgb(161, 67, 250), rgb(206, 6, 179));
   margin: auto;
   display: flex;
+  position: relative;
 }
 
 .splash-auth-btns{
   position: absolute;
   top: 25px;
-  right: 250px;
+  right: 50px;
   display: flex;
   flex-direction: row;
 }

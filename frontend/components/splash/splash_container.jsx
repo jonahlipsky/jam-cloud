@@ -1,6 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ModalAuthForm from './modal_auth_form/modal_auth_form';
+import { withRouter } from 'react-router-dom';
+import { incrementStage } from '../../actions/modal_actions';
+import { connect } from 'react-redux';
+
+
+const mapStateToProps = state => ({
+  stage: state.session.stage
+});
+
+const mapDispatchToProps = dispatch => ({
+  incrementStage: (prevStage) => dispatch(incrementStage(prevStage))
+});
 
 class Splash extends React.Component {
   constructor(props){
@@ -8,12 +20,17 @@ class Splash extends React.Component {
     this.state = {modal: 'modal js-modal-close', formType: ''};
   }
   
+  componentDidMount(){
+    this.props.incrementStage(0);
+  }
+
   toggleModal({formType, action}){
     return e => {
       if(action === 'open'){
         this.setState({modal: 'modal js-modal-open', formType});
       } else {
         this.setState({modal: 'modal js-modal-close', formType});
+        this.props.incrementStage(0);
       }
     };
     
@@ -39,14 +56,13 @@ class Splash extends React.Component {
         </div>
 
         <div className={this.state.modal}>
-  
-          <ModalAuthForm formType={formTypeForAuth}/>
-          
-          <div className="modal-screen">
-            <button className="modal-close" 
-              onClick={this.toggleModal({ formType: '', action: 'close' })}>
+
+          <ModalAuthForm stage={this.state.stage} formType={formTypeForAuth}/>
+
+          <div className="modal-screen" onClick={this.toggleModal({ formType: '', action: 'close' })}>
+            <button className="modal-close" >
               <i className="fas fa-times"></i>
-            </button>                        
+            </button>
             
           </div>
   
@@ -57,4 +73,4 @@ class Splash extends React.Component {
 
 }
 
-export default Splash;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Splash));

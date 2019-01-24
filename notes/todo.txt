@@ -1,12 +1,13 @@
 
 
 
-When Splash Page Renders, fetch all users and e-mails.
-Create Jbuilder support for returning all users
-create backend route
-create controller actions
-create api util actions
-Update users reducer to receive them
+/ When Splash Page Renders, fetch all users and e-mails.
+/update mdp
+/create backend route
+/create api util actions
+/Create Jbuilder support for returning all users
+/create controller actions
+/Update users reducer to receive them
 
 -then-
 on sign in

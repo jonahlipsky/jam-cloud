@@ -3,6 +3,16 @@ import * as SESSION_API_UTIl from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const SIGNOUT_CURRENT_USER = "SIGNOUT_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
+
+const receiveAllUsers = (users) => ({
+  type: RECEIVE_ALL_USERS,
+  users
+});
+
+export const fetchAllUsers = () => dispatch => {
+  return SESSION_API_UTIl.fetchAllUsers().then(users => dispatch(receiveAllUsers(users)))
+};
 
 const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,

@@ -75,16 +75,18 @@
 .js-modal-close {
   display: none;
 }
-/* 
+
 .form-down{
-  animation-name: form-down;
-  animation-duration: 10s;
+  /* animation-name: form-down;
+  animation-duration: 10s; */
+  /* top: 75px; */
+  transform: translateY(715px)
 }
 
-.form-up{
+/* .form-up{
   animation-name: form-up;
   animation-duration: 10s;
-}
+} */
 
 @keyframes form-down {
   from {top: -620;}
@@ -94,7 +96,7 @@
 @keyframes form-up{
   from {top: 75;}
   to {top: -620}
-} */
+}
 
 .js-modal-open{
   display: block;
@@ -116,12 +118,13 @@
   margin-left: -225px;
   width: 450px;
   height: 620px;
-  top: 75px;
+  top: -620px;
   background-color: white;
   z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: 1s;
 }
 
 .modal-form .options{

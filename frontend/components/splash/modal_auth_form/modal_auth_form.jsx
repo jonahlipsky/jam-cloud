@@ -85,7 +85,7 @@ class ModalAuthForm extends React.Component {
       } else {
         let errors = this.checkEmailPassword();
         if (!errors.length){
-          this.incrementAndClearErrors()
+          this.incrementAndClearErrors();
           this.setState({variable1: 'age', variable2: 'gender'});
         } else {
           this.props.sendStageErrors(errors);
@@ -139,7 +139,7 @@ class ModalAuthForm extends React.Component {
       return <li>{er}</li>
     });
     return(
-      <div className={`modal-form ${animation}`}>
+      <div className={'modal-form'} id={'modal-form'}>
         <h1>{headerText}</h1>
         <form className="options" onSubmit={this.handleSubmit}>
 

@@ -10,8 +10,8 @@ export default (state = {}, action) => {
       let newState = merge({}, state);
       action.users.forEach((user) => {
         let tracks = [];
-        user.track_ids.forEach((trackId) => {
-          tracks.push(trackId['id']);
+        user.tracks.forEach((track) => {
+          tracks.push(track['id']);
         });
         let newUser = {id: user.id, email: user.email, track_ids: tracks};
         newState[`${user.id}`] = newUser;

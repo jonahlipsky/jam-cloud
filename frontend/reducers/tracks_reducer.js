@@ -13,20 +13,21 @@ export default (state = {}, action) => {
       return newState;
     case RECEIVE_TRACK:
       return merge({}, state, {[action.track.id]: action.track});
-    // case RECEIVE_ALL_USERS:
-    //   let trackIds = [];
-    //   action.users.forEach((user) => {
-    //     user.track_ids.forEach((trackId) => {
-    //       trackIds.push(trackId);
-    //     });
-    //   });
-    //   return 
+    case RECEIVE_ALL_USERS:
+      //this seems inefficient as it scales
+      //to do
+      action.users.forEach((user) => {
+        user.tracks.forEach((track) => {
+          let id = track.id;
+          newState[id] = { track };
+        });
+      });
+      return newState;
     case REMOVE_TRACK:
       let trackId = action.track.id;
-      debugger
       delete newState[trackId];
       return newState;
     default:
       return state;
   }
-}
+};

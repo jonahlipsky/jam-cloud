@@ -8,9 +8,9 @@ export const REMOVE_TRACK = "REMOVE_TRACK";
 export const UPDATE_TRACK = "UPDATE_TRACK";
 
 //action creators
-const receiveRemoveTrack = id => ({
+const receiveRemoveTrack = track => ({
   type: REMOVE_TRACK,
-  track: { id }
+  track 
 });
 
 const receiveUploadErrors = (errors) => ({
@@ -38,8 +38,8 @@ export const updateTrack = (formData, id) => dispatch => {
   );
 };
 
-export const removeTrack = id => dispatch => {
-  return TRACK_API_UTIL.removeTrack(id).then(track => dispatch(receiveRemoveTrack(id)));
+export const removeTrack = track => dispatch => {
+  return TRACK_API_UTIL.removeTrack(track.id).then(track => dispatch(receiveRemoveTrack(track)));
 };
 
 

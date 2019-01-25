@@ -33,13 +33,13 @@ $mid-gray: rgb(60, 60, 60);
       color: white;
     }
     
-    .fa-music{
-      position: absolute;
-      top: 21px;
-      right: 30px;
-      font-size: 10pt;
-      color: rgb(100,100,100)
-    }
+    // .fa-music{
+    //   position: absolute;
+    //   top: 21px;
+    //   right: 30px;
+    //   font-size: 10pt;
+    //   color: rgb(100,100,100)
+    // }
   }
   .left-btns{
     border-right: 2px solid rgb(45, 45, 45);
@@ -50,6 +50,7 @@ $mid-gray: rgb(60, 60, 60);
   }
 
   .upload{
+    align-self: center;
     text-align: center;
     width: 100px;
     color: #eee;

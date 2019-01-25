@@ -16,8 +16,8 @@ import {
 const App = (props) => (
   <div>
     <Switch>
-      <ProtectedRoute  path='/' component={NavBarContainer} />
-      {/* <AuthRoute exact path='/' component={SplashContainer} /> */} 
+      <AuthRoute exact path='/' component={SplashContainer} /> 
+      <ProtectedRoute path='/' component={NavBarContainer} />
       <ProtectedRoute exact path='/stream' component={StreamContainer} />
     </Switch>
   </div>

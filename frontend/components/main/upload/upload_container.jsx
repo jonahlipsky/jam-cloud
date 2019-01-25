@@ -22,7 +22,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  removeTrack: (id) => dispatch(removeTrack(id)),
+  removeTrack: (track) => dispatch(removeTrack(track)),
   fetchAllUsers: () => dispatch(fetchAllUsers())
 
 });
@@ -37,9 +37,9 @@ class Upload extends React.Component{
     this.props.fetchAllUsers();
   }
 
-  handleRemove(id){
+  handleRemove(track){
     return e => {
-      this.props.removeTrack(id);
+      this.props.removeTrack(track);
     };  
   }
 
@@ -48,7 +48,7 @@ class Upload extends React.Component{
     if(this.props.currentUserTracks){
       tracks = this.props.currentUserTracks.map((track, i) => {
           return <li key={i}> Track: {track.title}  
-          <button onClick={this.handleRemove(track.id)}>Delete Track</button>
+          <button onClick={this.handleRemove(track)}>Delete Track</button>
           <img className="image-test-class" src={track.image} />
           <audio controls>
             <source src={track.track}></source>
@@ -67,7 +67,7 @@ class Upload extends React.Component{
           <NavLink exact to='/you/tracks'>Your tracks</NavLink>
         </nav>
         <UploadForm formType={"Upload"}/>
-        {/* <ProtectedRoute exact path="/you/tracks" component={<h1>Your Tracks!</h1>}/> */}
+        <ProtectedRoute exact path="/you/tracks" component={<h1>Your Tracks!</h1>}/>
         <ul>
           {tracks}
         </ul>

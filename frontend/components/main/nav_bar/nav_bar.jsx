@@ -14,7 +14,6 @@ class NavBar extends React.Component {
           <div className='nav_bar_main_frame'>
             <button className="logo">
               <i className="fas fa-cloud"></i>
-              <i className="fas fa-music"></i>
             </button>
             <button className="home left-btns">Home</button>
             <button className="steam left-btns">Stream</button>

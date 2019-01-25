@@ -1,25 +1,18 @@
 JAN 24
 
-AFTER BREAK:
-  -make update form able to handle updates
-  -check track update controller action
-  -verify that that the whole process works
-  
+For the weekend: 
+  -style upload page
+  -style track show page
+  -remove dead links from nav bar
+    -or at least add core functionality where possible
+      -such as routing to a different url and putting empty components
+  -make the modal for the upload
+  -get really clear on what overlap  there is between auth and protected routes
+  -start to build around this
+  -get audio play working
 
-TO FIX: 
-  Change the Users controller index action get tracks as well and
-  have that action return an array of all the track ids for that user
 
-  Have the tracks create action add in the new track into the user list
-  Have the tracks destroy action remove the track id from the user list
-
-  
-
-For Track CRUD:
-  -make a simple upload container where there is a button that allows a signed in 
-    user to upload a track and an image and attach them.
-  -make a button that will destroy a track and its associations
-  -create a simple form for updating
+Leftover: 
   -style the upload page
   -find a simple way to trigger song play (though not continuous)
   
@@ -36,6 +29,31 @@ styling
   -the whole fadein / move down is a transition. 
   -I should be able to connect them. 
 
+
+_______
+
+
+AFTER BREAK:
+  /-make update form able to handle updates
+  /-check track update controller action
+  /-verify that that the whole process works
+  
+
+TO FIX: 
+  /Change the Users controller index action get tracks as well and
+  /have that action return an array of all the track ids for that user
+
+  /Have the tracks create action add in the new track into the user list
+  /Have the tracks destroy action remove the track id from the user list
+
+  
+
+For Track CRUD:
+  /-make a simple upload container where there is a button that allows a signed in 
+    user to upload a track and an image and attach them.
+  /-make a button that will destroy a track and its associations
+  /-create a simple form for updating
+  
 ______
 
 /When Splash Page Renders, fetch all users and e-mails.

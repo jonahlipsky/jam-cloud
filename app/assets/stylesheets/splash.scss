@@ -1,0 +1,197 @@
+$button-orange: #f50;
+
+.splash-image{
+  height: 450px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgb(161, 67, 250), rgb(206, 6, 179));
+  margin: auto;
+  display: flex;
+  position: relative;
+}
+
+.splash-auth-btns{
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  display: flex;
+  flex-direction: row;
+
+  button {
+    margin-left: 10px;
+  }
+
+  #sign-in-btn{
+    color: white;
+    margin: auto;
+    padding: 4px 15px;
+  }
+
+  div {
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+  
+}
+
+
+.splash-auth-btns > button{
+  background: $button-orange;
+  color: white;
+  padding: 4px 15px;
+  border: 1px solid $button-orange;
+  border-radius: 5px;
+}
+
+.splash-welcome-text{
+  margin: auto;
+  width: 50%;
+  text-align: center; 
+
+  h1 {
+    font-size: 30pt;
+    font-weight: 300;
+    margin: 20px;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin: 20px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  a {
+    font-size: 14pt;
+    background-color: $button-orange;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 300;
+  }
+
+  *{
+    color: white;
+  }
+}
+
+// .splash-welcome-text *{
+//   color: white;
+// }
+
+
+.js-modal-close {
+  display: none;
+}
+
+.form-down{
+  transform: translateY(715px)
+}
+
+@keyframes form-down {
+  from {top: -620;}
+  to {top: 75;}
+}
+
+@keyframes form-up{
+  from {top: 75;}
+  to {top: -620}
+}
+
+.js-modal-open{
+  display: block;
+}
+
+.modal-screen{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(219, 219, 219, 0.8);
+}
+
+.modal-form{
+  position: fixed;
+  left: 50%;
+  margin-left: -225px;
+  width: 450px;
+  height: 620px;
+  top: -620px;
+  background-color: white;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 1s;
+
+  #email, #password, #age {
+    border: 1px solid #ccc;
+    font-size: 13pt;
+  }  
+
+  .options{
+    width: 90%;
+    height: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    top: 50%;
+
+    select {
+      font-size: 12pt;
+    }
+
+    *{
+      width: 90%;
+      margin: 10px;
+      padding: 7px 9px;
+      border-radius: 3px;
+    }
+  }
+
+  #submit {
+    border: 1px solid $button-orange;
+    background-color: $button-orange;
+    color: white;
+    text-align: center;
+  }
+
+  h1{
+    font-size: 32pt;
+    text-align: center;
+    font-weight: 400;
+    margin-left: 15px; 
+    margin-right: 15px;
+    top: 25%;
+  }
+
+  label{
+    font-size: 14pt;
+  }
+
+}
+
+// .options *{
+//   width: 90%;
+//   margin: 10px;
+//   padding: 7px 9px;
+//   border-radius: 3px;
+// }
+
+
+.modal-screen .modal-close {
+  position: absolute; 
+  top: 10px;
+  right: 20px;
+  color: black;
+}
+
+.modal-close i{
+  font-size: 24px;
+  color: black;
+}
+
+.session-errors{
+  color: red;
+}

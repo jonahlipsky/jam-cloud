@@ -1,0 +1,102 @@
+
+$button-orange: #f50;
+
+.nav_background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+  background: rgb(60, 60, 60);
+}
+
+.nav_bar_main_frame{
+  width: 85%;
+  max-width: 1250px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+
+
+  .logo{
+    position: relative;
+    background: $button-orange;
+    width: 70px;
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+
+
+    .fa-cloud{
+      font-size: 20pt;  
+      color: white;
+    }
+    
+    .fa-music{
+      position: absolute;
+      top: 21px;
+      right: 30px;
+      font-size: 10pt;
+      color: rgb(100,100,100)
+    }
+  }
+  .left-btns{
+    border-right: 2px solid rgb(45, 45, 45);
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    color: #eee;
+  }
+
+  .upload{
+    text-align: center;
+    width: 100px;
+    color: #eee;
+  }
+
+}
+
+
+.search-bar-container{
+  width: 570px;
+  height: 100%;
+  display: flex;
+  position: relative;
+
+  input {
+    background: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+    margin: 10px 15px;
+    text-indent: 10px;
+  }
+
+  i {
+    position: absolute;
+    right: 25px;
+    top: 18px;
+    color: rgb(60, 60, 60);
+  }
+
+}
+
+
+.profile-dropdown{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile-dropdown *{
+  /* margin: 3px; */
+  color: #eee;
+  margin: 0 6px;
+}
+
+.fa-bell, .fa-envelope, .fa-ellipsis-h{
+  color: #eee;
+  align-self: center;
+  margin: 0 15px;
+}

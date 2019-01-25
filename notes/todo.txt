@@ -7,6 +7,10 @@ For Track CRUD:
   -style the upload page
   -find a simple way to trigger song play (though not continuous)
 
+styling
+  -the whole fadein / move down is a transition. 
+  -I should be able to connect them. 
+
 ______
 
 / When Splash Page Renders, fetch all users and e-mails.

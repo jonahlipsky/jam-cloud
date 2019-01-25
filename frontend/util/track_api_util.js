@@ -3,3 +3,7 @@ export const getTracks = () => ($.ajax({
   url: '/api/tracks'
 }));
 
+export const getTrack = (id) => ($.ajax({
+  method: 'GET',
+  url: `/api/tracks/${id}`
+}));

@@ -5,6 +5,7 @@ import configuredStore from './store/store';
 import * as session_actions from './actions/session_actions';
 import { incrementStage } from './actions/modal_actions';
 import { fetchTracks } from './actions/track_actions';
+import { getTrack } from './util/track_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.incrementStage = incrementStage;
   window.fetchTracks = fetchTracks;
+  window.getTrack = getTrack;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

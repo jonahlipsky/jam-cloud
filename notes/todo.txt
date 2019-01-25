@@ -1,5 +1,13 @@
+JAN 24
+For Track CRUD:
+  -make a simple upload container where there is a button that allows a signed in 
+    user to upload a track and an image and attach them.
+  -make a button that will destroy a track and its associations
+  -create a simple form for updating
+  -style the upload page
+  -find a simple way to trigger song play (though not continuous)
 
-
+______
 
 / When Splash Page Renders, fetch all users and e-mails.
 /update mdp
@@ -28,12 +36,6 @@ on sign up
   /map dispatch to props for checkStageErrors and incrementStage
   /create checkStageErrors
 
-
-
-on close of modal
-  reset all data in the modal form
-  dispatch action to do this
-  maintain all state in props except for what is currently being edited
 ____
 
 [COMPLETE] For the signin option, it should only require an e-mail. 

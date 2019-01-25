@@ -4,7 +4,7 @@ import Root from './components/root';
 import configuredStore from './store/store';
 import * as session_actions from './actions/session_actions';
 import { incrementStage } from './actions/modal_actions';
-import { fetchTracks, postTrack, removeTrack  } from './actions/track_actions';
+import { fetchTracks, postTrack, removeTrack, updateTrack  } from './actions/track_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchTracks = fetchTracks;
   window.postTrack = postTrack;
   window.removeTrack = removeTrack;
+  window.updateTrack = updateTrack;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

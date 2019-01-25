@@ -16,10 +16,10 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_USERS:
       //this seems inefficient as it scales
       //to do
+      //does this work? correct sample state?
       action.users.forEach((user) => {
         user.tracks.forEach((track) => {
-          let id = track.id;
-          newState[id] = { track };
+          newState = merge({}, newState, { [track.id]: track });
         });
       });
       return newState;

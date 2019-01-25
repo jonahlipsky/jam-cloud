@@ -5,6 +5,7 @@ export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_UPLOAD_ERRORS = "RECEIVE_UPLOAD_ERRORS";
 export const REMOVE_TRACK = "REMOVE_TRACK";
+export const UPDATE_TRACK = "UPDATE_TRACK";
 
 //action creators
 const receiveRemoveTrack = id => ({
@@ -29,6 +30,14 @@ const receiveTrack = track => ({
 
 
 //Thunk actions
+
+export const updateTrack = (formData, id) => dispatch => {
+  return TRACK_API_UTIL.updateTrack(formData, id).then(
+    track => dispatch(receiveTrack(track)),
+    errors => dispatch(receiveUploadErrors(errors))
+  );
+};
+
 export const removeTrack = id => dispatch => {
   return TRACK_API_UTIL.removeTrack(id).then(track => dispatch(receiveRemoveTrack(id)));
 };

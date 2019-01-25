@@ -9,7 +9,13 @@ import { fetchAllUsers } from '../../../actions/session_actions';
 
 const mapStateToProps = state => {
   let currentUserId = state.session.id;
-  let currentUserTracks = state.entities.users[currentUserId].track_ids || null;
+  let currentUserTrackIds = state.entities.users[currentUserId].track_ids || [];
+  let currentUserTracks = [];
+  currentUserTrackIds.forEach((id) => {
+    currentUserTracks.push(state.entities.tracks[id]);
+  });
+  currentUserTracks = currentUserTracks.length ? currentUserTracks : null;
+  //to do does this work?
   return({
     currentUserTracks
   });
@@ -40,9 +46,13 @@ class Upload extends React.Component{
   render(){
     let tracks;
     if(this.props.currentUserTracks){
-      tracks = this.props.currentUserTracks.map((trackId, i) => {
-          return <li key={i}>Track: {trackId}  <button onClick={this.handleRemove(trackId)}>Delete Track</button></li>
-        });
+      tracks = this.props.currentUserTracks.map((track, i) => {
+          return <li key={i}> Track: {track.title}  
+          <button onClick={this.handleRemove(track.id)}>Delete Track</button>
+          <UploadForm track={track} formType={"Update"} />
+          </li>
+      })
+
     } else {
       tracks = ''
     }
@@ -53,8 +63,8 @@ class Upload extends React.Component{
           <NavLink exact to='/upload'>Upload</NavLink>
           <NavLink exact to='/you/tracks'>Your tracks</NavLink>
         </nav>
-        <ProtectedRoute exact path="/upload" component={UploadForm}/>
-        <ProtectedRoute exact path="/you/tracks" component={<h1>Your Tracks!</h1>}/>
+        <UploadForm formType={"Upload"}/>
+        {/* <ProtectedRoute exact path="/you/tracks" component={<h1>Your Tracks!</h1>}/> */}
         <ul>
           {tracks}
         </ul>

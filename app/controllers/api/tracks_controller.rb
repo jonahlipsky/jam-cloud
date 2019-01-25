@@ -10,6 +10,16 @@ class Api::TracksController < ApplicationController
     render :show
   end
 
+  def update
+    debugger
+    @track = Track.find(params[:id])
+    if @track.update_attributes(track_params)
+      render :show
+    else
+      render json: @track.errors.full_messages
+    end
+  end
+
   def create
     # debugger
     @track = current_user.tracks.new(track_params)

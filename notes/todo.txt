@@ -1,5 +1,11 @@
 JAN 24
 
+AFTER BREAK:
+  -make update form able to handle updates
+  -check track update controller action
+  -verify that that the whole process works
+  
+
 TO FIX: 
   Change the Users controller index action get tracks as well and
   have that action return an array of all the track ids for that user

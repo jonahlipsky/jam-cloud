@@ -1,3 +1,11 @@
+export const updateTrack = (formData, id) => ($.ajax({
+  method: 'PATCH',
+  url: `/api/tracks/${id}`,
+  data: formData,
+  contentType: false,
+  processData: false
+}));
+
 export const getTracks = () => ($.ajax({
   method: 'GET',
   url: '/api/tracks'

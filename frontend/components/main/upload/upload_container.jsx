@@ -49,10 +49,13 @@ class Upload extends React.Component{
       tracks = this.props.currentUserTracks.map((track, i) => {
           return <li key={i}> Track: {track.title}  
           <button onClick={this.handleRemove(track.id)}>Delete Track</button>
+          <img className="image-test-class" src={track.image} />
+          <audio controls>
+            <source src={track.track}></source>
+          </audio>
           <UploadForm track={track} formType={"Update"} />
           </li>
       })
-
     } else {
       tracks = ''
     }

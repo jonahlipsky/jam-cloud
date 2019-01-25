@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import UploadContainer from '../../main/upload/upload_container';
 
 class NavBar extends React.Component {
   constructor(props){
@@ -22,7 +23,8 @@ class NavBar extends React.Component {
               <input type="text" className="search-bar-field" placeholder='Search'/>
               <i className="fas fa-search"></i>
             </div>
-            <button className="upload">Upload</button>
+
+            <Link to='/upload' className="upload">Upload</Link>
             <div className="profile-dropdown">
               <p>{this.props.user.username}</p>
               <i className="fa fa-angle-down"></i>
@@ -32,6 +34,7 @@ class NavBar extends React.Component {
             <i className="fas fa-ellipsis-h"></i>
           </div>
         </div>
+        <Route exact path='/upload' component={UploadContainer} />
       </>
     )
   }

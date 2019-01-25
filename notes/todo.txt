@@ -1,4 +1,14 @@
 JAN 24
+
+TO FIX: 
+  Change the Users controller index action get tracks as well and
+  have that action return an array of all the track ids for that user
+
+  Have the tracks create action add in the new track into the user list
+  Have the tracks destroy action remove the track id from the user list
+
+  
+
 For Track CRUD:
   -make a simple upload container where there is a button that allows a signed in 
     user to upload a track and an image and attach them.
@@ -6,6 +16,15 @@ For Track CRUD:
   -create a simple form for updating
   -style the upload page
   -find a simple way to trigger song play (though not continuous)
+  
+
+  -make a protected route for upload container
+  -have this simply display a form with title, a place to upload a file,
+   and a place to upload an image. 
+   For now, we can disable albums, and instead just do playlists. I don't see 
+   on the main part of soundcloud where one can upload or group files into an album.
+   
+  For this feature, for now, let's shoot for having two nav bar headings, upload, and your tracks.
 
 styling
   -the whole fadein / move down is a transition. 
@@ -13,7 +32,7 @@ styling
 
 ______
 
-/ When Splash Page Renders, fetch all users and e-mails.
+/When Splash Page Renders, fetch all users and e-mails.
 /update mdp
 /create backend route
 /create api util actions

@@ -9,7 +9,12 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_USERS:
       let newState = merge({}, state);
       action.users.forEach((user) => {
-        newState[`${user.id}`] = user;
+        let tracks = [];
+        user.track_ids.forEach((trackId) => {
+          tracks.push(trackId['id']);
+        });
+        let newUser = {id: user.id, email: user.email, track_ids: tracks};
+        newState[`${user.id}`] = newUser;
       });
       return newState;
     default:

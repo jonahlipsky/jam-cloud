@@ -11,12 +11,19 @@ class Api::TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(track_params)
+    # debugger
+    @track = current_user.tracks.new(track_params)
     if @track.save
       render :show
     else
       render json: @track.errors.full_messages, status: 422
     end
+  end
+
+  def destroy
+    @track = Track.find(params[:id])
+    @track.destroy
+    render :show
   end
 
   private

@@ -6977,3 +6977,2133 @@ Processing by Api::UsersController#index as JSON
 Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-01-25 09:55:33 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 1317ms (Views: 1307.5ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 09:55:34 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (25.1ms)
+Completed 200 OK in 32ms (Views: 17.7ms | ActiveRecord: 14.0ms)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-01-25 09:55:44 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"jonahlipsky@protonmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jonahlipsky@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:48
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test123"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "jonahlipsky@protonmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Update (4.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["updated_at", "2019-01-25 14:55:44.236745"], ["id", 1]]
+  ↳ app/models/user.rb:48
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:48
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.7ms)
+Completed 200 OK in 77ms (Views: 7.6ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 09:57:16 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 354ms (Views: 351.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 09:58:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 355ms (Views: 352.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 09:59:17 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 355ms (Views: 352.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 09:59:36 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 407ms (Views: 404.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:00:13 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 407ms (Views: 405.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:02:41 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:03:24 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 85ms (Views: 82.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:04:15 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 94ms (Views: 91.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:05:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 98ms (Views: 94.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:06:00 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 110ms (Views: 106.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:06:15 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 94ms (Views: 91.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:06:41 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 101ms (Views: 97.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:07:17 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 95ms (Views: 91.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:07:41 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 103ms (Views: 100.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:08:00 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 96ms (Views: 92.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:08:04 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 98ms (Views: 94.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:08:47 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 702ms (Views: 698.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:08:55 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 695ms (Views: 691.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:09:09 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 694ms (Views: 691.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:15:21 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 777ms (Views: 768.5ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:15:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 65ms (Views: 58.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:16:14 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 58ms (Views: 55.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:17:11 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 387ms (Views: 384.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:19:23 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 421ms (Views: 419.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:22:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 355ms (Views: 353.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:22:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 364ms (Views: 361.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:36:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 357ms (Views: 348.4ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 10:36:33 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 14ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:25:in `track_params'
+  app/controllers/api/tracks_controller.rb:14:in `create'
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 10:37:24 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 82736ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:38:55 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (3.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (37.3ms)
+Completed 200 OK in 1636ms (Views: 1626.8ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 10:39:06 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 52801ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:40:54 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 1132ms (Views: 1122.0ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:46:49 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 359ms (Views: 352.7ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 10:46:50 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 13071ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:47:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 463ms (Views: 453.8ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 10:47:50 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 7078ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:54:27 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 350ms (Views: 343.9ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 10:54:28 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 8110ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 10:59:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 353ms (Views: 345.9ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 10:59:13 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 1921ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 10:59:46 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:00:15 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 19661ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:09:34 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 1328ms (Views: 1318.6ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:12:09 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 8680ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:12:19 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 718ms (Views: 707.8ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:13:58 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 11781ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:17:05 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 473ms (Views: 469.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:17:21 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 24180ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:17:45 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:18:30 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 78426ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:19:48 -0500
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:19:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 1121ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Completed 200 OK in 1492ms (Views: 1489.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:19:50 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 6193ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:20:32 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 69696ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:21:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 521ms (Views: 518.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:21:42 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 4747ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:22:04 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 67264ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:23:11 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 360ms (Views: 351.4ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:23:20 -0500
+Processing by Api::TracksController#create as JSON
+  Parameters: {"track"=>"hello"}
+Completed 500 Internal Server Error in 21030ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `permit' for "hello":String:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:24:19 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 354ms (Views: 351.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:24:29 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 14404ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:24:45 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 408ms (Views: 405.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:24:47 -0500
+Processing by Api::TracksController#create as JSON
+  Parameters: {"object Object"=>nil}
+Completed 400 Bad Request in 31781ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:25:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 408ms (Views: 405.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:25:23 -0500
+Processing by Api::TracksController#create as JSON
+  Parameters: {"object Object"=>nil}
+Completed 400 Bad Request in 6632ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:25:47 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 361ms (Views: 358.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:25:50 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 8748ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:25:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:26:01 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:26:03 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 17291ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:26:21 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:26:31 -0500
+Processing by Api::TracksController#create as JSON
+  Parameters: {"track"=>"hello"}
+Completed 500 Internal Server Error in 16535ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `permit' for "hello":String:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:27:06 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 356ms (Views: 353.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:27:20 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 7253ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:28:01 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 358ms (Views: 355.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:28:30 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 7773ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:31:43 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 365ms (Views: 362.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:32:00 -0500
+Processing by Api::TracksController#create as JSON
+Completed 400 Bad Request in 440769ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: track:
+  app/controllers/api/tracks_controller.rb:26:in `track_params'
+  app/controllers/api/tracks_controller.rb:15:in `create'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:40:13 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 356ms (Views: 353.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:43:36 -0500
+Processing by Api::TracksController#create as JSON
+  Parameters: {"track"=>{"title"=>"Dogwood", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fbb3a127288 @tempfile=#<Tempfile:/var/folders/r0/65y8t9cs08d7lzkt_1blggym0000gn/T/RackMultipart20190125-11226-fa5ehk.jpg>, @original_filename="cover.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"track[image]\"; filename=\"cover.jpg\"\r\nContent-Type: image/jpeg\r\n">, "track"=>#<ActionDispatch::Http::UploadedFile:0x00007fbb3a102578 @tempfile=#<Tempfile:/var/folders/r0/65y8t9cs08d7lzkt_1blggym0000gn/T/RackMultipart20190125-11226-1o7ugi8.mp3>, @original_filename="Daniel Stern - Pick me up - 12 Dogwood.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[track]\"; filename=\"Daniel Stern - Pick me up - 12 Dogwood.mp3\"\r\nContent-Type: audio/mp3\r\n">}}
+[36m  S3 Storage (5307.0ms) [0m[32mUploaded file to key: CiXkSxGxDkLvAc9FYa4Dj1Sk (checksum: xluAHGxzmR9ZKnyqPFb1RQ==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[36mActiveStorage::Blob Create (12.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "CiXkSxGxDkLvAc9FYa4Dj1Sk"], ["filename", "Daniel Stern - Pick me up - 12 Dogwood.mp3"], ["content_type", "audio/mpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 7078190], ["checksum", "xluAHGxzmR9ZKnyqPFb1RQ=="], ["created_at", "2019-01-25 16:45:51.028154"]]
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+[36m  S3 Storage (352.4ms) [0m[32mUploaded file to key: AbMhhQB8Kenki6FmdBKy2ESb (checksum: YMcgM8hz6nepSzI4rdGuhQ==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[36mActiveStorage::Blob Create (1.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "AbMhhQB8Kenki6FmdBKy2ESb"], ["filename", "cover.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 2914606], ["checksum", "YMcgM8hz6nepSzI4rdGuhQ=="], ["created_at", "2019-01-25 16:45:51.418474"]]
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/tracks_controller.rb:16
+Completed 422 Unprocessable Entity in 134576ms (Views: 0.2ms | ActiveRecord: 42.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:47:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 386ms (Views: 383.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:47:26 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 410ms (Views: 407.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:47:35 -0500
+Processing by Api::TracksController#create as JSON
+  Parameters: {"track"=>{"title"=>"Dogwood", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fbb3a75dc10 @tempfile=#<Tempfile:/var/folders/r0/65y8t9cs08d7lzkt_1blggym0000gn/T/RackMultipart20190125-11226-175rd8w.jpg>, @original_filename="cover.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"track[image]\"; filename=\"cover.jpg\"\r\nContent-Type: image/jpeg\r\n">, "track"=>#<ActionDispatch::Http::UploadedFile:0x00007fbb3a75db20 @tempfile=#<Tempfile:/var/folders/r0/65y8t9cs08d7lzkt_1blggym0000gn/T/RackMultipart20190125-11226-1temv8y.mp3>, @original_filename="Daniel Stern - Pick me up - 12 Dogwood.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[track]\"; filename=\"Daniel Stern - Pick me up - 12 Dogwood.mp3\"\r\nContent-Type: audio/mp3\r\n">}}
+[36m  S3 Storage (4334.5ms) [0m[32mUploaded file to key: Bdk7ayDqbQSGzjRp2v4Si7yG (checksum: xluAHGxzmR9ZKnyqPFb1RQ==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "Bdk7ayDqbQSGzjRp2v4Si7yG"], ["filename", "Daniel Stern - Pick me up - 12 Dogwood.mp3"], ["content_type", "audio/mpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 7078190], ["checksum", "xluAHGxzmR9ZKnyqPFb1RQ=="], ["created_at", "2019-01-25 16:47:45.192013"]]
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+[36m  S3 Storage (2514.6ms) [0m[32mUploaded file to key: aAxVs3CyR7aFtAJV8pPaQgoJ (checksum: YMcgM8hz6nepSzI4rdGuhQ==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "aAxVs3CyR7aFtAJV8pPaQgoJ"], ["filename", "cover.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 2914606], ["checksum", "YMcgM8hz6nepSzI4rdGuhQ=="], ["created_at", "2019-01-25 16:47:47.723845"]]
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/tracks_controller.rb:16
+Completed 422 Unprocessable Entity in 12424ms (Views: 0.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 11:50:09 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 40ms (Views: 33.4ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/api/tracks" for 127.0.0.1 at 2019-01-25 11:50:22 -0500
+Processing by Api::TracksController#create as JSON
+  Parameters: {"track"=>{"title"=>"Dogwood", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fbb4286a448 @tempfile=#<Tempfile:/var/folders/r0/65y8t9cs08d7lzkt_1blggym0000gn/T/RackMultipart20190125-11226-1wm4779.jpg>, @original_filename="cover.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"track[image]\"; filename=\"cover.jpg\"\r\nContent-Type: image/jpeg\r\n">, "track"=>#<ActionDispatch::Http::UploadedFile:0x00007fbb4286a3d0 @tempfile=#<Tempfile:/var/folders/r0/65y8t9cs08d7lzkt_1blggym0000gn/T/RackMultipart20190125-11226-f9b3uy.mp3>, @original_filename="Daniel Stern - Pick me up - 12 Dogwood.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"track[track]\"; filename=\"Daniel Stern - Pick me up - 12 Dogwood.mp3\"\r\nContent-Type: audio/mp3\r\n">}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[36m  S3 Storage (497.6ms) [0m[32mUploaded file to key: 2k2oAuXvhooUpwetGEmaHZN3 (checksum: xluAHGxzmR9ZKnyqPFb1RQ==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "2k2oAuXvhooUpwetGEmaHZN3"], ["filename", "Daniel Stern - Pick me up - 12 Dogwood.mp3"], ["content_type", "audio/mpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 7078190], ["checksum", "xluAHGxzmR9ZKnyqPFb1RQ=="], ["created_at", "2019-01-25 16:50:22.568864"]]
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+[36m  S3 Storage (264.4ms) [0m[32mUploaded file to key: MBfpk496iB8jXR1SkDWpwUEU (checksum: YMcgM8hz6nepSzI4rdGuhQ==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "MBfpk496iB8jXR1SkDWpwUEU"], ["filename", "cover.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 2914606], ["checksum", "YMcgM8hz6nepSzI4rdGuhQ=="], ["created_at", "2019-01-25 16:50:22.859474"]]
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/tracks_controller.rb:16
+  [1m[36mTrack Create (5.0ms)[0m  [1m[32mINSERT INTO "tracks" ("title", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["title", "Dogwood"], ["user_id", 1]]
+  ↳ app/controllers/api/tracks_controller.rb:16
+  [1m[36mActiveStorage::Attachment Create (10.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "track"], ["record_type", "Track"], ["record_id", 2], ["blob_id", 7], ["created_at", "2019-01-25 16:50:22.875677"]]
+  ↳ app/controllers/api/tracks_controller.rb:16
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Track"], ["record_id", 2], ["blob_id", 8], ["created_at", "2019-01-25 16:50:22.887563"]]
+  ↳ app/controllers/api/tracks_controller.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/tracks_controller.rb:16
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 776ddae4-5173-4981-8446-977b86103be1) to Async(default) with arguments: #<GlobalID:0x00007fbb3a6898e8 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/7>>
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2) to Async(default) with arguments: #<GlobalID:0x00007fbb3a680900 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/8>>
+  Rendering api/tracks/show.json.jbuilder
+  Rendered api/tracks/show.json.jbuilder (2.3ms)
+Completed 200 OK in 917ms (Views: 10.5ms | ActiveRecord: 34.9ms)
+
+
+  [1m[36mActiveStorage::Blob Load (1.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Blob Load (2.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2] Performing ActiveStorage::AnalyzeJob (Job ID: e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2) from Async(default) with arguments: #<GlobalID:0x00007fbb4212dae0 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/8>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [776ddae4-5173-4981-8446-977b86103be1] Performing ActiveStorage::AnalyzeJob (Job ID: 776ddae4-5173-4981-8446-977b86103be1) from Async(default) with arguments: #<GlobalID:0x00007fbb41b1fc20 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [776ddae4-5173-4981-8446-977b86103be1]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [776ddae4-5173-4981-8446-977b86103be1]   ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [776ddae4-5173-4981-8446-977b86103be1]   [1m[36mActiveStorage::Blob Update (0.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [776ddae4-5173-4981-8446-977b86103be1]   ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [776ddae4-5173-4981-8446-977b86103be1]   [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [776ddae4-5173-4981-8446-977b86103be1]   ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [776ddae4-5173-4981-8446-977b86103be1] Performed ActiveStorage::AnalyzeJob (Job ID: 776ddae4-5173-4981-8446-977b86103be1) from Async(default) in 5.86ms
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2] [36m  S3 Storage (852.7ms) [0m[34mDownloaded file from key: MBfpk496iB8jXR1SkDWpwUEU[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2]   ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2]   [1m[36mActiveStorage::Blob Update (0.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 8]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2]   ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2]   [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2]   ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2] Performed ActiveStorage::AnalyzeJob (Job ID: e5d1cf5d-71cb-4f39-bd79-f85599d8e2b2) from Async(default) in 862.09ms
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTrack Load (0.4ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" WHERE "tracks"."user_id" = $1 ORDER BY "tracks"."id" ASC LIMIT $2 OFFSET $3[0m  [["user_id", 1], ["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrack Destroy (0.5ms)[0m  [1m[31mDELETE FROM "tracks" WHERE "tracks"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Track"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Attachment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: d20e5fce-db0f-4c76-8398-81ea21998292) to Async(default) with arguments: #<GlobalID:0x00007fd8d7611158 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/8>>
+  [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Track"], ["name", "track"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (3.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Attachment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: c4a0dc11-17bd-43b0-aea9-1318d287bcd5) to Async(default) with arguments: #<GlobalID:0x00007fd8d6e415b8 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/7>>
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292] Performing ActiveStorage::PurgeJob (Job ID: d20e5fce-db0f-4c76-8398-81ea21998292) from Async(default) with arguments: #<GlobalID:0x00007fd8d6d656a8 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/8>>
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292]   [1m[36mActiveStorage::Attachment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = $1 LIMIT $2[0m  [["blob_id", 8], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292]   [1m[36mActiveStorage::Blob Destroy (0.7ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 8]]
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292]   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292]   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [c4a0dc11-17bd-43b0-aea9-1318d287bcd5] Performing ActiveStorage::PurgeJob (Job ID: c4a0dc11-17bd-43b0-aea9-1318d287bcd5) from Async(default) with arguments: #<GlobalID:0x00007fd8d73cf598 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::PurgeJob] [c4a0dc11-17bd-43b0-aea9-1318d287bcd5]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [c4a0dc11-17bd-43b0-aea9-1318d287bcd5]   [1m[36mActiveStorage::Attachment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = $1 LIMIT $2[0m  [["blob_id", 7], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [c4a0dc11-17bd-43b0-aea9-1318d287bcd5]   [1m[36mActiveStorage::Blob Destroy (0.7ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 7]]
+[ActiveJob] [ActiveStorage::PurgeJob] [c4a0dc11-17bd-43b0-aea9-1318d287bcd5]   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [c4a0dc11-17bd-43b0-aea9-1318d287bcd5]   [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292] [36m  S3 Storage (134.3ms) [0m[31mDeleted file from key: MBfpk496iB8jXR1SkDWpwUEU[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [c4a0dc11-17bd-43b0-aea9-1318d287bcd5] [36m  S3 Storage (124.4ms) [0m[31mDeleted file from key: 2k2oAuXvhooUpwetGEmaHZN3[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [c4a0dc11-17bd-43b0-aea9-1318d287bcd5] Performed ActiveStorage::PurgeJob (Job ID: c4a0dc11-17bd-43b0-aea9-1318d287bcd5) from Async(default) in 135.3ms
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292] [36m  S3 Storage (34.7ms) [0m[31mDeleted files by key prefix: variants/MBfpk496iB8jXR1SkDWpwUEU/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [d20e5fce-db0f-4c76-8398-81ea21998292] Performed ActiveStorage::PurgeJob (Job ID: d20e5fce-db0f-4c76-8398-81ea21998292) from Async(default) in 180.46ms
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (228.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jam-cloud_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (236.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jam-cloud_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (542.3ms)[0m  [1m[35mCREATE DATABASE "jam-cloud_development" ENCODING = 'utf8'[0m
+  ↳ bin/rails:9
+  [1m[35m (432.4ms)[0m  [1m[35mCREATE DATABASE "jam-cloud_test" ENCODING = 'utf8'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (2.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  ↳ db/schema.rb:39
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "title" character varying NOT NULL, "user_id" integer, "album_id" integer)[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_album_id" ON "tracks"  ("album_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_user_id" ON "tracks"  ("user_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "age" integer NOT NULL, "gender" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  ↳ db/schema.rb:58
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190125001133)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190122164202),
+(20190124194440),
+(20190124194147),
+(20190122163756),
+(20190124193257),
+(20190124193206);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-25 16:57:18.954116"], ["updated_at", "2019-01-25 16:57:18.954116"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  ↳ db/schema.rb:39
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "title" character varying NOT NULL, "user_id" integer, "album_id" integer)[0m
+  ↳ db/schema.rb:39
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_album_id" ON "tracks"  ("album_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_user_id" ON "tracks"  ("user_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "age" integer NOT NULL, "gender" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  ↳ db/schema.rb:58
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190125001133)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190122164202),
+(20190124194440),
+(20190124194147),
+(20190122163756),
+(20190124193257),
+(20190124193206);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-25 16:57:19.064969"], ["updated_at", "2019-01-25 16:57:19.064969"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-01-25 16:57:19.069484"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jonahlipsky@protonmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OZ_M0w6rf7yVnkzgBN6kWg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "age", "gender", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "test123"], ["email", "jonahlipsky@protonmail.com"], ["password_digest", "$2a$10$CyKoKoHsNEtA1Rj/QKZG0eqVzfZw7Zy0NwAvy/1uHLuDuMy/PyMFq"], ["session_token", "OZ_M0w6rf7yVnkzgBN6kWg"], ["age", 29], ["gender", "Male"], ["created_at", "2019-01-25 16:57:19.173134"], ["updated_at", "2019-01-25 16:57:19.173134"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jessica"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jessica@jkj.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "S7v3xKqOHUKK6pFMfP4bsA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "age", "gender", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "Jessica"], ["email", "jessica@jkj.com"], ["password_digest", "$2a$10$xr/CR9/tuCpnVPxV3xQgU.kOIGApuHfK3r94DgVM7BQYwV1e.BkWy"], ["session_token", "S7v3xKqOHUKK6pFMfP4bsA"], ["age", 38], ["gender", "Female"], ["created_at", "2019-01-25 16:57:19.231183"], ["updated_at", "2019-01-25 16:57:19.231183"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alorza"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "alorza@rhodeisland.net"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "heRhdZFYkTxaNwTrygmT0w"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "age", "gender", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "Alorza"], ["email", "alorza@rhodeisland.net"], ["password_digest", "$2a$10$TXHGETymIYpAlQ2VLt8e0ONOxtmkzhoUFVYNHg52m8/KvIQj/70GS"], ["session_token", "heRhdZFYkTxaNwTrygmT0w"], ["age", 58], ["gender", "Male"], ["created_at", "2019-01-25 16:57:19.289450"], ["updated_at", "2019-01-25 16:57:19.289450"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+[36m  S3 Storage (407.3ms) [0m[32mUploaded file to key: bmXbdyQZCMkhQGgfMA1emG3a (checksum: YMcgM8hz6nepSzI4rdGuhQ==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mActiveStorage::Blob Create (1.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "bmXbdyQZCMkhQGgfMA1emG3a"], ["filename", "cover.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 2914606], ["checksum", "YMcgM8hz6nepSzI4rdGuhQ=="], ["created_at", "2019-01-25 16:57:19.751210"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+[36m  S3 Storage (2430.8ms) [0m[32mUploaded file to key: sMZiMasTv5ehCaupjVTb2C5r (checksum: 5WSyW3FjMx7JgIKN40vZuw==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "sMZiMasTv5ehCaupjVTb2C5r"], ["filename", "01_something_good.mp3"], ["content_type", "audio/mpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 7639520], ["checksum", "5WSyW3FjMx7JgIKN40vZuw=="], ["created_at", "2019-01-25 16:57:22.220156"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mTrack Create (0.9ms)[0m  [1m[32mINSERT INTO "tracks" ("title", "user_id", "album_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "test"], ["user_id", 1], ["album_id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mActiveStorage::Attachment Create (1.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "track"], ["record_type", "Track"], ["record_id", 1], ["blob_id", 2], ["created_at", "2019-01-25 16:57:22.231242"]]
+  ↳ db/seeds.rb:16
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Track"], ["record_id", 1], ["blob_id", 1], ["created_at", "2019-01-25 16:57:22.234140"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 2e357b04-fbcd-4358-ab62-64a0da6a02a8) to Async(default) with arguments: #<GlobalID:0x00007fe396574a50 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/2>>
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: ec623b4f-317e-4ab8-9c3c-17cea79f4e56) to Async(default) with arguments: #<GlobalID:0x00007fe394d6c2c8 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/1>>
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (217.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jam-cloud_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (215.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "jam-cloud_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (425.1ms)[0m  [1m[35mCREATE DATABASE "jam-cloud_development" ENCODING = 'utf8'[0m
+  ↳ bin/rails:9
+  [1m[35m (416.6ms)[0m  [1m[35mCREATE DATABASE "jam-cloud_test" ENCODING = 'utf8'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  ↳ db/schema.rb:39
+  [1m[35m (18.0ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "title" character varying NOT NULL, "user_id" integer, "album_id" integer)[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_album_id" ON "tracks"  ("album_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_user_id" ON "tracks"  ("user_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "age" integer NOT NULL, "gender" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  ↳ db/schema.rb:58
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190125001133)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190122164202),
+(20190124194440),
+(20190124194147),
+(20190122163756),
+(20190124193257),
+(20190124193206);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-25 16:57:49.992121"], ["updated_at", "2019-01-25 16:57:49.992121"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (36.0ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  ↳ db/schema.rb:39
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "title" character varying NOT NULL, "user_id" integer, "album_id" integer)[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_album_id" ON "tracks"  ("album_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_tracks_on_user_id" ON "tracks"  ("user_id")[0m
+  ↳ db/schema.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "age" integer NOT NULL, "gender" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  ↳ db/schema.rb:58
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190125001133)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190122164202),
+(20190124194440),
+(20190124194147),
+(20190122163756),
+(20190124193257),
+(20190124193206);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-25 16:57:50.117516"], ["updated_at", "2019-01-25 16:57:50.117516"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-01-25 16:57:50.120798"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jonahlipsky@protonmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "tecAxphle6-6OkIa156GUA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "age", "gender", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "test123"], ["email", "jonahlipsky@protonmail.com"], ["password_digest", "$2a$10$w6eQncosV/UJViGocwUJBu1wwC6HcDuP8i4yrz8OiZQJR3hkrrIGK"], ["session_token", "tecAxphle6-6OkIa156GUA"], ["age", 29], ["gender", "Male"], ["created_at", "2019-01-25 16:57:50.231768"], ["updated_at", "2019-01-25 16:57:50.231768"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jessica"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jessica@jkj.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7lIv6ShgwMVuj4OcON2JpA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "age", "gender", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "Jessica"], ["email", "jessica@jkj.com"], ["password_digest", "$2a$10$hhHLXRdEKwcA4pD4ikhgo..WRo2iblcjdSoOp4EZOdBesGk2qj.92"], ["session_token", "7lIv6ShgwMVuj4OcON2JpA"], ["age", 38], ["gender", "Female"], ["created_at", "2019-01-25 16:57:50.285723"], ["updated_at", "2019-01-25 16:57:50.285723"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Alorza"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "alorza@rhodeisland.net"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-WAnIo_y1XsEptSOf10Hcg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "age", "gender", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "Alorza"], ["email", "alorza@rhodeisland.net"], ["password_digest", "$2a$10$iI6j1Q7nC27.keJfS5ZFL.JfjMwPU.la/s6vpF8Jx.RCix6BtgLJq"], ["session_token", "-WAnIo_y1XsEptSOf10Hcg"], ["age", 58], ["gender", "Male"], ["created_at", "2019-01-25 16:57:50.338928"], ["updated_at", "2019-01-25 16:57:50.338928"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+[36m  S3 Storage (3604.8ms) [0m[32mUploaded file to key: aXArkccyuAn4aWopLFpBzMwC (checksum: YMcgM8hz6nepSzI4rdGuhQ==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mActiveStorage::Blob Create (1.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "aXArkccyuAn4aWopLFpBzMwC"], ["filename", "cover.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 2914606], ["checksum", "YMcgM8hz6nepSzI4rdGuhQ=="], ["created_at", "2019-01-25 16:57:53.986875"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+[36m  S3 Storage (3863.0ms) [0m[32mUploaded file to key: qQeXDNiMa3J7UdKrnkW8bRYB (checksum: 5WSyW3FjMx7JgIKN40vZuw==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "qQeXDNiMa3J7UdKrnkW8bRYB"], ["filename", "01_something_good.mp3"], ["content_type", "audio/mpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 7639520], ["checksum", "5WSyW3FjMx7JgIKN40vZuw=="], ["created_at", "2019-01-25 16:57:57.886073"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mTrack Create (0.9ms)[0m  [1m[32mINSERT INTO "tracks" ("title", "user_id", "album_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "test"], ["user_id", 1], ["album_id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mActiveStorage::Attachment Create (1.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "track"], ["record_type", "Track"], ["record_id", 1], ["blob_id", 2], ["created_at", "2019-01-25 16:57:57.898145"]]
+  ↳ db/seeds.rb:16
+  [1m[36mActiveStorage::Attachment Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Track"], ["record_id", 1], ["blob_id", 1], ["created_at", "2019-01-25 16:57:57.900480"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 30eeed59-009e-4e16-ad56-c78e86e6ba46) to Async(default) with arguments: #<GlobalID:0x00007fa096decea0 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/2>>
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: ca911ed0-6033-4a92-b009-ceab1d4a1671) to Async(default) with arguments: #<GlobalID:0x00007fa09630a668 @uri=#<URI::GID gid://jam-cloud/ActiveStorage::Blob/1>>
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:17:16 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 366ms (Views: 356.7ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:17:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 426ms (Views: 424.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:17:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 349ms (Views: 346.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:18:18 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 353ms (Views: 350.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:19:15 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 864ms (Views: 858.3ms | ActiveRecord: 3.5ms)
+
+
+Started DELETE "/api/session/" for 127.0.0.1 at 2019-01-25 12:19:28 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (4.6ms)
+  Rendered api/users/show.json.jbuilder (5.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__4469524181845117885_70314380691480'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__1948041444662091586_70314380393180'
+  app/controllers/api/sessions_controller.rb:16:in `destroy'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:21:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 440ms (Views: 438.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 12:21:03 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (12.7ms)
+Completed 200 OK in 19ms (Views: 14.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:21:11 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:21:19 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 443ms (Views: 440.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:21:33 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 362ms (Views: 359.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:21:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session/" for 127.0.0.1 at 2019-01-25 12:24:17 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered api/users/show.json.jbuilder (4.3ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder__4469524181845117885_70314401481940'
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder__1948041444662091586_70314401584520'
+  app/controllers/api/sessions_controller.rb:16:in `destroy'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:24:24 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vIfqkxYtmMYNxB1lFiyrSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 12:24:24 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (1.4ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2019-01-25 12:24:34 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"jonahlipsky@protonmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jonahlipsky@protonmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:48
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test123"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "jonahlipsky@protonmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["updated_at", "2019-01-25 17:24:34.244964"], ["id", 1]]
+  ↳ app/models/user.rb:48
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:48
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.0ms)
+Completed 200 OK in 73ms (Views: 6.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 12:24:46 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 411ms (Views: 409.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:19:56 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 52ms (Views: 41.8ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:20:06 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (25.5ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 5.4ms)
+
+
+
+ArgumentError - wrong number of arguments (given 1, expected 0):
+  app/views/api/users/index.json.jbuilder:3:in `block in _app_views_api_users_index_json_jbuilder__1264904373647010504_70314401564460'
+  app/views/api/users/index.json.jbuilder:1:in `_app_views_api_users_index_json_jbuilder__1264904373647010504_70314401564460'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:26:38 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 29ms (Views: 21.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:26:41 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (1.3ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (8.0ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 3.5ms)
+
+
+
+Jbuilder::MergeError - Can't merge [] into {"id"=>2, "email"=>"jessica@jkj.com"}:
+  app/views/api/users/index.json.jbuilder:3:in `block in _app_views_api_users_index_json_jbuilder__1264904373647010504_70314380203520'
+  app/views/api/users/index.json.jbuilder:1:in `_app_views_api_users_index_json_jbuilder__1264904373647010504_70314380203520'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:26:49 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 1496ms (Views: 1487.3ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:26:52 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (22.9ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 5.3ms)
+
+
+
+Jbuilder::MergeError - Can't merge [] into {"id"=>2, "email"=>"jessica@jkj.com"}:
+  app/views/api/users/index.json.jbuilder:3:in `block in _app_views_api_users_index_json_jbuilder__3359419380224900304_70313608024820'
+  app/views/api/users/index.json.jbuilder:1:in `_app_views_api_users_index_json_jbuilder__3359419380224900304_70313608024820'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:27:19 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 664ms (Views: 655.3ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:27:21 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (191.5ms)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 5.2ms)
+
+
+
+NameError - undefined local variable or method `user' for #<#<Class:0x00007fc077c4b910>:0x00007fc077c495e8>
+Did you mean?  @users:
+  app/views/api/users/index.json.jbuilder:4:in `_app_views_api_users_index_json_jbuilder__3857045123218661263_70232309899080'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:27:38 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 652ms (Views: 642.5ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:27:40 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (22.2ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 6.3ms)
+
+
+
+NoMethodError - undefined method `tracks' for nil:NilClass:
+  app/views/api/users/index.json.jbuilder:4:in `_app_views_api_users_index_json_jbuilder___1139443075324995898_70211209141340'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:28:35 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 658ms (Views: 649.9ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:28:37 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (23.4ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 4.8ms)
+
+
+
+NoMethodError - undefined method `id' for #<ActiveRecord::Associations::CollectionProxy []>
+Did you mean?  ids:
+  app/views/api/users/index.json.jbuilder:3:in `block in _app_views_api_users_index_json_jbuilder___1390280088020487963_70103371915020'
+  app/views/api/users/index.json.jbuilder:1:in `_app_views_api_users_index_json_jbuilder___1390280088020487963_70103371915020'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:29:28 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 656ms (Views: 647.8ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:29:29 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.8ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (21.6ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 5.4ms)
+
+
+
+Jbuilder::MergeError - Can't merge [] into {"id"=>2, "email"=>"jessica@jkj.com"}:
+  app/views/api/users/index.json.jbuilder:3:in `block in _app_views_api_users_index_json_jbuilder__3234704598227065748_70244214029360'
+  app/views/api/users/index.json.jbuilder:1:in `_app_views_api_users_index_json_jbuilder__3234704598227065748_70244214029360'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:31:57 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 659ms (Views: 651.3ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:32:00 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (18.1ms)
+Completed 200 OK in 25ms (Views: 19.7ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:34:42 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 649ms (Views: 640.4ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:34:44 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (19.2ms)
+Completed 200 OK in 26ms (Views: 20.7ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:42:08 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 663ms (Views: 655.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:42:12 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (21.1ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 5.0ms)
+
+
+
+Jbuilder::MergeError - Can't merge [] into "jessica@jkj.com":
+  app/views/api/users/index.json.jbuilder:6:in `block in _app_views_api_users_index_json_jbuilder___2164534698894833556_70275888509900'
+  app/views/api/users/index.json.jbuilder:1:in `_app_views_api_users_index_json_jbuilder___2164534698894833556_70275888509900'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:43:11 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 645ms (Views: 635.7ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:43:13 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (20.8ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 5.2ms)
+
+
+
+TypeError - no implicit conversion of String into Integer:
+  app/views/api/users/index.json.jbuilder:7:in `_app_views_api_users_index_json_jbuilder___3504130354440586992_70105618684220'
+  app/controllers/api/users_controller.rb:14:in `index'
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 13:47:33 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 696ms (Views: 687.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 13:47:35 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.7ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (18.5ms)
+Completed 200 OK in 26ms (Views: 20.1ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 14:00:12 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 1231ms (Views: 1221.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 14:00:15 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (19.1ms)
+Completed 200 OK in 26ms (Views: 20.1ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 14:01:45 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 1182ms (Views: 1173.1ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 14:01:48 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (1.0ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (26.2ms)
+Completed 200 OK in 33ms (Views: 26.3ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 14:02:51 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 1208ms (Views: 1198.6ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 14:02:54 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.6ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (19.9ms)
+Completed 200 OK in 33ms (Views: 25.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 14:03:37 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 1175ms (Views: 1165.7ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 14:03:40 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (1.0ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (19.3ms)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 14:04:30 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jonahlipsky/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sCwpAiiCpqswIyLpjnmrgA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 1183ms (Views: 1173.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/api/users" for 127.0.0.1 at 2019-01-25 14:04:34 -0500
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."user_id" IN ($1, $2, $3)[0m  [["user_id", 2], ["user_id", 3], ["user_id", 1]]
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/index.json.jbuilder (15.6ms)
+Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 4.4ms)
+
+

@@ -38,7 +38,7 @@ class Splash extends React.Component {
       setTimeout(() => {
         modal.classList.remove('js-modal-open');
         modal.classList.add('js-modal-close');
-      }, 1000);
+      }, 500);
     });
   }
 

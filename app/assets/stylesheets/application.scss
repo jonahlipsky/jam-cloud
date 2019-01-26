@@ -25,10 +25,29 @@ html, body {
 
 #root{
   background-color: white;
+  height: 100%;
+}
+
+.page-centered{
   width: 85%;
   max-width: 1250px;
-  height: 100%;
   margin: auto;
 }
 
+#app{
+  display: flex;
+  justify-content: center;
+}
 
+.page-centered-inner{
+  width: 81%;
+  max-width: 1190px;
+  margin: auto;
+}
+
+#show-tracks-testing{
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  background: red;
+}

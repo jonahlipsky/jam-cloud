@@ -87,15 +87,15 @@ $button-orange: #f50;
   transform: translateY(715px)
 }
 
-@keyframes form-down {
-  from {top: -620;}
-  to {top: 75;}
-}
+// @keyframes form-down {
+//   from {top: -620;}
+//   to {top: 75;}
+// }
 
-@keyframes form-up{
-  from {top: 75;}
-  to {top: -620}
-}
+// @keyframes form-up{
+//   from {top: 75;}
+//   to {top: -620}
+// }
 
 .js-modal-open{
   display: block;
@@ -123,7 +123,7 @@ $button-orange: #f50;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: 1s;
+  transition: .3s;
 
   #email, #password, #age {
     border: 1px solid #ccc;

@@ -8,6 +8,7 @@ class NavBar extends React.Component {
   }
 
   render(){
+
     return(
       <>
         <div className="nav_background">
@@ -33,7 +34,9 @@ class NavBar extends React.Component {
             <i className="fas fa-ellipsis-h"></i>
           </div>
         </div>
-        <Route exact path='/upload' component={UploadContainer} />
+        
+        <Route exact path={'/upload'} render={(props) => <UploadContainer {...props}/>}/>
+        <Route exact path={'/you/tracks'} render={(props) => <UploadContainer {...props}/>}/>
       </>
     )
   }

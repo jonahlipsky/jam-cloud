@@ -8,6 +8,7 @@ $mid-gray: rgb(60, 60, 60);
   left: 0;
   height: 50px;
   background: $mid-gray;
+  z-index: 100;
 }
 
 .nav_bar_main_frame{
@@ -21,7 +22,7 @@ $mid-gray: rgb(60, 60, 60);
 
   .logo{
     position: relative;
-    background: $button-orange;
+    background-image: linear-gradient(rgb(255, 145, 0), rgb(219, 44, 0));
     width: 70px;
     height: 100%; 
     display: flex;
@@ -100,42 +101,4 @@ $mid-gray: rgb(60, 60, 60);
   color: #eee;
   align-self: center;
   margin: 0 15px;
-}
-
-.upload-container{
-  position: absolute;
-  margin-top: 75px;
-  
-
-  nav {
-    border-bottom: 1px solid $mid-gray;
-    padding: 20px;
-  }
-
-  form {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-
-    * {
-      padding: 5px;
-    }
-    
-  }
-}
-
-.form-input-field {
-  border: 1px solid $mid-gray;
-}
-
-.orange-btn{
-  color: white;
-  background-color: $button-orange;
-  border-radius: 5px;
-  border: 1px solid $button-orange;
-}
-
-.image-test-class{
-  width: 300px;
-  height: 300px;
 }

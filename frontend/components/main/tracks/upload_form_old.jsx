@@ -54,13 +54,11 @@ class UploadForm extends React.Component{
   }
 
   handleSubmit(formType){
-    // debugger
     let that = this;
     return e => {
       e.preventDefault();
       const formData = new FormData();
       formData.append('track[title]', that.state.title);
-  
       if (that.state.imageFile){
         formData.append('track[image]', that.state.imageFile);
       } else {
@@ -68,11 +66,9 @@ class UploadForm extends React.Component{
         //also on component did mount fetch that image
         // formData.append('track[image]', that.props.defaultImage);
       }
-
       if (that.state.trackFile){
         formData.append('track[track]', that.state.trackFile);
       }
-
       if(formType === 'Update'){
         that.props.updateTrack(formData, that.props.track.id);
       } else {

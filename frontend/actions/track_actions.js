@@ -6,8 +6,14 @@ export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_UPLOAD_ERRORS = "RECEIVE_UPLOAD_ERRORS";
 export const REMOVE_TRACK = "REMOVE_TRACK";
 export const UPDATE_TRACK = "UPDATE_TRACK";
+export const INCREMENT_FILE_UPLOAD_STAGE = "INCREMENT_FILE_UPLOAD_STAGE";
 
 //action creators
+export const incrementFileUploadStage = (prevStage) => ({
+  type: INCREMENT_FILE_UPLOAD_STAGE,
+  prevStage
+});
+
 const receiveRemoveTrack = track => ({
   type: REMOVE_TRACK,
   track 
@@ -27,6 +33,7 @@ const receiveTrack = track => ({
   type: RECEIVE_TRACK,
   track
 });
+
 
 
 //Thunk actions

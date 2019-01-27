@@ -1,5 +1,6 @@
 $button-orange: #f50;
 $mid-gray: rgb(60, 60, 60);
+$light-gray: rgb(150,150,150);
 $background-gray: #f2f2f2;
 
 
@@ -11,37 +12,20 @@ $background-gray: #f2f2f2;
 
 
   .upload-nav-bar{
-    border-bottom: 1px solid $background-gray;
-    
-    
+    border-bottom: 1px solid $background-gray;    
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 
-
     a {
-      
       padding: 15px 0;
       margin-right: 25px;
-
     }
 
     .upload-nav-selected {
       color: $button-orange;
       border-bottom: 1px solid $button-orange;
     }
-
-  }
-
-  form {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-
-    * {
-      padding: 5px;
-    }
-    
   }
 }
 
@@ -56,7 +40,153 @@ $background-gray: #f2f2f2;
   border: 1px solid $button-orange;
 }
 
+//todo
 .image-test-class{
   width: 300px;
   height: 300px;
+}
+
+//the following style accounts for the /upload route
+
+.track-upload-container{
+  position: relative;
+  width: 70%;
+  margin: auto;
+  top: 100px;
+  border: 1px solid $background-gray;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  h2, div{
+    margin: 10px;
+  }
+
+  h2{
+    position: absolute;
+    top: 25%;
+  }
+
+  div{
+    position: absolute;
+    top: 35%;
+
+    input {
+      padding: 10px;
+    }
+  }
+}
+
+//the following css creates a button where there's a hidden file upload
+//the element structure is: 
+// div.track-upload-container
+  //h2 i.e. title
+  //div.orange-btn.file-upload-box
+    //p
+    //input.file-upload
+
+.file-upload-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p{
+    position: absolute;
+  }
+  
+  .file-upload{
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+    z-index: 2;
+  }
+}
+
+.stage-two-track-upload-container{
+  position: relative;
+  width: 70%;
+  margin: auto;
+  border: 1px solid $background-gray;
+  // height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid red;
+
+  .track-upload-stage-two-nav{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    // border: 1px solid green;
+    border-bottom: 1px solid $background-gray;
+
+    button {
+      padding: 15px 0;
+      font-weight: 400;
+      margin: 0 15px;
+      
+    }
+    .upload-nav-selected{
+      color: $button-orange;
+      border-bottom: 1px solid $button-orange;
+    }
+  }
+
+  .track-upload-stage-two-body{
+    position: relative;
+    width: 100%;
+    border: 1px solid blue;
+
+    form{
+      margin-top: 15px;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid green;
+
+      .image-upload{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background: $light-gray;
+        border: 1px solid red;
+        margin-left: 15px;
+
+
+        .fa-music{
+          justify-self: center;
+          font-size: 40px;
+          display: inline-block;
+          border: 1px solid blue;
+        }
+
+        div {
+          justify-self: flex-end;
+          background-color: $background-gray;
+          opacity: .5;
+          border: 1px solid red;
+          width: 75%;
+          // margin: 0 auto;
+          
+        }
+      }
+      .stage-two-basic-info{
+        width: 80%;
+
+        .fields{
+          margin: 15px 15px 15px 10px;
+          display: flex;
+          flex-direction: column;
+
+          .form-input-field{
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid $mid-gray;
+          }
+        }
+      }
+    }    
+  }
 }

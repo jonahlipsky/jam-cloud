@@ -22,12 +22,11 @@ export const fetchAllUsers = () => dispatch => {
 };
 
 export const signin = user => dispatch => {
-  
   return SESSION_API_UTIl.signin(user).then(
     user => dispatch(receiveCurrentUser(user)),
     err => dispatch(receiveSessionErrors(err.responseJSON))
-    );
-  };
+  );
+};
   
   
 export const signout = () => dispatch => (

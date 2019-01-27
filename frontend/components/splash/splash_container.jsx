@@ -69,8 +69,8 @@ class Splash extends React.Component {
         <div className='splash-welcome-text'>
           <h1>Discover music on JamCloud</h1>
 
-          <h2>Upload your own tracks, comment on others, find songs, connect
-            with artists, and stay up to date about their latest  releases!</h2>
+          <h3>Upload your own tracks, comment on others, find songs, connect
+            with artists, and stay up to date about their latest  releases!</h3>
           <Link to="/upload">Upload Your First Track Today</Link>
         </div>
 

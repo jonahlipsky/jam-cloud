@@ -5,13 +5,17 @@ import UploadStageTwo from './upload_stage_two';
 class UploadForm extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      title: "",
-      imageUrl: null,
-      imageFile: null,
-      trackUrl: null,
-      trackFile: null
-    };
+    if(this.props.track){
+      this.state = this.props.track;
+    } else {
+      this.state = {
+        title: "",
+        imageUrl: null,
+        imageFile: null,
+        trackUrl: null,
+        trackFile: null
+      };
+    }
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

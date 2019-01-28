@@ -7,8 +7,14 @@ export const RECEIVE_UPLOAD_ERRORS = "RECEIVE_UPLOAD_ERRORS";
 export const REMOVE_TRACK = "REMOVE_TRACK";
 export const UPDATE_TRACK = "UPDATE_TRACK";
 export const INCREMENT_FILE_UPLOAD_STAGE = "INCREMENT_FILE_UPLOAD_STAGE";
+export const EDIT_TRACK_NUMBER = "EDIT_TRACK_NUMBER";
 
 //action creators
+export const editTrackNumber = (id) => ({
+  type: EDIT_TRACK_NUMBER,
+  id
+});
+
 export const incrementFileUploadStage = (prevStage) => ({
   type: INCREMENT_FILE_UPLOAD_STAGE,
   prevStage

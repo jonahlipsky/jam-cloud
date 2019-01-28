@@ -1,10 +1,18 @@
 import React from 'react';
 
 export default ({mainContext}) => {
-
+  let image;
+  let toggleBackgroundImage = "";
+  if(mainContext.state.imageUrl){
+    image = <img src={mainContext.state.imageUrl}/>
+    toggleBackgroundImage = " no-background";
+  } else {
+    image = null;
+  }
   return(
     <form onSubmit={mainContext.handleSubmit(mainContext.props.formType)}>
-        <div className="image-upload">
+        <div className={`image-upload`+`${toggleBackgroundImage}`}>
+          {image}
           <div className="file-upload-box">
             <input className="file-upload" id='track-image-upload' type="file" 
               onChange={mainContext.handleFile('image')}/> 

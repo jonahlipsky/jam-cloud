@@ -7,15 +7,15 @@ class SoundPlay extends React.Component {
   }
 
   handleSongPlaying(){
-    debugger
+    // debugger
   }
 
   handleSongLoading(){
-    debugger
+    // debugger
   }
 
   handleSongFinishedPlaying(){
-    debugger
+    // debugger
   }
 
   render() {

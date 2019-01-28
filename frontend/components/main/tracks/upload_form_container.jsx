@@ -4,8 +4,20 @@ import UploadForm from './upload_form';
 
 const mapStateToProps = state => {
   let fileUploadStage = state.io.track.stage || 1;
+  let trackId = state.io.track.editId || null;
+  let track;
+  let formType;
+  if(trackId){
+    track = state.entities.tracks[trackId];
+    formType = "Update";
+  } else {
+    track = null;
+    formType = "Upload";
+  }
   return ({
-    fileUploadStage
+    fileUploadStage,
+    track,
+    formType
   });
 };
 

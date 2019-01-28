@@ -8,14 +8,12 @@ export default (state = {}, action) => {
   let user_id;
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, { [action.currentUser.id]: action.currentUser });
+      let newUser = merge({}, { id: action.currentUser.id, email: action.currentUser.email, 
+        username: action.currentUser.username, track_ids: action.currentUser.track_ids } );
+      return merge({}, state, { [action.currentUser.id]: newUser });
     case RECEIVE_ALL_USERS:
       action.users.forEach((user) => {
-        let tracks = [];
-        user.tracks.forEach((track) => {
-          tracks.push(track['id']);
-        });
-        let newUser = {id: user.id, email: user.email, username: user.username, track_ids: tracks};
+        let newUser = {id: user.id, email: user.email, username: user.username, track_ids: user.track_ids};
         newState[`${user.id}`] = newUser;
       });
       return newState;
@@ -24,7 +22,6 @@ export default (state = {}, action) => {
       newState[user_id].track_ids.push(action.track.id);
       return newState;
     case REMOVE_TRACK:
-      debugger
       user_id = action.track.user_id;
       let trackPosition = newState[user_id].track_ids.indexOf(action.track.id);
       newState[user_id].track_ids.splice(trackPosition, 1);

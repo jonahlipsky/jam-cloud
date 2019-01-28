@@ -1,8 +1,15 @@
 import React from 'react';
+import TracksDisplayContainer from './tracks_display_container';
 
 export default (props) => {
 
   return(
-    <h1 id={'show-tracks-testing'}>Show Tracks page!</h1>
+  
+    <div className="your-tracks-container">
+      <h1 className="">Your Tracks</h1>
+      <div className="show-tracks-container">
+        <TracksDisplayContainer />
+      </div>
+    </div>
   )
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import UploadContainer from '../../main/tracks/upload_container';
+import StreamContainer from '../../stream/stream_container';
 
 class NavBar extends React.Component {
   constructor(props){
@@ -35,7 +36,7 @@ class NavBar extends React.Component {
             <i className="fas fa-ellipsis-h"></i>
           </div>
         </div>
-        
+        <Route exact path={'/stream'} render={(props) => <StreamContainer {...props}/>} />/>
         <Route exact path={'/upload'} render={(props) => <UploadContainer {...props}/>}/>
         <Route exact path={'/you/tracks'} render={(props) => <UploadContainer {...props}/>}/>
       </>

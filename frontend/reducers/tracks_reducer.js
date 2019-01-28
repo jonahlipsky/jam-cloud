@@ -13,16 +13,16 @@ export default (state = {}, action) => {
       return newState;
     case RECEIVE_TRACK:
       return merge({}, state, {[action.track.id]: action.track});
-    case RECEIVE_ALL_USERS:
-      //this seems inefficient as it scales
-      //to do
-      //does this work? correct sample state?
-      action.users.forEach((user) => {
-        user.tracks.forEach((track) => {
-          newState = merge({}, newState, { [track.id]: track });
-        });
-      });
-      return newState;
+    // case RECEIVE_ALL_USERS:
+    //   //this seems inefficient as it scales
+    //   //to do
+    //   //does this work? correct sample state?
+    //   action.users.forEach((user) => {
+    //     user.tracks.forEach((track) => {
+    //       newState = merge({}, newState, { [track.id]: track });
+    //     });
+    //   });
+    //   return newState;
     case REMOVE_TRACK:
       let trackId = action.track.id;
       delete newState[trackId];

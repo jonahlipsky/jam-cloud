@@ -7,7 +7,7 @@ const Auth = ({component: Component, exact, path, loggedIn}) => (
     !loggedIn ? (
       <Component {...props} />
     ) : (
-      <Redirect to="/discover" />
+      <Redirect to="/stream" />
     )
   )} />
 )

@@ -9,10 +9,6 @@ class Upload extends React.Component{
 
   }
 
-  componentDidMount(){
-    this.props.fetchAllUsers();
-  }
-
   handleRemove(track){
     return e => {
       this.props.removeTrack(track);

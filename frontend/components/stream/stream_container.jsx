@@ -1,7 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchAllUsers } from '../../actions/session_actions';
+import { fetchTracks } from '../../actions/track_actions';
+import Stream from './stream';
 
-export default (props) => {
-  return(
-    <h1>Stream Page!</h1>
-  )
-}
+const mapDispatchToProps = dispatch => ({
+  fetchAllUsers: () => dispatch(fetchAllUsers()),
+  fetchTracks: () => dispatch(fetchTracks())
+});
+
+export default connect(null, mapDispatchToProps)(Stream);

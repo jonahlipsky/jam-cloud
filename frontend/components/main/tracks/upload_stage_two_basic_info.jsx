@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({mainContext}) => {
+export default ({mainContext, errors}) => {
   let image;
   let toggleBackgroundImage = "";
   if(mainContext.state.imageUrl){
@@ -9,6 +9,19 @@ export default ({mainContext}) => {
   } else {
     image = null;
   }
+  let uploadErrors;
+  if (errors.length){
+    uploadErrors = (
+      <ul>
+        {errors.map((error) => {
+          return(
+            <li className='upload-errors'>{error}</li>
+          )
+        })}
+      </ul>
+    )
+  }
+
   return(
     <form onSubmit={mainContext.handleSubmit(mainContext.props.formType)}>
         <div className={`image-upload`+`${toggleBackgroundImage}`}>
@@ -22,12 +35,13 @@ export default ({mainContext}) => {
         <div className="stage-two-basic-info">
 
           <div className="fields">
+            {uploadErrors}
             <label htmlFor="track-title">Title<p className="required-star">*</p></label>
             <input className="form-input-field" id='track-title' type="text" 
               value={mainContext.state.title} onChange={mainContext.handleInput.bind(mainContext)}/>
 
             <div className="submit-cancel">
-              <button className="cancel-upload">Cancel</button>
+              <button className="cancel-upload" onClick={mainContext.resetUpload}>Cancel</button>
               <input className='orange-btn' id='track-upload' type="submit" value="Save"/>
             </div>
           </div>

@@ -5,7 +5,6 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_UPLOAD_ERRORS: 
-      // debugger
       return action.errors.responseJSON; 
     case CLEAR_ERRORS:
       return [];

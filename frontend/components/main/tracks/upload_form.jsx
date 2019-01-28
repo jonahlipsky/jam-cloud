@@ -1,6 +1,7 @@
 import React from 'react';
 import UploadStageOne from './upload_stage_one';
 import UploadStageTwo from './upload_stage_two';
+import { Redirect } from 'react-router-dom';
 
 class UploadForm extends React.Component{
   constructor(props){
@@ -18,6 +19,7 @@ class UploadForm extends React.Component{
     }
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetUpload = this.resetUpload.bind(this);
   }
 
   componentDidMount(){
@@ -40,6 +42,10 @@ class UploadForm extends React.Component{
 
   handleInput(e){
     this.setState({title: e.currentTarget.value});
+  }
+
+  resetUpload(){
+    this.props.incrementStage(0);
   }
 
   handleFile(field){
@@ -77,9 +83,13 @@ class UploadForm extends React.Component{
         formData.append('track[track]', that.state.trackFile);
       }
       if(formType === 'Update'){
-        that.props.updateTrack(formData, that.props.track.id);
+        that.props.updateTrack(formData, that.props.track.id).then(() => {
+          this.setState({redirect: '/you/tracks'});
+        });
       } else {
-        that.props.postTrack(formData);
+        that.props.postTrack(formData).then(() => {
+          this.setState({redirect: '/you/tracks'});
+        });
       }
     };
   }
@@ -87,10 +97,14 @@ class UploadForm extends React.Component{
   render(){
     //consider using react-dropzone as things move forward
     //todo
-    // debugger
-    let component = this.props.fileUploadStage === 1 ? <UploadStageOne that={this} /> : <UploadStageTwo mainContext={this} />
+    let redirect = '';
+    if(this.state.redirect){
+      redirect = <Redirect to="/you/tracks" />
+    }
+    let component = this.props.fileUploadStage === 1 ? <UploadStageOne that={this} /> : <UploadStageTwo errors={this.props.errors} mainContext={this} />
     return(
       <>
+        {redirect}
         {component}
       </>
     )

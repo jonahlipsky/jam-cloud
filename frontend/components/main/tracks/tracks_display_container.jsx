@@ -7,11 +7,9 @@ const mapStateToProps = state => {
   let curUserTrackIds = state.entities.users[curUserId].track_ids;
   let tracks = [];
   let username = state.entities.users[curUserId].username;
-  // debugger
   curUserTrackIds.forEach((trackId) => {
     tracks.push(state.entities.tracks[trackId]);
   });
-  // debugger
   return({
     tracks,
     username

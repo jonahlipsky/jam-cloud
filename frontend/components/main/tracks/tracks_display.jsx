@@ -12,8 +12,6 @@ class TracksDisplay extends React.Component{
 
   render(){
     let trackListItems = this.props.tracks.map((track) => {
-      // debugger
-
       return <TrackListItem track={track} username={this.props.username} />
     });
     return(

@@ -14,10 +14,13 @@ const mapStateToProps = state => {
     track = null;
     formType = "Upload";
   }
+
+  let errors = state.errors.entities;
   return ({
     fileUploadStage,
     track,
-    formType
+    formType,
+    errors
   });
 };
 

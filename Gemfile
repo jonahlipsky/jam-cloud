@@ -29,7 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'activestorage'
 gem 'pg'
-
+gem 'sass'
 gem "aws-sdk-s3"
 
 # Use ActiveStorage variant

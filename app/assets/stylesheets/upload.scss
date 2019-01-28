@@ -36,7 +36,7 @@ $background-gray: #f2f2f2;
 .orange-btn{
   color: white;
   background-color: $button-orange;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid $button-orange;
 }
 
@@ -114,7 +114,6 @@ $background-gray: #f2f2f2;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border: 1px solid red;
 
   .track-upload-stage-two-nav{
     width: 100%;
@@ -138,37 +137,29 @@ $background-gray: #f2f2f2;
   .track-upload-stage-two-body{
     position: relative;
     width: 100%;
-    border: 1px solid blue;
 
     form{
       margin-top: 15px;
       display: flex;
       flex-direction: row;
-      border: 1px solid green;
 
       .image-upload{
-        position: relative;
         width: 200px;
         height: 200px;
-        background: $light-gray;
-        border: 1px solid red;
+        background-image: url(/assets/blur-cloud.png);
+        background-size: 100% 100%;
         margin-left: 15px;
-
-
-        .fa-music{
-          justify-self: center;
-          font-size: 40px;
-          display: inline-block;
-          border: 1px solid blue;
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        
 
         div {
-          justify-self: flex-end;
-          background-color: $background-gray;
-          opacity: .5;
-          border: 1px solid red;
+          background-color: rgb(134, 133, 133);
+          opacity: .75;
           width: 75%;
-          // margin: 0 auto;
+          margin-bottom: 10px;
           
         }
       }
@@ -184,9 +175,26 @@ $background-gray: #f2f2f2;
             width: 100%;
             border-radius: 3px;
             border: 1px solid $mid-gray;
+            margin: 10px 0;
+          }
+
+          .submit-cancel{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            *{
+              padding: 5px;
+              margin: 5px 0 5px 5px;
+            }
           }
         }
       }
     }    
   }
+}
+
+.required-star{
+  color: red;
+  display: inline-block;
 }

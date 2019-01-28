@@ -50,8 +50,9 @@ class UploadForm extends React.Component{
       if(file){
         fileReader.readAsDataURL(file);
       }
-      // debugger
-      this.props.incrementStage(this.props.fileUploadStage);
+      if(this.props.fileUploadStage === 1){
+        this.props.incrementStage(this.props.fileUploadStage);
+      }
     };
   }
 

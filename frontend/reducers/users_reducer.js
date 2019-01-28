@@ -15,16 +15,16 @@ export default (state = {}, action) => {
         user.tracks.forEach((track) => {
           tracks.push(track['id']);
         });
-        let newUser = {id: user.id, email: user.email, track_ids: tracks};
+        let newUser = {id: user.id, email: user.email, username: user.username, track_ids: tracks};
         newState[`${user.id}`] = newUser;
       });
       return newState;
     case RECEIVE_TRACK:
       user_id = action.track.user_id;
-      newState = newState[user_id].track_ids.push(action.track.id);
+      newState[user_id].track_ids.push(action.track.id);
       return newState;
     case REMOVE_TRACK:
-      debugger  
+      debugger
       user_id = action.track.user_id;
       let trackPosition = newState[user_id].track_ids.indexOf(action.track.id);
       newState[user_id].track_ids.splice(trackPosition, 1);

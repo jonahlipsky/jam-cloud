@@ -1,25 +1,26 @@
 import React from 'react';
-import SoundPlay from '../sound/sound';
 import { removeTrack, editTrackNumber } from '../../../actions/track_actions';
+import { pushTrackToQueue } from '../../../actions/sound_controller_actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 const mapDispatchToProps = dispatch => ({
   removeTrack: (track) => dispatch(removeTrack(track)),
-  editTrackNumber: (id) => dispatch(editTrackNumber(id))
+  editTrackNumber: (id) => dispatch(editTrackNumber(id)),
+  pushTrackToQueue: (trackId) => dispatch(pushTrackToQueue(trackId))
 });
 
 class TrackListItem extends React.Component{
   constructor(props){
     super(props);
-    this.state = {sound: null, redirect: null}; 
-    this.renderSound = this.renderSound.bind(this);
+    this.state = {redirect: null}; 
+    this.playTrack = this.playTrack.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
   }
 
-  renderSound(){
-    this.setState({sound: <SoundPlay soundUrl={this.props.track.trackUrl} />})
+  playTrack(){
+    this.props.pushTrackToQueue(this.props.track.id);
   }
 
   handleDelete(){
@@ -38,8 +39,8 @@ class TrackListItem extends React.Component{
         {this.state.sound}
         <div className="track-list-item-image-container">
           <img src={`${this.props.track.imageUrl}`}/>
-          <i className="fa fa-caret-right custom" onClick={this.renderSound}></i>
-          <i className="fas fa-circle" onClick={this.renderSound}></i>
+          <i className="fa fa-caret-right custom" onClick={this.playTrack}></i>
+          <i className="fas fa-circle" onClick={this.playTrack}></i>
         </div>
         <div className="title-author">
           <p className="current-username">{this.props.username}</p>

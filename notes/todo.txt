@@ -1,3 +1,8 @@
+PRODUCTION TO DO
+  -fix seed data
+    -auto picture
+    -seed users / tracks
+
 JAN 28
   -remove dead links from nav bar
   -or at least add core functionality where possible

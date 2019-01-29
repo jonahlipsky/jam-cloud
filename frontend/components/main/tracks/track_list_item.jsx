@@ -1,13 +1,14 @@
 import React from 'react';
 import { removeTrack, editTrackNumber } from '../../../actions/track_actions';
-import { pushTrackToQueue } from '../../../actions/sound_controller_actions';
+import { pushTrackToQueue, pushToFrontOfQueue } from '../../../actions/sound_controller_actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 const mapDispatchToProps = dispatch => ({
   removeTrack: (track) => dispatch(removeTrack(track)),
   editTrackNumber: (id) => dispatch(editTrackNumber(id)),
-  pushTrackToQueue: (trackId) => dispatch(pushTrackToQueue(trackId))
+  pushTrackToQueue: (trackId) => dispatch(pushTrackToQueue(trackId)),
+  pushToFrontOfQueue: (trackId) => dispatch(pushToFrontOfQueue(trackId))
 });
 
 class TrackListItem extends React.Component{
@@ -20,7 +21,7 @@ class TrackListItem extends React.Component{
   }
 
   playTrack(){
-    this.props.pushTrackToQueue(this.props.track.id);
+    this.props.pushToFrontOfQueue(this.props.track.id);
   }
 
   handleDelete(){

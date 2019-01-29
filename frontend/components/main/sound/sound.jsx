@@ -10,17 +10,35 @@ import Sound from 'react-sound';
 class SoundPlay extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {status: Sound.status.PLAYING};
+    this.state = {position: 0, backPressed: this.props.backPressed};
   }
 
   handleSongPlaying(playingObject){
-    debugger
+    this.setState({position: playingObject.position});
+    if(this.props.backPressed && playingObject.position < 1500){
+      this.props.goToPreviousTrack();
+      this.setState({position: 0});
+      this.props.toggleBack();
+    } else if (this.props.backPressed){
+      this.setState({ position: 0 });
+      this.props.toggleBack();
+    }
+  }
+
+  componentDidUpdate(){
+    if(this.props.immediate){
+      this.setState({position: 0});
+      this.props.forcePlay();
+      this.props.toggleImmediate();
+    }
   }
 
   handleSongLoading(){
+
   }
 
   handleSongFinishedPlaying(){
+
   }
 
   soundStatus(){
@@ -41,8 +59,9 @@ class SoundPlay extends React.Component {
       sound = (<Sound
         url={this.props.currentTrack.trackUrl}
         playStatus={status}
+        position={this.state.position}
         onLoading={this.handleSongLoading}
-        onPlaying={this.handleSongPlaying}
+        onPlaying={this.handleSongPlaying.bind(this)}
         onFinishedPlaying={this.handleSongFinishedPlaying}
       />)
     } else {

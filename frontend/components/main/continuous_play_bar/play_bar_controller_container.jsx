@@ -3,7 +3,7 @@ import { goToNextTrack } from '../../../actions/sound_controller_actions';
 import PlayBarController from './play_bar_controller';
 
 const mapStateToProps = state => {
-  let trackQueue = state.io.trackQueue || null;
+  let trackQueue = state.io.trackQueue.queue || null;
   return({
     trackQueue
   });

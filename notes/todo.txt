@@ -1,31 +1,44 @@
+JAN 28
+  -remove dead links from nav bar
+  -or at least add core functionality where possible
+  -such as routing to a different url and putting empty components
+  -make the modal for the upload
+  -get really clear on what overlap  there is between auth and protected routes
+  -make a protected route for upload container
+  -have this simply display a form with title, a place to upload a file,
+   and a place to upload an image. 
+   For now, we can disable albums, and instead just do playlists. I don't see 
+   on the main part of soundcloud where one can upload or group files into an album.
+  -For this feature, for now, let's shoot for having two nav bar headings, upload, and your tracks.
+
 JAN 24
 
 For the weekend: 
-  -style upload page
-  -style track show page
-  -remove dead links from nav bar
+  /-style upload page
+  /-style track show page
+  /-remove dead links from nav bar
     -or at least add core functionality where possible
       -such as routing to a different url and putting empty components
-  -make the modal for the upload
-  -get really clear on what overlap  there is between auth and protected routes
-  -start to build around this
-  -get audio play working
+  /-make the modal for the upload
+  /-get really clear on what overlap  there is between auth and protected routes
+  /-start to build around this
+  /-get audio play working
 
 
 Leftover: 
-  -style the upload page
-  -find a simple way to trigger song play (though not continuous)
+  /-style the upload page
+  /-find a simple way to trigger song play (though not continuous)
   
 
-  -make a protected route for upload container
-  -have this simply display a form with title, a place to upload a file,
+  /-make a protected route for upload container
+  /-have this simply display a form with title, a place to upload a file,
    and a place to upload an image. 
    For now, we can disable albums, and instead just do playlists. I don't see 
    on the main part of soundcloud where one can upload or group files into an album.
    
   For this feature, for now, let's shoot for having two nav bar headings, upload, and your tracks.
 
-styling
+/styling
   -the whole fadein / move down is a transition. 
   -I should be able to connect them. 
 

@@ -4,14 +4,22 @@ import { merge } from 'lodash';
 export default (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
+  let queue;
   switch(action.type){
     case GO_TO_NEXT_TRACK:
-      return newState.queue.slice(1);
+      queue = newState.queue.slice(1);
+      return merge(newState, { queue });
     case PUSH_TRACK_TO_QUEUE:
       newState.queue.push(action.trackId);
-      let queue = newState.queue;
+      queue = newState.queue;
       return merge({}, {queue});
+    case TOGGLE_SHUFFLE:
+      if(newState.shuffle){
+        return merge(newState, { shuffle: false });
+      } else {
+        return merge(newState, { shuffle: true });
+      }
     default: 
-      return {queue: []};
+      return { queue: [], shuffle: false };
   }
 };

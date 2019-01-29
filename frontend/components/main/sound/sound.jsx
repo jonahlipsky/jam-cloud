@@ -13,7 +13,8 @@ class SoundPlay extends React.Component {
     // this.state = {status: Sound.status.PLAYING};
   }
 
-  handleSongPlaying(){
+  handleSongPlaying(playingObject){
+    debugger
   }
 
   handleSongLoading(){

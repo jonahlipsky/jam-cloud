@@ -1,4 +1,4 @@
-import { GO_TO_NEXT_TRACK, PUSH_TRACK_TO_QUEUE } from '../actions/sound_controller_actions';
+import { GO_TO_NEXT_TRACK, PUSH_TRACK_TO_QUEUE, TOGGLE_SHUFFLE } from '../actions/sound_controller_actions';
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {

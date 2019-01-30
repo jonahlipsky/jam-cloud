@@ -21,6 +21,7 @@ class PlayBarController extends React.Component{
       this.setState({ soundStatus: "PLAYING" });
       this.setLocalInterval();
     } else if (this.state.soundStatus === "PLAYING"){
+      debugger
       this.setState({soundStatus: "PAUSED"});
       this.clearLocalInterval();
     }
@@ -46,6 +47,9 @@ class PlayBarController extends React.Component{
   forcePlay(){
     if(!(this.state.soundStatus === "PLAYING")){
       this.togglePlay();
+    } else {
+      this.clearLocalInterval();
+      this.setLocalInterval();
     }
   }
 

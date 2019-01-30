@@ -1,6 +1,6 @@
 import { GO_TO_NEXT_TRACK, PUSH_TRACK_TO_QUEUE, TOGGLE_SHUFFLE, 
   GO_TO_PREVIOUS_TRACK, PUSH_TO_FRONT_OF_QUEUE, 
-  TOGGLE_IMMEDIATE, SEND_PERCENTAGE_COMPLETE, SEND_CURRENT_PERCENTAGE,
+  CLEAR_IMMEDIATE, SEND_PERCENTAGE_COMPLETE, SEND_CURRENT_PERCENTAGE,
   CLEAR_CURRENT_PERCENTAGE } from '../actions/sound_controller_actions';
 import { merge } from 'lodash';
 
@@ -27,12 +27,8 @@ export default (state = {}, action) => {
     case PUSH_TRACK_TO_QUEUE:
       newState.queue.push(action.trackId);
       return newState;
-    case TOGGLE_IMMEDIATE:
-      if(newState.immediate){
-        newState.immediate = false;
-      } else {
-        newState.immediate = true;
-      }
+    case CLEAR_IMMEDIATE:
+      newState.immediate = false;
       return newState;
     case GO_TO_PREVIOUS_TRACK:
       if(newState.prevQueue.length){

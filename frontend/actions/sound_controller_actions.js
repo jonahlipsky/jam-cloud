@@ -3,7 +3,7 @@ export const GO_TO_NEXT_TRACK = "GO_TO_NEXT_TRACK";
 export const TOGGLE_SHUFFLE = "TOGGLE_SHUFFLE";
 export const GO_TO_PREVIOUS_TRACK = "GO_TO_PREVIOUS_TRACK";
 export const PUSH_TO_FRONT_OF_QUEUE = "PUSH_TO_FRONT_OF_QUEUE";
-export const TOGGLE_IMMEDIATE = "TOGGLE_IMMEDIATE";
+export const CLEAR_IMMEDIATE = "CLEAR_IMMEDIATE";
 export const SEND_PERCENTAGE_COMPLETE = "SEND_PERCENTAGE_COMPLETE";
 export const SEND_CURRENT_PERCENTAGE = "SEND_CURRENT_PERCENTAGE";
 export const CLEAR_CURRENT_PERCENTAGE = "CLEAR_CURRENT_PERCENTAGE";
@@ -23,8 +23,8 @@ export const sendPercentageComplete = (percentageComplete, duration) => ({
   duration
 });
 
-export const toggleImmediate = () => ({
-  type: TOGGLE_IMMEDIATE
+export const clearImmediate = () => ({
+  type: CLEAR_IMMEDIATE
 });
 
 export const pushToFrontOfQueue = (trackId) => ({

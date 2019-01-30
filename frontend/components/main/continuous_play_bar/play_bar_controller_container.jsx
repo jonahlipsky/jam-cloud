@@ -9,7 +9,7 @@ const mapStateToProps = state => {
   let nTracks = trackIds.length;
   let duration = state.io.trackQueue.duration;
   let percentageComplete = state.io.trackQueue.percentageComplete;
-  let currentMilliseconds = Math.floor(percentageComplete * duration);
+  let currentMilliseconds = Math.floor((percentageComplete / 100) * duration);
 
   return({
     trackQueue,

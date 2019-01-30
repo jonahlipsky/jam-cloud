@@ -10,6 +10,10 @@ class ProgressBar extends React.Component{
     let playBarMainFrame = $(".continuous-play-bar-main-frame")[0];
     let percentage = ((e.clientX - (playBarMainFrame.offsetLeft + 
       e.currentTarget.offsetLeft)) * 100) / e.currentTarget.offsetWidth;
+    if(percentage > 100){
+      console.log(`e.clientX: ${e.clientX}, playBarMainFrame.offsetLeft: ${playBarMainFrame.offsetLeft}
+      e.currentTarget.offsetLeft: ${e.currentTarget.offsetLeft} e.currentTarget.offsetWidth: ${e.currentTarget.offsetWidth}`)
+    }
     this.props.sendCurrentPercentage(percentage);
   }
 

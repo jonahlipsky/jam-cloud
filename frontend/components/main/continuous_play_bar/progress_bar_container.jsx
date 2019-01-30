@@ -5,8 +5,7 @@ import { sendCurrentPercentage } from '../../../actions/sound_controller_actions
 const mapStateToProps = state => {
   let duration = state.io.trackQueue.duration;
   let percentageComplete = state.io.trackQueue.percentageComplete;
-  let currentMilliseconds = Math.floor(percentageComplete * duration);
-  percentageComplete = Math.floor(percentageComplete * 100);
+  let currentMilliseconds = Math.floor((percentageComplete / 100) * duration);
 
   duration = `${duration / 1000}`.toHHMMSS();
   let currentTime = `${currentMilliseconds / 1000}`.toHHMMSS();

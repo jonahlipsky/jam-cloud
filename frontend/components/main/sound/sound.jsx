@@ -17,7 +17,8 @@ class SoundPlay extends React.Component {
 
   handleSongPlaying(playingObject){
     this.setState({position: playingObject.position});
-    let percentageComplete = playingObject.position / playingObject.duration;
+    let percentageComplete = ((playingObject.position / playingObject.duration) * 100) || 0;
+    debugger
     this.props.sendPercentageComplete(percentageComplete, playingObject.duration);
   
     if(this.props.backPressed && playingObject.position < 1500){
@@ -41,28 +42,41 @@ class SoundPlay extends React.Component {
 
   componentDidUpdate(prevProps){
     if(this.props.immediate){
+      this.props.clearImmediate();
       this.setState({position: 0});
       this.props.forcePlay();
-      this.props.toggleImmediate();
     } else if (this.props.currentPercentage){
+      this.props.clearCurrentPercentage();
       let position = Math.floor((this.props.currentPercentage / 100) * this.state.duration);
       this.setState({ position });
       this.props.sendPercentageComplete(this.props.currentPercentage, this.state.duration);
-      this.props.clearCurrentPercentage();
       this.resetInterval();
     }
   }
 
+  handleSongLoaded(){
+    this.resetInterval();
+  }
+
   handleSongLoading(loadingObject){
-    if(!(loadingObject.duration === this.state.duration)){
+    if(loadingObject.duration != this.state.duration){
       this.setState({duration: loadingObject.duration, position: 0});
       this.props.sendPercentageComplete(0, loadingObject.duration);
     }
   }
 
   handleSongFinishedPlaying(){
+    console.log('finished')
     this.setState({position: 0});
-    this.props.goToNextTrack();
+    debugger
+    if(this.props.nextTrack){
+      this.props.goToNextTrack();
+    } else {
+      this.props.sendPercentageComplete(0, this.state.duration);
+      debugger
+      this.props.playBarControllerContext.togglePlay();
+    }
+    // handle the case where there is no more songs in the queue
   }
 
   soundStatus(){
@@ -84,6 +98,7 @@ class SoundPlay extends React.Component {
         url={this.props.currentTrack.trackUrl}
         playStatus={status}
         position={this.state.position}
+        onLoad={this.handleSongLoaded.bind(this)}
         onLoading={this.handleSongLoading}
         onPlaying={this.handleSongPlaying.bind(this)}
         onFinishedPlaying={this.handleSongFinishedPlaying}

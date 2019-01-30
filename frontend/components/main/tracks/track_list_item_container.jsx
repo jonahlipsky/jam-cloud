@@ -1,5 +1,5 @@
 import { removeTrack, editTrackNumber, noListItemFrozen, freezeListItem } from '../../../actions/track_actions';
-import { pushTrackToQueue, pushToFrontOfQueue } from '../../../actions/sound_controller_actions';
+import { pushTrackToQueue, pushToFrontOfQueue, clearImmediate } from '../../../actions/sound_controller_actions';
 import { connect } from 'react-redux';
 import TrackListItem from './track_list_item';
 
@@ -16,7 +16,9 @@ const mapDispatchToProps = dispatch => ({
   pushTrackToQueue: (trackId) => dispatch(pushTrackToQueue(trackId)),
   pushToFrontOfQueue: (trackId) => dispatch(pushToFrontOfQueue(trackId)),
   freezeListItem: (trackId) => dispatch(freezeListItem(trackId)),
-  noListItemFrozen: () => dispatch(noListItemFrozen())
+  noListItemFrozen: () => dispatch(noListItemFrozen()),
+  clearImmediate: () => dispatch(clearImmediate()),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackListItem);

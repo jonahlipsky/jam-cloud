@@ -7,10 +7,17 @@ const mapStateToProps = state => {
   let trackQueue = state.io.trackQueue;
   let trackIds = Object.keys(state.entities.tracks);
   let nTracks = trackIds.length;
+  let duration = state.io.trackQueue.duration;
+  let percentageComplete = state.io.trackQueue.percentageComplete;
+  let currentMilliseconds = Math.floor(percentageComplete * duration);
+
   return({
     trackQueue,
     shuffle,
-    nTracks
+    nTracks,
+    duration,
+    percentageComplete,
+    currentMilliseconds
   });
 };
 

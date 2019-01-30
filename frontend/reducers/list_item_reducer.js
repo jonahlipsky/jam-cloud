@@ -8,6 +8,10 @@ export default (state = {}, action) => {
     case NO_LIST_ITEM_FROZEN:
       return { liSelected: null };
     default:
-      return { liSelected: null };
+      if(!state.liSelected){
+        return { liSelected: null };
+      } else{
+        return state;
+      }
   }
 };

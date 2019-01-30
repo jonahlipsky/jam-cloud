@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
 import Sound from './sound';
 import { goToNextTrack, goToPreviousTrack, 
-  toggleImmediate, sendPercentageComplete } from '../../../actions/sound_controller_actions';
+  toggleImmediate, sendPercentageComplete, 
+  clearCurrentPercentage } from '../../../actions/sound_controller_actions';
 
 const mapStateToProps = state => {
   let currentTrackId = state.io.trackQueue.queue[0] || null;
   let currentTrack = state.entities.tracks[currentTrackId] || null;
   let immediate = state.io.trackQueue.immediate;
+  let currentPercentage = state.io.trackQueue.currentPercentage;
   return ({
     currentTrack,
-    immediate
+    immediate,
+    currentPercentage
   });
 };
 
@@ -19,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   toggleImmediate: () => dispatch(toggleImmediate()),
   sendPercentageComplete: (percentageComplete, duration) => (
     dispatch(sendPercentageComplete(percentageComplete, duration))
-  )
+  ),
+  clearCurrentPercentage: () => dispatch(clearCurrentPercentage())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sound);

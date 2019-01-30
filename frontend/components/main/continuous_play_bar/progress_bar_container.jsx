@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ProgressBar from './progress_bar';
+import { sendCurrentPercentage } from '../../../actions/sound_controller_actions';
 
 const mapStateToProps = state => {
   let duration = state.io.trackQueue.duration;
@@ -16,6 +17,9 @@ const mapStateToProps = state => {
   });
 };
 
+const mapDispatchToProps = dispatch => ({
+  sendCurrentPercentage: (percentage) => dispatch(sendCurrentPercentage(percentage))
+});
 
 //for ease of translating duration to time.
 //https://stackoverflow.com/questions/6312993/javascript-seconds-to-time-string-with-format-hhmmss
@@ -36,4 +40,4 @@ String.prototype.toHHMMSS = function () {
 };
 
 
-export default connect(mapStateToProps)(ProgressBar);
+export default connect(mapStateToProps, mapDispatchToProps)(ProgressBar);

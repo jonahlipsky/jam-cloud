@@ -16,21 +16,6 @@ class Upload extends React.Component{
   }
 
   render(){
-    // let tracks;
-    // if(this.props.currentUserTracks){
-    //   tracks = this.props.currentUserTracks.map((track, i) => {
-    //       return <li key={i}> Track: {track.title}  
-    //       <button onClick={this.handleRemove(track)}>Delete Track</button>
-    //       <img className="image-test-class" src={track.image} />
-    //       <audio src={track.track} />
-    //         {/* <source src={track.track}></source>
-    //       </audio> */}
-    //       <UploadForm track={track} formType={"Update"} />
-    //       </li>
-    //   })
-    // } else {
-    //   tracks = ''
-    // }
     return(
       
       <div className="upload-container page-centered-inner">
@@ -44,11 +29,6 @@ class Upload extends React.Component{
           <Route path='/you/tracks' render={(props) => <ShowTracks {...props}/>}/>
         </Switch>
         
-        {/* <UploadForm formType={"Upload"}/> */}
-        {/* <ProtectedRoute exact path="/you/tracks" component={UploadForm}/> */}
-        {/* <ul>
-          {tracks}
-        </ul> */}
       </div>
       
     ) 

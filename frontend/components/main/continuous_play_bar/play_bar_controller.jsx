@@ -5,24 +5,47 @@ import ProgressBarContainer from './progress_bar_container';
 class PlayBarController extends React.Component{
   constructor(props){
     super(props);
-    this.state = {soundStatus: "PAUSED", backPressed: false, shuffleClass: "fa fa-random"};
+    this.state = {soundStatus: "PAUSED", backPressed: false, 
+      shuffleClass: "fa fa-random", milliseconds: 0};
     this.togglePlay = this.togglePlay.bind(this);
     this.toggleBack = this.toggleBack.bind(this);
     this.forcePlay = this.forcePlay.bind(this);
     this.toggleShuffle = this.toggleShuffle.bind(this);
+    this.clearLocalInterval = this.clearLocalInterval.bind(this);
+    this.setLocalInterval = this.setLocalInterval.bind(this);
+    this.trackProgess = null;
   }
 
   togglePlay(){
     if (!(this.state.soundStatus === "PLAYING") && this.props.trackQueue.queue.length ){
-      this.setState({soundStatus: "PLAYING"});
+      this.setState({ soundStatus: "PLAYING" });
+      this.setLocalInterval();
     } else if (this.state.soundStatus === "PLAYING"){
       this.setState({soundStatus: "PAUSED"});
+      this.clearLocalInterval();
     }
+  }
+
+  setLocalInterval(){
+    let milliseconds = this.props.currentMilliseconds;
+    this.setState({ milliseconds });
+    let that = this;
+    let intervalId = setInterval(() => {
+      let percentage = (((that.state.milliseconds + 10) * 100) / that.props.duration);
+      $("#track-progress").css({width: `${percentage}%`});
+      $("#track-progress-circle").css({left: `${percentage}%`});
+      that.setState({milliseconds: that.state.milliseconds + 10});
+    }, 10);
+    this.setState({ intervalId }); 
+  }
+
+  clearLocalInterval(){
+    clearInterval(this.state.intervalId);
   }
 
   forcePlay(){
     if(!(this.state.soundStatus === "PLAYING")){
-      this.setState({soundStatus: "PLAYING"});
+      this.togglePlay();
     }
   }
 
@@ -47,12 +70,9 @@ class PlayBarController extends React.Component{
   }
 
   render(){
-    let soundStatus = this.state.soundStatus;
     let playBarControllerContext = this;
     let iconClass = this.state.soundStatus === "PLAYING" ? "fas fa-pause" : "fas fa-play";
-    let backPressed = this.state.backPressed;
     let toggleBack = this.toggleBack.bind(this);
-    let forcePlay = this.forcePlay;
     let shuffleClass = this.state.shuffleClass;
     let nTracks = this.props.nTracks;
     return(
@@ -63,8 +83,9 @@ class PlayBarController extends React.Component{
         <button><i className={shuffleClass} onClick={() => this.toggleShuffle(nTracks)}></i></button>
         <ProgressBarContainer />
 
-        <SoundContainer playBarControllerContext={playBarControllerContext} forcePlay={forcePlay}
-          toggleBack={toggleBack} soundStatus={soundStatus} backPressed={backPressed}/>
+        <SoundContainer playBarControllerContext={playBarControllerContext} forcePlay={this.forcePlay}
+          toggleBack={toggleBack} soundStatus={this.state.soundStatus} backPressed={this.state.backPressed}
+          clearLocalInterval={this.clearLocalInterval} setLocalInterval={this.setLocalInterval}/>
     </div>
     )
   }

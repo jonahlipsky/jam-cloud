@@ -3,7 +3,7 @@ $mid-gray: rgb(60, 60, 60);
 $light-gray: rgb(150,150,150);
 $background-gray: #f2f2f2;
 $lighter-gray: #cecece;
-
+$button-hover-orange: rgb(255, 60, 0);
 
 
 .upload-container{
@@ -292,7 +292,7 @@ $lighter-gray: #cecece;
   }
 
   .fa-circle:hover{
-    color: rgb(255, 60, 0);
+    color: $button-hover-orange;
   }
 
   .fa-caret-right{

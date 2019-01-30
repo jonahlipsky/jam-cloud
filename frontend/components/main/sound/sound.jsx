@@ -10,36 +10,58 @@ import Sound from 'react-sound';
 class SoundPlay extends React.Component {
   constructor(props){
     super(props);
-    this.state = {position: 0, backPressed: this.props.backPressed};
+    this.state = {position: 0, backPressed: this.props.backPressed, duration: 0};
+    this.handleSongLoading = this.handleSongLoading.bind(this);
+    this.handleSongFinishedPlaying = this.handleSongFinishedPlaying.bind(this);
   }
 
   handleSongPlaying(playingObject){
     this.setState({position: playingObject.position});
     let percentageComplete = playingObject.position / playingObject.duration;
     this.props.sendPercentageComplete(percentageComplete, playingObject.duration);
+  
     if(this.props.backPressed && playingObject.position < 1500){
       this.props.goToPreviousTrack();
       this.setState({position: 0});
       this.props.toggleBack();
+      this.resetInterval();
     } else if (this.props.backPressed){
       this.setState({ position: 0 });
       this.props.toggleBack();
+      this.resetInterval();
     }
   }
 
-  componentDidUpdate(){
+  resetInterval(){
+    this.props.clearLocalInterval();
+    setTimeout(() => {
+      this.props.setLocalInterval();
+    }, 100);
+  }
+
+  componentDidUpdate(prevProps){
     if(this.props.immediate){
       this.setState({position: 0});
       this.props.forcePlay();
       this.props.toggleImmediate();
+    } else if (this.props.currentPercentage){
+      let position = Math.floor((this.props.currentPercentage / 100) * this.state.duration);
+      this.setState({ position });
+      this.props.sendPercentageComplete(this.props.currentPercentage, this.state.duration);
+      this.props.clearCurrentPercentage();
+      this.resetInterval();
     }
   }
 
-  handleSongLoading(){
-
+  handleSongLoading(loadingObject){
+    if(!(loadingObject.duration === this.state.duration)){
+      this.setState({duration: loadingObject.duration, position: 0});
+      this.props.sendPercentageComplete(0, loadingObject.duration);
+    }
   }
 
   handleSongFinishedPlaying(){
+    this.setState({position: 0});
     this.props.goToNextTrack();
   }
 
@@ -58,7 +80,7 @@ class SoundPlay extends React.Component {
     let status = this.soundStatus();
     let sound;
     if(this.props.currentTrack){
-      sound = (<Sound
+      sound = (<Sound autoLoad={true}
         url={this.props.currentTrack.trackUrl}
         playStatus={status}
         position={this.state.position}

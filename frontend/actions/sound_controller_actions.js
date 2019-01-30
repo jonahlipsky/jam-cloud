@@ -5,8 +5,17 @@ export const GO_TO_PREVIOUS_TRACK = "GO_TO_PREVIOUS_TRACK";
 export const PUSH_TO_FRONT_OF_QUEUE = "PUSH_TO_FRONT_OF_QUEUE";
 export const TOGGLE_IMMEDIATE = "TOGGLE_IMMEDIATE";
 export const SEND_PERCENTAGE_COMPLETE = "SEND_PERCENTAGE_COMPLETE";
+export const SEND_CURRENT_PERCENTAGE = "SEND_CURRENT_PERCENTAGE";
+export const CLEAR_CURRENT_PERCENTAGE = "CLEAR_CURRENT_PERCENTAGE";
 
+export const clearCurrentPercentage = () => ({
+  type: CLEAR_CURRENT_PERCENTAGE
+});
 
+export const sendCurrentPercentage = (percentage) => ({
+  type: SEND_CURRENT_PERCENTAGE,
+  percentage
+});
 
 export const sendPercentageComplete = (percentageComplete, duration) => ({
   type: SEND_PERCENTAGE_COMPLETE,

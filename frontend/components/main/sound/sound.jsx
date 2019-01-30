@@ -15,6 +15,8 @@ class SoundPlay extends React.Component {
 
   handleSongPlaying(playingObject){
     this.setState({position: playingObject.position});
+    let percentageComplete = playingObject.position / playingObject.duration;
+    this.props.sendPercentageComplete(percentageComplete, playingObject.duration);
     if(this.props.backPressed && playingObject.position < 1500){
       this.props.goToPreviousTrack();
       this.setState({position: 0});

@@ -1,12 +1,16 @@
 import { GO_TO_NEXT_TRACK, PUSH_TRACK_TO_QUEUE, TOGGLE_SHUFFLE, 
   GO_TO_PREVIOUS_TRACK, PUSH_TO_FRONT_OF_QUEUE, 
-  TOGGLE_IMMEDIATE } from '../actions/sound_controller_actions';
+  TOGGLE_IMMEDIATE, SEND_PERCENTAGE_COMPLETE } from '../actions/sound_controller_actions';
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch(action.type){
+    case SEND_PERCENTAGE_COMPLETE:
+      newState.duration = action.duration;
+      newState.percentageComplete = action.percentageComplete;
+      return newState;
     case GO_TO_NEXT_TRACK:
       if(newState.queue[0] && newState.queue[1]){
         newState.prevQueue.push(newState.queue[0]);
@@ -42,14 +46,14 @@ export default (state = {}, action) => {
         return merge(newState, { shuffle: false });
       } else {
         newState.queue = randomizeTracks(action.nTracks);
-        debugger
         return merge(newState, { shuffle: true });
       }
     default: 
       if( state.queue ){
         return newState;
       } else {
-        return { queue: [], prevQueue: [], shuffle: false, immediate: false };
+        return { queue: [], prevQueue: [], shuffle: false, immediate: false, 
+          duration: null, percentageComplete: null };
       }
   }
 };

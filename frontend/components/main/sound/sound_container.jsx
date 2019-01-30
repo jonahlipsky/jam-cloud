@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Sound from './sound';
-import { goToNextTrack, goToPreviousTrack, toggleImmediate } from '../../../actions/sound_controller_actions';
+import { goToNextTrack, goToPreviousTrack, 
+  toggleImmediate, sendPercentageComplete } from '../../../actions/sound_controller_actions';
 
 const mapStateToProps = state => {
   let currentTrackId = state.io.trackQueue.queue[0] || null;
@@ -15,7 +16,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   goToNextTrack: () => dispatch(goToNextTrack()),
   goToPreviousTrack: () => dispatch(goToPreviousTrack()),
-  toggleImmediate: () => dispatch(toggleImmediate())
+  toggleImmediate: () => dispatch(toggleImmediate()),
+  sendPercentageComplete: (percentageComplete, duration) => (
+    dispatch(sendPercentageComplete(percentageComplete, duration))
+  )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sound);

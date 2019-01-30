@@ -1,5 +1,6 @@
 import React from 'react';
 import SoundContainer from '../sound/sound_container';
+import ProgressBarContainer from './progress_bar_container';
 
 class PlayBarController extends React.Component{
   constructor(props){
@@ -34,16 +35,8 @@ class PlayBarController extends React.Component{
   }
 
   toggleShuffle(){
-    // if(this.props.shuffle === false){
-      this.props.toggleShuffle(this.props.nTracks);
-    // } else {
-    //   this.props.toggleShuffle();
-    // }
+    this.props.toggleShuffle(this.props.nTracks);
   }
-
-  // componentDidMount(){
-  //   this.props.fetchTracks();
-  // }
 
   componentDidUpdate(){
     if(this.props.shuffle && this.state.shuffleClass === "fa fa-random"){
@@ -68,7 +61,8 @@ class PlayBarController extends React.Component{
         <button><i id='play-pause' className={iconClass} onClick={this.togglePlay}></i></button>
         <button><i className="fas fa-step-forward" onClick={() => this.props.goToNextTrack()}></i></button>
         <button><i className={shuffleClass} onClick={() => this.toggleShuffle(nTracks)}></i></button>
-        <button><i className="fa fa-repeat"></i></button>
+        <ProgressBarContainer />
+
         <SoundContainer playBarControllerContext={playBarControllerContext} forcePlay={forcePlay}
           toggleBack={toggleBack} soundStatus={soundStatus} backPressed={backPressed}/>
     </div>

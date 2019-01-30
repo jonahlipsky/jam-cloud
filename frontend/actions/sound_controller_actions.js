@@ -4,6 +4,15 @@ export const TOGGLE_SHUFFLE = "TOGGLE_SHUFFLE";
 export const GO_TO_PREVIOUS_TRACK = "GO_TO_PREVIOUS_TRACK";
 export const PUSH_TO_FRONT_OF_QUEUE = "PUSH_TO_FRONT_OF_QUEUE";
 export const TOGGLE_IMMEDIATE = "TOGGLE_IMMEDIATE";
+export const SEND_PERCENTAGE_COMPLETE = "SEND_PERCENTAGE_COMPLETE";
+
+
+
+export const sendPercentageComplete = (percentageComplete, duration) => ({
+  type: SEND_PERCENTAGE_COMPLETE,
+  percentageComplete,
+  duration
+});
 
 export const toggleImmediate = () => ({
   type: TOGGLE_IMMEDIATE

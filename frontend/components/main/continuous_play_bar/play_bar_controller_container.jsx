@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { goToNextTrack, toggleShuffle } from '../../../actions/sound_controller_actions';
 import PlayBarController from './play_bar_controller';
-import { fetchTracks } from '../../../actions/track_actions';
 
 const mapStateToProps = state => {
   let shuffle = state.io.trackQueue.shuffle;

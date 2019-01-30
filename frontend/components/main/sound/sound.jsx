@@ -10,7 +10,7 @@ import Sound from 'react-sound';
 class SoundPlay extends React.Component {
   constructor(props){
     super(props);
-    this.state = {position: 0, backPressed: this.props.backPressed, duration: 0};
+    this.state = {position: 0, backPressed: this.props.backPressed, duration: 0, autoLoad: false};
     this.handleSongLoading = this.handleSongLoading.bind(this);
     this.handleSongFinishedPlaying = this.handleSongFinishedPlaying.bind(this);
   }
@@ -43,18 +43,28 @@ class SoundPlay extends React.Component {
       this.props.clearImmediate();
       this.setState({position: 0});
       this.props.forcePlay();
-    } else if (this.props.currentPercentage){
+    } else if (this.props.currentPercentage && this.props.soundStatus === "PLAYING" ){
       this.props.clearCurrentPercentage();
       let position = Math.floor((this.props.currentPercentage / 100) * this.state.duration);
       this.setState({ position });
       this.props.sendPercentageComplete(this.props.currentPercentage, this.state.duration);
       this.resetInterval();
+    } else if (this.props.currentPercentage){
+      this.props.clearCurrentPercentage();
+      let position = Math.floor((this.props.currentPercentage / 100) * this.state.duration);
+      this.setState({ position });
+      this.props.sendPercentageComplete(this.props.currentPercentage, this.state.duration);
+      this.props.playBarControllerContext.setProgressBar(this.props.currentPercentage);
     }
   }
 
   handleSongLoaded(){
-    this.resetInterval();
-    //toggle play if not playing?
+    //toggle play if not playing
+    if(this.props.soundStatus != "PLAYING"){
+      this.props.playBarControllerContext.togglePlay();
+    } else {
+      this.resetInterval();
+    }
   }
 
   handleSongLoading(loadingObject){
@@ -68,6 +78,7 @@ class SoundPlay extends React.Component {
     this.setState({position: 0});
     this.props.playBarControllerContext.togglePlay();
     if(this.props.nextTrack){
+      this.setState({ autoLoad: true });
       this.props.goToNextTrack();  
       // this.props.sendPercentageComplete(0, this.state.duration);
       // this.props.playBarControllerContext.setProgressBar(0);
@@ -93,7 +104,7 @@ class SoundPlay extends React.Component {
     let status = this.soundStatus();
     let sound;
     if(this.props.currentTrack){
-      sound = (<Sound
+      sound = (<Sound autoLoad={this.state.autoLoad}
         url={this.props.currentTrack.trackUrl}
         playStatus={status}
         position={this.state.position}

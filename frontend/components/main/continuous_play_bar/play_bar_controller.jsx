@@ -13,6 +13,7 @@ class PlayBarController extends React.Component{
     this.toggleShuffle = this.toggleShuffle.bind(this);
     this.clearLocalInterval = this.clearLocalInterval.bind(this);
     this.setLocalInterval = this.setLocalInterval.bind(this);
+    this.handleForward = this.handleForward.bind(this);
     this.trackProgess = null;
   }
 
@@ -80,6 +81,15 @@ class PlayBarController extends React.Component{
     this.props.toggleShuffle(this.props.nTracks);
   }
 
+  handleForward(){
+    this.props.goToNextTrack();
+    // if(!(this.props.soundStatus === "PLAYING")){
+    //   this.setProgressBar(0);
+    //   this.setState({milliseconds: 0});
+    //   this.props.sendPercentageComplete(0, 1);
+    // } 
+  }
+
   componentDidUpdate(){
     if(this.props.shuffle && this.state.shuffleClass === "fa fa-random"){
       this.setState({shuffleClass: "fa fa-random fa-random-selected"});
@@ -98,7 +108,7 @@ class PlayBarController extends React.Component{
     <div className="control-bar">
         <button><i className="fas fa-step-backward" onClick={this.toggleBack}></i></button>
         <button><i id='play-pause' className={iconClass} onClick={this.togglePlay}></i></button>
-        <button><i className="fas fa-step-forward" onClick={() => this.props.goToNextTrack()}></i></button>
+        <button><i className="fas fa-step-forward" onClick={this.handleForward}></i></button>
         <button><i className={shuffleClass} onClick={() => this.toggleShuffle(nTracks)}></i></button>
         <ProgressBarContainer />
 

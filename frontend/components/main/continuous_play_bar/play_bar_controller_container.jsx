@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { goToNextTrack, toggleShuffle } from '../../../actions/sound_controller_actions';
+import { goToNextTrack, toggleShuffle, sendPercentageComplete } from '../../../actions/sound_controller_actions';
 import PlayBarController from './play_bar_controller';
 
 const mapStateToProps = state => {
@@ -23,7 +23,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   goToNextTrack: () => dispatch(goToNextTrack()),
-  toggleShuffle: (nTracks) => dispatch(toggleShuffle(nTracks))
+  toggleShuffle: (nTracks) => dispatch(toggleShuffle(nTracks)),
+  sendPercentageComplete: (percentage) => dispatch(sendPercentageComplete(percentage))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(PlayBarController);

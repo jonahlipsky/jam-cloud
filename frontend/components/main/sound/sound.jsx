@@ -18,7 +18,6 @@ class SoundPlay extends React.Component {
   handleSongPlaying(playingObject){
     this.setState({position: playingObject.position});
     let percentageComplete = ((playingObject.position / playingObject.duration) * 100) || 0;
-    debugger
     this.props.sendPercentageComplete(percentageComplete, playingObject.duration);
   
     if(this.props.backPressed && playingObject.position < 1500){
@@ -30,17 +29,16 @@ class SoundPlay extends React.Component {
       this.setState({ position: 0 });
       this.props.toggleBack();
       this.resetInterval();
+    } else if(playingObject.duration - playingObject.position < 300){
+      this.handleSongFinishedPlaying();
     }
   }
 
   resetInterval(){
-    this.props.clearLocalInterval();
-    setTimeout(() => {
-      this.props.setLocalInterval();
-    }, 100);
+    this.props.playBarControllerContext.resetLocalInterval();
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(){
     if(this.props.immediate){
       this.props.clearImmediate();
       this.setState({position: 0});
@@ -56,6 +54,7 @@ class SoundPlay extends React.Component {
 
   handleSongLoaded(){
     this.resetInterval();
+    //toggle play if not playing?
   }
 
   handleSongLoading(loadingObject){
@@ -66,17 +65,17 @@ class SoundPlay extends React.Component {
   }
 
   handleSongFinishedPlaying(){
-    console.log('finished')
     this.setState({position: 0});
-    debugger
+    this.props.playBarControllerContext.togglePlay();
     if(this.props.nextTrack){
-      this.props.goToNextTrack();
+      this.props.goToNextTrack();  
+      // this.props.sendPercentageComplete(0, this.state.duration);
+      // this.props.playBarControllerContext.setProgressBar(0);
     } else {
+      this.props.playBarControllerContext.setState({milliseconds: 0});
+      this.props.playBarControllerContext.setProgressBar(0);
       this.props.sendPercentageComplete(0, this.state.duration);
-      debugger
-      this.props.playBarControllerContext.togglePlay();
     }
-    // handle the case where there is no more songs in the queue
   }
 
   soundStatus(){
@@ -94,7 +93,7 @@ class SoundPlay extends React.Component {
     let status = this.soundStatus();
     let sound;
     if(this.props.currentTrack){
-      sound = (<Sound autoLoad={true}
+      sound = (<Sound
         url={this.props.currentTrack.trackUrl}
         playStatus={status}
         position={this.state.position}

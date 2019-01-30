@@ -6,7 +6,7 @@ class PlayBarController extends React.Component{
   constructor(props){
     super(props);
     this.state = {soundStatus: "PAUSED", backPressed: false, 
-      shuffleClass: "fa fa-random", milliseconds: 0};
+      shuffleClass: "fa fa-random", milliseconds: 0, intervalId: 0};
     this.togglePlay = this.togglePlay.bind(this);
     this.toggleBack = this.toggleBack.bind(this);
     this.forcePlay = this.forcePlay.bind(this);
@@ -21,10 +21,25 @@ class PlayBarController extends React.Component{
       this.setState({ soundStatus: "PLAYING" });
       this.setLocalInterval();
     } else if (this.state.soundStatus === "PLAYING"){
-      debugger
-      this.setState({soundStatus: "PAUSED"});
       this.clearLocalInterval();
+      this.setState({soundStatus: "PAUSED"});
+      // if(!this.props.trackQueue.queue[1]){
+      //   this.setState({milliseconds: 0});
+      //   this.setProgressBar(0);
+      // }
     }
+  }
+
+  setProgressBar(percentage){
+    $("#track-progress").css({width: `${percentage}%`});
+    $("#track-progress-circle").css({left: `${percentage}%`});
+  }
+
+  resetLocalInterval(){
+    this.clearLocalInterval();
+    setTimeout(() => {
+      this.setLocalInterval();
+    }, 100);
   }
 
   setLocalInterval(){
@@ -33,14 +48,15 @@ class PlayBarController extends React.Component{
     let that = this;
     let intervalId = setInterval(() => {
       let percentage = (((that.state.milliseconds + 10) * 100) / that.props.duration);
-      $("#track-progress").css({width: `${percentage}%`});
-      $("#track-progress-circle").css({left: `${percentage}%`});
+      that.setProgressBar(percentage)
       that.setState({milliseconds: that.state.milliseconds + 10});
     }, 10);
     this.setState({ intervalId }); 
+    console.log(intervalId)
   }
 
   clearLocalInterval(){
+    console.log(this.state.intervalId);
     clearInterval(this.state.intervalId);
   }
 
@@ -48,8 +64,7 @@ class PlayBarController extends React.Component{
     if(!(this.state.soundStatus === "PLAYING")){
       this.togglePlay();
     } else {
-      this.clearLocalInterval();
-      this.setLocalInterval();
+      this.resetLocalInterval();
     }
   }
 
@@ -88,8 +103,7 @@ class PlayBarController extends React.Component{
         <ProgressBarContainer />
 
         <SoundContainer playBarControllerContext={playBarControllerContext} forcePlay={this.forcePlay}
-          toggleBack={toggleBack} soundStatus={this.state.soundStatus} backPressed={this.state.backPressed}
-          clearLocalInterval={this.clearLocalInterval} setLocalInterval={this.setLocalInterval}/>
+          toggleBack={toggleBack} soundStatus={this.state.soundStatus} backPressed={this.state.backPressed}/>
     </div>
     )
   }

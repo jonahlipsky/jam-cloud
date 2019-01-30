@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackListItem from './track_list_item';
+import TrackListItemContainer from './track_list_item_container';
 
 class TracksDisplay extends React.Component{
   constructor(props){
@@ -12,12 +12,14 @@ class TracksDisplay extends React.Component{
 
   render(){
     let trackListItems = this.props.tracks.map((track) => {
-      return <TrackListItem track={track} username={this.props.username} />
+      return <TrackListItemContainer track={track} username={this.props.username} />
     });
     return(
-      <ul className="tracks-display-ul">
-        {trackListItems}
-      </ul>
+      <>
+        <ul className="tracks-display-ul">
+          {trackListItems}
+        </ul>
+      </>
     )
   }
 }

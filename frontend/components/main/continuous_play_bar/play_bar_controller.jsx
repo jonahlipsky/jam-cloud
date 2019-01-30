@@ -4,10 +4,11 @@ import SoundContainer from '../sound/sound_container';
 class PlayBarController extends React.Component{
   constructor(props){
     super(props);
-    this.state = {soundStatus: "PAUSED", backPressed: false};
+    this.state = {soundStatus: "PAUSED", backPressed: false, shuffleClass: "fa fa-random"};
     this.togglePlay = this.togglePlay.bind(this);
     this.toggleBack = this.toggleBack.bind(this);
     this.forcePlay = this.forcePlay.bind(this);
+    this.toggleShuffle = this.toggleShuffle.bind(this);
   }
 
   togglePlay(){
@@ -32,6 +33,25 @@ class PlayBarController extends React.Component{
     }
   }
 
+  toggleShuffle(){
+    // if(this.props.shuffle === false){
+      this.props.toggleShuffle(this.props.nTracks);
+    // } else {
+    //   this.props.toggleShuffle();
+    // }
+  }
+
+  // componentDidMount(){
+  //   this.props.fetchTracks();
+  // }
+
+  componentDidUpdate(){
+    if(this.props.shuffle && this.state.shuffleClass === "fa fa-random"){
+      this.setState({shuffleClass: "fa fa-random fa-random-selected"});
+    } else if ((!this.props.shuffle) && (!(this.state.shuffleClass === "fa fa-random"))){
+      this.setState({shuffleClass: "fa fa-random"});
+    }
+  }
 
   render(){
     let soundStatus = this.state.soundStatus;
@@ -40,14 +60,15 @@ class PlayBarController extends React.Component{
     let backPressed = this.state.backPressed;
     let toggleBack = this.toggleBack.bind(this);
     let forcePlay = this.forcePlay;
-    debugger
+    let shuffleClass = this.state.shuffleClass;
+    let nTracks = this.props.nTracks;
     return(
     <div className="control-bar">
         <button><i className="fas fa-step-backward" onClick={this.toggleBack}></i></button>
         <button><i id='play-pause' className={iconClass} onClick={this.togglePlay}></i></button>
         <button><i className="fas fa-step-forward" onClick={() => this.props.goToNextTrack()}></i></button>
-        <button><i className="fas fa-random"></i></button>
-        <button><i className="far fa-repeat"></i></button>
+        <button><i className={shuffleClass} onClick={() => this.toggleShuffle(nTracks)}></i></button>
+        <button><i className="fa fa-repeat"></i></button>
         <SoundContainer playBarControllerContext={playBarControllerContext} forcePlay={forcePlay}
           toggleBack={toggleBack} soundStatus={soundStatus} backPressed={backPressed}/>
     </div>

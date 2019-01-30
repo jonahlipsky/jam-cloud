@@ -27,6 +27,7 @@ export const pushTrackToQueue = (trackId) => ({
   trackId
 });
 
-export const toggleShuffle = () => ({
-  type: TOGGLE_SHUFFLE
+export const toggleShuffle = (nTracks) => ({
+  type: TOGGLE_SHUFFLE,
+  nTracks
 });

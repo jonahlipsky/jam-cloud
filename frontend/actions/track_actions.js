@@ -8,8 +8,20 @@ export const REMOVE_TRACK = "REMOVE_TRACK";
 export const UPDATE_TRACK = "UPDATE_TRACK";
 export const INCREMENT_FILE_UPLOAD_STAGE = "INCREMENT_FILE_UPLOAD_STAGE";
 export const EDIT_TRACK_NUMBER = "EDIT_TRACK_NUMBER";
+export const FREEZE_LIST_ITEM = "FREEZE_LIST_ITEM";
+export const NO_LIST_ITEM_FROZEN = "NO_LIST_ITEM_FROZEN";
 
 //action creators
+
+export const freezeListItem = (trackId) => ({
+  type: FREEZE_LIST_ITEM,
+  trackId
+});
+
+export const noListItemFrozen = () => ({
+  type: NO_LIST_ITEM_FROZEN
+});
+
 export const editTrackNumber = (id) => ({
   type: EDIT_TRACK_NUMBER,
   id

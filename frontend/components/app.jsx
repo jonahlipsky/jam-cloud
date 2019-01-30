@@ -9,6 +9,7 @@ import Main from './main/main';
 
 const App = (props) => (
   <div id="app">
+    
     <Switch>
       <AuthRoute exact path='/' component={SplashContainer} /> 
       <ProtectedRoute path='/' component={Main} />

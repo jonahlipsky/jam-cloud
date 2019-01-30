@@ -38,7 +38,7 @@ class SoundPlay extends React.Component {
   }
 
   handleSongFinishedPlaying(){
-
+    this.props.goToNextTrack();
   }
 
   soundStatus(){

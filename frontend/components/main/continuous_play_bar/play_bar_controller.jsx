@@ -6,7 +6,8 @@ class PlayBarController extends React.Component{
   constructor(props){
     super(props);
     this.state = {soundStatus: "PAUSED", backPressed: false, 
-      shuffleClass: "fa fa-random", milliseconds: 0, intervalId: 0};
+      shuffleClass: "fa fa-random", milliseconds: 0, intervalId: 0,
+      volume: 100};
     this.togglePlay = this.togglePlay.bind(this);
     this.toggleBack = this.toggleBack.bind(this);
     this.forcePlay = this.forcePlay.bind(this);
@@ -14,7 +15,7 @@ class PlayBarController extends React.Component{
     this.clearLocalInterval = this.clearLocalInterval.bind(this);
     this.setLocalInterval = this.setLocalInterval.bind(this);
     this.handleForward = this.handleForward.bind(this);
-    this.trackProgess = null;
+    this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
   togglePlay(){
@@ -24,10 +25,6 @@ class PlayBarController extends React.Component{
     } else if (this.state.soundStatus === "PLAYING"){
       this.clearLocalInterval();
       this.setState({soundStatus: "PAUSED"});
-      // if(!this.props.trackQueue.queue[1]){
-      //   this.setState({milliseconds: 0});
-      //   this.setProgressBar(0);
-      // }
     }
   }
 
@@ -77,17 +74,19 @@ class PlayBarController extends React.Component{
     }
   }
 
+  componentDidMount(){
+    this.props.fetchTracks().then(() => {
+      this.toggleShuffle();
+      this.toggleShuffle();
+    });
+  }
+
   toggleShuffle(){
     this.props.toggleShuffle(this.props.nTracks);
   }
 
   handleForward(){
     this.props.goToNextTrack();
-    // if(!(this.props.soundStatus === "PLAYING")){
-    //   this.setProgressBar(0);
-    //   this.setState({milliseconds: 0});
-    //   this.props.sendPercentageComplete(0, 1);
-    // } 
   }
 
   componentDidUpdate(){
@@ -97,6 +96,12 @@ class PlayBarController extends React.Component{
       this.setState({shuffleClass: "fa fa-random"});
     }
   }
+
+  handleVolumeChange(e){
+    let volumeValue = parseInt(e.currentTarget.value)
+    this.setState({volume: volumeValue})
+  }
+  
 
   render(){
     let playBarControllerContext = this;
@@ -111,8 +116,14 @@ class PlayBarController extends React.Component{
         <button><i className="fas fa-step-forward" onClick={this.handleForward}></i></button>
         <button><i className={shuffleClass} onClick={() => this.toggleShuffle(nTracks)}></i></button>
         <ProgressBarContainer />
-
-        <SoundContainer playBarControllerContext={playBarControllerContext} forcePlay={this.forcePlay}
+        <div className="volume-icons" onMouseover>
+          <img src={window.volume}/>
+          <div className="volume-var">
+            <input type="range" id="volume-slider" name="volume" min="0" 
+              max="100" value={this.state.volume} onChange={this.handleVolumeChange}/>
+          </div>
+        </div>
+        <SoundContainer playBarControllerContext={playBarControllerContext} volume={this.state.volume} forcePlay={this.forcePlay}
           toggleBack={toggleBack} soundStatus={this.state.soundStatus} backPressed={this.state.backPressed}/>
     </div>
     )

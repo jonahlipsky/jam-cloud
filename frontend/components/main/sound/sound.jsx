@@ -107,6 +107,7 @@ class SoundPlay extends React.Component {
       sound = (<Sound autoLoad={this.state.autoLoad}
         url={this.props.currentTrack.trackUrl}
         playStatus={status}
+        volume={this.props.volume}
         position={this.state.position}
         onLoad={this.handleSongLoaded.bind(this)}
         onLoading={this.handleSongLoading}

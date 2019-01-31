@@ -1,3 +1,7 @@
+//https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+//check this out for styling range inputs specifically for the volume piece.
+//also perhaps refactor the slider.
+
 $button-hover-orange: rgb(255, 60, 0);
 $button-orange: #f50;
 $mid-gray: rgb(60, 60, 60);
@@ -82,19 +86,12 @@ $background-gray: #f2f2f2;
 
 }
 
-.fa-random-selected{
-  color: $button-orange !important;
-}
 
 .control-bar{
   width: 75%;
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  button{
-   margin: 0 0 0 20px;
-  }
 
   i{
     color: $play-button-gray;
@@ -104,6 +101,14 @@ $background-gray: #f2f2f2;
   #play-pause{
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  button{
+    margin: 0 0 0 20px;
+  }
+
+  .fa-random-selected{
+    color: $button-orange;
   }
 }
 
@@ -115,6 +120,7 @@ $background-gray: #f2f2f2;
   flex-direction: row;
   position: absolute;
   left: 75%;
+  align-items: center;
 
   img{
     width: 30px;
@@ -123,14 +129,23 @@ $background-gray: #f2f2f2;
   
 }
 
-.trackArtist{
-  color: $mid-gray;
-}
 
 .queue-info-author-title{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-left: 10px;
+
+  p{
+    font-size: 9pt;
+    padding: 2px;
+    color: $mid-gray;
+  }
+
+  .track-artist{
+    color: $light-gray;
+  }
+  
 }
 
 .progress-bar-container{
@@ -150,7 +165,7 @@ $background-gray: #f2f2f2;
   }
 
   .duration{
-    margin-right: 50px;
+    margin-right: 40px;
   }
 
 
@@ -196,13 +211,67 @@ $background-gray: #f2f2f2;
   .progress-bar:hover{
     .fa-circle{
       opacity: 1;
-      transition: .3s;
+      
     }
 
     .fa-circle:hover{
       color: $button-hover-orange;
     }
+  } 
+}
+
+.volume-icons{
+  margin: 10px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+
+  img {
+    height: 28px;
+    width: 28px;
+    padding: 2px;
   }
 
+}
+
+.volume-icons:hover .volume-var{
+  position: absolute;
+  z-index: 3;
+  bottom: 30px;
+  height: 120px;
+  width: 30px;
+  border: 1px solid $lighter-gray;
+  background-color: $background-gray;
+
+  #volume-slider{
+    display: block;
+  }
   
 }
+
+#volume-slider{
+  display: none;
+  -webkit-appearance: slider-vertical;
+  height: 100px;
+  width: 2px;
+  margin: auto;
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  
+}
+
+
+.volume-var:hover{
+  position: absolute;
+  z-index: 3;
+  bottom: 30px;
+  height: 120px;
+  width: 30px;
+  border: 1px solid $lighter-gray;
+  background-color: $background-gray;
+
+}
+

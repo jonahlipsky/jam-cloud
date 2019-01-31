@@ -9,9 +9,11 @@ export default (props) => {
   return(
     <>
       <NavBarContainer />
-        <Route exact path='/upload' component={UploadContainer} />
-        <Route exact path='/you/tracks' component={UploadContainer} />
-        <Route exact path='/stream' component={StreamContainer} />
+        <Switch>
+          <Route exact path='/upload' component={UploadContainer} />
+          <Route exact path='/you/tracks' component={UploadContainer} />
+          <Route exact path='/stream' component={StreamContainer} />
+        </Switch>
       <ContinuousPlayBar/>
     </>
   )

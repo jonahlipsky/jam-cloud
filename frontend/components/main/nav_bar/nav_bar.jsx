@@ -34,7 +34,10 @@ class NavBar extends React.Component {
             </div>
             <i className="fas fa-bell"></i>
             <i className="fas fa-envelope"></i>
-            <i className="fas fa-ellipsis-h"></i>
+            <div className="ellipsis-options-nav-bar">
+              <i className="fas fa-ellipsis-h"></i>
+            </div>
+
           </div>
         </div>
         <Route exact path={'/stream'} render={(props) => <StreamContainer {...props}/>} />/>

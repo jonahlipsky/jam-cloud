@@ -25,8 +25,8 @@ class Upload extends React.Component{
         </nav>
         
         <Switch>
-          <Route path='/upload' render={(props) => <UploadFormContainer formType={'Upload'} {...props}/>} />
-          <Route path='/you/tracks' render={(props) => <ShowTracks {...props}/>}/>
+          <Route exact path='/upload' render={(props) => <UploadFormContainer formType={'Upload'} {...props}/>} />
+          <Route exact path='/you/tracks' render={(props) => <ShowTracks {...props}/>}/>
         </Switch>
         
       </div>

@@ -14,7 +14,7 @@ class QueueInformation extends React.Component{
       <div className="queue-information">
         <img src={imageUrl} />
         <div className="queue-info-author-title">
-          <p className="track-artist">{trackArtist}</p>
+          <p className="track-artist">{`${trackArtist}`.toUpperCase()}</p>
           <p>{title}</p>
         </div>
       </div>

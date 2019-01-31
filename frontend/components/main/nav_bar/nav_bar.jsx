@@ -28,7 +28,6 @@ class NavBar extends React.Component {
 
             <Link to='/upload' className="upload">Upload</Link>
             <div className="profile-dropdown">
-              {/* todo why is username not defined here */}
               <p>{this.props.user.username}</p>
               <i className="fa fa-angle-down"></i>
             </div>

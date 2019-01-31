@@ -1,6 +1,9 @@
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import TrackShowHeader from './track_show_header';
+import { updateTrack } from '../../../actions/track_actions';
+
+
 
 const mapStateToProps = (state, ownProps) => {
   let trackId = ownProps.match.params.trackId;
@@ -13,4 +16,8 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-export default withRouter(connect(mapStateToProps)(TrackShowHeader));
+const mapDispatchToProps = dispatch => ({
+  updateTrack: formData => dispatch(updateTrack(formData))
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShowHeader));

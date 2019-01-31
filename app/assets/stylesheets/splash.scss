@@ -76,10 +76,6 @@ $button-orange: #f50;
   }
 }
 
-// .splash-welcome-text *{
-//   color: white;
-// }
-
 
 .js-modal-close {
   display: none;
@@ -88,16 +84,6 @@ $button-orange: #f50;
 .form-down{
   transform: translateY(715px)
 }
-
-// @keyframes form-down {
-//   from {top: -620;}
-//   to {top: 75;}
-// }
-
-// @keyframes form-up{
-//   from {top: 75;}
-//   to {top: -620}
-// }
 
 .js-modal-open{
   display: block;

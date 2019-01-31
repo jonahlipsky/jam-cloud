@@ -4,7 +4,7 @@ import ModalAuthForm from './modal_auth_form/modal_auth_form';
 import { withRouter } from 'react-router-dom';
 import { incrementStage } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import { fetchAllUsers } from '../../actions/session_actions';
+import { fetchUsers } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
   stage: state.session.stage
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   incrementStage: (prevStage) => dispatch(incrementStage(prevStage)),
-  fetchAllUsers: () => dispatch(fetchAllUsers())
+  fetchUsers: () => dispatch(fetchUsers())
 });
 
 class Splash extends React.Component {
@@ -23,7 +23,7 @@ class Splash extends React.Component {
   
   componentDidMount(){
     this.props.incrementStage(0);
-    this.props.fetchAllUsers();
+    this.props.fetchUsers();
     const modalForm = document.getElementById('modal-form');
     const button = document.getElementById('sign-in-btn');
     button.addEventListener('click', () => {

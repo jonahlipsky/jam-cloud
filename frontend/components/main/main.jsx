@@ -4,16 +4,17 @@ import { Route, Redirect, NavLink, Switch, Link, HashRouter} from 'react-router-
 import ContinuousPlayBar from './continuous_play_bar/play_bar_container';
 import StreamContainer from '../stream/stream_container';
 import UploadContainer from './tracks_upload/upload_container';
+import TrackContainer from './track_show/track_container';
 
 export default (props) => {
   return(
     <>
       <NavBarContainer />
         <Switch>
+          <Route exact path="/tracks/:trackId" component={TrackContainer}/>
           <Route exact path='/upload' component={UploadContainer} />
           <Route exact path='/you/tracks' component={UploadContainer} />
           <Route exact path='/stream' component={StreamContainer} />
-          <Route path = "tracks/:trackId" component={TrackShow}/>
         </Switch>
       <ContinuousPlayBar/>
     </>

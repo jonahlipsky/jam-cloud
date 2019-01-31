@@ -7,11 +7,8 @@ $button-hover-orange: rgb(255, 60, 0);
 
 
 .upload-container{
-  position: absolute;
-  top: 50px;
-  overflow: auto;
+  margin: 50px 0;
   background-color: white;
-
 
   .upload-nav-bar{
     border-bottom: 1px solid $background-gray;    

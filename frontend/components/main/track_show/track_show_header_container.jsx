@@ -5,7 +5,9 @@ import TrackShowHeader from './track_show_header';
 const mapStateToProps = (state, ownProps) => {
   let trackId = ownProps.match.params.trackId;
   let track = state.entities.tracks[trackId];
-  let artist = state.entities.users[track.user_id];
+  let user = track ? state.entities.users[track.user_id] : null;
+  let artist = user ? user.username : null;
+  let title = track ? track.title : null;
   return({
     track,
     artist

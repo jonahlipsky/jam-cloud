@@ -1,13 +1,13 @@
 import React from 'react';
 
 export default ({mainContext, errors}) => {
-  let image;
+  let imageUrl;
   let toggleBackgroundImage = "";
   if(mainContext.state.imageUrl){
-    image = <img src={mainContext.state.imageUrl}/>
+    imageUrl = mainContext.state.imageUrl;
     toggleBackgroundImage = " no-background";
   } else {
-    image = null;
+    imageUrl = null;
   }
   let uploadErrors;
   if (errors.length){
@@ -24,16 +24,9 @@ export default ({mainContext, errors}) => {
 
   return(
     <form onSubmit={mainContext.handleSubmit(mainContext.props.formType)}>
-        <div className={`image-upload`+`${toggleBackgroundImage}`}>
-          {image}
-          <div className="file-upload-box">
-            <input className="file-upload" id='track-image-upload' type="file" 
-              onChange={mainContext.handleFile('image')}/> 
-            <p><i className="fas fa-camera"></i> Upload Image</p>
-          </div>
-        </div>
+        <UploadImage mainContext={mainContext} toggleBackgroundImage={toggleBackgroundImage}
+          imageUrl={imageUrl}/>
         <div className="stage-two-basic-info">
-
           <div className="fields">
             {uploadErrors}
             <label htmlFor="track-title">Title<p className="required-star">*</p></label>

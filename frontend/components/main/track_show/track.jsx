@@ -1,17 +1,24 @@
 import React from 'react';
-import TrackShowHeader from './track_show_header';
+import TrackShowHeaderContainer from './track_show_header_container';
 
-class Track extends React.component {
+class Track extends React.Component {
   constructor(props){
     super(props);
 
   }
 
-  render(){
+  componentDidMount(){
+    this.props.fetchTracks();
+    this.props.fetchUsers();
+  }
 
+  render(){
     return(
       <div className="track-show-page">
-        <TrackShowHeader />
+        <div>
+          <h1>{this.props.title}</h1>
+          <TrackShowHeaderContainer artist={this.props.artist} track={this.props.track} />
+        </div>
       </div>
     )
   }

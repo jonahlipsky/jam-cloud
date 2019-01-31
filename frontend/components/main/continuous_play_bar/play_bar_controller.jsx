@@ -116,7 +116,7 @@ class PlayBarController extends React.Component{
         <button><i className="fas fa-step-forward" onClick={this.handleForward}></i></button>
         <button><i className={shuffleClass} onClick={() => this.toggleShuffle(nTracks)}></i></button>
         <ProgressBarContainer />
-        <div className="volume-icons" onMouseover>
+        <div className="volume-icons">
           <img src={window.volume}/>
           <div className="volume-var">
             <input type="range" id="volume-slider" name="volume" min="0" 

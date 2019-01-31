@@ -15,7 +15,7 @@ export const signout = () => ($.ajax({
   url: '/api/session/'
 }));
 
-export const fetchAllUsers = () => ($.ajax({
+export const fetchUsers = () => ($.ajax({
   method: 'GET',
   url: '/api/users'
 })); 

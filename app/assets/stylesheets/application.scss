@@ -47,16 +47,11 @@ html, body {
   margin: auto;
 }
 
-#app{
-  display: flex;
-  justify-content: center;
-}
-
 .page-centered-inner{
   width: 81%;
   max-width: 1190px;
-  height: 100%;
-  margin: auto;
+  // height: 100%;
+  // min-height: 1000px;
 }
 
 #show-tracks-testing{

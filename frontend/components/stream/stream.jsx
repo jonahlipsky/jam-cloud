@@ -7,7 +7,7 @@ class Stream extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchAllUsers();
+    this.props.fetchUsers();
     this.props.fetchTracks();
   }
 

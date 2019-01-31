@@ -1,7 +1,7 @@
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { removeTrack } from '../../../actions/track_actions';
-import { fetchAllUsers } from '../../../actions/session_actions';
+import { fetchUsers } from '../../../actions/session_actions';
 import Upload from './upload';
 
 const mapStateToProps = state => {
@@ -20,7 +20,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   removeTrack: (track) => dispatch(removeTrack(track)),
-  fetchAllUsers: () => dispatch(fetchAllUsers())
+  fetchUsers: () => dispatch(fetchUsers())
 
 });
 

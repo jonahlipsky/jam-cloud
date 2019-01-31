@@ -17,8 +17,8 @@ export const clearErrors = () => ({
 });
 
 
-export const fetchAllUsers = () => dispatch => {
-  return SESSION_API_UTIl.fetchAllUsers().then(users => dispatch(receiveAllUsers(users)));
+export const fetchUsers = () => dispatch => {
+  return SESSION_API_UTIl.fetchUsers().then(users => dispatch(receiveAllUsers(users)));
 };
 
 export const signin = user => dispatch => {

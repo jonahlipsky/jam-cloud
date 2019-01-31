@@ -37,7 +37,6 @@
   flex-direction: row;
   width: 840px;
   height: 340px;
-  border: 1px solid red;
 
   i{
     font-size: 45px;
@@ -58,11 +57,19 @@
   flex-direction: row;
   margin: 20px 0 0 20px;
   color: $background-gray;
+
+  img{
+    margin-top: 3px;
+    width: 60px;
+    height: 60px;
+  }
+  
 }
 
 .artist-title{
   display: flex;
   flex-direction: column;
+  text-indent: 3px;
 
   a, h3{
     background-color: $nav-bar-selected-gray;

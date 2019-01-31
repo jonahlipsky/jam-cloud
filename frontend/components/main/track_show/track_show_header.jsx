@@ -84,7 +84,7 @@ class TrackShowHeader extends React.Component{
       <div className="track-show-header">
         <div className="info-and-play-bar">
           <div className="track-info">
-            <i className="fas fa-circle" onClick={this.playTrack}></i>
+            <img src={window.playIcon} onClick={this.playTrack}/>
             <div className="artist-title">
               <Link to={`/users/${artistId}`}>{artistName}</Link>
               <h3>{title}</h3>
@@ -92,7 +92,6 @@ class TrackShowHeader extends React.Component{
           </div>
           <div className="update-info">
             {updateTime}
-            6 days ago placeholder
           </div>
         </div>
         <UploadImage mainContext={this} imageUrl={imageUrl} />

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import QueueInformation from './queue_information';
+import { fetchUsers } from '../../../actions/session_actions';
 
 const mapStateToProps = state => {
   let trackArtist;
@@ -8,7 +9,7 @@ const mapStateToProps = state => {
   if(state.io.trackQueue.queue[0]){
     currentTrackId = state.io.trackQueue.queue[0]; //change this!
     currentTrack = state.entities.tracks[currentTrackId];
-    trackArtist = state.entities.users[currentTrack.user_id].username;
+    trackArtist = state.entities.users[currentTrack.user_id] ? state.entities.users[currentTrack.user_id].username : "";
   } else {
     currentTrack = "None";
     trackArtist = "None";
@@ -20,7 +21,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  fetchUsers: () => dispatch(fetchUsers())
 
 });
 
-export default connect(mapStateToProps)(QueueInformation);
+export default connect(mapStateToProps, mapDispatchToProps)(QueueInformation);

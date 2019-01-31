@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   let tracks = [];
   let username = state.entities.users[curUserId].username;
   curUserTrackIds.forEach((trackId) => {
-    tracks.push(state.entities.tracks[trackId]);
+    let track = state.entities.tracks[trackId];
+    if(track) tracks.push(track);
   });
   return({
     tracks,

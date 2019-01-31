@@ -1,7 +1,13 @@
 $button-orange: #f50;
-$mid-gray: rgb(60, 60, 60);
+$mid-gray:#333;
+$nav-bar-selected-gray: #111; 
+$light-gray: rgb(150,150,150);
+$background-gray: #f2f2f2;
+$lighter-gray: #cecece;
+$nav-bar-icon-selectec-gray: #fff;
+$button-hover-orange: rgb(255, 60, 0);
 
-.nav_background {
+.nav-background {
   position: fixed;
   top: 0;
   right: 0;
@@ -11,13 +17,14 @@ $mid-gray: rgb(60, 60, 60);
   z-index: 100;
 }
 
-.nav_bar_main_frame{
+.nav-bar-main-frame{
   width: 85%;
   max-width: 1250px;
   height: 100%;
   margin: auto;
   display: flex;
   flex-direction: row;
+  align-items: center;
 
 
   .logo{
@@ -101,4 +108,46 @@ $mid-gray: rgb(60, 60, 60);
   color: #eee;
   align-self: center;
   margin: 0 15px;
+}
+
+
+.dropdown-component{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.ellipsis-options-nav-bar{
+  margin: 0px 20px;
+  width: 50px;
+  height: 50px;
+  // border: 1px solid green;
+
+  ul{
+    background-color: $nav-bar-selected-gray;
+    position: fixed;
+    top: 50px;
+    width: 100px;
+    margin-left: -25px;
+  }
+
+  li{
+    color: $lighter-gray;
+    width: 100%;
+    padding: 5px;
+    font-size: 10pt;
+    text-indent: 3px;
+    font-weight: 500;
+  }
+}
+
+.nav-bar-main-frame .selected{
+  background-color: $nav-bar-selected-gray;
+
+  i{
+    color: $nav-bar-icon-selectec-gray;
+  }
 }

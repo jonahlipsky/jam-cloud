@@ -2,6 +2,9 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import UploadContainer from '../../main/tracks_upload/upload_container';
 import StreamContainer from '../../stream/stream_container';
+import DropdownComponent from './dropdown_component';
+import FontAwesome from 'fontawesome';
+import EllipsisDropdown from './ellipsis_user_dropdown';
 
 class NavBar extends React.Component {
   constructor(props){
@@ -13,8 +16,8 @@ class NavBar extends React.Component {
     
     return(
       <>
-        <div className="nav_background">
-          <div className='nav_bar_main_frame'>
+        <div className="nav-background">
+          <div className='nav-bar-main-frame'>
             <button className="logo">
               <i className="fas fa-cloud"></i>
             </button>
@@ -31,17 +34,11 @@ class NavBar extends React.Component {
               <p>{this.props.user.username}</p>
               <i className="fa fa-angle-down"></i>
             </div>
-            <i className="fas fa-bell"></i>
-            <i className="fas fa-envelope"></i>
-            <div className="ellipsis-options-nav-bar">
-              <i className="fas fa-ellipsis-h"></i>
-            </div>
-
+            {/* <i className="fas fa-bell"></i>
+            <i className="fas fa-envelope"></i> */}
+            <EllipsisDropdown />
           </div>
         </div>
-        <Route exact path={'/stream'} render={(props) => <StreamContainer {...props}/>} />/>
-        <Route exact path={'/upload'} render={(props) => <UploadContainer {...props}/>}/>
-        <Route exact path={'/you/tracks'} render={(props) => <UploadContainer {...props}/>}/>
       </>
     )
   }

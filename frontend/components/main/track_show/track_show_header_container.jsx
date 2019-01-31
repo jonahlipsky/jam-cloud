@@ -2,6 +2,8 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import TrackShowHeader from './track_show_header';
 import { updateTrack } from '../../../actions/track_actions';
+import { pushToFrontOfQueue } from '../../../actions/sound_controller_actions';
+
 
 
 
@@ -17,7 +19,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  updateTrack: formData => dispatch(updateTrack(formData))
+  updateTrack: formData => dispatch(updateTrack(formData)),
+  pushToFrontOfQueue: trackId => dispatch(pushToFrontOfQueue(trackId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShowHeader));

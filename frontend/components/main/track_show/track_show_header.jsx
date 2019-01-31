@@ -14,6 +14,7 @@ class TrackShowHeader extends React.Component{
     this.toggleModal = this.toggleModal.bind(this);
     this.cancelUpdateImage = this.cancelUpdateImage.bind(this);
     this.handleSubmit = this.handleFile.bind(this);
+    this.playTrack = this.playTrack.bind(this);
   }
 
   handleFile(field){
@@ -62,6 +63,9 @@ class TrackShowHeader extends React.Component{
     }
   }
 
+  playTrack(){
+    this.props.pushToFrontOfQueue(this.props.track.id);
+  }
 
   render(){
     let artistName = this.props.artist ? this.props.artist.username : "";
@@ -80,14 +84,15 @@ class TrackShowHeader extends React.Component{
       <div className="track-show-header">
         <div className="info-and-play-bar">
           <div className="track-info">
+            <i className="fas fa-circle" onClick={this.playTrack}></i>
             <div className="artist-title">
               <Link to={`/users/${artistId}`}>{artistName}</Link>
               <h3>{title}</h3>
             </div>
-            <div className="update-info">
-              {updateTime}
-              6 days ago placeholder
-            </div>
+          </div>
+          <div className="update-info">
+            {updateTime}
+            6 days ago placeholder
           </div>
         </div>
         <UploadImage mainContext={this} imageUrl={imageUrl} />

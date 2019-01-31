@@ -28,10 +28,45 @@
     top: 0;
   }
 }
+
+.info-and-play-bar{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 840px;
+  height: 340px;
+  border: 1px solid red;
+
+  i{
+    font-size: 45px;
+    color: $button-orange;
+  }
+
+}
+
+.update-info{
+  margin: 20px 20px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.track-info{
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0 0 20px;
+  color: $background-gray;
+}
+
 .artist-title{
+  display: flex;
+  flex-direction: column;
 
   a, h3{
     background-color: $nav-bar-selected-gray;
+    margin: 5px 0 0 8px;
   }
 
   a{

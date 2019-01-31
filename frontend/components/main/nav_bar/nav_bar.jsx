@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import UploadContainer from '../../main/tracks/upload_container';
+import UploadContainer from '../../main/tracks_upload/upload_container';
 import StreamContainer from '../../stream/stream_container';
 
 class NavBar extends React.Component {

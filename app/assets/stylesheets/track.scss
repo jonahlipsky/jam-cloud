@@ -1,14 +1,37 @@
-$button-orange: #f50;
-$mid-gray: rgb(60, 60, 60);
-$light-gray: rgb(150,150,150);
-$background-gray: #f2f2f2;
-$lighter-gray: #cecece;
-$button-hover-orange: rgb(255, 60, 0);
-
+@import 'colors';
 
 
 .track-show-page{
   width: 100%;
   margin-top: 50px;
 
+}
+
+//HEADER
+
+.track-show-header{
+  height: 380px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-image: linear-gradient(to right, rgb(161, 67, 250), rgb(206, 6, 179));
+}
+.artist-title{
+
+  a, h3{
+    background-color: $nav-bar-selected-gray;
+  }
+
+  a{
+    font-size: 12pt;
+    padding: 2px;
+  }
+
+  h3{
+    padding: 5px;
+    font-weight: 400;
+  }
 }

@@ -1,14 +1,9 @@
 import React from 'react';
+import UploadImage from './upload_image';
 
 export default ({mainContext, errors}) => {
-  let imageUrl;
-  let toggleBackgroundImage = "";
-  if(mainContext.state.imageUrl){
-    imageUrl = mainContext.state.imageUrl;
-    toggleBackgroundImage = " no-background";
-  } else {
-    imageUrl = null;
-  }
+  let url = mainContext.state.imageUrl;
+  let imageUrl = url ? mainContext.state.imageUrl : window.blurCloud;
   let uploadErrors;
   if (errors.length){
     uploadErrors = (
@@ -24,8 +19,7 @@ export default ({mainContext, errors}) => {
 
   return(
     <form onSubmit={mainContext.handleSubmit(mainContext.props.formType)}>
-        <UploadImage mainContext={mainContext} toggleBackgroundImage={toggleBackgroundImage}
-          imageUrl={imageUrl}/>
+        <UploadImage mainContext={mainContext} imageUrl={imageUrl}/>
         <div className="stage-two-basic-info">
           <div className="fields">
             {uploadErrors}

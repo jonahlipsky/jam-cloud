@@ -13,8 +13,6 @@ class Dropdown extends React.Component{
     this.setState({open: false});
   }
 
-  
-
   toggleList(){
     if(this.state.open){
       this.setState({open: false});
@@ -43,8 +41,3 @@ class Dropdown extends React.Component{
 }
 
 export default onClickOutside(Dropdown);
-
-
-//export with router
-//this.props.history.push('/you/tracks' or '/tracks)
-//could have a route /signout that is a function componenet mapped dispatch to props that just calls props.signout()

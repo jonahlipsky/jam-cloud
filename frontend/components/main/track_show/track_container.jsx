@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   let track = state.entities.tracks[trackId] || null;
   let title = track ? track.title : null;
   let artist = track ? state.entities.users[track.user_id] : null
-  debugger
   return({
     track,
     title,

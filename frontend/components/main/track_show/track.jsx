@@ -15,10 +15,7 @@ class Track extends React.Component {
   render(){
     return(
       <div className="track-show-page">
-        <div>
-          <h1>{this.props.title}</h1>
-          <TrackShowHeaderContainer artist={this.props.artist} track={this.props.track} />
-        </div>
+        <TrackShowHeaderContainer artist={this.props.artist} track={this.props.track} />
       </div>
     )
   }

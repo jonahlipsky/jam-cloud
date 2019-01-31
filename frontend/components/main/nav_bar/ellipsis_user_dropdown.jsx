@@ -5,7 +5,7 @@ import DropdownComponent from './dropdown_component';
 
 const mapStateToProps = (state, ownProps) => {
 
-  let list = [["Sign Out", () => ownProps.history.push('/signout')]];
+  let list = [["Sign Out", () => ownProps.history.push('/signout/currentuser/immediate')]];
   return({
     iconClassname: "fas fa-ellipsis-h",
     list

@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default ({imageUrl, toggleBackgroundImage, mainContext}) => (
-    <div className={`image-upload`+`${toggleBackgroundImage}`}>
+export default ({imageUrl, mainContext}) => (
+    <div className="image-upload">
       <img src={imageUrl} />
       <div className="file-upload-box">
         <input className="file-upload" id='track-image-upload' type="file" 

@@ -42,6 +42,12 @@ class TracksScrollingDisplay extends React.Component{
     this.props.immediateOn();
   }
 
+  handlePlayImmediate(trackId){
+    return e => {
+      this.props.pushToFrontOfQueue(trackId);
+    };
+  }
+
   mouseEnter(){
     this.setState({playIconHover: true});
   }
@@ -57,7 +63,8 @@ class TracksScrollingDisplay extends React.Component{
       imageUrl = this.props.trackArtistPairs[0][0].imageUrl;
       let trackArtistPairs = this.props.trackArtistPairs;
       tracksScrollingListItems = trackArtistPairs.map((trackArtistPair) => {      
-        return <TracksScrollingListItem key={trackArtistPair[0].id} handlePlayCB={this.handlePlay} trackArtistPair={trackArtistPair}/>
+        return <TracksScrollingListItem key={trackArtistPair[0].id} 
+          handlePlayCB={this.handlePlayImmediate(trackArtistPair[0].id)} trackArtistPair={trackArtistPair}/>
       });
     } else {
       tracksScrollingListItems = "";

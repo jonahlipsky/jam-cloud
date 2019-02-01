@@ -5,25 +5,22 @@ $button-orange: #f50;
   color: white;
 }
 
-// .splash-image{
-//   height: 450px;
-//   width: 100%;
-//   background-image: linear-gradient(to right, rgb(161, 67, 250), rgb(206, 6, 179));
-//   margin: auto;
-//   display: flex;
-//   position: relative;
-// }
 .splash-image{
   height: 450px;
   width: 100%;
   margin: auto;
   display: flex;
   position: relative;
-  background: url("/assets/girl_listening_1.jpg") center center no-repeat;
   background-size: cover;
+
+  img{
+    position: absolute;
+    height: 450px;
+  }
 
   &:before {
     content: '';
+    z-index: 2;
     position: absolute;
     top: 0;
     right: 0;
@@ -35,11 +32,12 @@ $button-orange: #f50;
 }
 
 .splash-image-contents{
+  position: relative;
   height: 450px;
   width: 100%;
   margin: auto;
   display: flex;
-  position: relative;
+  z-index: 3;
 }
 
 .photo-credit{

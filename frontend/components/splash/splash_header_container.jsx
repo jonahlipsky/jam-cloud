@@ -61,6 +61,7 @@ class SplashHeader extends React.Component {
     const formTypeForAuth = this.state.formType;
     return(
       <div className="splash-image">
+        <img src={window.womanListening}/>
         <div className="splash-image-contents">
           <div className="splash-auth-btns">
             <div><button id='sign-in-btn' onClick={this.toggleModal('signin')}><p>Sign In</p></button></div>

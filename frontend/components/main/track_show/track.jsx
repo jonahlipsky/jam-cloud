@@ -8,6 +8,7 @@ class Track extends React.Component {
   }
 
   componentDidMount(){
+    debugger
     this.props.fetchTracks();
     this.props.fetchUsers();
   }

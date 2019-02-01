@@ -1,0 +1,52 @@
+@import 'colors';
+
+.single-track-display{
+  width: 180px;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 20px 10px;
+
+  img{
+    width: 100%;
+  }
+
+  .single-track-artist-title{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0 0 5px 10px;
+    
+  }
+
+  .title{
+    color: $mid-gray;
+  }
+
+  .title:hover{
+    color: black;
+  }
+
+  .artist-name{
+    color: $light-gray;
+  }
+
+  .artist-name:hover{
+    color: $nav-bar-selected-gray;
+  }
+
+}
+
+.six-tracks-display{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}

@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   let trackId = parseInt(ownProps.match.params.trackId);
   let track = state.entities.tracks[trackId] || null;
   let title = track ? track.title : null;
-  let artist = track ? state.entities.users[track.user_id] : null
+  let artist = track ? state.entities.users[track.user_id] : null;
   return({
     track,
     title,

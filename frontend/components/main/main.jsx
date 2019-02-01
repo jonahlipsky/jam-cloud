@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBarContainer from '../main/nav_bar/nav_bar_container';
 import { Route, Redirect, NavLink, Switch, Link, HashRouter} from 'react-router-dom';
-import ContinuousPlayBar from './continuous_play_bar/play_bar_container';
 import StreamContainer from '../stream/stream_container';
 import UploadContainer from './tracks_upload/upload_container';
 import TrackContainer from './track_show/track_container';
@@ -18,7 +17,6 @@ export default (props) => {
           <Route exact path='/stream' component={StreamContainer} />
           <Route exact path='/signout/currentuser/immediate' component={SignOut} />
         </Switch>
-      <ContinuousPlayBar/>
     </>
   )
 };

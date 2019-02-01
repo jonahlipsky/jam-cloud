@@ -4,7 +4,7 @@ import ModalAuthForm from './modal_auth_form/modal_auth_form';
 import { withRouter } from 'react-router-dom';
 import { incrementStage } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../../actions/session_actions';
+import { fetchUsers, signin } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
   stage: state.session.stage
@@ -12,13 +12,15 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   incrementStage: (prevStage) => dispatch(incrementStage(prevStage)),
-  fetchUsers: () => dispatch(fetchUsers())
+  fetchUsers: () => dispatch(fetchUsers()),
+  signin: (user) => dispatch(signin(user))
 });
 
 class SplashHeader extends React.Component {
   constructor(props){
     super(props);
     this.state = {formType: ''};
+    this.handleDemoUser = this.handleDemoUser.bind(this);
   }
   
   componentDidMount(){
@@ -55,6 +57,11 @@ class SplashHeader extends React.Component {
     };
   }
 
+  handleDemoUser(){
+    let user = {email: "daniel@gmail.com", password: "test123"};
+    this.props.signin(user);
+  }
+
 
   render(){
 
@@ -66,13 +73,14 @@ class SplashHeader extends React.Component {
           <div className="splash-auth-btns">
             <div><button id='sign-in-btn' onClick={this.toggleModal('signin')}><p>Sign In</p></button></div>
             <button id='sign-up-btn' onClick={this.toggleModal('signup')}>Create Account</button>
+            <button onClick={this.handleDemoUser}>Demo User</button>
           </div>
 
           <div className='splash-welcome-text'>
             <h1>Discover music on JamCloud</h1>
 
             <h3>Upload your tracks, interact with artists, and stay up to date with <br/> their latest releases!</h3>
-            <Link to="/upload">Upload Your First Track Today</Link>
+            <Link to="/upload" >Upload Your First Track Today</Link>
           </div>
 
           <div className={'modal js-modal-close'} id={'modal'}>

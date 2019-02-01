@@ -26,40 +26,15 @@
     display: none;
   }
 
-  // .play-icon{
-  //   display: none;
-  // }
-  
-  // .track-main-image:hover .play-icon-hover{
-  //   display: block;
-  //   z-index: 5;
-  // }
-
-  // .play-button:hover{
-    
-  //   .play-icon{
-  //     display: none;
-  //   }
-
-  //   .play-icon-hover{
-  //     display: block;
-  //   }
-  // }
-
   .single-track-artist-title{
     display: flex;
     flex-direction: column;
     width: 100%;
-    // align-items: center;
     justify-content: center;
     position: absolute;
     bottom: 0;
     left: 0;
     margin: 0 0 5px 10px;
-
-
-
-    
   }
 
   .title{

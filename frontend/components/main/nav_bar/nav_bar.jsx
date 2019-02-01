@@ -34,8 +34,6 @@ class NavBar extends React.Component {
               <p>{this.props.user.username}</p>
               <i className="fa fa-angle-down"></i>
             </div>
-            {/* <i className="fas fa-bell"></i>
-            <i className="fas fa-envelope"></i> */}
             <EllipsisDropdown />
           </div>
         </div>

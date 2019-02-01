@@ -7,6 +7,11 @@ export const CLEAR_IMMEDIATE = "CLEAR_IMMEDIATE";
 export const SEND_PERCENTAGE_COMPLETE = "SEND_PERCENTAGE_COMPLETE";
 export const SEND_CURRENT_PERCENTAGE = "SEND_CURRENT_PERCENTAGE";
 export const CLEAR_CURRENT_PERCENTAGE = "CLEAR_CURRENT_PERCENTAGE";
+export const IMMEDIATE_ON = "IMMEDIATE_ON";
+
+export const immediateOn = () => ({
+  type: IMMEDIATE_ON
+});
 
 export const clearCurrentPercentage = () => ({
   type: CLEAR_CURRENT_PERCENTAGE

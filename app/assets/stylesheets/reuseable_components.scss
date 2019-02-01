@@ -70,26 +70,51 @@
   width: 820px;
   height: 220px;
   background: linear-gradient(135deg, rgb(72, 96, 122) 0%, rgb(38, 30, 28) 100%);
+  position: relative;
 
-  img{
-    width: 50px;
-    height: 50px;
+  .image-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 180px;
     margin: 20px 0 20px 20px;
+  }
+
+  .play-icon{
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    left: 50%;
+    margin-left: -30px;
   }
 
 }
 
 .scrolling-display{
   overflow: scroll;
-  height: 100%;
+  overflow-x: hidden;
+  height: 180px;
   margin: 20px 10px;
+  position: absolute;
+  left: 210px;
+  top: 0;
+  width: 580px;
 
   li{
     color: $nav-bar-text-color;
     border-bottom: 1px solid $light-gray;
+    padding: 10px 0;
+  }
+
+  li:nth-child(1){
+    padding-top: 0;
   }
 }
 
-.discover{
+.discover-page{
   margin: 50px 0;
+  h1{
+    padding: 20px 0 0 30px;
+  }
 }

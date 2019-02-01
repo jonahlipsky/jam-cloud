@@ -1,7 +1,8 @@
 import { GO_TO_NEXT_TRACK, PUSH_TRACK_TO_QUEUE, TOGGLE_SHUFFLE, 
   GO_TO_PREVIOUS_TRACK, PUSH_TO_FRONT_OF_QUEUE, 
   CLEAR_IMMEDIATE, SEND_PERCENTAGE_COMPLETE, SEND_CURRENT_PERCENTAGE,
-  CLEAR_CURRENT_PERCENTAGE } from '../actions/sound_controller_actions';
+  CLEAR_CURRENT_PERCENTAGE, 
+  IMMEDIATE_ON} from '../actions/sound_controller_actions';
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
@@ -38,6 +39,9 @@ export default (state = {}, action) => {
       } else {
         return newState;
       } 
+    case IMMEDIATE_ON:
+      newState.immediate = true;
+      return newState;
     case PUSH_TO_FRONT_OF_QUEUE:
       newState.queue[0] ? newState.prevQueue.push(newState.queue[0]) : null ;
       newState.queue = newState.queue.slice(1);

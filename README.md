@@ -14,4 +14,4 @@ This progress bar tracks the progress of a song through actions dispatch through
 The queue allows for immediate play of a song as well as pushing songs to the end of the queue. An immediately played song will be inserted into the front of the queue and a property "immediate" will be passed down to the sound element which informs it to restart from the beginning of a song. The interval that manages the progress bar is reset. One of several play icons throughout the site allow for the immediately play tracks.
 
 ### Three Stage User Creation
-The 
+Account creation is managed through a three stage form. Each form progresses to the next through an action dispatched through redux which causes a re-render in the form component. This allows each piece of information to be verified before moving on to the next.

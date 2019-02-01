@@ -8,7 +8,6 @@ const mapStateToProps = state => {
   let shuffle = state.io.trackQueue.shuffle;
   let trackQueue = state.io.trackQueue;
   let trackIds = Object.keys(state.entities.tracks);
-  let nTracks = trackIds.length;
   let duration = state.io.trackQueue.duration;
   let percentageComplete = state.io.trackQueue.percentageComplete;
   let currentMilliseconds = Math.floor((percentageComplete / 100) * duration);
@@ -16,7 +15,7 @@ const mapStateToProps = state => {
   return({
     trackQueue,
     shuffle,
-    nTracks,
+    trackIds,
     duration,
     percentageComplete,
     currentMilliseconds
@@ -25,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   goToNextTrack: () => dispatch(goToNextTrack()),
-  toggleShuffle: (nTracks) => dispatch(toggleShuffle(nTracks)),
+  toggleShuffle: (trackIds, shuffleAndTurnOff) => dispatch(toggleShuffle(trackIds, shuffleAndTurnOff)),
   fetchTracks: () => dispatch(fetchTracks()),
   fetchUsers: () => dispatch(fetchUsers())
 });

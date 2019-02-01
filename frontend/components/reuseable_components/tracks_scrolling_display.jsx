@@ -29,9 +29,9 @@ import TracksScrollingListItem from './tracks_scrolling_list_item';
 const mapStateToProps = state => {
 
   let trackArtistPairs = [];
-  let queue = state.io.trackQueue.queue
-  if(state.entities.users[1] && state.entities.tracks[1] && queue.length){
-    for (let i = 1; i < queue.length + 1; i++) {
+  let queue = state.io.trackQueue.queue;
+  if(queue.length){
+    for (let i = 0; i < queue.length; i++) {
       let trackId = queue[i];
       let track = state.entities.tracks[trackId];
       let artist = state.entities.users[track.user_id];
@@ -74,9 +74,10 @@ class TracksScrollingDisplay extends React.Component{
     let imageUrl = "";
     let tracksScrollingListItems;
     if(this.props.trackArtistPairs.length){
+      imageUrl = this.props.trackArtistPairs[0][0].imageUrl;
       let trackArtistPairs = this.props.trackArtistPairs;
-      tracksScrollingListItems = trackArtistPairs.map((trackArtistPair) => {
-        return <TracksScrollingListItem handlePlayCB={this.handlePlay(trackId)} trackArtistPair={trackArtistPair}/>
+      tracksScrollingListItems = trackArtistPairs.map((trackArtistPair) => {      
+        return <TracksScrollingListItem key={trackArtistPair[0].id} handlePlayCB={this.handlePlay(trackArtistPair[0].id)} trackArtistPair={trackArtistPair}/>
       });
     } else {
       tracksScrollingListItems = "";

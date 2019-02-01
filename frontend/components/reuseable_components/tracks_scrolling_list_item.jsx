@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default ({trackUserPair, handlePlayCB}) => {
+export default ({trackArtistPair, handlePlayCB}) => {
   return(
-    <li key={trackUserPair[0].id} onClick={handlePlayCB}>{`${trackUserPair[0].title} - ${trackUserPair[1].username}`}</li>
+    <li key={trackArtistPair[0].id} onClick={handlePlayCB}>{`${trackArtistPair[0].title} - ${trackArtistPair[1].username}`}</li>
   )
 }

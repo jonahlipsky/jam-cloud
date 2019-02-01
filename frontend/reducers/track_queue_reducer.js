@@ -45,10 +45,14 @@ export default (state = {}, action) => {
       newState.immediate = true;
       return newState;
     case TOGGLE_SHUFFLE:
-      if(state.shuffle){
+      if(action.shuffleAndTurnOff){
+        newState.queue = randomizeTracks(action.trackIds);
+        return merge(newState, { shuffle: false });
+      }
+      else if(state.shuffle){
         return merge(newState, { shuffle: false });
       } else {
-        newState.queue = randomizeTracks(action.nTracks);
+        newState.queue = randomizeTracks(action.trackIds);
         return merge(newState, { shuffle: true });
       }
     default: 
@@ -68,11 +72,12 @@ function getRandomInt(max){
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function randomizeTracks(nTracks){
+function randomizeTracks(trackIds){
   let randomTracks = [];
-  while (randomTracks.length < 20 && randomTracks.length < nTracks){
-    let trackId = getRandomInt(nTracks);
-    randomTracks.push(trackId);
+  let trackIdsLength = trackIds.length;
+  while (randomTracks.length < 20 && randomTracks.length < trackIdsLength){
+    let i = getRandomInt(trackIdsLength);
+    randomTracks.push(trackIds[i]);
   }
   let randomized = randomTracks.filter( onlyUnique );
   return randomized;

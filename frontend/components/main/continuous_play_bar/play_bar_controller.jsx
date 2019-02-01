@@ -75,15 +75,15 @@ class PlayBarController extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchUsers();
-    this.props.fetchTracks().then(() => {
-      this.toggleShuffle();
-      this.toggleShuffle();
+    this.props.fetchUsers().then(() => {
+      this.props.fetchTracks().then(() => {
+        this.toggleShuffle(true);
+      });
     });
   }
 
-  toggleShuffle(){
-    this.props.toggleShuffle(this.props.nTracks);
+  toggleShuffle(shuffleAndTurnOff = false){
+    this.props.toggleShuffle(this.props.trackIds, shuffleAndTurnOff);
   }
 
   handleForward(){
@@ -109,13 +109,12 @@ class PlayBarController extends React.Component{
     let iconClass = this.state.soundStatus === "PLAYING" ? "fas fa-pause" : "fas fa-play";
     let toggleBack = this.toggleBack.bind(this);
     let shuffleClass = this.state.shuffleClass;
-    let nTracks = this.props.nTracks;
     return(
     <div className="control-bar">
         <button><i className="fas fa-step-backward" onClick={this.toggleBack}></i></button>
         <button><i id='play-pause' className={iconClass} onClick={this.togglePlay}></i></button>
         <button><i className="fas fa-step-forward" onClick={this.handleForward}></i></button>
-        <button><i className={shuffleClass} onClick={() => this.toggleShuffle(nTracks)}></i></button>
+        <button><i className={shuffleClass} onClick={this.toggleShuffle}></i></button>
         <ProgressBarContainer />
         <div className="volume-icons">
           <img src={window.volume}/>

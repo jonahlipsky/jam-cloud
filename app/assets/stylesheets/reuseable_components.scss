@@ -62,3 +62,34 @@
   justify-content: center;
   
 }
+
+//TRACKS SCROLLING DISPLAY
+
+.tracks-scrolling-display{
+  margin: 30px;
+  width: 820px;
+  height: 220px;
+  background: linear-gradient(135deg, rgb(72, 96, 122) 0%, rgb(38, 30, 28) 100%);
+
+  img{
+    width: 50px;
+    height: 50px;
+    margin: 20px 0 20px 20px;
+  }
+
+}
+
+.scrolling-display{
+  overflow: scroll;
+  height: 100%;
+  margin: 20px 10px;
+
+  li{
+    color: $nav-bar-text-color;
+    border-bottom: 1px solid $light-gray;
+  }
+}
+
+.discover{
+  margin: 50px 0;
+}

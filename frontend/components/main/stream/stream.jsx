@@ -6,10 +6,6 @@ class Stream extends React.Component{
     super(props);
   }
 
-  componentDidMount(){
-    this.props.fetchUsers();
-    this.props.fetchTracks();
-  }
 
   render(){
     return(

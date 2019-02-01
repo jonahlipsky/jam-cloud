@@ -25,7 +25,6 @@ class SplashHeader extends React.Component {
   
   componentDidMount(){
     this.props.incrementStage(0);
-    this.props.fetchUsers();
     const modalForm = document.getElementById('modal-form');
     const button = document.getElementById('sign-in-btn');
     button.addEventListener('click', () => {

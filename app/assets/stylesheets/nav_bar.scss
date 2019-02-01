@@ -1,11 +1,4 @@
-$button-orange: #f50;
-$mid-gray:#333;
-$nav-bar-selected-gray: #111; 
-$light-gray: rgb(150,150,150);
-$background-gray: #f2f2f2;
-$lighter-gray: #cecece;
-$nav-bar-icon-selectec-gray: #fff;
-$button-hover-orange: rgb(255, 60, 0);
+@import 'colors';
 
 .nav-background {
   position: fixed;
@@ -41,31 +34,27 @@ $button-hover-orange: rgb(255, 60, 0);
       color: white;
     }
     
-    // .fa-music{
-    //   position: absolute;
-    //   top: 21px;
-    //   right: 30px;
-    //   font-size: 10pt;
-    //   color: rgb(100,100,100)
-    // }
   }
   .left-btns{
     border-right: 2px solid rgb(45, 45, 45);
-    width: 100px;
-    height: 100%;
-    text-align: center;
-    color: #eee;
   }
 
-  .upload{
-    align-self: center;
+  .nav-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: $nav-bar-text-color;
     text-align: center;
     width: 100px;
-    color: #eee;
   }
+
 
 }
 
+.nav-bar-selected{
+  background-color: $nav-bar-selected-gray;
+}
 
 .search-bar-container{
   width: 570px;
@@ -147,6 +136,6 @@ $button-hover-orange: rgb(255, 60, 0);
   background-color: $nav-bar-selected-gray;
 
   i{
-    color: $nav-bar-icon-selectec-gray;
+    color: $nav-bar-icon-selected-gray;
   }
 }

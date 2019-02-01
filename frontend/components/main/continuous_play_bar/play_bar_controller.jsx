@@ -75,6 +75,7 @@ class PlayBarController extends React.Component{
   }
 
   componentDidMount(){
+    this.props.fetchUsers();
     this.props.fetchTracks().then(() => {
       this.toggleShuffle();
       this.toggleShuffle();

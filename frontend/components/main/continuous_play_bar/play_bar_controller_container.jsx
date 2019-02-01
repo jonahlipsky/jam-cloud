@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { goToNextTrack, toggleShuffle } from '../../../actions/sound_controller_actions';
 import PlayBarController from './play_bar_controller';
 import { fetchTracks } from '../../../actions/track_actions';
+import { fetchUsers } from '../../../actions/session_actions';
 
 const mapStateToProps = state => {
   let shuffle = state.io.trackQueue.shuffle;
@@ -25,7 +26,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   goToNextTrack: () => dispatch(goToNextTrack()),
   toggleShuffle: (nTracks) => dispatch(toggleShuffle(nTracks)),
-  fetchTracks: () => dispatch(fetchTracks())
+  fetchTracks: () => dispatch(fetchTracks()),
+  fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(PlayBarController);

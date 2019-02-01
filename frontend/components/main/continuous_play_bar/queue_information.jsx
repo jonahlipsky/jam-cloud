@@ -5,11 +5,6 @@ class QueueInformation extends React.Component{
     super(props);
   } 
   
-
-  componentDidMount(){
-    this.props.fetchUsers();
-  }
-
   render(){
     let imageUrl = this.props.currentTrack.imageUrl;
     let trackArtist = this.props.trackArtist;

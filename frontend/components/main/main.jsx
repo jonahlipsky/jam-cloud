@@ -1,10 +1,12 @@
 import React from 'react';
 import NavBarContainer from '../main/nav_bar/nav_bar_container';
 import { Route, Redirect, NavLink, Switch, Link, HashRouter} from 'react-router-dom';
-import StreamContainer from '../stream/stream_container';
+import StreamContainer from './stream/stream_container'
 import UploadContainer from './tracks_upload/upload_container';
 import TrackContainer from './track_show/track_container';
 import SignOut from '../route_actions/sign_out';
+import DiscoverContainer from './discover/discover_container';
+
 
 export default (props) => {
   return(
@@ -15,6 +17,7 @@ export default (props) => {
           <Route exact path='/upload' component={UploadContainer} />
           <Route exact path='/you/tracks' component={UploadContainer} />
           <Route exact path='/stream' component={StreamContainer} />
+          <Route exact path='/discover' component={DiscoverContainer} />
           <Route exact path='/signout/currentuser/immediate' component={SignOut} />
         </Switch>
     </>

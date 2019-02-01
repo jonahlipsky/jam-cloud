@@ -6,9 +6,6 @@ class TracksDisplay extends React.Component{
     super(props);
   }
 
-  componentDidMount(){
-    this.props.fetchTracks();
-  }
 
   render(){
     let trackListItems = this.props.tracks.map((track) => {

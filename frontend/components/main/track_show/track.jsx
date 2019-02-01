@@ -7,10 +7,6 @@ class Track extends React.Component {
 
   }
 
-  componentDidMount(){
-    this.props.fetchTracks();
-    this.props.fetchUsers();
-  }
 
   render(){
     return(

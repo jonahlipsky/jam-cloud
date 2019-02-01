@@ -1,9 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import UploadContainer from '../../main/tracks_upload/upload_container';
-import StreamContainer from '../../stream/stream_container';
-import DropdownComponent from './dropdown_component';
-import FontAwesome from 'fontawesome';
+import { Route, Link, NavLink } from 'react-router-dom';
 import EllipsisDropdown from './ellipsis_user_dropdown';
 
 class NavBar extends React.Component {
@@ -12,8 +8,7 @@ class NavBar extends React.Component {
   }
 
   render(){
-
-    
+   
     return(
       <>
         <div className="nav-background">
@@ -21,15 +16,15 @@ class NavBar extends React.Component {
             <button className="logo">
               <i className="fas fa-cloud"></i>
             </button>
-            <button className="home left-btns">Home</button>
-            <button className="steam left-btns">Stream</button>
-            <button className="collection left-btns">Collection</button>
+            <NavLink exact to="/discover" activeClassName="nav-bar-selected" className="left-btns nav-buttons">Home</NavLink>
+            <NavLink exact to="/stream" activeClassName="nav-bar-selected" className="left-btns nav-buttons">Stream</NavLink>
+            <button className="left-btns nav-buttons">Library</button>
             <div className="search-bar-container">
               <input type="text" className="search-bar-field" placeholder='Search'/>
               <i className="fas fa-search"></i>
             </div>
 
-            <Link to='/upload' className="upload">Upload</Link>
+            <NavLink exact to='/upload' className="upload nav-buttons" activeClassName="nav-bar-selected">Upload</NavLink>
             <div className="profile-dropdown">
               <p>{this.props.user.username}</p>
               <i className="fa fa-angle-down"></i>

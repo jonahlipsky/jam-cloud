@@ -13,8 +13,8 @@ class UploadForm extends React.Component{
         title: "",
         imageUrl: null,
         imageFile: null,
-        trackUrl: null,
-        trackFile: null
+        soundUrl: null,
+        soundFile: null
       };
     }
     this.handleFile = this.handleFile.bind(this);
@@ -29,8 +29,8 @@ class UploadForm extends React.Component{
         title: track.title,
         imageUrl: track.imageUrl,
         imageFile: track.imageFile,
-        trackUrl: track.trackUrl,
-        trackFile: track.trackFile
+        soundUrl: track.soundUrl,
+        soundFile: track.soundFile
       });
     }
   }
@@ -79,8 +79,8 @@ class UploadForm extends React.Component{
         //also on component did mount fetch that image
         // formData.append('track[image]', that.props.defaultImage);
       }
-      if (that.state.trackFile){
-        formData.append('track[track]', that.state.trackFile);
+      if (that.state.soundFile){
+        formData.append('track[sound_file]', that.state.soundFile);
       }
       if(formType === 'Update'){
         that.props.updateTrack(formData, that.props.track.id).then(() => {
@@ -101,7 +101,7 @@ class UploadForm extends React.Component{
     if(this.state.redirect){
       redirect = <Redirect to="/you/tracks" />
     }
-    let component = this.props.fileUploadStage === 1 ? <UploadStageOne that={this} /> : <UploadStageTwo errors={this.props.errors} mainContext={this} />
+    let component = this.props.fileUploadStage === 1 ? <UploadStageOne context={this} /> : <UploadStageTwo errors={this.props.errors} context={this} />
     return(
       <>
         {redirect}

@@ -12,16 +12,16 @@ class Track < ApplicationRecord
   validates :title, presence: true
   
   validate :ensure_image
-  validate :ensure_track
+  validate :ensure_sound_file
   
   belongs_to :user
   
-  has_one_attached :track
+  has_one_attached :sound_file
   has_one_attached :image
   
-  def ensure_track
-    unless self.track.attached?
-      errors[:track] << "Track must be attached"
+  def ensure_sound_file
+    unless self.sound_file.attached?
+      errors[:sound_file] << "Track must be attached"
     end
   end
 

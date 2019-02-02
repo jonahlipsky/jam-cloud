@@ -94,7 +94,7 @@ class TrackShowHeader extends React.Component{
             {updateTime}
           </div>
         </div>
-        <UploadImage mainContext={this} imageUrl={imageUrl} />
+        <UploadImage context={this} imageUrl={imageUrl} />
 
 
         <div className={'modal js-modal-close'} id={'modal'}>

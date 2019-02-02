@@ -19,16 +19,16 @@ class Track < ApplicationRecord
   has_one_attached :track
   has_one_attached :image
   
-    def ensure_track
-      unless self.track.attached?
-        errors[:track] << "Track must be attached"
-      end
+  def ensure_track
+    unless self.track.attached?
+      errors[:track] << "Track must be attached"
     end
-  
-    def ensure_image
-      unless self.image.attached?
-        errors[:image] << "Image must be attached"
-      end
+  end
+
+  def ensure_image
+    unless self.image.attached?
+      errors[:image] << "Image must be attached"
     end
+  end
 
 end

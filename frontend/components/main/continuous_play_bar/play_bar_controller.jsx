@@ -46,11 +46,11 @@ class PlayBarController extends React.Component{
     let that = this;
     let intervalId = setInterval(() => {
       let percentage = (((that.state.milliseconds + 10) * 100) / that.props.duration);
-      that.setProgressBar(percentage)
+      that.setProgressBar(percentage);
       that.setState({milliseconds: that.state.milliseconds + 10});
     }, 10);
     this.setState({ intervalId }); 
-    console.log(intervalId)
+    console.log(intervalId);
   }
 
   clearLocalInterval(){

@@ -1,0 +1,65 @@
+prettier.io
+Rubocop
+
+stylistic similarity, simplicity, uniformity or rather consistency.
+If you can say something in a simpler way, say it in a simpler way. 
+  -If your not getting value from the more verbose way, go with the simpler.
+
+Follow the code base that you are working within.
+
+Change 'track' to 'sound_file' in track model.
+
+Rails and React innefficiency together?
+  Google firebase
+    -Backend for free
+  Isomorphic Apps
+  GraphQL
+  Backends in Node
+
+Default image should get loaded up when track sent for creation
+  Think about the trade off in the controller with attatching
+
+Deletes should do 
+  render body: nil, status: :no_content
+  render json: nil,  status: 422
+
+Don't need this/that in play_bar_controller.jsx
+
+setLocalInterval logic
+  maybe put this in a utility?
+  
+WANT TO MAKE CODE VERY SIMILAR TO THE MAINSTREAM
+
+Built-ins... 
+  Custom things sometimes more things can break
+  On the other hand the built ins don't all get handle the same between browsers
+  For instance the progress bar
+
+
+async await -- to avoid callback hell
+
+Look at componentDidUpdate in play bar controller.
+  -Dont need set states.
+  -Pure functions
+
+Want to avoid state because it can get changed or break and have to think about what else it effects.
+
+Classnames Javascript Utility!
+
+MomentJS progress-bar_container.jsx
+
+Drop constructors if they do nothing. Queue Information
+
+Programming is literary.
+
+Looking forward: 
+  The 80-20 rule.
+  Don't expect to come to a point of completion
+  Shy away from putting too much time into it
+  Neat ways to do component testing
+    -Jest
+  Maybe not a good way to test actions and reducers
+  Maybe not integration tests because huge effort creating fake server side
+  Test suite
+
+Do For Each in Splash Body Container!

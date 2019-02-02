@@ -7,8 +7,11 @@ const mapStateToProps = state => {
   let trackArtistPairs = [];
 
   if(state.entities.users[1] && state.entities.tracks[1]){
-    for (let i = 1; i < 13; i++) {
-      let track = state.entities.tracks[i];
+    let trackIds = Object.keys(state.entities.tracks);
+    let trackIdsLength = trackIds.length;
+    for (let i = 1; i < trackIdsLength; i++) {
+      let trackId = trackIds[i];
+      let track = state.entities.tracks[trackId];
       let artist = state.entities.users[track.user_id];
       trackArtistPairs.push([track, artist]);
     }

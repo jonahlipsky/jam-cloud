@@ -9,7 +9,7 @@ class TracksDisplay extends React.Component{
 
   render(){
     let trackListItems = this.props.tracks.map((track) => {
-      return <TrackListItemContainer track={track} username={this.props.username} />
+      return <TrackListItemContainer key={track.id} track={track} username={this.props.username} />
     });
     return(
       <>

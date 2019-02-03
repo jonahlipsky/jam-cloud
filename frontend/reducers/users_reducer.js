@@ -22,10 +22,9 @@ export default (state = {}, action) => {
       newState[user_id].track_ids.push(action.track.id);
       return newState;
     case REMOVE_TRACK:
-      user_id = action.track.user_id;
-      let trackPosition = newState[user_id].track_ids.indexOf(action.track.id);
+      user_id = action.user_id;
+      let trackPosition = newState[user_id].track_ids.indexOf(action.id);
       newState[user_id].track_ids.splice(trackPosition, 1);
-      return newState;
     default:
       return state;
   }

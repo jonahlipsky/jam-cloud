@@ -34,7 +34,7 @@ class Api::TracksController < ApplicationController
   def destroy
     @track = Track.find(params[:id])
     @track.destroy
-    render :show
+    render body: nil, status: :no_content
   end
 
   private

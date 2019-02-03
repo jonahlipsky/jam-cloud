@@ -62,8 +62,8 @@ class TracksScrollingDisplay extends React.Component{
     if(this.props.trackArtistPairs.length){
       imageUrl = this.props.trackArtistPairs[0][0].imageUrl;
       let trackArtistPairs = this.props.trackArtistPairs;
-      tracksScrollingListItems = trackArtistPairs.map((trackArtistPair) => {      
-        return <TracksScrollingListItem key={trackArtistPair[0].id} 
+      tracksScrollingListItems = trackArtistPairs.map((trackArtistPair, i) => {      
+        return <TracksScrollingListItem key={i} 
           handlePlayCB={this.handlePlayImmediate(trackArtistPair[0].id)} trackArtistPair={trackArtistPair}/>
       });
     } else {

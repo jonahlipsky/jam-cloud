@@ -80,8 +80,6 @@ class SoundPlay extends React.Component {
     if(this.props.nextTrack){
       this.setState({ autoLoad: true });
       this.props.goToNextTrack();  
-      // this.props.sendPercentageComplete(0, this.state.duration);
-      // this.props.playBarControllerContext.setProgressBar(0);
     } else {
       this.props.playBarControllerContext.setState({milliseconds: 0});
       this.props.playBarControllerContext.setProgressBar(0);
@@ -105,7 +103,7 @@ class SoundPlay extends React.Component {
     let sound;
     if(this.props.currentTrack){
       sound = (<Sound autoLoad={this.state.autoLoad}
-        url={this.props.currentTrack.trackUrl}
+        url={this.props.currentTrack.soundUrl}
         playStatus={status}
         volume={this.props.volume}
         position={this.state.position}

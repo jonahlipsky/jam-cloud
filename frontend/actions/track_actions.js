@@ -32,9 +32,10 @@ export const incrementFileUploadStage = (prevStage) => ({
   prevStage
 });
 
-const receiveRemoveTrack = track => ({
+const receiveRemoveTrack = (id, user_id) => ({
   type: REMOVE_TRACK,
-  track 
+  id, 
+  user_id
 });
 
 const receiveUploadErrors = (errors) => ({
@@ -63,8 +64,8 @@ export const updateTrack = (formData, id) => dispatch => {
   );
 };
 
-export const removeTrack = track => dispatch => {
-  return TRACK_API_UTIL.removeTrack(track.id).then(track => dispatch(receiveRemoveTrack(track)));
+export const removeTrack = ({id, user_id}) => dispatch => {
+  return TRACK_API_UTIL.removeTrack(id).then(() => dispatch(receiveRemoveTrack(id, user_id)));
 };
 
 

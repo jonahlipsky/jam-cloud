@@ -12,8 +12,10 @@
     "url": "git+https://github.com/jonahlipsky/JamCloud.git"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "fontawesome": "^5.6.3",
     "lodash": "^4.17.11",
+    "moment": "^2.24.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-onclickoutside": "^6.7.1",
@@ -23,7 +25,8 @@
     "react-sound": "^1.2.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "regenerator-runtime": "^0.13.1"
   },
   "engines": {
     "node": "10.13.0",

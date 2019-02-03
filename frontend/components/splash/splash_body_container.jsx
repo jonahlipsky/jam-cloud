@@ -5,16 +5,14 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => {
 
   let trackArtistPairs = [];
-
-  if(state.entities.users[1] && state.entities.tracks[1]){
-    let trackIds = Object.keys(state.entities.tracks);
-    let trackIdsLength = trackIds.length;
-    for (let i = 1; i < trackIdsLength; i++) {
-      let trackId = trackIds[i];
+  let users = state.entities.users;
+  let trackIds = Object.keys(state.entities.tracks);
+  if(Object.keys(users).length && trackIds.length){
+    trackIds.forEach((trackId) => {
       let track = state.entities.tracks[trackId];
-      let artist = state.entities.users[track.user_id];
+      let artist = users[track.user_id];
       trackArtistPairs.push([track, artist]);
-    }
+    });
   }
   
   return({

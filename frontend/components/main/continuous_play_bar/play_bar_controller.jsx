@@ -1,13 +1,14 @@
 import React from 'react';
 import SoundContainer from '../sound/sound_container';
 import ProgressBarContainer from './progress_bar_container';
+import regeneratorRuntime from "regenerator-runtime";
+import classNames from 'classnames';
 
 class PlayBarController extends React.Component{
   constructor(props){
     super(props);
     this.state = {soundStatus: "PAUSED", backPressed: false, 
-      shuffleClass: "fa fa-random", milliseconds: 0, intervalId: 0,
-      volume: 100};
+      milliseconds: 0, intervalId: 0, volume: 100};
     this.togglePlay = this.togglePlay.bind(this);
     this.toggleBack = this.toggleBack.bind(this);
     this.forcePlay = this.forcePlay.bind(this);
@@ -43,18 +44,15 @@ class PlayBarController extends React.Component{
   setLocalInterval(){
     let milliseconds = this.props.currentMilliseconds;
     this.setState({ milliseconds });
-    let that = this;
     let intervalId = setInterval(() => {
-      let percentage = (((that.state.milliseconds + 10) * 100) / that.props.duration);
-      that.setProgressBar(percentage);
-      that.setState({milliseconds: that.state.milliseconds + 10});
+      let percentage = (((this.state.milliseconds + 10) * 100) / this.props.duration);
+      this.setProgressBar(percentage);
+      this.setState({milliseconds: this.state.milliseconds + 10});
     }, 10);
     this.setState({ intervalId }); 
-    console.log(intervalId);
   }
 
   clearLocalInterval(){
-    console.log(this.state.intervalId);
     clearInterval(this.state.intervalId);
   }
 
@@ -74,28 +72,19 @@ class PlayBarController extends React.Component{
     }
   }
 
-  componentDidMount(){
-    this.props.fetchUsers().then(() => {
-      this.props.fetchTracks().then(() => {
-        this.toggleShuffle(true);
-      });
-    });
+  async componentDidMount(){
+    await this.props.fetchUsers();
+    await this.props.fetchTracks();
+    this.toggleShuffle(this.props.trackIds, true);
+
   }
 
-  toggleShuffle(shuffleAndTurnOff = false){
+  toggleShuffle(e, shuffleAndTurnOff = false){
     this.props.toggleShuffle(this.props.trackIds, shuffleAndTurnOff);
   }
 
   handleForward(){
     this.props.goToNextTrack();
-  }
-
-  componentDidUpdate(){
-    if(this.props.shuffle && this.state.shuffleClass === "fa fa-random"){
-      this.setState({shuffleClass: "fa fa-random fa-random-selected"});
-    } else if ((!this.props.shuffle) && (!(this.state.shuffleClass === "fa fa-random"))){
-      this.setState({shuffleClass: "fa fa-random"});
-    }
   }
 
   handleVolumeChange(e){
@@ -106,9 +95,14 @@ class PlayBarController extends React.Component{
 
   render(){
     let playBarControllerContext = this;
-    let iconClass = this.state.soundStatus === "PLAYING" ? "fas fa-pause" : "fas fa-play";
+    let playingBoolean = this.state.soundStatus === "PLAYING";
+    let iconClass = classNames("fas", {"fa-pause": playingBoolean},
+      {"fa-play": !(playingBoolean)});
     let toggleBack = this.toggleBack.bind(this);
-    let shuffleClass = this.state.shuffleClass;
+    let shuffleClass = classNames("fa", "fa-random", 
+      {"fa-random-selected": this.props.shuffle }
+    );
+
     return(
     <div className="control-bar">
         <button><i className="fas fa-step-backward" onClick={this.toggleBack}></i></button>

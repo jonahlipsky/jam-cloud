@@ -11,8 +11,8 @@ class SixTracksDisplay extends React.Component{
     
     let displayedTracks;
     if(this.props.tracksAndArtists[0]){
-      displayedTracks = this.props.tracksAndArtists.map((trackArtistPair) => {
-        return <SingleTrackDisplay trackArtistPair={trackArtistPair} />
+      displayedTracks = this.props.tracksAndArtists.map((trackArtistPair, i) => {
+        return <SingleTrackDisplay key={i} trackArtistPair={trackArtistPair} />
       });
     } else {
       displayedTracks = '';

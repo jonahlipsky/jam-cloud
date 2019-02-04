@@ -22,7 +22,7 @@ class Api::TracksController < ApplicationController
   def create
     @track = current_user.tracks.new(track_params)
     unless @track.image.attached?
-      @track.image.attach(io: File.open("/Users/jonahlipsky/app_academy/final_project/jam-cloud/app/assets/images/blur-cloud.png"), filename: "cover.jpg")
+      @track.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'blur-cloud.png')), filename: "blur-cloud.png")
     end
     if @track.save
       render :show

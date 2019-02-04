@@ -15,6 +15,9 @@ class Track < ApplicationRecord
   validate :ensure_sound_file
   
   belongs_to :user
+
+  has_many :comments
+  has_many :likes
   
   has_one_attached :sound_file
   has_one_attached :image

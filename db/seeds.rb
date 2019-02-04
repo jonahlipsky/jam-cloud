@@ -14,8 +14,12 @@ User.destroy_all
 user1 = User.create(username: 'test123', password: 'test123', email: 'jonahlipsky@protonmail.com', age: 29, gender: 'Male')
 user2 = User.create(username: 'Jessica', password: 'test123', email: 'jessica@jkj.com', age: 38, gender: 'Female')
 user3 = User.create(username: 'Alorza', password: 'test123', email: 'alorza@rhodeisland.net', age: 58, gender: 'Male')
-
 user4 = User.create(username: 'Daniel', password: 'test123', email: 'daniel@gmail.com', age: 28, gender: 'Male')
+user1.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
+user2.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
+user3.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
+user4.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
+
 track1 = Track.new(title: '01_something_good', user_id: 4, album_id: 1)
 track1.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track1.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '01_something_good.mp3')), filename: "01_something_good.mp3")

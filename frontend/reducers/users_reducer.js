@@ -13,7 +13,7 @@ export default (state = {}, action) => {
       return merge({}, state, { [action.currentUser.id]: newUser });
     case RECEIVE_ALL_USERS:
       action.users.forEach((user) => {
-        let newUser = {id: user.id, email: user.email, username: user.username, track_ids: user.track_ids};
+        let newUser = user;
         newState[`${user.id}`] = newUser;
       });
       return newState;

@@ -29,6 +29,13 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :tracks
+  has_many :likes
+
+  has_one_attached :profile_picture
+  
+  has_many :comments, 
+    foreign_key: :author_id,
+    class_name: 'Comment'
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64

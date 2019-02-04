@@ -1,7 +1,8 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
-    @comment.track_id = params[:id]
+    debugger
+    @comment.track_id = params[:track_id]
     if @comment.save
       render :show 
     else
@@ -10,7 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def index
-    @comments = Track.find(params[:id]).comments
+    @comments = Track.find(params[:track_id]).comments
   end
   
   def update

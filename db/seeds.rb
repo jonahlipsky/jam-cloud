@@ -69,3 +69,6 @@ track9.save
 track10.save
 track11.save
 track12.save
+
+comment1 = track1.comments.create(body: "Hey! This is a comment!", author_id: 1)
+comment2 = comment1.child_comments.create(body: "Comment on your comment", author_id: 2, track_id: comment1.track_id )

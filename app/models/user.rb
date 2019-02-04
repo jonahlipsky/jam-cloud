@@ -32,6 +32,12 @@ class User < ApplicationRecord
   has_many :likes
 
   has_one_attached :profile_picture
+
+  def ensure_profile_picture
+    unless self.profile_picture.attached?
+      errors[:profile_picture] << "Profile Picture must be attached"
+    end
+  end
   
   has_many :comments, 
     foreign_key: :author_id,

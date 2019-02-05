@@ -2,10 +2,12 @@
 #
 # Table name: tracks
 #
-#  id       :bigint(8)        not null, primary key
-#  title    :string           not null
-#  user_id  :integer
-#  album_id :integer
+#  id         :bigint(8)        not null, primary key
+#  title      :string           not null
+#  user_id    :integer
+#  album_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Track < ApplicationRecord
@@ -17,7 +19,15 @@ class Track < ApplicationRecord
   belongs_to :user
 
   has_many :comments
-  has_many :likes
+  has_many :likes, as: :likeable
+
+  has_many :recent_plays,
+    foreign_key: :track_id,
+    class_name: "RecentTrack"
+
+  has_many :recent_listeners, 
+    through: :recent_plays,
+    source: :user
   
   has_one_attached :sound_file
   has_one_attached :image

@@ -21,6 +21,8 @@ class Comment < ApplicationRecord
 
   belongs_to :track
 
+  has_many :likes, as: :likeable
+
   belongs_to :parent_comment,
     foreign_key: :parent_comment_id,
     class_name: "Comment",

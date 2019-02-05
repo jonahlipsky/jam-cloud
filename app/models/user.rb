@@ -29,7 +29,12 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :tracks
-  has_many :likes
+  has_many :likes, as: :likeable
+  has_many :recent_tracks
+
+  has_many :recently_played_tracks,
+    through: :recent_tracks,
+    source: :tracks
 
   has_one_attached :profile_picture
 

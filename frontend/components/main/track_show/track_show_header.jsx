@@ -9,8 +9,10 @@ class TrackShowHeader extends React.Component{
 
     this.state = {
       imageUrl: null,
-      imageFile: null
+      imageFile: null,
+      playIcon: "playIcon"
     };
+
     this.toggleModal = this.toggleModal.bind(this);
     this.cancelUpdateImage = this.cancelUpdateImage.bind(this);
     this.handleSubmit = this.handleFile.bind(this);
@@ -67,6 +69,14 @@ class TrackShowHeader extends React.Component{
     this.props.pushToFrontOfQueue(this.props.track.id);
   }
 
+  setIconHover(){
+    this.setState({playIcon: "playIconHover"});
+  }
+
+  removeIconHover(){
+    this.setState({playIcon: "playIcon"});
+  }
+
   render(){
     let artistName = this.props.artist ? this.props.artist.username : "";
     let title = this.props.track ? this.props.track.title : "";
@@ -80,11 +90,21 @@ class TrackShowHeader extends React.Component{
     } else{
       imageUrl = window.blurCloud;
     }
+
+    let playIcon;
+    if(this.state.playIcon === "playIconHover"){
+      playIcon = <img src={window.playIconHover} onClick={this.playTrack}/>
+    } else {
+      playIcon = <img src={window.playIcon} />
+    }
+      
     return(
       <div className="track-show-header">
         <div className="info-and-play-bar">
           <div className="track-info">
-            <img src={window.playIcon} onClick={this.playTrack}/>
+            <div className="play-icon-container" onMouseEnter={this.setIconHover.bind(this)} onMouseLeave={this.removeIconHover.bind(this)}>
+              {playIcon}
+            </div>
             <div className="artist-title">
               <Link to={`/users/${artistId}`}>{artistName}</Link>
               <h3>{title}</h3>
@@ -95,19 +115,13 @@ class TrackShowHeader extends React.Component{
           </div>
         </div>
         <UploadImage context={this} imageUrl={imageUrl} />
-
-
         <div className={'modal js-modal-close'} id={'modal'}>
-
           <ImageUploadForm context={this}/>
-
           <div className="modal-screen" id={'modal-screen'} onClick={this.toggleModal}>
             <button className="modal-close" >
               <i className="fas fa-times"></i>
             </button>
-            
           </div>
-  
         </div>
       </div>
     )

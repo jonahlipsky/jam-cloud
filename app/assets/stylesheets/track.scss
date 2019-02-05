@@ -107,7 +107,7 @@
     justify-content: flex-start;
   }
 
-  img{
+  .play-icon-container{
     width: 340px;
     height: 340px;
     margin-top: 40px;
@@ -128,4 +128,32 @@
     justify-content: flex-end
   }
 
+}
+
+.track-show-body{
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-input-show{
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  padding: 20px 30px;
+
+  .input-area{
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 100%;
+    background-color: $lighter-gray;
+  }
+
+  .comment-input{
+    color: $light-gray;
+    text-indent: 5px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
 }

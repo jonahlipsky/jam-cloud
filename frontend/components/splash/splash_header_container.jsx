@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => ({
 class SplashHeader extends React.Component {
   constructor(props){
     super(props);
-    this.state = {formType: ''};
+    this.state = {formType: '', resetAuthForm: false};
     this.handleDemoUser = this.handleDemoUser.bind(this);
   }
   
@@ -39,8 +39,14 @@ class SplashHeader extends React.Component {
       setTimeout(() => {
         modal.classList.remove('js-modal-open');
         modal.classList.add('js-modal-close');
+        this.toggleResetAuthForm();
       }, 500);
     });
+  }
+
+  toggleResetAuthForm(){
+    debugger
+    this.setState({ resetAuthForm: !this.state.resetAuthForm });
   }
 
   toggleModal(formType){
@@ -67,8 +73,10 @@ class SplashHeader extends React.Component {
     const formTypeForAuth = this.state.formType;
     return(
       <div className="splash-image">
+
         <img src={window.womanListening}/>
         <div className="splash-image-contents">
+        
           <div className="splash-auth-btns">
             <div><button id='sign-in-btn' onClick={this.toggleModal('signin')}><p>Sign In</p></button></div>
             <button id='sign-up-btn' onClick={this.toggleModal('signup')}>Create Account</button>
@@ -77,23 +85,20 @@ class SplashHeader extends React.Component {
 
           <div className='splash-welcome-text'>
             <h1>Discover music on JamCloud</h1>
-
             <h3>Upload your tracks, interact with artists, and stay up to date with <br/> their latest releases!</h3>
             <Link to="/upload" >Upload Your First Track Today</Link>
           </div>
 
           <div className={'modal js-modal-close'} id={'modal'}>
-
-            <ModalAuthForm stage={this.state.stage} formType={formTypeForAuth}/>
-
+            <ModalAuthForm resetAuthForm={this.state.resetAuthForm} toggleResetAuthForm={this.toggleResetAuthForm.bind(this)}
+              stage={this.state.stage} formType={formTypeForAuth}/>
             <div className="modal-screen" id={'modal-screen'} >
               <button className="modal-close" >
                 <i className="fas fa-times"></i>
               </button>
-              
             </div>
-    
           </div>
+
           <div className="photo-credit">
             CREDIT: Getty Images
           </div>

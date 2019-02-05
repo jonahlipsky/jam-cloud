@@ -1,5 +1,6 @@
 import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, 
   SEND_STAGE_ERRORS, CLEAR_ERRORS } from '../actions/session_actions';
+import { INCREMENT_FILE_UPLOAD_STAGE } from '../actions/track_actions';
 
 export default (state = [], action) => {
   Object.freeze(state);

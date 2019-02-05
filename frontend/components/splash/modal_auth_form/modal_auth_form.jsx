@@ -37,9 +37,16 @@ class ModalAuthForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  resetState(){
-    this.setState({email: '', password: '', age: '', gender: '', 
-    username: '', variable1: 'email', variable2: 'password'});
+  componentDidUpdate(){
+    if(this.props.resetAuthForm){
+      this.resetStageAndErrors();
+      this.props.toggleResetAuthForm();
+    }
+  }
+
+  resetStageAndErrors(){
+    this.props.incrementStage(0);
+    this.props.clearErrors();
   }
   
   checkEmailPassword(){
@@ -95,7 +102,7 @@ class ModalAuthForm extends React.Component {
     } else if(this.props.stage === 2){
       let errors = this.checkAgeGender();
       if(!errors.length){
-        this.incrementAndClearErrors()
+        this.incrementAndClearErrors();
         this.setState({variable1: 'username', variable2: '_'});
       } else {
         this.props.sendStageErrors(errors);
@@ -104,7 +111,6 @@ class ModalAuthForm extends React.Component {
     } else if(this.props.stage === 3){
       user = {email: this.state.email, password: this.state.password, 
         gender: this.state.gender, age: this.state.age, username: this.state.username};
-      this.resetState();
       this.props.signup(user);
       this.props.incrementStage(0);
       this.props.clearErrors();
@@ -134,7 +140,6 @@ class ModalAuthForm extends React.Component {
 
     let var1Name = this.state.variable1;
     let var2Name = this.state.variable2;
-    let animation = this.props.animation;
     let errors = this.props.errors.map((er) => {
       return <li>{er}</li>
     });

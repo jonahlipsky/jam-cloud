@@ -24,7 +24,6 @@
     "react-router-dom": "^4.3.1",
     "react-sound": "^1.2.0",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.1"
   },
@@ -33,6 +32,7 @@
     "npm": "6.4.1"
   },
   "devDependencies": {
+    "redux-logger": "^3.0.6",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",

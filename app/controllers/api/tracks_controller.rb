@@ -1,12 +1,12 @@
 class Api::TracksController < ApplicationController
 
   def index
-    @tracks = Track.all
+    @tracks = Track.all.includes(:comments).order('comments.updated_at DESC')
     render :index
   end
 
   def show
-    @track = Track.find(params[:id])
+    @track = Track.find(params[:id]).includes(:comments).order('comments.updated_at DESC')
     render :show
   end
 

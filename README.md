@@ -1,10 +1,14 @@
 # jam-cloud
 
+Live Link!(https://jam-cloud.herokuapp.com)
+
 ## Key Features
 * Continuous Play Progress Bar
 * Queue managed by progress bar and dispatched actions
 * Three Stage User Creation
 
+## What is JamCloud?
+JamCloud is a clone of SoundCloud.com, a site for uploading, sharing, discovering, and listening to music. JamCloud runs on a Ruby on Rails backend, with a Javascript frontend that utilizes React.js. The Redux library is utilized on the frontend to manage complex state changes. 
 
 ### Continuous Play Progress Bar
 ![progress bar](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/progress_bar.png "Progress Bar")

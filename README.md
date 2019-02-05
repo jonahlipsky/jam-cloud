@@ -1,6 +1,6 @@
 # jam-cloud
 
-Live Link!(https://jam-cloud.herokuapp.com)
+[Live Link!](https://jam-cloud.herokuapp.com)
 
 ## Key Features
 * Continuous Play Progress Bar

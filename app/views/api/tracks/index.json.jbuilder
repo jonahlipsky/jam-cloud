@@ -3,4 +3,9 @@ json.array! @tracks do |track|
   json.imageUrl url_for(track.image)
   json.soundUrl url_for(track.sound_file)
   json.likes track.likes.reduce(0){ |acc, _| acc + 1 }
+  json.commentIds do 
+    json.array! track.comments do |comment|
+      json.extract! comment, :id, :body, :author_id, :track_id, :parent_comment_id, :updated_at
+    end
+  end
 end

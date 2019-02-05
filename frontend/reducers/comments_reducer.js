@@ -6,7 +6,10 @@ export default (state = {}, action) => {
   let newState = merge({}, state);
   switch(action.type){
     case RECEIVE_TRACK_COMMENTS:
-      return action.comments;
+      action.comments.forEach((comment) => {
+        newState[comment.id] = comment;
+      });
+      return newState;
     default:
       return state;
   }

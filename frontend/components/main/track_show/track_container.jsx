@@ -8,7 +8,6 @@ import { fetchTrackComments } from '../../../actions/comment_actions';
 const mapStateToProps = (state, ownProps) => {
   let trackId = ownProps.match.params.trackId;
   let track = state.entities.tracks[trackId] || null;
-  debugger
   let title = track ? track.title : null;
   let artist = track ? state.entities.users[track.user_id] : null;
   return({

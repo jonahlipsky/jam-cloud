@@ -1,7 +1,6 @@
 class Api::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
-    debugger
     @comment.track_id = params[:track_id]
     if @comment.save
       render :show 

@@ -10,7 +10,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    @comments = Track.find(params[:track_id]).comments
+    if params[:track_id]
+      @track = Track.where(id: params[:track_id]).includes(comments: [:author]).order('comments.updated_at DESC')[0]
+    end 
   end
   
   def update

@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentListItem from './comment_list_item'
 
 class TrackShowBody extends React.Component{
   constructor(props){
@@ -7,70 +8,45 @@ class TrackShowBody extends React.Component{
 
 
   render(){
-    let profilePicture = this.props.currentUserProfilePicture;
+    let profilePictureCurrentUser = this.props.currentUserProfilePicture;
+    let parentComments = this.props.parentComments.length ? this.props.parentComments : [];
+    let comments = this.props.comments
 
-    let parentCommentsArray = [];
-    let childCommentsArray = [];
-    let parentComments;
-    if(this.props.track){
-
-    //separate comments into parent comments and child comments
-    this.props.track.comment_ids.forEach(commentId => {
-      let comment = this.props.trackComments[commentId];
-      if(!comment.parent_comment_id){
-        parentCommentsArray.push(comment);
-      } else {
-        childCommentsArray.push(comment);
-      }
-    });
-    
-    //for each child comment, either push it to that array or create an object key pointing to an array of that comment
-    let childComments = {};
-    childCommentsArray.forEach(comment => {
-      if(childComments[comment.parent_comment_id]){
-        childComments[comment.parent_comment_id].push(comment);
-      } else {
-        childComments[comment.parent_comment_id] = [comment];
-      }
-    });
-
-    parentComments = parentCommentsArray.map((comment) => {
-      let childCommentLis;
-      if(childComments[comment.id]){
-        childCommentLis = childComments[comment.id].map((childComment) => {
-          return(<li> 
-            <img src={childComment.profilePictureUrl} />
-            {childComment.body}
-            {childComment.created_at}
-          </li>)
+    parentComments = parentComments.map((comment) => {
+      let childCommentLis = [];
+      if(comment.child_comment_ids.length){
+        childCommentLis = comment.child_comment_ids.map((childCommentId) => {
+          let childComment = comments[childCommentId]
+          return(
+            <CommentListItem comment={childComment} childComment={true} childCommentLis={[]}/>
+            )
         });
       } 
-      
       return(
-        <li> 
-            <img src={comment.profilePictureUrl} />
-            {comment.body}
-            {comment.created_at}
-            <ul>
-              {childCommentLis}
-            </ul>
-        </li>)
+        <CommentListItem comment={comment} childComment={false} childCommentLis={childCommentLis}/>
+        )
     });
-    } else {
-      parentComments = "";
-    }
-  
-
+    
+    parentComments = parentComments.length ? parentComments : ""
+    let profilePicture = this.props.artist ? this.props.artist.profilePicture : ""
+    let username = this.props.artist ? this.props.artist.username : ""
+    let likes = this.props.track ? this.props.track.likes : ""
+    let nComments = this.props.track ? this.props.track.comment_ids.length : ""
     return(
       <div className="track-show-body">
         <div className="comment-input-show">
           <form className="input-area">
-            <img src={profilePicture} />
+            <img src={profilePictureCurrentUser} />
             <input className="comment-input" placeholder="Comment on this track" type="text"/>
           </form>
           <div className="profile-comment-area">
-            <div className="profile-area"></div>
+            <div className="profile-area">
+              <img src={profilePicture}/>
+              <p className="username">{username}</p>
+              <p><i className="fas fa-users"></i>{likes}</p>
+            </div>
             <div className="comment-area">
+              <p><i className="fas fa-comments"></i>{nComments} comments</p>
               <ul>
                 {parentComments}
               </ul>

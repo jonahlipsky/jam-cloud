@@ -72,3 +72,7 @@ track12.save
 
 comment1 = track1.comments.create(body: "Hey! This is a comment!", author_id: 1)
 comment2 = comment1.child_comments.create(body: "Comment on your comment", author_id: 2, track_id: comment1.track_id )
+comment3 = comment1.child_comments.create(body: "Second Comment on your comment", author_id: 3, track_id: comment1.track_id )
+comment4 = track1.comments.create(body: "Hey! Second Parent Comment!", author_id: 2)
+comment2 = comment4.child_comments.create(body: "Comment on the second comment", author_id: 2, track_id: comment1.track_id )
+comment3 = comment4.child_comments.create(body: "Second Comment on the second comment", author_id: 3, track_id: comment1.track_id )

@@ -10,13 +10,12 @@ class Track extends React.Component {
 
   }
 
-
   async componentDidMount(){
     await this.props.fetchUsers();
     await this.props.fetchTracks();
     this.props.fetchTrackComments(this.props.track.id);
   }
-
+  
   render(){
     return(
       <div className="track-show-page">

@@ -1,4 +1,4 @@
-import * as COMMENT_API_UTIL from '../util/comment_app_util';
+import * as COMMENT_API_UTIL from '../util/comment_api_util';
 
 //action types
 export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";

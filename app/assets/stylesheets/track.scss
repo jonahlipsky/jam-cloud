@@ -163,5 +163,82 @@
     height: 40px;
     width: 40px;
   }
+}
+
+.profile-comment-area{
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid $border-gray;
+  margin-top: 10px;
+  padding-top: 20px;
+
+  i{
+    color: $empty-profile-head-gray;
+    margin-right: 4px;
+  }
+
+
+  p{
+    color: $light-gray;
+  }
+}
+
+.profile-area{
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  img{
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+  }
+  p{
+    padding: 5px;
+  }
+
+  .username{
+    color: black;
+  }
+
+
+}
+
+.comment-area{
+  width: 100%;
+  > p{
+    border-bottom: 1px solid $border-gray;
+    padding-bottom: 10px;
+    
+  }
+
+  li{
+    position: relative;
+    
+    .list-item-content{
+      padding: 10px 0;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .comment-body{
+      
+      color: black;
+    }
+
+    img{
+      margin-right: 8px;
+      border-radius: 100px;
+    }
+
+    .date{
+      position: absolute;
+      right: 0;
+    }
+
+  }
+
+  .child-comment .list-item-content{
+    margin-left: 20px;
+  }
 
 }

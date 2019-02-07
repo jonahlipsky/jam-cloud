@@ -24,8 +24,8 @@ const receiveCommentErrors = errors => ({
 
 //thunk actions
 
-export const createComment = (trackId, comment) => dispatch => {
-  return COMMENT_API_UTIL.createComment(trackId, comment).then(
+export const createComment = (trackId, formData) => dispatch => {
+  return COMMENT_API_UTIL.createComment(trackId, formData).then(
     comment => dispatch(receiveNewComment(comment)),
     errors => dispatch(receiveCommentErrors(errors))
   );

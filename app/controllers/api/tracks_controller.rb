@@ -6,10 +6,7 @@ class Api::TracksController < ApplicationController
   end
 
   def show
-    debugger
-    @track = Track.where(id: params[:id]).includes(comments: [:author]).order('comments.updated_at DESC')
-    debugger
-    render :show
+    @track = Track.where(id: params[:id]).includes(:comments).order('comments.updated_at DESC')[0]
   end
 
   def update

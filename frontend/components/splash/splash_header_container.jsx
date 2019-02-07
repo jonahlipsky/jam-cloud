@@ -45,7 +45,6 @@ class SplashHeader extends React.Component {
   }
 
   toggleResetAuthForm(){
-    debugger
     this.setState({ resetAuthForm: !this.state.resetAuthForm });
   }
 

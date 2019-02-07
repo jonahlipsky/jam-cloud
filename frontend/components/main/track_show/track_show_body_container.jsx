@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import TrackShowBody from './track_show_body';
 import { withRouter } from 'react-router';
 import { createComment } from '../../../actions/comment_actions';
-import { fetchtrack } from '../../../actions/track_actions';
+import { fetchTrack } from '../../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let currentTrackId = ownProps.match.params.trackId;
@@ -20,10 +20,13 @@ const mapStateToProps = (state, ownProps) => {
     });
   }
 
+  let sessionId = state.session.id;
+
   return ({
     currentUserProfilePicture,
     comments,
-    parentComments
+    parentComments,
+    sessionId
   });
 };
 

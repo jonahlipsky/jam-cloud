@@ -13,15 +13,16 @@ class TrackShowBody extends React.Component{
     this.setState({commentInput: e.currentTarget.value});
   }
 
+
   async handleSubmit(e){
     e.preventDefault();
+    let trackId = this.props.track.id;
     const formData = new FormData();
     formData.append('comment[body]', this.state.commentInput);
-    let trackId = this.props.track.id;
-    debugger
     await this.props.createComment(trackId, formData);
-    debugger
-    this.props.fetchTrack(trackId);
+    await this.props.fetchTrack(trackId);
+    this.setState({commentInput: ''});
+    
   }
 
   render(){
@@ -35,20 +36,22 @@ class TrackShowBody extends React.Component{
         childCommentLis = comment.child_comment_ids.map((childCommentId) => {
           let childComment = comments[childCommentId]
           return(
-            <CommentListItem key={childCommentId} comment={childComment} childComment={true} childCommentLis={[]}/>
+            <CommentListItem key={childCommentId} sessionId={this.props.sessionId} 
+              comment={childComment} childComment={true} childCommentLis={[]}/>
             )
         });
       } 
       return(
-        <CommentListItem key={comment.id} comment={comment} childComment={false} childCommentLis={childCommentLis}/>
+        <CommentListItem key={comment.id} sessionId={this.props.sessionId} 
+          comment={comment} childComment={false} childCommentLis={childCommentLis}/>
         )
     });
     
-    parentComments = parentComments.length ? parentComments : ""
-    let profilePicture = this.props.artist ? this.props.artist.profilePicture : ""
-    let username = this.props.artist ? this.props.artist.username : ""
-    let likes = this.props.track ? this.props.track.likes : ""
-    let nComments = this.props.track ? this.props.track.comment_ids.length : ""
+    parentComments = parentComments.length ? parentComments : "";
+    let profilePicture = this.props.artist ? this.props.artist.profilePicture : "";
+    let username = this.props.artist ? this.props.artist.username : "";
+    let likes = this.props.track ? this.props.track.likes : "";
+    let nComments = this.props.track ? this.props.track.comment_ids.length : "";
     return(
       <div className="track-show-body">
         <div className="comment-input-show">

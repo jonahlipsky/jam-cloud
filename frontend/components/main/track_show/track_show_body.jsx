@@ -6,13 +6,32 @@ import regeneratorRuntime from "regenerator-runtime";
 class TrackShowBody extends React.Component{
   constructor(props){
     super(props);
-    this.state = {commentInput: ""};
+    this.state = {commentInput: "", turnedOnLis: []};
+    this.resetTurnedOnLis = this.resetTurnedOnLis.bind(this);
   }
 
   handleChange(e){
     this.setState({commentInput: e.currentTarget.value});
   }
 
+  resetTurnedOnLis(){
+    this.setState({turnedOnLis: []});
+  }
+
+  addListItem(commentId){
+    return () => {
+      let turnedOnLis = this.state.turnedOnLis.concat([commentId]);
+      this.setState({ turnedOnLis });
+    };
+  }
+
+  removeComment(comment){
+    return () => {
+      this.props.removeComment(comment).then(() => {
+        this.props.fetchTrack(this.props.track.id);
+      });
+    };
+  }
 
   async handleSubmit(e){
     e.preventDefault();
@@ -29,7 +48,6 @@ class TrackShowBody extends React.Component{
     let profilePictureCurrentUser = this.props.currentUserProfilePicture;
     let parentComments = this.props.parentComments.length ? this.props.parentComments : [];
     let comments = this.props.comments;
-
     parentComments = parentComments.map((comment) => {
       let childCommentLis = [];
       if(comment.child_comment_ids.length){
@@ -37,13 +55,21 @@ class TrackShowBody extends React.Component{
           let childComment = comments[childCommentId]
           return(
             <CommentListItem key={childCommentId} sessionId={this.props.sessionId} 
-              comment={childComment} childComment={true} childCommentLis={[]}/>
+              comment={childComment} childComment={true} childCommentLis={[]} 
+              profilePictureCurrentUser = {profilePictureCurrentUser} turnedOnLis={this.state.turnedOnLis}
+              resetTurnedOnLis={this.resetTurnedOnLis} removeComment={this.removeComment.bind(this)} 
+              addListItem={this.addListItem.bind(this)}/>
             )
         });
       } 
+
+
       return(
         <CommentListItem key={comment.id} sessionId={this.props.sessionId} 
-          comment={comment} childComment={false} childCommentLis={childCommentLis}/>
+          comment={comment} childComment={false} childCommentLis={childCommentLis} 
+          profilePictureCurrentUser = {profilePictureCurrentUser} turnedOnLis={this.state.turnedOnLis}
+          resetTurnedOnLis={this.resetTurnedOnLis} removeComment={this.removeComment.bind(this)}
+          addListItem={this.addListItem.bind(this)}/>
         )
     });
     

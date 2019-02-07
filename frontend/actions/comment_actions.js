@@ -4,6 +4,7 @@ import * as COMMENT_API_UTIL from '../util/comment_api_util';
 export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";
 export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
 export const RECEIVE_NEW_COMMENT = "RECEIVE_NEW_COMMENT";
+export const REMOVE_COMMENT = "REMOVE_COMMENT";
 
 //action creators
 const receiveTrackComments = comments => ({
@@ -21,8 +22,19 @@ const receiveCommentErrors = errors => ({
   errors
 });
 
+const receiveRemoveComment = commentId => ({
+  type: REMOVE_COMMENT,
+  commentId
+});
+
 
 //thunk actions
+
+export const removeComment = comment => dispatch =>  {
+  return COMMENT_API_UTIL.removeComment(comment.id).then( 
+    () => dispatch(receiveRemoveComment(comment))
+  );
+};
 
 export const createComment = (trackId, formData) => dispatch => {
   return COMMENT_API_UTIL.createComment(trackId, formData).then(

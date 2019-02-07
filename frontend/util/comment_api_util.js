@@ -1,16 +1,18 @@
-import moment from 'moment';
-
-export const fetchTrackComments = (track_id) => ($.ajax({
+export const fetchTrackComments = (trackId) => ($.ajax({
   method: 'GET',
   url: '/api/comments',
-  data: { track_id }
+  data: { track_id: trackId }
 }));
 
-export const createComment = (track_id, formData) => ($.ajax({
+export const createComment = (trackId, formData) => ($.ajax({
   method: "POST",
-  url: `/api/tracks/${track_id}/comments`,
+  url: `/api/tracks/${trackId}/comments`,
   data: formData,
   contentType: false,
   processData: false
 }));
 
+export const removeComment = commentId => ($.ajax({
+  method: "DELETE",
+  url: `/api/comments/${commentId}`
+}));

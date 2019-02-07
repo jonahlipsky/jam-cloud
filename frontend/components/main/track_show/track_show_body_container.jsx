@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import TrackShowBody from './track_show_body';
 import { withRouter } from 'react-router';
-import { createComment } from '../../../actions/comment_actions';
+import { createComment, removeComment } from '../../../actions/comment_actions';
 import { fetchTrack } from '../../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -32,7 +32,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   createComment: (trackId, data) => dispatch(createComment(trackId, data)),
-  fetchTrack: trackId => dispatch(fetchTrack(trackId))
+  fetchTrack: trackId => dispatch(fetchTrack(trackId)),
+  removeComment: commentId => dispatch(removeComment(commentId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShowBody));

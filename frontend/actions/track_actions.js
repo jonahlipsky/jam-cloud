@@ -10,6 +10,7 @@ export const INCREMENT_FILE_UPLOAD_STAGE = "INCREMENT_FILE_UPLOAD_STAGE";
 export const EDIT_TRACK_NUMBER = "EDIT_TRACK_NUMBER";
 export const FREEZE_LIST_ITEM = "FREEZE_LIST_ITEM";
 export const NO_LIST_ITEM_FROZEN = "NO_LIST_ITEM_FROZEN";
+export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 
 //action creators
 
@@ -43,6 +44,11 @@ const receiveUploadErrors = (errors) => ({
   errors 
 });
 
+const receiveTrackErrors = errors => ({
+  type: RECEIVE_TRACK_ERRORS,
+  errors
+});
+
 const receiveTracks = (tracks) => ({
   type: RECEIVE_TRACKS,
   tracks
@@ -71,6 +77,13 @@ export const removeTrack = ({id, user_id}) => dispatch => {
 
 export const fetchTracks = () => dispatch => {
   return TRACK_API_UTIL.getTracks().then(tracks => dispatch(receiveTracks(tracks)));
+};
+
+export const fetchTrack = (trackId) => dispatch => {
+  return TRACK_API_UTIL.getTrack(trackId).then(
+    track => dispatch(receiveTrack(track)),
+    errors => dispatch(receiveTrackErrors(errors))
+  );
 };
 
 export const postTrack = (formData) => dispatch => {

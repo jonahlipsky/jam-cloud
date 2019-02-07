@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import TrackShowBody from './track_show_body';
 import { withRouter } from 'react-router';
+import { createComment } from '../../../actions/comment_actions';
+import { fetchtrack } from '../../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let currentTrackId = ownProps.match.params.trackId;
@@ -11,9 +13,9 @@ const mapStateToProps = (state, ownProps) => {
   let comments = state.entities.comments;
   if(Object.keys(comments).length && currentTrack && currentTrack.comment_ids.length){
     currentTrack.comment_ids.forEach((commentId) => {
-      let comment = comments[commentId]
+      let comment = comments[commentId];
       if(!comment.parent_comment_id){
-        parentComments.push(comment)
+        parentComments.push(comment);
       }
     });
   }
@@ -25,4 +27,9 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-export default withRouter(connect(mapStateToProps)(TrackShowBody));
+const mapDispatchToProps = dispatch => ({
+  createComment: (trackId, data) => dispatch(createComment(trackId, data)),
+  fetchTrack: trackId => dispatch(fetchTrack(trackId))
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShowBody));

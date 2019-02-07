@@ -1,16 +1,33 @@
 import React from 'react';
-import CommentListItem from './comment_list_item'
+import CommentListItem from './comment_list_item';
+import regeneratorRuntime from "regenerator-runtime";
+
 
 class TrackShowBody extends React.Component{
   constructor(props){
     super(props);
+    this.state = {commentInput: ""};
   }
 
+  handleChange(e){
+    this.setState({commentInput: e.currentTarget.value});
+  }
+
+  async handleSubmit(e){
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('comment[body]', this.state.commentInput);
+    let trackId = this.props.track.id;
+    debugger
+    await this.props.createComment(trackId, formData);
+    debugger
+    this.props.fetchTrack(trackId);
+  }
 
   render(){
     let profilePictureCurrentUser = this.props.currentUserProfilePicture;
     let parentComments = this.props.parentComments.length ? this.props.parentComments : [];
-    let comments = this.props.comments
+    let comments = this.props.comments;
 
     parentComments = parentComments.map((comment) => {
       let childCommentLis = [];
@@ -18,12 +35,12 @@ class TrackShowBody extends React.Component{
         childCommentLis = comment.child_comment_ids.map((childCommentId) => {
           let childComment = comments[childCommentId]
           return(
-            <CommentListItem comment={childComment} childComment={true} childCommentLis={[]}/>
+            <CommentListItem key={childCommentId} comment={childComment} childComment={true} childCommentLis={[]}/>
             )
         });
       } 
       return(
-        <CommentListItem comment={comment} childComment={false} childCommentLis={childCommentLis}/>
+        <CommentListItem key={comment.id} comment={comment} childComment={false} childCommentLis={childCommentLis}/>
         )
     });
     
@@ -35,9 +52,10 @@ class TrackShowBody extends React.Component{
     return(
       <div className="track-show-body">
         <div className="comment-input-show">
-          <form className="input-area">
+          <form className="input-area" onSubmit={this.handleSubmit.bind(this)}>
             <img src={profilePictureCurrentUser} />
-            <input className="comment-input" placeholder="Comment on this track" type="text"/>
+            <input className="comment-input" placeholder="Comment on this track" value={this.state.commentInput} 
+              type="text" onChange={this.handleChange.bind(this)}/>
           </form>
           <div className="profile-comment-area">
             <div className="profile-area">

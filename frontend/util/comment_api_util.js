@@ -6,9 +6,9 @@ export const fetchTrackComments = (track_id) => ($.ajax({
   data: { track_id }
 }));
 
-export const createComment = (track_id, comment) => ($.ajax({
+export const createComment = (track_id, data) => ($.ajax({
   method: "POST",
   url: `/api/tracks/${track_id}/comments`,
-  data: { comment }
+  data
 }));
 

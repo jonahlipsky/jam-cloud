@@ -49,10 +49,11 @@ class TrackShowBody extends React.Component{
     let profilePictureCurrentUser = this.props.currentUserProfilePicture;
     let parentComments = this.props.parentComments.length ? this.props.parentComments : [];
     let comments = this.props.comments;
+    debugger
     parentComments = parentComments.map((comment) => {
+      debugger
       let childCommentLis = [];
       if(comment.child_comment_ids.length){
-        debugger
         childCommentLis = comment.child_comment_ids.map((childCommentId) => {
           let childComment = comments[childCommentId];
           return(

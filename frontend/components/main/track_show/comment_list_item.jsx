@@ -5,10 +5,12 @@ import ReplyToComment from './reply_to_comment_input';
 
 export default ({comment, childComment, childCommentLis, sessionId, 
   profilePictureCurrentUser, turnedOnLis, resetTurnedOnLis, addListItem, removeComment}) => {
-  let liClass = classNames("track-comment-li", {"child-comment": childComment});
+  let liClass = childComment ? "track-comment-li child-comment" : "track-comment-li";
   let childCommentUl = childCommentLis.length ? <ul>{childCommentLis}</ul> : ""
   let date = parseDate(comment.updated_at).fromNow()
-  let removeCommentClass = classNames({"fa fa-trash": comment.author_id === sessionId, "hidden": comment.author_id != sessionId})
+  let removeCommentClass = comment.author_id === sessionId ? "fa fa-trash" : "hidden";
+
+
   let turnedOn = turnedOnLis.includes(comment.id) ? true : false;
 
   let replyCommentInput = (<ReplyToComment parentComment={comment} profilePictureCurrentUser={profilePictureCurrentUser} 

@@ -2,7 +2,6 @@ import React from 'react';
 import SoundContainer from '../sound/sound_container';
 import ProgressBarContainer from './progress_bar_container';
 import regeneratorRuntime from "regenerator-runtime";
-import classNames from 'classnames';
 
 class PlayBarController extends React.Component{
   constructor(props){
@@ -96,12 +95,9 @@ class PlayBarController extends React.Component{
   render(){
     let playBarControllerContext = this;
     let playingBoolean = this.state.soundStatus === "PLAYING";
-    let iconClass = classNames("fas", {"fa-pause": playingBoolean},
-      {"fa-play": !(playingBoolean)});
+    let iconClass = playingBoolean ? "fas fa-pause" : "fa-play";
     let toggleBack = this.toggleBack.bind(this);
-    let shuffleClass = classNames("fa", "fa-random", 
-      {"fa-random-selected": this.props.shuffle }
-    );
+    let shuffleClass = this.props.shuffle ? "fa fa-random fa-random-selected" : "fa fa-random";
 
     return(
     <div className="control-bar">

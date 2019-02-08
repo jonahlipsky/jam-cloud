@@ -18,7 +18,7 @@ export default (state = {}, action) => {
       let track = newState[action.comment.track_id];
       let commentIdIdx = track.comment_ids.indexOf(action.comment.id);
       newState[action.comment.track_id].comment_ids.splice(commentIdIdx, 1);
-      return newState
+      return newState;
     case RECEIVE_NEW_COMMENT:
       newState[action.comment.track_id].comment_ids.unshift(action.comment.id);
       return newState;

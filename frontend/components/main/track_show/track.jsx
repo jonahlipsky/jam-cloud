@@ -15,6 +15,10 @@ class Track extends React.Component {
     await this.props.fetchTracks();
     this.props.fetchTrackComments(this.props.track.id);
   }
+
+  componentWillUnmount(){
+    this.props.clearComments();
+  }
   
   render(){
     return(

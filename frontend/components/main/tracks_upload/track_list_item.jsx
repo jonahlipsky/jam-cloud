@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class TrackListItem extends React.Component{
   constructor(props){
@@ -53,7 +53,7 @@ class TrackListItem extends React.Component{
         </div>
         <div className="title-author">
           <p className="current-username">{this.props.username}</p>
-          <p>{this.props.track.title}</p>
+          <Link to={`/tracks/${this.props.track.id}`} className="trackTitle">{this.props.track.title}</Link>
         </div>
         <div className="track-list-item-option-icons">
           <i className="fas fa-ellipsis-h" onClick={this.toggleOptions}>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Track from './track';
 import { fetchUsers } from '../../../actions/session_actions';
 import { fetchTracks } from '../../../actions/track_actions';
-import { fetchTrackComments } from '../../../actions/comment_actions';
+import { fetchTrackComments, clearComments } from '../../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let trackId = ownProps.match.params.trackId;
@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
   fetchTracks: () => dispatch(fetchTracks()),
-  fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId))
+  fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId)),
+  clearComments: () => dispatch(clearComments())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Track));

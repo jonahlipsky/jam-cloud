@@ -5,6 +5,8 @@ export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";
 export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
 export const RECEIVE_NEW_COMMENT = "RECEIVE_NEW_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
+export const CLEAR_COMMENTS = "CLEAR_COMMENTS";
+
 
 //action creators
 const receiveTrackComments = comments => ({
@@ -27,12 +29,17 @@ const receiveRemoveComment = comment => ({
   comment
 });
 
+export const clearComments = () => ({
+  type: CLEAR_COMMENTS
+});
+
+
 
 //thunk actions
 
 export const removeComment = comment => dispatch =>  {
   return COMMENT_API_UTIL.removeComment(comment.id).then( 
-    (comments) => dispatch(receiveTrackComments(comments))
+    () => dispatch(receiveRemoveComment(comment))
   );
 };
 

@@ -11,7 +11,10 @@ const mapStateToProps = (state, ownProps) => {
   let currentUserProfilePicture = state.entities.users[currentUserId] ? state.entities.users[currentUserId].profilePicture : "";
   let parentComments = [];
   let comments = state.entities.comments;
-  if(Object.keys(comments).length && currentTrack && currentTrack.comment_ids.length){
+
+  let currentStateCommentKeys = Object.keys(comments);
+
+  if(currentStateCommentKeys.length && currentTrack && currentTrack.comment_ids.length){
     currentTrack.comment_ids.forEach((commentId) => {
       let comment = comments[commentId];
       if(!comment.parent_comment_id){

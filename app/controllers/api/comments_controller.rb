@@ -27,10 +27,7 @@ class Api::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    track_id = @comment.track_id
-    @track = Track.where(id: track_id).includes(comments: [:author]).order('comments.updated_at DESC')[0]
-    render :index
-    # render body: nil, status: :no_content
+    render body: nil, status: :no_content
   end
 
   private

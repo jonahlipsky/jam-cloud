@@ -1,6 +1,7 @@
 import React from 'react';
 import SixTracksDisplay from './six_tracks_display';
 import { connect } from 'react-redux';
+import { randomizeTracks } from '../../util/general_util';
 
 const mapStateToProps = state => {
 
@@ -8,7 +9,10 @@ const mapStateToProps = state => {
   let users = state.entities.users;
   let trackIds = Object.keys(state.entities.tracks);
   if(Object.keys(users).length && trackIds.length){
-    trackIds.forEach((trackId) => {
+    let randomTrackIds = randomizeTracks(trackIds)
+    let onlyTwelve = trackIds.length > 12 ? randomTrackIds.slice(0, 12) : randomTrackIds;
+
+    onlyTwelve.forEach((trackId) => {
       let track = state.entities.tracks[trackId];
       let artist = users[track.user_id];
       trackArtistPairs.push([track, artist]);

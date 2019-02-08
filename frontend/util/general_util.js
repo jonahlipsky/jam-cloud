@@ -8,3 +8,22 @@ export const parseDate = (date) => {
   let parsedDate = moment(mdy, "MM-DD-YYYY");
   return parsedDate;
 };
+
+export const randomizeTracks = function(trackIds){
+  let randomTracks = [];
+  let trackIdsLength = trackIds.length;
+  while (randomTracks.length < 20 && randomTracks.length < trackIdsLength){
+    let i = getRandomInt(trackIdsLength);
+    randomTracks.push(trackIds[i]);
+  }
+  let randomized = randomTracks.filter( onlyUnique );
+  return randomized;
+};
+
+function getRandomInt(max){
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function onlyUnique(value, index, self) { 
+  return self.indexOf(value) === index;
+}

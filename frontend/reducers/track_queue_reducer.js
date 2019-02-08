@@ -4,6 +4,7 @@ import { GO_TO_NEXT_TRACK, PUSH_TRACK_TO_QUEUE, TOGGLE_SHUFFLE,
   CLEAR_CURRENT_PERCENTAGE, 
   IMMEDIATE_ON} from '../actions/sound_controller_actions';
 import { merge } from 'lodash';
+import { randomizeTracks } from '../util/general_util';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -72,21 +73,3 @@ export default (state = {}, action) => {
 
 //RANDOM TRACKS METHODS
 //these methods are for finding random tracks from the list of tracks.
-function getRandomInt(max){
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-function randomizeTracks(trackIds){
-  let randomTracks = [];
-  let trackIdsLength = trackIds.length;
-  while (randomTracks.length < 20 && randomTracks.length < trackIdsLength){
-    let i = getRandomInt(trackIdsLength);
-    randomTracks.push(trackIds[i]);
-  }
-  let randomized = randomTracks.filter( onlyUnique );
-  return randomized;
-}
-
-function onlyUnique(value, index, self) { 
-  return self.indexOf(value) === index;
-}

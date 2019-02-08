@@ -6,8 +6,9 @@ import DropdownComponent from './dropdown_component';
 const mapStateToProps = (state, ownProps) => {
 
   let list = [["Sign Out", () => ownProps.history.push('/signout/currentuser/immediate')]];
+  let headerComponent = (<i className="fas fa-ellipsis-h"></i>);
   return({
-    iconClassname: "fas fa-ellipsis-h",
+    headerComponent,
     list
   });
 };
@@ -15,8 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const EllipsisDropdown = (props) => {
   return(
-    <div className="ellipsis-options-nav-bar">
-      <DropdownComponent list={props.list} iconClassname={props.iconClassname} />
+    <div className="ellipsis-options-nav-bar options-dropdown">
+      <DropdownComponent list={props.list} headerComponent={props.headerComponent} />
     </div>
   )
 }

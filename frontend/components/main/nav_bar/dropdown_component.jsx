@@ -22,13 +22,13 @@ class Dropdown extends React.Component{
   }
 
   render(){
-    const{list, iconClassname} = this.props;
+    const{list, headerComponent} = this.props;
     const{open} = this.state;
     let dropdownClass = open ? "dropdown-component selected" : "dropdown-component";
     return(
       <div className={dropdownClass}>
         <div className="dropdown-icon-header" onClick={() => this.toggleList()}>
-          <i className={iconClassname}></i>
+          {headerComponent}
         </div>
         {open && <ul className="dropdown-component-list">
           {list.map((listItem, i) => (

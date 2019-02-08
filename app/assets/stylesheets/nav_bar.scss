@@ -21,7 +21,7 @@
 
 
   .logo{
-    position: relative;
+    position: absolute;
     background-image: linear-gradient(rgb(255, 145, 0), rgb(219, 44, 0));
     width: 70px;
     height: 100%; 
@@ -37,6 +37,16 @@
   }
   .left-btns{
     border-right: 2px solid rgb(45, 45, 45);
+    margin-left: 70px;
+  }
+
+  .right-btns{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
   }
 
   .nav-buttons{
@@ -48,8 +58,6 @@
     text-align: center;
     width: 100px;
   }
-
-
 }
 
 .nav-bar-selected{
@@ -57,10 +65,12 @@
 }
 
 .search-bar-container{
-  width: 570px;
+  width: 500px;
   height: 100%;
   display: flex;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
 
   input {
     background: white;
@@ -77,7 +87,6 @@
     top: 18px;
     color: $mid-gray;
   }
-
 }
 
 
@@ -91,6 +100,15 @@
   /* margin: 3px; */
   color: #eee;
   margin: 0 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  img{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+  }
 }
 
 .fa-bell, .fa-envelope, .fa-ellipsis-h{
@@ -109,17 +127,13 @@
   position: relative;
 }
 
-.ellipsis-options-nav-bar{
-  margin: 0px 20px;
-  width: 50px;
-  height: 50px;
 
+.options-dropdown{
+  height: 50px;
   ul{
     background-color: $nav-bar-selected-gray;
     position: fixed;
     top: 50px;
-    width: 100px;
-    margin-left: -25px;
   }
 
   li{
@@ -129,6 +143,23 @@
     font-size: 10pt;
     text-indent: 3px;
     font-weight: 500;
+  }
+}
+
+.ellipsis-options-nav-bar{
+  width: 50px;
+
+  ul{
+    width: 50px;
+    margin-left: -25px;
+  }
+}
+
+.profile-options-nav-bar{
+
+  ul{
+    width: 135px;
+    margin-left: -14px;
   }
 }
 

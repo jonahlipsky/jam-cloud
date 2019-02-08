@@ -95,7 +95,7 @@ class PlayBarController extends React.Component{
   render(){
     let playBarControllerContext = this;
     let playingBoolean = this.state.soundStatus === "PLAYING";
-    let iconClass = playingBoolean ? "fas fa-pause" : "fa-play";
+    let iconClass = playingBoolean ? "fas fa-pause" : "fas fa-play";
     let toggleBack = this.toggleBack.bind(this);
     let shuffleClass = this.props.shuffle ? "fa fa-random fa-random-selected" : "fa fa-random";
 

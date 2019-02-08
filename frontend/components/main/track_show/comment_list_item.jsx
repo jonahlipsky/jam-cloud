@@ -26,7 +26,7 @@ export default ({comment, childComment, childCommentLis, sessionId,
           <p className="date">{date}</p>
           <div className="options">
             <p className="reply-option" onClick={addListItem(comment.id)}><i className="fa fa-reply" aria-hidden="true"></i> Reply</p>
-            <i className={removeCommentClass} aria-hidden="true" onClick={removeComment(comment.id)}></i>
+            <i className={removeCommentClass} aria-hidden="true" onClick={removeComment(comment)}></i>
           </div>
         </div>
       </div>

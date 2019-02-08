@@ -45,14 +45,16 @@ class TrackShowBody extends React.Component{
   }
 
   render(){
+    
     let profilePictureCurrentUser = this.props.currentUserProfilePicture;
     let parentComments = this.props.parentComments.length ? this.props.parentComments : [];
     let comments = this.props.comments;
     parentComments = parentComments.map((comment) => {
       let childCommentLis = [];
       if(comment.child_comment_ids.length){
+        debugger
         childCommentLis = comment.child_comment_ids.map((childCommentId) => {
-          let childComment = comments[childCommentId]
+          let childComment = comments[childCommentId];
           return(
             <CommentListItem key={childCommentId} sessionId={this.props.sessionId} 
               comment={childComment} childComment={true} childCommentLis={[]} 
@@ -62,7 +64,6 @@ class TrackShowBody extends React.Component{
             )
         });
       } 
-
 
       return(
         <CommentListItem key={comment.id} sessionId={this.props.sessionId} 

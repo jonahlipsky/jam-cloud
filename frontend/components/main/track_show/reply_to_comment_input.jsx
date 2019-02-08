@@ -5,7 +5,7 @@ import { fetchTrack } from '../../../actions/track_actions';
 import regeneratorRuntime from "regenerator-runtime";
 
 const mapDispatchToProps = dispatch => ({
-  createComment: (trackId, data) => dispatch(createComment(trackId, data)),
+  createComment: (trackId, formData) => dispatch(createComment(trackId, formData)),
   fetchTrack: trackId => dispatch(fetchTrack(trackId))
 });
 

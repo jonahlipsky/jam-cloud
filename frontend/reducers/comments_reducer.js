@@ -12,6 +12,9 @@ export default (state = {}, action) => {
       return newState;
     case RECEIVE_NEW_COMMENT:
       newState[action.comment.id] = action.comment;
+      if(action.comment.parent_comment_id){
+        newState[action.comment.parent_comment_id].child_comment_ids.push(action.comment.id);
+      }
       return newState;
     case REMOVE_COMMENT:
       delete newState[action.comment.id];

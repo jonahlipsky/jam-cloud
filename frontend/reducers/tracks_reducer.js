@@ -1,6 +1,6 @@
 import { RECEIVE_TRACKS, RECEIVE_TRACK, REMOVE_TRACK } from '../actions/track_actions';
 import { RECEIVE_ALL_USERS } from '../actions/session_actions';
-import { REMOVE_COMMENT } from '../actions/comment_actions';
+import { REMOVE_COMMENT, RECEIVE_NEW_COMMENT } from '../actions/comment_actions';
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
@@ -17,10 +17,11 @@ export default (state = {}, action) => {
     case REMOVE_COMMENT:
       let track = newState[action.comment.track_id];
       let commentIdIdx = track.comment_ids.indexOf(action.comment.id);
-      debugger
       newState[action.comment.track_id].comment_ids.splice(commentIdIdx, 1);
-      debugger
       return newState
+    case RECEIVE_NEW_COMMENT:
+      newState[action.comment.track_id].comment_ids.unshift(action.comment.id);
+      return newState;
     case REMOVE_TRACK:
       let trackId = action.id;
       delete newState[trackId];

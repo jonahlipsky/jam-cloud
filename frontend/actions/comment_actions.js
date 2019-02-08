@@ -22,9 +22,9 @@ const receiveCommentErrors = errors => ({
   errors
 });
 
-const receiveRemoveComment = commentId => ({
+const receiveRemoveComment = comment => ({
   type: REMOVE_COMMENT,
-  commentId
+  comment
 });
 
 
@@ -32,7 +32,7 @@ const receiveRemoveComment = commentId => ({
 
 export const removeComment = comment => dispatch =>  {
   return COMMENT_API_UTIL.removeComment(comment.id).then( 
-    () => dispatch(receiveRemoveComment(comment))
+    (comments) => dispatch(receiveTrackComments(comments))
   );
 };
 

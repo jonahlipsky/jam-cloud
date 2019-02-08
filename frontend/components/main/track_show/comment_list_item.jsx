@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classNames';
 import { parseDate } from '../../../util/general_util';
 import ReplyToComment from './reply_to_comment_input';
 

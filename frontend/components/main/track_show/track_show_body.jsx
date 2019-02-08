@@ -10,6 +10,12 @@ class TrackShowBody extends React.Component{
     this.resetTurnedOnLis = this.resetTurnedOnLis.bind(this);
   }
 
+  componentDidUpdate(){
+    if(this.props.track && this.props.track.comment_ids.length && !this.props.parentComments.length){
+      this.props.fetchTrackComments(this.props.match.params.trackId);
+    }
+  }
+
   handleChange(e){
     this.setState({commentInput: e.currentTarget.value});
   }

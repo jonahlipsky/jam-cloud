@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
 
   let list = [[<p><i className="fas fa-user"></i> Profile</p>, () => ownProps.history.push(`/users/${currentUserId}`)]];
   
-  debugger
   let headerComponent = currentUser ? (<div className="profile-dropdown">
   <p><img src={currentUser.profilePicture} />{currentUser.username}</p>
   <i className="fa fa-angle-down"></i>

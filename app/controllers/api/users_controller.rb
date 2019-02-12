@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.with_attached_profile_picture.where(id: params[:id])
     if @user.update_attributes(user_params)
       render :show
     else
@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.includes(:tracks)
+    @users = User.with_attached_profile_picture.all.includes(:tracks, :likes)
     render :index
   end
 

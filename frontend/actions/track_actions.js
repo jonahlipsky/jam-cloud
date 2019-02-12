@@ -11,8 +11,14 @@ export const EDIT_TRACK_NUMBER = "EDIT_TRACK_NUMBER";
 export const FREEZE_LIST_ITEM = "FREEZE_LIST_ITEM";
 export const NO_LIST_ITEM_FROZEN = "NO_LIST_ITEM_FROZEN";
 export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
+export const RECEIVE_RECENT_TRACK = "RECEIVE_RECENT_TRACK";
 
 //action creators
+
+const receiveRecentTrack = (recentTrack) => ({
+  type: receiveRecentTrack,
+  recentTrack
+});
 
 export const freezeListItem = (trackId) => ({
   type: FREEZE_LIST_ITEM,
@@ -62,6 +68,13 @@ const receiveTrack = track => ({
 
 
 //Thunk actions
+
+export const sendRecentTrack = trackId => dispatch => {
+  return TRACK_API_UTIL.sendRecentTrack(trackId).then(
+    recentTrack => dispatch(receiveRecentTrack(recentTrack)),
+    errors => dispatch(receiveTrackErrors(errors))
+  );
+};
 
 export const updateTrack = (formData, id) => dispatch => {
   return TRACK_API_UTIL.updateTrack(formData, id).then(

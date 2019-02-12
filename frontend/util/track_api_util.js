@@ -1,3 +1,8 @@
+export const sendRecentTrack = trackId => ($.ajax({
+  method: 'POST',
+  url: `/api/tracks/${trackId}/recent_tracks`
+}));
+
 export const updateTrack = (formData, id) => ($.ajax({
   method: 'PATCH',
   url: `/api/tracks/${id}`,

@@ -22,7 +22,10 @@ class PlayBarController extends React.Component{
     if (!(this.state.soundStatus === "PLAYING") && this.props.trackQueue.queue.length ){
       this.setState({ soundStatus: "PLAYING" });
       this.setLocalInterval();
-    } else if (this.state.soundStatus === "PLAYING"){
+      this.props.sendSoundStatus("PLAYING", this.props.trackQueue.queue[0]);
+    } else if (this.state.soundStatus === "PLAYING" && this.props.trackQueue.queue.length){
+      debugger
+      this.props.sendSoundStatus("PAUSED", this.props.trackQueue.queue[0]);
       this.clearLocalInterval();
       this.setState({soundStatus: "PAUSED"});
     }
@@ -75,7 +78,13 @@ class PlayBarController extends React.Component{
     await this.props.fetchUsers();
     await this.props.fetchTracks();
     this.toggleShuffle(this.props.trackIds, true);
+  }
 
+  componentDidUpdate(){
+    // if(this.props.trackQueue.soundStatus && this.state.soundStatus != this.props.trackQueue.soundStatus[0]){
+      
+    //   this.setState({soundStatus: this.props.trackQueue.soundStatus[0]});
+    // }
   }
 
   toggleShuffle(e, shuffleAndTurnOff = false){
@@ -83,6 +92,7 @@ class PlayBarController extends React.Component{
   }
 
   handleForward(){
+    debugger
     this.props.goToNextTrack();
   }
 
@@ -98,6 +108,7 @@ class PlayBarController extends React.Component{
     let iconClass = playingBoolean ? "fas fa-pause" : "fas fa-play";
     let toggleBack = this.toggleBack.bind(this);
     let shuffleClass = this.props.shuffle ? "fa fa-random fa-random-selected" : "fa fa-random";
+
 
     return(
     <div className="control-bar">

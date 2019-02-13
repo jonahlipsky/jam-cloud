@@ -4,8 +4,7 @@ import TrackWidget from '../../reuseable_components/widgets/track_widget';
 class UserShow extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
   
   render(){

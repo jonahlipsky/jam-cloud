@@ -17,12 +17,10 @@ class Api::RecentTracksController < ApplicationController
   end
 
   def ensure_only_twenty
-    debugger
     recent_tracks = current_user.recent_tracks
     if recent_tracks.length > 20 
       recent_tracks.sort_by { |track| track.updated_at }.first.destroy
     end
-    debugger
   end
 
 end

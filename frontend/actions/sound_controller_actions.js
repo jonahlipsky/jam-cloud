@@ -8,6 +8,29 @@ export const SEND_PERCENTAGE_COMPLETE = "SEND_PERCENTAGE_COMPLETE";
 export const SEND_CURRENT_PERCENTAGE = "SEND_CURRENT_PERCENTAGE";
 export const CLEAR_CURRENT_PERCENTAGE = "CLEAR_CURRENT_PERCENTAGE";
 export const IMMEDIATE_ON = "IMMEDIATE_ON";
+export const SEND_SOUND_STATUS = "SEND_SOUND_STATUS";
+export const FINISHED_LOADING = "FINISHED_LOADING";
+export const WIDGET_TO_CONTROLLER_SS = "WIDGET_TO_CONTROLLER_SS";
+
+// export const PLAYING = "PLAYING";
+// export const PAUSED = "PAUSED";
+
+export const widgetToControllerSS = (soundStatus, trackId) => ({
+  type: WIDGET_TO_CONTROLLER_SS,
+  soundStatus,
+  trackId
+});
+
+export const sendSoundStatus = (soundStatus, trackId) => ({
+  type: SEND_SOUND_STATUS,
+  soundStatus,
+  trackId
+});
+
+export const finishedLoading = trackId => ({
+  type: FINISHED_LOADING,
+  trackId
+});
 
 export const immediateOn = () => ({
   type: IMMEDIATE_ON

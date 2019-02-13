@@ -60,8 +60,6 @@ class SoundPlay extends React.Component {
 
   handleSongLoaded(){
     this.props.sendRecentTrack(this.props.currentTrack.id); //create a recently played track entry
-
-    //toggle play if not playing
     if(this.props.soundStatus != "PLAYING"){
       this.props.playBarControllerContext.togglePlay();
     } else {

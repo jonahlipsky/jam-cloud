@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import Sound from './sound';
 import { goToNextTrack, goToPreviousTrack, 
   sendPercentageComplete, 
-  clearCurrentPercentage, clearImmediate } from '../../../actions/sound_controller_actions';
+  clearCurrentPercentage, clearImmediate,
+  } from '../../../actions/sound_controller_actions';
 import { sendRecentTrack } from '../../../actions/track_actions';
 
 const mapStateToProps = state => {
@@ -19,6 +20,7 @@ const mapStateToProps = state => {
   });
 };
 
+
 const mapDispatchToProps = dispatch => ({
   goToNextTrack: () => dispatch(goToNextTrack()),
   goToPreviousTrack: () => dispatch(goToPreviousTrack()),
@@ -27,7 +29,8 @@ const mapDispatchToProps = dispatch => ({
   ),
   clearCurrentPercentage: () => dispatch(clearCurrentPercentage()),
   clearImmediate: () => dispatch(clearImmediate()),
-  sendRecentTrack: trackId => dispatch(sendRecentTrack(trackId))
+  sendRecentTrack: trackId => dispatch(sendRecentTrack(trackId)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sound);

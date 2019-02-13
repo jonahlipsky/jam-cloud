@@ -1,0 +1,32 @@
+// componentDidUpdate(){
+  //   debugger
+  // }
+
+  // componentDidMount(){
+    // let playlistWidget = SC.Widget(document.getElementById('playlist-widget'));
+    // let track1widget = SC.Widget(document.getElementById('track1widget'));
+    // this.setState({playlistWidget, 
+    //   track1widget});
+
+
+    // let playFunc = function(obj){
+    //   this.play(obj);
+    // };
+    // playFunc = playFunc.bind(this);
+    // playlistWidget.bind(SC.Widget.Events.PLAY, () => {
+    //   let songTimesInfo = [];
+      
+    //   playlistWidget.getPosition(milliseconds => {
+    //     songTimesInfo.push(milliseconds);
+    //   });
+    //   playlistWidget.getDuration(milliseconds => {
+    //     songTimesInfo.push(milliseconds);
+    //   });
+    //   playFunc(songTimesInfo);
+    // }); 
+  // }
+            /* <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/265422144&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> */
+        /* <iframe id='playlist-widget' width="100%" height="450" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/227482806&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe> */
+        /* <iframe id='track1widget' width="100%" height="166" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/564253167%3Fsecret_token%3Ds-2AzP6&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe> */
+        /* <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/574749918%3Fsecret_token%3Ds-bt0WZ&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
+        <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/708121554%3Fsecret_token%3Ds-iOeCB&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe> */

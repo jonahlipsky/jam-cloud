@@ -3,6 +3,7 @@ import Sound from './sound';
 import { goToNextTrack, goToPreviousTrack, 
   sendPercentageComplete, 
   clearCurrentPercentage, clearImmediate } from '../../../actions/sound_controller_actions';
+import { sendRecentTrack } from '../../../actions/track_actions';
 
 const mapStateToProps = state => {
   let nextTrack = state.io.trackQueue.queue[1] || null;
@@ -25,7 +26,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(sendPercentageComplete(percentageComplete, duration))
   ),
   clearCurrentPercentage: () => dispatch(clearCurrentPercentage()),
-  clearImmediate: () => dispatch(clearImmediate())
+  clearImmediate: () => dispatch(clearImmediate()),
+  sendRecentTrack: trackId => dispatch(sendRecentTrack(trackId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sound);

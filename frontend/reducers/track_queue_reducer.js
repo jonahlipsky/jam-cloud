@@ -44,9 +44,16 @@ export default (state = {}, action) => {
       newState.immediate = true;
       return newState;
     case PUSH_TO_FRONT_OF_QUEUE:
-      newState.queue[0] ? newState.prevQueue.push(newState.queue[0]) : null ;
-      newState.queue = newState.queue.slice(1);
-      newState.queue.unshift(action.trackId);
+      let queue = newState.queue;
+      queue[0] ? newState.prevQueue.push(queue[0]) : null ;
+      queue = queue.slice(1);
+      let id = action.trackId;
+      let idx = queue.indexOf(String(id));
+      if(idx != -1){
+        queue.splice(idx, 1);
+      } 
+      queue.unshift(String(id));
+      newState.queue = queue;
       newState.immediate = true;
       return newState;
     case TOGGLE_SHUFFLE:
@@ -70,6 +77,3 @@ export default (state = {}, action) => {
   }
 };
 
-
-//RANDOM TRACKS METHODS
-//these methods are for finding random tracks from the list of tracks.

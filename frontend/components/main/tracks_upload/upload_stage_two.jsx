@@ -19,9 +19,10 @@ class UploadStageTwo extends React.Component{
     let component;
     if(this.state.tab === "basic-info"){
       component = <BasicInfo errors={this.props.errors} context={this.props.context} />
-    } else if(this.state.tab === "metadata"){
-      component = <h1>metadata</h1>
-    }
+    } 
+    // else if(this.state.tab === "metadata"){
+    //   component = <h1>metadata</h1>
+    // }
 
     return(
       <div className="stage-two-track-upload-container">

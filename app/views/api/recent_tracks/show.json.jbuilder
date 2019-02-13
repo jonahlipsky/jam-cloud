@@ -1,0 +1,1 @@
+json.extract! @current_track, :user_id, :track_id

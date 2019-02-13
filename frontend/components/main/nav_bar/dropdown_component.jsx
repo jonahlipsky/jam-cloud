@@ -32,7 +32,7 @@ class Dropdown extends React.Component{
         </div>
         {open && <ul className="dropdown-component-list">
           {list.map((listItem, i) => (
-            <DropdownListItem listItemPosition={i} title={listItem[0]} action={listItem[1]}/>
+            <DropdownListItem key={i} listItemPosition={i} title={listItem[0]} action={listItem[1]}/>
           ))}
         </ul>}
       </div>

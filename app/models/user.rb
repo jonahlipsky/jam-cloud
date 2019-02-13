@@ -34,7 +34,7 @@ class User < ApplicationRecord
 
   has_many :recently_played_tracks,
     through: :recent_tracks,
-    source: :tracks
+    source: :track
 
   has_one_attached :profile_picture
 

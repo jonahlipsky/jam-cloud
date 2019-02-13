@@ -9,12 +9,18 @@ export const parseDate = (date) => {
   return parsedDate;
 };
 
+
+//RANDOM TRACKS METHODS
+//these methods are for finding random tracks from the list of tracks.
+
 export const randomizeTracks = function(trackIds){
   let randomTracks = [];
-  let trackIdsLength = trackIds.length;
+  let trackIdsArray = trackIds.slice();
+  let trackIdsLength = trackIdsArray.length;
   while (randomTracks.length < 20 && randomTracks.length < trackIdsLength){
-    let i = getRandomInt(trackIdsLength);
-    randomTracks.push(trackIds[i]);
+    let i = getRandomInt(trackIdsArray.length);
+    randomTracks.push(trackIdsArray[i]);
+    trackIdsArray.splice(i, 1);
   }
   let randomized = randomTracks.filter( onlyUnique );
   return randomized;

@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.with_attached_profile_picture.all.includes(:tracks, :likes)
+    @users = User.with_attached_profile_picture.all.includes(:tracks, :likes, :recently_played_tracks)
     render :index
   end
 

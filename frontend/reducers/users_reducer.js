@@ -1,6 +1,6 @@
 import { merge } from 'lodash';
 import { RECEIVE_CURRENT_USER, RECEIVE_ALL_USERS } from '../actions/session_actions';
-import { REMOVE_TRACK, RECEIVE_TRACK } from '../actions/track_actions';
+import { REMOVE_TRACK, RECEIVE_TRACK, RECEIVE_RECENT_TRACK } from '../actions/track_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -16,6 +16,12 @@ export default (state = {}, action) => {
         let newUser = user;
         newState[`${user.id}`] = newUser;
       });
+      return newState;
+    case RECEIVE_RECENT_TRACK:
+      let recent = action.recentTrack;
+      if(!newState[recent.user_id].recently_played_track_ids.includes(recent.track_id)){
+        newState[recent.user_id].recently_played_track_ids.push(recent.track_id);
+      }
       return newState;
     case RECEIVE_TRACK:
       user_id = action.track.user_id;

@@ -16,7 +16,7 @@ export const RECEIVE_RECENT_TRACK = "RECEIVE_RECENT_TRACK";
 //action creators
 
 const receiveRecentTrack = (recentTrack) => ({
-  type: receiveRecentTrack,
+  type: RECEIVE_RECENT_TRACK,
   recentTrack
 });
 

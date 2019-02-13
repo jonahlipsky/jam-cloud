@@ -1,5 +1,6 @@
 import React from 'react';
 import TracksScrollingDisplay from '../../reuseable_components/tracks_scrolling_display';
+import FourRecentTracks from './four_recent_tracks';
 
 class Discover extends React.Component{
   constructor(props){
@@ -9,8 +10,12 @@ class Discover extends React.Component{
   render(){
     return(
       <div className="discover-page">
-        <h1>Explore these new tracks!</h1>
-        <TracksScrollingDisplay />
+        <div className="discover-tracks-display">
+          <h1>Explore these tracks from Artists on JamCloud!</h1>
+          <TracksScrollingDisplay />
+          <h2>Enjoy more music that you've recently listend to!</h2>
+          <FourRecentTracks />
+        </div>
       </div>
     )
   }

@@ -31,60 +31,58 @@ class TrackWidget extends React.Component{
   }
 
   setListeners(widget){
-    widget.setVolume(0);
+    debugger
+
+    // widget.setVolume(0);
     let pushToQueue = function(){
       let trackId = this.props.track.id;
       if(this.props.firstInQueue != String(trackId)){
-        debugger
         this.props.pushToFrontOfQueue(trackId);
-        // this.props.sendSoundStatus("PLAYING", this.props.track.id);
-      } else {
-        this.props.sendSoundStatus("PLAYING", this.props.track.id);
       }
+      this.props.sendSoundStatus("PLAYING", this.props.track.id);
     };
     pushToQueue = pushToQueue.bind(this);
     widget.bind(SC.Widget.Events.PLAY, () => {
+      // debugger
+      let widgetElement = document.getElementById(`track${this.props.track.id}Widget`);
+      SC.Widget(widgetElement).setVolume(0);
       pushToQueue();
     }); 
 
     let pause = function(){
-      debugger
       if(this.props.soundStatusArray[0] != "PAUSED"){
         this.props.sendSoundStatus("PAUSED", this.props.track.id);
       }
-      this.setState({soundStatus: "PAUSED"});
-    
     };
     pause = pause.bind(this);
-
     widget.bind(SC.Widget.Events.PAUSE, () => {
+      // debugger
       pause();
     });
   }
   
   componentDidUpdate(prevProps){
+    //check if ids are in the right format to be checked
+    // debugger
     if(!this.state.widget && this.props.track){
       let widgetElement = document.getElementById(`track${this.props.track.id}Widget`);
       let widget = SC.Widget(widgetElement);
       this.setState({widget});
       this.setListeners(widget);
-    } else if(prevProps.soundStatusArray != this.props.soundStatusArray){
-      this.togglePlayStatus();
+    } else if( prevProps.soundStatusArray && this.props.soundStatusArray
+        && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0])){
+          this.togglePlayStatus();
     }
   }
 
   togglePlayStatus(){
-    let trackId = String(this.props.track.id);
+    debugger
     let soundStatusArray = this.props.soundStatusArray;
-    // debugger
-    if( trackId === soundStatusArray[1] && soundStatusArray[0] === "PLAYING" && 
-      this.state.soundStatus != "PLAYING"){
+    if( soundStatusArray[0] === "PLAYING"){
         this.state.widget.play();
-        this.setState({soundStatus: "PLAYING"});
-    } else if (trackId === soundStatusArray[1] && soundStatusArray[0] === "PAUSED"
-      && this.state.soundStatus != "PAUSED"){
+    } else if (soundStatusArray[0] === "PAUSED"){
         this.state.widget.pause();
-        this.setState({soundStatus: "PAUSED"});
+        // this.props.sendSoundStatus("PAUSED", this.props.track.id);
     }
   }
 

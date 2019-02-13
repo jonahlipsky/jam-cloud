@@ -69,7 +69,7 @@ export default (state = {}, action) => {
       queue.unshift(String(id));
       newState.queue = queue;
       newState.immediate = true;
-      newState.soundStatus=["PLAYING", action.trackId];
+      // newState.soundStatus=["PLAYING", action.trackId];
       return newState;
     case TOGGLE_SHUFFLE:
       if(action.shuffleAndTurnOff){
@@ -88,7 +88,7 @@ export default (state = {}, action) => {
       } else {
         return { queue: [], prevQueue: [], shuffle: false, immediate: false, 
           duration: null, percentageComplete: null, currentPercentage: null, 
-          soundStatus: null
+          soundStatus: ["PAUSED", "0"]
          };
       }
   }

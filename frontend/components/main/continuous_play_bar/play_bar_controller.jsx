@@ -24,7 +24,6 @@ class PlayBarController extends React.Component{
       this.setLocalInterval();
       this.props.sendSoundStatus("PLAYING", this.props.trackQueue.queue[0]);
     } else if (this.state.soundStatus === "PLAYING" && this.props.trackQueue.queue.length){
-      debugger
       this.props.sendSoundStatus("PAUSED", this.props.trackQueue.queue[0]);
       this.clearLocalInterval();
       this.setState({soundStatus: "PAUSED"});
@@ -80,11 +79,12 @@ class PlayBarController extends React.Component{
     this.toggleShuffle(this.props.trackIds, true);
   }
 
-  componentDidUpdate(){
-    // if(this.props.trackQueue.soundStatus && this.state.soundStatus != this.props.trackQueue.soundStatus[0]){
-      
-    //   this.setState({soundStatus: this.props.trackQueue.soundStatus[0]});
-    // }
+  componentDidUpdate(prevProps){
+    // debugger
+    if(this.props.trackQueue.soundStatus && prevProps.trackQueue.soundStatus &&
+      prevProps.trackQueue.soundStatus[0] != this.props.trackQueue.soundStatus[0]){
+      this.setState({soundStatus: this.props.trackQueue.soundStatus[0]});
+    }
   }
 
   toggleShuffle(e, shuffleAndTurnOff = false){
@@ -92,7 +92,6 @@ class PlayBarController extends React.Component{
   }
 
   handleForward(){
-    debugger
     this.props.goToNextTrack();
   }
 

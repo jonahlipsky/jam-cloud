@@ -26,8 +26,68 @@
     height: 200px;
     width: 200px;
   }
-  
+
   img{
     border-radius: 200px;
   }
 }
+
+.user-show-track-widgets{
+  width: 75%;
+}
+
+.widgets{
+  padding: 0 30px;
+  width: 66%;
+  border-right: 1px solid $background-gray;
+}
+
+.user-show-body-nav{
+  border-bottom: 1px solid $background-gray;
+  // padding: 10px;
+  margin: 20px 30px 30px 30px;
+  font-size: 16pt;
+}
+
+.track-widget{
+  margin: 10px 0;
+}
+
+.widgets-and-followers{
+  display: flex; 
+  flex-direction: row;
+}
+
+.user-show-body{
+  // position: relative;
+  border: 1px solid red;
+}
+
+.followers-following-display{
+  // height: 100px;
+
+  width: 25%;
+  margin: 10px 30px 30px 30px;
+  border: 1px solid blue;
+}
+
+.user-follow-stats{
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between
+
+}
+
+.user-stat{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: $light-gray;
+  margin-left: 20px;
+  padding-right: 30px;
+  border-right: 1px solid $background-gray;
+  &:last-child{
+    border: none;
+  }
+}
+

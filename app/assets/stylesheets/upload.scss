@@ -24,11 +24,6 @@ $button-hover-orange: rgb(255, 60, 0);
       padding: 15px 0;
       margin-right: 25px;
     }
-
-    .upload-nav-selected {
-      color: $button-orange;
-      border-bottom: 1px solid $button-orange;
-    }
   }
 }
 
@@ -107,6 +102,11 @@ $button-hover-orange: rgb(255, 60, 0);
   }
 }
 
+.upload-nav-selected{
+  color: $button-orange;
+  border-bottom: 1px solid $button-orange;
+}
+
 .stage-two-track-upload-container{
   position: relative;
   width: 70%;
@@ -129,10 +129,7 @@ $button-hover-orange: rgb(255, 60, 0);
       margin: 0 15px;
       
     }
-    .upload-nav-selected{
-      color: $button-orange;
-      border-bottom: 1px solid $button-orange;
-    }
+
   }
 
   .track-upload-stage-two-body{

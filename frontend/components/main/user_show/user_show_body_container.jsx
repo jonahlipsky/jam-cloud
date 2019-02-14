@@ -12,9 +12,14 @@ const mapStateToProps = (state, ownProps) => {
       userTracks.push(state.entities.tracks[id]);
     }
   });
+  let nFollowers = user ? user.likes.length : '0';
+  let nTracks = userTrackIds.length;
   return({
     user,
-    userTracks
+    userTracks,
+    nTracks,
+    nFollowers
+
   });
 };
 

@@ -57,7 +57,6 @@ class TrackWidget extends React.Component{
 
     let pause = function(){
       if(this.props.soundStatusArray[0] != "PAUSED"){
-        debugger
         this.props.sendSoundStatus("PAUSED", this.props.track.id);
       }
     };
@@ -76,15 +75,13 @@ class TrackWidget extends React.Component{
       this.setState({widget});
       this.setListeners(widget);
     }
-
     if(prevProps.currentMilliseconds != this.props.currentMilliseconds){
-      
       this.state.widget.seekTo(this.props.currentMilliseconds);
     } 
     if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0]) && 
         this.props.soundStatusArray[0] === "PAUSED"){
-      this.togglePlayStatus();
-    }
+          this.state.widget.pause();
+    } 
   }
 
   togglePlayStatus(){

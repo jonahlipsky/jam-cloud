@@ -70,7 +70,8 @@ class TrackWidget extends React.Component{
       this.setListeners(widget);
     }
     //if the song is playing and sending progress updates, seek to that positions
-    if(prevProps.currentMilliseconds != this.props.currentMilliseconds){
+    if(prevProps.currentMilliseconds != this.props.currentMilliseconds &&
+        String(this.props.soundStatusArray[1]) === String(this.props.track.id)){ 
       this.state.widget.seekTo(this.props.currentMilliseconds);
     } 
     //if the sound status has changed and now it it equal to 'PAUSED', pause the widget
@@ -92,7 +93,7 @@ class TrackWidget extends React.Component{
   render(){
     let widget = "";
     if(this.props.track){
-      let widgetIdentifier = this.props.track.widgetIdentifier;
+      let widgetIdentifier = this.props.track.widget_identifier;
       let id = `track${this.props.track.id}Widget`;
       let prefix = this.state.tracksWidgetUrlPrefix;
       let options = this.state.widgetOptions;

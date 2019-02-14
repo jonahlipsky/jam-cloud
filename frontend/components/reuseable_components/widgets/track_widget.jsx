@@ -7,11 +7,16 @@ const mapStateToProps = state => {
   let track = {id: 1, widgetIdentifier: "265422144"};
   let soundStatusArray = state.io.trackQueue.soundStatus;
   let firstInQueue = state.io.trackQueue.queue ? state.io.trackQueue.queue[0] : ""
-
+  let percentageComplete = state.io.trackQueue.percentageComplete;
+  let duration = state.io.trackQueue.duration;
+  let currentMilliseconds = percentageComplete * duration / 100;
+  console.log(currentMilliseconds);
+  debugger
   return({
     track,
     soundStatusArray,
-    firstInQueue
+    firstInQueue,
+    currentMilliseconds
   });
 };
 
@@ -25,25 +30,26 @@ class TrackWidget extends React.Component{
     super(props);
     this.state = {
       widgetOptions: "&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
-      tracksWidgetUrlPrefix: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/",
-      soundStatus: "PAUSED"
+      tracksWidgetUrlPrefix: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/"
     };
   }
+  
 
   setListeners(widget){
     debugger
 
-    // widget.setVolume(0);
-    let pushToQueue = function(){
+    let pushToQueue = () => {
       let trackId = this.props.track.id;
       if(this.props.firstInQueue != String(trackId)){
         this.props.pushToFrontOfQueue(trackId);
+      } else if(this.props.soundStatusArray[0] != "PLAYING"){
+        this.props.sendSoundStatus("PLAYING", this.props.track.id);
       }
-      this.props.sendSoundStatus("PLAYING", this.props.track.id);
     };
     pushToQueue = pushToQueue.bind(this);
+
     widget.bind(SC.Widget.Events.PLAY, () => {
-      // debugger
+      debugger
       let widgetElement = document.getElementById(`track${this.props.track.id}Widget`);
       SC.Widget(widgetElement).setVolume(0);
       pushToQueue();
@@ -51,6 +57,7 @@ class TrackWidget extends React.Component{
 
     let pause = function(){
       if(this.props.soundStatusArray[0] != "PAUSED"){
+        debugger
         this.props.sendSoundStatus("PAUSED", this.props.track.id);
       }
     };
@@ -63,26 +70,28 @@ class TrackWidget extends React.Component{
   
   componentDidUpdate(prevProps){
     //check if ids are in the right format to be checked
-    // debugger
     if(!this.state.widget && this.props.track){
       let widgetElement = document.getElementById(`track${this.props.track.id}Widget`);
       let widget = SC.Widget(widgetElement);
       this.setState({widget});
       this.setListeners(widget);
-    } else if( prevProps.soundStatusArray && this.props.soundStatusArray
-        && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0])){
-          this.togglePlayStatus();
+    }
+
+    if(prevProps.currentMilliseconds != this.props.currentMilliseconds){
+      
+      this.state.widget.seekTo(this.props.currentMilliseconds);
+    } else if (prevProps.currentMilliseconds != this.props.currentMilliseconds){
+      this.state.widget.pause();
     }
   }
 
   togglePlayStatus(){
-    // debugger
+    debugger
     let soundStatusArray = this.props.soundStatusArray;
     if( soundStatusArray[0] === "PLAYING"){
         this.state.widget.play();
     } else if (soundStatusArray[0] === "PAUSED"){
         this.state.widget.pause();
-        // this.props.sendSoundStatus("PAUSED", this.props.track.id);
     }
   }
 

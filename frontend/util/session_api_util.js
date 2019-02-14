@@ -1,3 +1,11 @@
+export const updateUser = (formData, userId) => ($.ajax({
+  method: 'PATCH',
+  url: `/api/users/${userId}`,
+  data: formData,
+  contentType: false,
+  processData: false
+})); 
+
 export const signin = (user) => ($.ajax({
   method: 'POST',
   url: '/api/session',

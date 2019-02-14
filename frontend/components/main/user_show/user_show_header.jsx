@@ -2,21 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UploadImage from '../../reuseable_components/upload_image';
 import ImageUploadForm from '../../reuseable_components/image_upload_form';
+import regeneratorRuntime from 'regenerator-runtime';
 
-class TrackShowHeader extends React.Component{
+class UserShowHeader extends React.Component{
   constructor(props){
     super(props);
 
     this.state = {
       imageUrl: null,
       imageFile: null,
-      playIcon: "playIcon"
     };
 
     this.toggleModal = this.toggleModal.bind(this);
     this.cancelUpdateImage = this.cancelUpdateImage.bind(this);
-    this.handleSubmit = this.handleFile.bind(this);
-    this.playTrack = this.playTrack.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleFile(field){
@@ -36,14 +35,15 @@ class TrackShowHeader extends React.Component{
   }
 
   cancelUpdateImage(){
-    this.setState({image: null, imageUrl: null});
+    this.setState({imageFile: null, imageUrl: null});
     this.toggleModal();
   }
 
-  handleSubmit(){
+  async handleSubmit(){
     const formData = new FormData();
-    formData.append('track[image]', that.state.imageFile);
-    this.props.updateTrack(formData, this.props.track.id);
+    formData.append('user[profile_picture]', this.state.imageFile);
+    this.props.updateUser(formData, this.props.user.id);
+    this.toggleModal();
   }
 
   toggleModal(){
@@ -65,56 +65,26 @@ class TrackShowHeader extends React.Component{
     }
   }
 
-  playTrack(){
-    this.props.pushToFrontOfQueue(this.props.track.id);
-  }
-
-  setIconHover(){
-    this.setState({playIcon: "playIconHover"});
-  }
-
-  removeIconHover(){
-    this.setState({playIcon: "playIcon"});
-  }
-
   render(){
-    let artistName = this.props.artist ? this.props.artist.username : "";
-    let title = this.props.track ? this.props.track.title : "";
-    let artistId = this.props.artist ? this.props.artist.id : 1;
-    let updateTime = this.props.updateTime || "";
+    let username = this.props.user ? this.props.user.username : "";
     let imageUrl;
     if(this.state.imageUrl){
       imageUrl = this.state.imageUrl;
-    } else if (this.props.track && this.props.track.imageUrl){
-      imageUrl = this.props.track.imageUrl;
-    } else{
-      imageUrl = window.blurCloud;
-    }
-
-    let playIcon;
-    if(this.state.playIcon === "playIconHover"){
-      playIcon = <img src={window.playIconHover} onClick={this.playTrack}/>
+    } else if (this.props.user){
+      imageUrl = this.props.user.profilePicture;
     } else {
-      playIcon = <img src={window.playIcon} />
+      imageUrl = "";
     }
       
     return(
-      <div className="track-show-header header">
-        <div className="info-and-play-bar">
-          <div className="track-info">
-            <div className="play-icon-container" onMouseEnter={this.setIconHover.bind(this)} onMouseLeave={this.removeIconHover.bind(this)}>
-              {playIcon}
-            </div>
-            <div className="artist-title">
-              <Link to={`/users/${artistId}`}>{artistName}</Link>
-              <h3>{title}</h3>
-            </div>
-          </div>
-          <div className="update-info">
-            {updateTime}
+      <div className="user-show-header header">
+        <div className="user-show-content">
+          <UploadImage context={this} imageUrl={imageUrl} />
+          <div className="username-element">
+            <h2>{username}</h2>
           </div>
         </div>
-        <UploadImage context={this} imageUrl={imageUrl} />
+
         <div className={'modal js-modal-close'} id={'modal'}>
           <ImageUploadForm context={this}/>
           <div className="modal-screen" id={'modal-screen'} onClick={this.toggleModal}>
@@ -128,4 +98,4 @@ class TrackShowHeader extends React.Component{
   }
 }
 
-export default TrackShowHeader;
+export default UserShowHeader;

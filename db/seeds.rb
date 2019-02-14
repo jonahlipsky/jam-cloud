@@ -33,10 +33,10 @@ user1.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'ima
 
 # daniel stern
 
-track1 = Track.new(title: '01_something_good', user_id: daniel_stern.id, album_id: 1)
+track1 = Track.new(title: '01_something_good', user_id: daniel_stern.id, album_id: 1, widget_identifier: '265422144')
 track1.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track1.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '01_something_good.mp3')), filename: "01_something_good.mp3")
-track2 = Track.new(title: '02_out_of_town', user_id: daniel_stern.id, album_id: 1)
+track2 = Track.new(title: '02_out_of_town', user_id: daniel_stern.id, album_id: 1, widget_identifier: '265422134')
 track2.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track2.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '02_out_of_town.mp3')), filename: "02_out_of_town.mp3")
 track3 = Track.new(title: '03_pick_me_up', user_id: daniel_stern.id, album_id: 1)

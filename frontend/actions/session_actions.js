@@ -6,6 +6,7 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const SEND_STAGE_ERRORS = "SEND_STAGE_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const RECEIVE_UPDATED_USER = "RECEIVE_UPDATED_USER";
 
 export const sendStageErrors = (errors) => ({
   type: SEND_STAGE_ERRORS,
@@ -15,6 +16,18 @@ export const sendStageErrors = (errors) => ({
 export const clearErrors = () => ({
   type: CLEAR_ERRORS
 });
+
+const receiveUpdatedUser = user => ({
+  type: RECEIVE_UPDATED_USER,
+  user
+});
+
+export const updateUser = (formData, userId) => dispatch => {
+  return SESSION_API_UTIl.updateUser(formData, userId).then(
+    user => dispatch(receiveUpdatedUser(user)),
+    errors => dispatch(receiveSessionErrors(errors))
+  );
+};
 
 
 export const fetchUsers = () => dispatch => {

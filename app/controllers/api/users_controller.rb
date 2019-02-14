@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.with_attached_profile_picture.where(id: params[:id])
+    @user = User.find_by(id: params[:id])
     if @user.update_attributes(user_params)
       render :show
     else

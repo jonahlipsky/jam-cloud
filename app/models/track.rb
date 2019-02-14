@@ -2,12 +2,13 @@
 #
 # Table name: tracks
 #
-#  id         :bigint(8)        not null, primary key
-#  title      :string           not null
-#  user_id    :integer
-#  album_id   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                :bigint(8)        not null, primary key
+#  title             :string           not null
+#  user_id           :integer
+#  album_id          :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  widget_identifier :string
 #
 
 class Track < ApplicationRecord

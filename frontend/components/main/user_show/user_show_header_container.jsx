@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import UserShow from './user_show';
+import UserShowHeader from './user_show_header';
+import { updateUser } from '../../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let userId = ownProps.match.params.userId;
@@ -11,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-
+  updateUser: (formData, userId) => dispatch(updateUser(formData, userId))
 });
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(UserShow));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserShowHeader));

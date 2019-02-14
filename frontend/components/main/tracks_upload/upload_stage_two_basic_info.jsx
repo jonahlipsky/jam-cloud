@@ -1,5 +1,5 @@
 import React from 'react';
-import UploadImage from './upload_image';
+import UploadImage from '../../reuseable_components/upload_image';
 
 export default ({context, errors}) => {
   let url = context.state.imageUrl;
@@ -25,7 +25,10 @@ export default ({context, errors}) => {
             {uploadErrors}
             <label htmlFor="track-title">Title<p className="required-star">*</p></label>
             <input className="form-input-field" id='track-title' type="text" 
-              value={context.state.title} onChange={context.handleInput.bind(context)}/>
+              value={context.state.title} onChange={context.handleInput.call(context, 'title')}/>
+            <label htmlFor="widget-identifier">Sound Cloud Widget Identifier</label>
+            <input className="form-input-field" id='widget-identifier' type="text" 
+              value={context.state.widgetIdentifier} onChange={context.handleInput.call(context, 'widgetIdentifier')}/>
 
             <div className="submit-cancel">
               <button className="cancel-upload" onClick={context.resetUpload}>Cancel</button>

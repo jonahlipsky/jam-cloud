@@ -4,16 +4,13 @@ import { pushToFrontOfQueue,
   sendSoundStatus } from '../../../actions/sound_controller_actions';
 
 const mapStateToProps = state => {
-  let track = {id: 1, widgetIdentifier: "265422144"};
+  // let track = {id: 1, widgetIdentifier: "265422144"};
   let soundStatusArray = state.io.trackQueue.soundStatus;
   let firstInQueue = state.io.trackQueue.queue ? state.io.trackQueue.queue[0] : ""
   let percentageComplete = state.io.trackQueue.percentageComplete;
   let duration = state.io.trackQueue.duration;
   let currentMilliseconds = percentageComplete * duration / 100;
-  console.log(currentMilliseconds);
-  debugger
   return({
-    track,
     soundStatusArray,
     firstInQueue,
     currentMilliseconds
@@ -36,8 +33,7 @@ class TrackWidget extends React.Component{
   
 
   setListeners(widget){
-    debugger
-
+    //CB for when widget is played
     let pushToQueue = () => {
       let trackId = this.props.track.id;
       if(this.props.firstInQueue != String(trackId)){
@@ -47,14 +43,13 @@ class TrackWidget extends React.Component{
       }
     };
     pushToQueue = pushToQueue.bind(this);
-
     widget.bind(SC.Widget.Events.PLAY, () => {
-      debugger
       let widgetElement = document.getElementById(`track${this.props.track.id}Widget`);
       SC.Widget(widgetElement).setVolume(0);
       pushToQueue();
     }); 
 
+    //CB for when the widget gets paused
     let pause = function(){
       if(this.props.soundStatusArray[0] != "PAUSED"){
         this.props.sendSoundStatus("PAUSED", this.props.track.id);
@@ -62,22 +57,23 @@ class TrackWidget extends React.Component{
     };
     pause = pause.bind(this);
     widget.bind(SC.Widget.Events.PAUSE, () => {
-      // debugger
       pause();
     });
   }
   
   componentDidUpdate(prevProps){
-    //check if ids are in the right format to be checked
+    //if the widget is not present, create the widget and save to state.
     if(!this.state.widget && this.props.track){
       let widgetElement = document.getElementById(`track${this.props.track.id}Widget`);
       let widget = SC.Widget(widgetElement);
       this.setState({widget});
       this.setListeners(widget);
     }
+    //if the song is playing and sending progress updates, seek to that positions
     if(prevProps.currentMilliseconds != this.props.currentMilliseconds){
       this.state.widget.seekTo(this.props.currentMilliseconds);
     } 
+    //if the sound status has changed and now it it equal to 'PAUSED', pause the widget
     if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0]) && 
         this.props.soundStatusArray[0] === "PAUSED"){
           this.state.widget.pause();
@@ -85,7 +81,6 @@ class TrackWidget extends React.Component{
   }
 
   togglePlayStatus(){
-    debugger
     let soundStatusArray = this.props.soundStatusArray;
     if( soundStatusArray[0] === "PLAYING"){
         this.state.widget.play();

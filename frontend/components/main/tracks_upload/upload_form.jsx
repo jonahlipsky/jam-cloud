@@ -14,7 +14,8 @@ class UploadForm extends React.Component{
         imageUrl: null,
         imageFile: null,
         soundUrl: null,
-        soundFile: null
+        soundFile: null,
+        widgetIdentifier: ""
       };
     }
     this.handleFile = this.handleFile.bind(this);
@@ -30,18 +31,20 @@ class UploadForm extends React.Component{
         imageUrl: track.imageUrl,
         imageFile: track.imageFile,
         soundUrl: track.soundUrl,
-        soundFile: track.soundFile
+        soundFile: track.soundFile,
+        widgetIdentifier: track.widget_identifier
       });
     }
   }
 
   componentWillUnmount(){
-    
     this.props.incrementStage(0);
   }
 
-  handleInput(e){
-    this.setState({title: e.currentTarget.value});
+  handleInput(field){
+    return e => {
+      this.setState({[field]: e.currentTarget.value});
+    };
   }
 
   resetUpload(){
@@ -72,13 +75,10 @@ class UploadForm extends React.Component{
       e.preventDefault();
       const formData = new FormData();
       formData.append('track[title]', that.state.title);
+      formData.append('track[widget_identifier]', that.state.widgetIdentifier)
       if (that.state.imageFile){
         formData.append('track[image]', that.state.imageFile);
-      } else {
-        //add a default image and map it to state
-        //also on component did mount fetch that image
-        // formData.append('track[image]', that.props.defaultImage);
-      }
+      } 
       if (that.state.soundFile){
         formData.append('track[sound_file]', that.state.soundFile);
       }

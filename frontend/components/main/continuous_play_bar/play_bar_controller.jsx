@@ -124,7 +124,7 @@ class PlayBarController extends React.Component{
           </div>
         </div>
         <SoundContainer playBarControllerContext={playBarControllerContext} volume={this.state.volume} forcePlay={this.forcePlay}
-          toggleBack={toggleBack} soundStatus={this.state.soundStatus} backPressed={this.state.backPressed}/>
+          toggleBack={toggleBack} backPressed={this.state.backPressed}/>
     </div>
     )
   }

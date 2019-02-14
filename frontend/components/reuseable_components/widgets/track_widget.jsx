@@ -76,7 +76,7 @@ class TrackWidget extends React.Component{
   }
 
   togglePlayStatus(){
-    debugger
+    // debugger
     let soundStatusArray = this.props.soundStatusArray;
     if( soundStatusArray[0] === "PLAYING"){
         this.state.widget.play();

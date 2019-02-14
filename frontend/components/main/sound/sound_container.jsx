@@ -12,11 +12,13 @@ const mapStateToProps = state => {
   let currentTrack = state.entities.tracks[currentTrackId] || null;
   let immediate = state.io.trackQueue.immediate;
   let currentPercentage = state.io.trackQueue.currentPercentage;
+  let soundStatus = state.io.trackQueue.soundStatus[0];
   return ({
     currentTrack,
     immediate,
     currentPercentage,
-    nextTrack
+    nextTrack,
+    soundStatus
   });
 };
 

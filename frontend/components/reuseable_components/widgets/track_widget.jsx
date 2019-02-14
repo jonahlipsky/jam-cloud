@@ -80,8 +80,10 @@ class TrackWidget extends React.Component{
     if(prevProps.currentMilliseconds != this.props.currentMilliseconds){
       
       this.state.widget.seekTo(this.props.currentMilliseconds);
-    } else if (prevProps.currentMilliseconds != this.props.currentMilliseconds){
-      this.state.widget.pause();
+    } 
+    if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0]) && 
+        this.props.soundStatusArray[0] === "PAUSED"){
+      this.togglePlayStatus();
     }
   }
 

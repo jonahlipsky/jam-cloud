@@ -14,6 +14,7 @@
 #
 
 class User < ApplicationRecord 
+  include Likeable
   validates :username, :email, :session_token, presence: true, uniqueness: true
   validates :password_digest, :age, :gender, presence: true
   validates :password, length: { minimum: 6, allow_nil: true } 
@@ -29,8 +30,29 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :tracks
-  has_many :likes, as: :likeable
   has_many :recent_tracks
+  has_many :liked_objects,
+    class_name: 'Like',
+    foreign_key: :user_id
+  
+  has_many :followed_users,
+    through: :liked_objects,
+    source: :likeable,
+    source_type: 'User'
+
+  has_many :liked_tracks,
+    through: :liked_objects,
+    source: :likeable,
+    source_type: 'Track'
+  
+  has_many :liked_comments,
+    through: :liked_objects,
+    source: :likeable,
+    source_type: 'Comment'
+
+  has_many :followers, 
+    through: :likes,
+    source: :user
 
   has_many :recently_played_tracks,
     through: :recent_tracks,

@@ -12,6 +12,7 @@
 #
 
 class Comment < ApplicationRecord
+  include Likeable
   validates :body, presence: true
   validates :body, length: { maximum: 250 }
 
@@ -21,8 +22,6 @@ class Comment < ApplicationRecord
 
   belongs_to :track
 
-  has_many :likes, as: :likeable
-
   belongs_to :parent_comment,
     foreign_key: :parent_comment_id,
     class_name: "Comment",
@@ -31,6 +30,10 @@ class Comment < ApplicationRecord
   has_many :child_comments, 
     foreign_key: :parent_comment_id,
     class_name: "Comment"
+
+  has_many :likers,
+    through: :likes,
+    source: :user
 
 
 end

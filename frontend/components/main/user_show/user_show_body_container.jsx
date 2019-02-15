@@ -12,14 +12,21 @@ const mapStateToProps = (state, ownProps) => {
       userTracks.push(state.entities.tracks[id]);
     }
   });
-  let nFollowers = user ? user.likes.length : '0';
+  let nFollowers = user ? user.follower_ids.length : '0';
   let nTracks = userTrackIds.length;
+  let nFollowedUsers = user ? user.followed_user_ids.length : '0';
+
+  let ownPage = false;
+  if(ownProps.match.params.userId === String(state.session.id)){
+    ownPage = true;
+  }
   return({
     user,
     userTracks,
     nTracks,
-    nFollowers
-
+    nFollowers,
+    nFollowedUsers,
+    ownPage
   });
 };
 

@@ -6,6 +6,7 @@ import * as session_actions from './actions/session_actions';
 import { incrementStage } from './actions/modal_actions';
 import { fetchTracks, postTrack, removeTrack, updateTrack, sendRecentTrack  } from './actions/track_actions';
 import { fetchTrackComments, createComment} from './actions/comment_actions';
+import { createLike, deleteLike } from './util/like_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -24,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.dispatch = store.dispatch;
   window.sendRecentTrack = sendRecentTrack;
+  window.createLike = createLike;
+  window.deleteLike = deleteLike;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TrackWidget from '../../reuseable_components/widgets/track_widget';
 import { NavLink } from 'react-router-dom';
+import UserFollowStats from './user_follow_stats';
+import UserLikesContainer from './user_likes_container';
 
 class UserShowBody extends Component{
   constructor(props){
@@ -25,27 +27,17 @@ class UserShowBody extends Component{
       <div className="user-show-body">
 
         <div className="user-show-body-nav">
-          <NavLink to={`/users/${this.props.match.params.userId}`} activeClassName="upload-nav-selected">All</NavLink>
+          <NavLink to={`/users/${this.props.match.params.userId}`} 
+            activeClassName="upload-nav-selected">All</NavLink>
         </div>
         <div className="widgets-and-followers">
           <ul className='widgets'>
             {widgets}
           </ul>
           <div className="followers-following-display">
-            <div className="user-follow-stats">
-              <div className="user-stat">
-                <p>Followers</p>
-                <p>{this.props.nFollowers}</p>
-              </div>
-              <div className="user-stat">
-                <p>Following</p>
-                <p>1</p>
-              </div>
-              <div className="user-stat">
-                <p>Tracks</p>
-                <p>{this.props.nTracks}</p>
-              </div>
-            </div>
+            <UserFollowStats nFollowers={this.props.nFollowers} 
+              nFollowedUsers={this.props.nFollowedUsers} nTracks={this.props.nTracks}/>
+            <UserLikesContainer />
           </div>
         </div>
 

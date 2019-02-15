@@ -1,6 +1,19 @@
 class Api::LikesController < ApplicationController
   def create
-    @like = current_user.likes.new(like_params)
+    if params[:likeable_type] == "Track"
+      track = Track.find_by(id: params[:likeable_id])
+      @like = Like.new(likeable: track)
+    elsif params[:likeable_type] == "Comment"
+      comment = Comment.find_by(id: params[:likeable_id])
+      @like = Like.new(likeable: comment)
+    elsif params[:likeable_type] == "User"
+      user = User.find_by(id: params[:likeable_id])
+      @like = Like.new(likeable: user)
+    else
+      render json: 'Error, likeable type not found', status: 422
+      return
+    end
+    @like.user_id = current_user.id
     if @like.save
       render :show
     else
@@ -9,6 +22,7 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
+    debugger
     @like = Like.find(params[:id])
     @like.destroy
     render body: nil, status: :no_content

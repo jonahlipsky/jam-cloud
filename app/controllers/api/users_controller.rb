@@ -22,7 +22,8 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.with_attached_profile_picture.all.includes(:tracks, :likes, :recently_played_tracks)
+    @users = User.with_attached_profile_picture.all.includes(:tracks, :likes, :liked_objects, :recently_played_tracks, :followers, :followed_users, 
+      :liked_tracks, :liked_comments).order('tracks.id ASC')
     render :index
   end
 

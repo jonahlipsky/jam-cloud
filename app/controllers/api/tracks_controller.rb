@@ -1,12 +1,13 @@
 class Api::TracksController < ApplicationController
 
   def index
-    @tracks = Track.with_attached_image.with_attached_sound_file.all.includes(:comments, :likes).order('comments.updated_at DESC')
-    render :index
+    @tracks = Track.with_attached_image.with_attached_sound_file.all
+      .includes(:comments, :likes, :user, :likers).order('comments.updated_at DESC')
   end
 
   def show
-    @track = Track.with_attached_image.with_attached_sound_file.where(id: params[:id]).includes(:comments).order('comments.updated_at DESC')[0]
+    @track = Track.with_attached_image.with_attached_sound_file.where(id: params[:id])
+      .includes(:comments, :likes, :user, :likers).order('comments.updated_at DESC')[0]
   end
 
   def update

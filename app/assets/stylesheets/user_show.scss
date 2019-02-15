@@ -106,3 +106,31 @@
     margin-left: 5px;
   }
 }
+
+.liked-track-display-list-item{
+  display: flex;
+  flex-direction: row;
+  color: $light-gray;
+  margin: 10px 0;
+
+  img{
+    height: 50px;
+    width: 50px;
+  }
+
+  .track-information{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+
+  }
+
+  .title{
+    color: black; 
+  }
+
+  .n-likes{
+    padding: 0;
+    margin: 0;
+  }
+}

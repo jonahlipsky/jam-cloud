@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LikedTrackDisplayItem from './liked_track_display_item_container';
+import LikedTrackDisplayItem from './liked_track_display_item';
 
 class UserLikes extends Component{
   constructor(props){

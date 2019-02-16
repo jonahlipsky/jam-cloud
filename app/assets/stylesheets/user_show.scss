@@ -99,11 +99,15 @@
 .n-likes{
   display: flex;
   flex-direction: row;
-  padding: 10px 0;
+  padding: 30px 0 10px 0;
   border-bottom: 1px solid $background-gray;
   color: $light-gray;
   > p{
     margin-left: 5px;
+  }
+
+  .fa-heart:hover{
+    border: 1px solid white;
   }
 }
 
@@ -122,21 +126,32 @@
   color: white;
   background-color: $button-orange;
   border-radius: 3px;
+  padding: 3px;
 }
 
 .followed{
+  border: 1px solid $lighter-gray;
   color: $button-orange;
   background-color: white;
 }
 
+.followed:hover{
+  border: 1px solid $button-orange;
+}
 
-.liked-track-display-list-item{
+
+.liked-display-list-item{
   display: flex;
   flex-direction: row;
   align-items: center;
   color: $light-gray;
-  margin: 10px 0;
+  padding: 10px 0;
   position: relative;
+  // border-bottom: 1px solid $background-gray;
+
+  .profile-picture{
+    border-radius: 200px;
+  }
 
   img{
     height: 50px;
@@ -182,7 +197,7 @@
   display: none;
 }
 
-.liked-track-display-list-item:hover{
+.liked-display-list-item:hover{
 
   .track-image{
     position: relative;

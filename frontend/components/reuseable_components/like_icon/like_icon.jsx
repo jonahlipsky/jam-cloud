@@ -51,7 +51,7 @@ class LikeIcon extends Component{
     let liked = this.likedObject();
     let heartClass = liked ? "fas fa-heart liked" : "fas fa-heart";
     let followText = liked ? "Following" : "Follow";
-    let followingClass = liked ? "following-user-container" : "following-user-container followed";
+    let followingClass = liked ? "following-user-container followed" : "following-user-container";
     let icon = this.props.type === "User" ? (
         <div onClick={this.handleLike(type)} className={followingClass}>
           {followText}

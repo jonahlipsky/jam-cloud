@@ -34,7 +34,7 @@ class LikedTrackDisplayItem extends Component{
       onClick={this.playTrack.bind(this)}/> : <img className="play-icon" src={window.playIcon}/>
     
     return(
-      <li className="liked-track-display-list-item">
+      <li className="liked-display-list-item">
         <div className="track-image">
           <img src={imageUrl}/>
           <div className="li-play-icon-container" onMouseEnter={this.mouseEnter.bind(this)} 

@@ -13,8 +13,8 @@ class UserShowBody extends Component{
     let widgets = this.props.userTracks.map(track => {
       if(track.widget_identifier){
         return(
-          <li className="track-widget">
-            <TrackWidget key={track.id} track={track} />
+          <li key={track.id} className="track-widget">
+            <TrackWidget track={track} />
           </li>
         )
       } else {
@@ -25,7 +25,6 @@ class UserShowBody extends Component{
     return(
       <>
       <div className="user-show-body">
-
         <div className="user-show-body-nav">
           <NavLink to={`/users/${this.props.match.params.userId}`} 
             activeClassName="upload-nav-selected">All</NavLink>
@@ -40,8 +39,6 @@ class UserShowBody extends Component{
             <UserLikesContainer />
           </div>
         </div>
-
-
       </div>
       </>
     )

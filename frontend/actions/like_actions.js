@@ -2,6 +2,12 @@ import * as LIKE_API_UTIL from '../util/like_api_util';
 
 export const RECEIVE_NEW_LIKE = "RECEIVE_NEW_LIKE";
 export const DELETE_LIKE = "DELETE_LIKE";
+export const RECEIVE_LIKE_ERRORS = "RECEIVE_LIKE_ERRORS";
+
+const receiveLikeErrors = errors => ({
+  type: RECEIVE_LIKE_ERRORS,
+  errors
+});
 
 const receiveNewLike = like => ({
   type: RECEIVE_NEW_LIKE,
@@ -15,12 +21,14 @@ const receiveDeleteLike = like => ({
 
 export const createLike = (likeableType, likeableId) => dispatch => {
   return LIKE_API_UTIL.createLike(likeableType, likeableId).then(
-    like => dispatch(receiveNewLike(like))
+    like => dispatch(receiveNewLike(like)),
+    errors => dispatch(receiveLikeErrors(errors))
   );
 };
 
 export const deleteLike = like => dispatch => {
   return LIKE_API_UTIL.deleteLike(like.id).then(
-    () => dispatch(receiveDeleteLike(like))
+    () => dispatch(receiveDeleteLike(like)),
+    errors => dispatch(receiveLikeErrors(errors))
   );
 };

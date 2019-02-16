@@ -1,5 +1,6 @@
 import { merge } from 'lodash';
 import { RECEIVE_TRACK_COMMENTS, RECEIVE_NEW_COMMENT, REMOVE_COMMENT, CLEAR_COMMENTS } from '../actions/comment_actions';
+import { RECEIVE_NEW_LIKE, DELETE_LIKE } from '../actions/like_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -30,7 +31,25 @@ export default (state = {}, action) => {
         }
       });
       return newState;
+    case RECEIVE_NEW_LIKE:
+      if(action.like.likeable_type === "Comment" && newState[action.like.likeable_id]){
+        comment = newState[action.like.likeable_id];
+        comment.likes += 1;
+        comment.liker_ids.push(action.like.user_id);
+        newState[action.like.likeable_id] = comment;
+      };
+      return newState;
+    case DELETE_LIKE:
+      if(action.like.likeable_type === "Comment" && newState[action.like.likeable_id]){
+        comment = newState[action.like.likeable_id];
+        comment.likes -= 1;
+        comment.liker_ids = comment.liker_ids.filter(id => {
+          return (id != action.like.user_id);
+        });
+        newState[action.like.likeable_id] = comment;
+      };
+      return newState;
     default:
-      return state;
+      return newState;
   }
 };

@@ -174,7 +174,32 @@
   }
 }
 
-
 .liked, .followed{
   color: $button-orange;
+}
+
+.li-play-icon-container{
+  display: none;
+}
+
+.liked-track-display-list-item:hover{
+
+  .track-image{
+    position: relative;
+  }
+
+  .li-play-icon-container{
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    top: 50%;
+    margin-top: -20px;
+  }
+
+  .play-icon{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+  }
 }

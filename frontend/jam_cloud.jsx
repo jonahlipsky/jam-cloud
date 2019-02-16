@@ -6,7 +6,7 @@ import * as session_actions from './actions/session_actions';
 import { incrementStage } from './actions/modal_actions';
 import { fetchTracks, postTrack, removeTrack, updateTrack, sendRecentTrack  } from './actions/track_actions';
 import { fetchTrackComments, createComment} from './actions/comment_actions';
-import { createLike, deleteLike } from './util/like_api_util';
+import { createLike, deleteLike } from './actions/like_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

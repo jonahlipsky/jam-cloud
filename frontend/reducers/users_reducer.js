@@ -1,12 +1,13 @@
 import { merge } from 'lodash';
 import { RECEIVE_CURRENT_USER, RECEIVE_ALL_USERS } from '../actions/session_actions';
 import { REMOVE_TRACK, RECEIVE_TRACK, RECEIVE_RECENT_TRACK } from '../actions/track_actions';
-import { DELETE_LIKE } from '../actions/like_actions';
+import { DELETE_LIKE, RECEIVE_NEW_LIKE } from '../actions/like_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
-  let user_id;
+  let userId;
+  let user;
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       let newUser = merge({}, { id: action.currentUser.id, email: action.currentUser.email, 
@@ -25,18 +26,51 @@ export default (state = {}, action) => {
       }
       return newState;
     case RECEIVE_TRACK:
-      user_id = action.track.user_id;
-      newState[user_id].track_ids.push(action.track.id);
+      userId = action.track.user_id;
+      newState[userId].track_ids.push(action.track.id);
       return newState;
     case REMOVE_TRACK:
-      user_id = action.user_id;
-      let trackPosition = newState[user_id].track_ids.indexOf(action.id);
-      newState[user_id].track_ids.splice(trackPosition, 1);
+      userId = action.user_id;
+      let trackPosition = newState[userId].track_ids.indexOf(action.id);
+      newState[userId].track_ids.splice(trackPosition, 1);
+    case RECEIVE_NEW_LIKE:
+      userId = action.like.user_id;
+      user = newState[userId];
+      let likeableId = action.like.likeable_id;
+      user.liked_objects.push(action.like);
+      if(action.like.likeable_type === "Track"){
+        user.liked_track_ids.push(likeableId);
+      }
+      else if (action.like.likeable_type === "Comment"){
+        user.liked_comment_ids.push(likeableId);
+      } else if (action.like.likeable_type === "User"){
+        user.followed_user_ids.push(likeableId);
+        let followedUser = newState[likeableId];
+        followedUser.follower_ids.push(action.like.user_id);
+        newState[likeableId] = followedUser;
+      }
+      newState[userId] = user;
+      return newState;
     case DELETE_LIKE:
-      let user = newState[action.like.user_id];
+      user = newState[action.like.user_id];
       let liked_objects = user.liked_objects.filter(obj => {
-        return (obj.id != action.like.id ? true : false)
+        return (obj.id != action.like.id);
       });
+      if(action.like.likeable_type === "User"){
+        user.followed_user_ids = user.followed_user_ids.filter(id => {
+          return (id != action.like.likeable_id);
+        });
+      } 
+      else if(action.like.likeable_type === "Track"){
+        user.liked_track_ids = user.liked_track_ids.filter(id => {
+          return (id != action.like.likeable_id);
+        });
+      } 
+      else if(action.like.likeable_type === "Comment"){
+        user.liked_comment_ids = user.liked_comment_ids.filter(id => {
+          return (id != action.like.likeable_id);
+        });
+      };
       user.liked_objects = liked_objects;
       newState[user.id] = user;
       return newState;

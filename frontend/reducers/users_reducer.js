@@ -1,6 +1,7 @@
 import { merge } from 'lodash';
 import { RECEIVE_CURRENT_USER, RECEIVE_ALL_USERS } from '../actions/session_actions';
 import { REMOVE_TRACK, RECEIVE_TRACK, RECEIVE_RECENT_TRACK } from '../actions/track_actions';
+import { DELETE_LIKE } from '../actions/like_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -31,6 +32,14 @@ export default (state = {}, action) => {
       user_id = action.user_id;
       let trackPosition = newState[user_id].track_ids.indexOf(action.id);
       newState[user_id].track_ids.splice(trackPosition, 1);
+    case DELETE_LIKE:
+      let user = newState[action.like.user_id];
+      let liked_objects = user.liked_objects.filter(obj => {
+        return (obj.id != action.like.id ? true : false)
+      });
+      user.liked_objects = liked_objects;
+      newState[user.id] = user;
+      return newState;
     default:
       return state;
   }

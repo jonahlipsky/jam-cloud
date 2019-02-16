@@ -4,6 +4,6 @@ json.extract! user, :id, :email, :username, :track_ids,
 json.profilePicture url_for(user.profile_picture)
 json.liked_objects do 
   json.array! user.liked_objects do |like|
-    json.extract! like, :id, :likeable_id, :likeable_type
+    json.extract! like, :id, :likeable_id, :likeable_type, :user_id
   end
 end

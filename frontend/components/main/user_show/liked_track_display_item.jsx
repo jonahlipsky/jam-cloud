@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import LikeIconContainer from '../../reuseable_components/like_icon/like_icon_container';
 
 class LikedTrackDisplayItem extends Component{
   constructor(props){
@@ -23,7 +24,9 @@ class LikedTrackDisplayItem extends Component{
             <p>{nLikes}</p>
           </div>
         </div>
-
+        <div className="like-and-options">
+          <LikeIconContainer element={this.props.track} type={"Track"}/>
+        </div>
       </li>
     )
   }

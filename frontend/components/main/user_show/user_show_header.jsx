@@ -11,7 +11,8 @@ class UserShowHeader extends React.Component{
       imageUrl: null,
       imageFile: null,
       profileBackgroundFile: null,
-      profileBackgroundUrl: null
+      profileBackgroundUrl: null,
+      modalType: ""
     };
 
     this.toggleModal = this.toggleModal.bind(this);
@@ -52,7 +53,7 @@ class UserShowHeader extends React.Component{
     this.toggleModal();
   }
 
-  toggleModal(type = null){
+  toggleModal(type = ""){
     this.setState({modalType: type});
     const modalForm = document.getElementById('modal-form');
     const modal = document.getElementById('modal');
@@ -82,6 +83,7 @@ class UserShowHeader extends React.Component{
       imageUrl = "";
     }
 
+    // let modalFormClassName = this.modalType.length ? " " + this.state.modalType : "";
     //set modal type based on the toggled state that has already been written, 
     //though not tested yet...
     //resize the modal form based on this because it needs to be horizontal.

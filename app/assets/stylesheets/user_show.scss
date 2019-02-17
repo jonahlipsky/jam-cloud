@@ -261,3 +261,39 @@
     color: $mid-gray;
   }
 }
+
+.modal {
+
+  .profile-background{
+    margin-left: -500px;
+    width: 1000px;
+    height: 250px;
+    top: -250px;
+    margin-top: -125px;
+
+    .image-upload-image-container{
+      width: 900px;
+      height: 180px;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      margin-left: -450px;
+      border: 1px solid red;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img{
+        border-radius: 0;
+      }
+    }
+
+    .cancel-submit{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+    }
+  }
+}

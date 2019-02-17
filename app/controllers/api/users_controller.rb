@@ -22,7 +22,8 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.with_attached_profile_picture.all.includes(:tracks, :likes, :liked_objects, :recently_played_tracks, :followers, :followed_users, 
+    @users = User.with_attached_profile_picture.with_attached_profile_background.all.includes(:tracks, :likes, :liked_objects, 
+      :recently_played_tracks, :followers, :followed_users, 
       :liked_tracks, :liked_comments).order('tracks.id ASC')
     render :index
   end
@@ -30,7 +31,8 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :age, :gender, :profile_picture)
+    params.require(:user).permit(:username, :email, :password, :age, 
+      :gender, :profile_picture, :profile_background)
   end
 
 end

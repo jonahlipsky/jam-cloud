@@ -59,6 +59,7 @@ class User < ApplicationRecord
     source: :track
 
   has_one_attached :profile_picture
+  has_one_attached :profile_background
 
   def ensure_profile_picture
     unless self.profile_picture.attached?

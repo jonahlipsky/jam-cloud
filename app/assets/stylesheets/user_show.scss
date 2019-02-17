@@ -8,6 +8,43 @@
 .user-show-header{
   background: linear-gradient(315deg, rgb(141, 138, 135) 0%, rgb(67, 63, 63) 100%);
   height: 260px;
+  position: relative;
+
+  .upload-new-background-image{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    margin: 30px;
+    border: 1px solid $light-gray;
+    background-color: $lighter-gray;
+    color: $nav-bar-selected-gray;
+    border-radius: 3px;
+    transition: .7s;
+
+    .file-upload{
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+
+    }
+
+    p{
+      margin-left: 8px;
+    }
+  }
+
+  .upload-new-background-image:hover{
+    background-color: $background-gray;
+    transition: .7s;
+ 
+  }
 
   .user-show-content{
     display: flex;

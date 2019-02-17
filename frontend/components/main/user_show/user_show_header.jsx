@@ -7,15 +7,17 @@ import regeneratorRuntime from 'regenerator-runtime';
 class UserShowHeader extends React.Component{
   constructor(props){
     super(props);
-
     this.state = {
       imageUrl: null,
       imageFile: null,
+      profileBackgroundFile: null,
+      profileBackgroundUrl: null
     };
 
     this.toggleModal = this.toggleModal.bind(this);
     this.cancelUpdateImage = this.cancelUpdateImage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   handleFile(field){
@@ -26,7 +28,7 @@ class UserShowHeader extends React.Component{
       const fileReader = new FileReader();
       fileReader.onloadend = () => {
         this.setState({[fileName]: file, [urlName]: fileReader.result});
-        this.toggleModal('Update Image');
+        this.toggleModal(field);
       };
       if(file){
         fileReader.readAsDataURL(file);
@@ -41,13 +43,17 @@ class UserShowHeader extends React.Component{
 
   async handleSubmit(){
     const formData = new FormData();
-    formData.append('user[profile_picture]', this.state.imageFile);
+    if(this.state.imageFile){
+      formData.append('user[profile_picture]', this.state.imageFile);
+    } else if(this.state.profilePictureFile){
+      formData.append('user[profile_background]', this.state.profileBackgroundFile);
+    }
     this.props.updateUser(formData, this.props.user.id);
     this.toggleModal();
   }
 
-  toggleModal(){
-    this.setState({});
+  toggleModal(type = null){
+    this.setState({modalType: type});
     const modalForm = document.getElementById('modal-form');
     const modal = document.getElementById('modal');
     if(modal.classList.contains('js-modal-close')){
@@ -75,20 +81,29 @@ class UserShowHeader extends React.Component{
     } else {
       imageUrl = "";
     }
+
+    //set modal type based on the toggled state that has already been written, 
+    //though not tested yet...
+    //resize the modal form based on this because it needs to be horizontal.
       
     return(
       <div className="user-show-header header">
+        <span className="upload-new-background-image">
+          <input className="file-upload" id='user-image-upload' type="file" 
+            onChange={this.handleFile('profileBackground')}/> 
+          <i class="fa fa-camera" aria-hidden="true"></i>
+          <p>Upload New Background Image</p>
+        </span>
         <div className="user-show-content">
-          <UploadImage context={this} imageUrl={imageUrl} />
+          <UploadImage type={'image'} context={this} imageUrl={imageUrl} />
           <div className="username-element">
             <h2>{username}</h2>
           </div>
         </div>
-
         <div className={'modal js-modal-close'} id={'modal'}>
-          <ImageUploadForm context={this}/>
+          <ImageUploadForm type={this.state.modalType} context={this}/>
           <div className="modal-screen" id={'modal-screen'} onClick={this.toggleModal}>
-            <button className="modal-close" >
+            <button className="modal-close">
               <i className="fas fa-times"></i>
             </button>
           </div>

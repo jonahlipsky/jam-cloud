@@ -9,6 +9,10 @@ class UserShowBody extends Component{
     super(props);
   }
 
+  componentDidMount(){
+    this.props.fetchAllLikes();
+  }
+
   render(){
     let widgets = this.props.userTracks.map(track => {
       if(track.widget_identifier){

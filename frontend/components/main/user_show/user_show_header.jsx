@@ -91,7 +91,7 @@ class UserShowHeader extends React.Component{
         <span className="upload-new-background-image">
           <input className="file-upload" id='user-image-upload' type="file" 
             onChange={this.handleFile('profileBackground')}/> 
-          <i class="fa fa-camera" aria-hidden="true"></i>
+          <i className="fa fa-camera" aria-hidden="true"></i>
           <p>Upload New Background Image</p>
         </span>
         <div className="user-show-content">

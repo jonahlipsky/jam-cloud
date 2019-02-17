@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resource :recent_tracks, only: [:create]
     end
 
-    resources :likes, only: [:create, :destroy, :show]
+    resources :likes, only: [:create, :destroy, :show, :index]
     resources :comments, only: [:show, :index, :update, :destroy]
   end
 

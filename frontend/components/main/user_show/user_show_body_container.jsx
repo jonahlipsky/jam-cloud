@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import UserShowBody from './user_show_body';
+import { fetchAllLikes } from '../../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let userId = ownProps.match.params.userId;
@@ -30,4 +31,8 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-export default withRouter(connect(mapStateToProps)(UserShowBody));
+const mapDispatchToProps = dispatch => ({
+  fetchAllLikes: () => dispatch(fetchAllLikes())
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserShowBody));

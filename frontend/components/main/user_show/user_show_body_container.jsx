@@ -6,16 +6,16 @@ import { fetchAllLikes } from '../../../actions/like_actions';
 const mapStateToProps = (state, ownProps) => {
   let userId = ownProps.match.params.userId;
   let user = state.entities.users[userId] || {};
-  let userTrackIds = user ? user.track_ids : [];
+  let userTrackIds = user.track_ids ? user.track_ids : [];
   let userTracks = [];
   userTrackIds.forEach(id => {
     if(state.entities.tracks[id]){
       userTracks.push(state.entities.tracks[id]);
     }
   });
-  let nFollowers = user ? user.follower_ids.length : '0';
+  let nFollowers = user.follower_ids ? user.follower_ids.length : '0';
   let nTracks = userTrackIds.length;
-  let nFollowedUsers = user ? user.followed_user_ids.length : '0';
+  let nFollowedUsers = user.followed_user_ids ? user.followed_user_ids.length : '0';
 
   let ownPage = false;
   if(ownProps.match.params.userId === String(state.session.id)){

@@ -10,6 +10,28 @@
   height: 260px;
   position: relative;
 
+  .background-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img{
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+
+  > *{
+    z-index: 2;
+  }
+
   .upload-new-background-image{
     display: flex;
     flex-direction: row;
@@ -262,38 +284,89 @@
   }
 }
 
-.modal {
 
-  .profile-background{
-    margin-left: -500px;
-    width: 1000px;
-    height: 250px;
-    top: -250px;
-    margin-top: -125px;
+.user-show-content{
+  position: relative;
 
-    .image-upload-image-container{
-      width: 900px;
-      height: 180px;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      margin-left: -450px;
-      border: 1px solid red;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+  .image-container{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-      img{
-        border-radius: 0;
-      }
+  .background-image{
+    img{
+      height: auto;
+      width: 100%;
     }
+  }
 
-    .cancel-submit{
-      position: absolute;
-      bottom: 0;
-      right: 0;
+}
+
+.profile-background, .profile-picture{
+  margin-left: -500px;
+  width: 1000px;
+  height: 300px;
+  top: -300px;
+  margin-top: -150px;
+
+  .image-upload-image-container{
+    width: 900px;
+    height: 180px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: -450px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img{
+      border-radius: 0;
+    }
+  }
+
+  .cancel-submit{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    margin-right: 40px;
+
+    button{
+      padding: 7px;
+      margin: 10px;
+      border-radius: 3px;
 
     }
   }
+}
+
+.profile-picture{
+  margin-left: -150px;
+  width: 300px;
+  height: 300px;
+  top: -400px;
+  margin-top: -200px;
+
+  .image-upload-image-container{
+    width: 200px;
+    height: 200px;
+    margin-left: -100px;
+    border-radius: 200px;
+  }
+
+  img{
+    height: 100%;
+    width: auto;
+  }
+
 }

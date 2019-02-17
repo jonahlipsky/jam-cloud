@@ -62,7 +62,7 @@ class SplashHeader extends React.Component {
   }
 
   handleDemoUser(){
-    let user = {email: "daniel@gmail.com", password: "test123"};
+    let user = {email: "demo@gmail.com", password: "test123"};
     this.props.signin(user);
   }
 

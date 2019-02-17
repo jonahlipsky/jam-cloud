@@ -4,6 +4,9 @@ class Api::UsersController < ApplicationController
     unless @user.profile_picture.attached?
       @user.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
     end
+    # unless @user.profile_background.attached?
+    #   @user.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
+    # end
     if @user.save
       login(@user)
       render :show
@@ -13,6 +16,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    # debugger
     @user = User.find_by(id: params[:id])
     if @user.update_attributes(user_params)
       render :show

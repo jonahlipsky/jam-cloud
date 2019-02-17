@@ -13,21 +13,31 @@
 User.destroy_all
 Track.destroy_all
 Comment.destroy_all
+Like.destroy_all
+RecentTrack.destroy_all
 
 ##USER CREATION
 
-daniel_stern = User.create(username: 'Daniel Stern', password: 'test123', email: 'daniel@gmail.com', age: 28, gender: 'Male')
-daniel_stern.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
+daniel_stern = User.create(username: 'Demo User', password: 'test123', email: 'demo@gmail.com', age: 28, gender: 'Male')
+daniel_stern.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'about-img-2.jpg')), filename: "about-img-2.jpg")
+daniel_stern.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
 daniel_wininger = User.create(username: 'Daniel Wininger', password: 'wininger123', email: "danielwininger@demomail.com", age: 30, gender: 'Male')
 daniel_wininger.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_wininger', 'dan_wininger_profile.jpg')), filename: "dan_wininger_profile.jpg")
-
+daniel_wininger.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
 n_p_r = User.create(username: 'n_p_r', password: 'nupur123', email: "nupur@demomail.com", age: 30, gender: 'Female')
 n_p_r.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
+n_p_r.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
-user1 = User.create(username: 'test123', password: 'test123', email: 'jonahlipsky@protonmail.com', age: 29, gender: 'Male')
-user1.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
+# user1 = User.create(username: 'test123', password: 'test123', email: 'jonahlipsky@protonmail.com', age: 29, gender: 'Male')
+# user1.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
+# user1.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
+
+# daniel_stern.save
+# daniel_wininger.save
+# n_p_r.save
+# user1.save
 
 ## TRACKS
 

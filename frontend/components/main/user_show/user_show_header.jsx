@@ -37,16 +37,20 @@ class UserShowHeader extends React.Component{
     };
   }
 
-  cancelUpdateImage(){
-    this.setState({imageFile: null, imageUrl: null});
-    this.toggleModal();
+  cancelUpdateImage(type){
+    return e => {
+      let file = type + "File";
+      let url = type + "Url";
+      this.setState({[file]: "", [url]: ""});
+      this.toggleModal();
+    };
   }
 
   async handleSubmit(){
     const formData = new FormData();
     if(this.state.imageFile){
       formData.append('user[profile_picture]', this.state.imageFile);
-    } else if(this.state.profilePictureFile){
+    } else if(this.state.profileBackgroundFile){
       formData.append('user[profile_background]', this.state.profileBackgroundFile);
     }
     this.props.updateUser(formData, this.props.user.id);
@@ -74,14 +78,18 @@ class UserShowHeader extends React.Component{
 
   render(){
     let username = this.props.user ? this.props.user.username : "";
-    let imageUrl;
+    let imageUrl = "";
     if(this.state.imageUrl){
       imageUrl = this.state.imageUrl;
     } else if (this.props.user){
       imageUrl = this.props.user.profilePicture;
-    } else {
-      imageUrl = "";
-    }
+    } 
+    let profileBackgroundUrl = "";
+    if(this.state.profileBackgroundUrl){
+      profileBackgroundUrl = this.state.profileBackgroundUrl;
+    } else if(this.props.user && this.props.user.profileBackground){
+      profileBackgroundUrl = this.props.user.profileBackground;
+    } 
 
     // let modalFormClassName = this.modalType.length ? " " + this.state.modalType : "";
     //set modal type based on the toggled state that has already been written, 
@@ -90,6 +98,9 @@ class UserShowHeader extends React.Component{
       
     return(
       <div className="user-show-header header">
+        <div className="background-image">
+          <img src={profileBackgroundUrl}/>
+        </div>
         <span className="upload-new-background-image">
           <input className="file-upload" id='user-image-upload' type="file" 
             onChange={this.handleFile('profileBackground')}/> 
@@ -97,7 +108,7 @@ class UserShowHeader extends React.Component{
           <p>Upload New Background Image</p>
         </span>
         <div className="user-show-content">
-          <UploadImage type={'image'} context={this} imageUrl={imageUrl} />
+          <UploadImage context={this} imageUrl={imageUrl} />
           <div className="username-element">
             <h2>{username}</h2>
           </div>

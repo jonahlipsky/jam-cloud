@@ -2,7 +2,9 @@ import React from 'react';
 
 export default ({imageUrl, context}) => (
     <div className="image-upload">
-      <img src={imageUrl} />
+      <div className="image-container">
+        <img src={imageUrl} />
+      </div>
       <div className="file-upload-box">
         <input className="file-upload" id='track-image-upload' type="file" 
           onChange={context.handleFile('image')}/> 

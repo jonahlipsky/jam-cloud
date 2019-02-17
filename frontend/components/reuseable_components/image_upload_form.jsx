@@ -10,7 +10,7 @@ export default ({context, type}) => {
         <img src={image}/>
       </div>
       <div className="cancel-submit">
-        <button className="cancel" onClick={context.cancelUpdateImage}>cancel</button>
+        <button className="cancel" onClick={context.cancelUpdateImage(type)}>cancel</button>
         <button id="submit" onClick={context.handleSubmit}>Save</button>
       </div>
     </div>

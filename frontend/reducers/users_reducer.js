@@ -16,7 +16,8 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_USERS:
       action.users.forEach((user) => {
         let newUser = user;
-        newState[`${user.id}`] = newUser;
+        // debugger
+        newState = merge(newState, {[user.id]: newUser});
       });
       return newState;
     case RECEIVE_RECENT_TRACK:

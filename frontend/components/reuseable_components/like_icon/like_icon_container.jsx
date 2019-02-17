@@ -6,7 +6,12 @@ const mapStateToProps = (state, ownProps) => {
 
   let sessionUserId = state.session.id;
   let user = state.entities.users[sessionUserId];
-  let likedObjects = user.liked_objects;
+  let likeIds = user.liked_object_ids;
+  let likedObjects = [];
+  likeIds.forEach(id => {
+    state.entities.likes[id] ? likedObjects.push(state.entities.likes[id]) : null;
+  }); 
+
   let likedObjectIds = {};
   if(user){
     likedObjectIds.comments = user.liked_comment_ids;

@@ -37,7 +37,7 @@ export default (state = {}, action) => {
       userId = action.like.user_id;
       user = newState[userId];
       let likeableId = action.like.likeable_id;
-      user.liked_objects.push(action.like);
+      user.liked_object_ids.push(action.like.id);
       if(action.like.likeable_type === "Track"){
         user.liked_track_ids.push(likeableId);
       }
@@ -53,8 +53,8 @@ export default (state = {}, action) => {
       return newState;
     case DELETE_LIKE:
       user = newState[action.like.user_id];
-      let liked_objects = user.liked_objects.filter(obj => {
-        return (obj.id != action.like.id);
+      let liked_object_ids = user.liked_object_ids.filter(id => {
+        return (id != action.like.id);
       });
       if(action.like.likeable_type === "User"){
         user.followed_user_ids = user.followed_user_ids.filter(id => {
@@ -71,7 +71,7 @@ export default (state = {}, action) => {
           return (id != action.like.likeable_id);
         });
       };
-      user.liked_objects = liked_objects;
+      user.liked_object_ids = liked_object_ids;
       newState[user.id] = user;
       return newState;
     default:

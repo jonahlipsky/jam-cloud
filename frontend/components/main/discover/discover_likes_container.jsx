@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
   let nLikes = 0;
   let recentlyPlayedTracks = [];
   let nRecentlyPlayedTracks = 0;
+  let lastWeekListens = 0;
 
   if(sessionUser){
     //getting likes
@@ -38,25 +39,7 @@ const mapStateToProps = (state, ownProps) => {
     });
     notFollowedUsers = notFollowedUsers.slice(-3);
     
-    //getting recent track ids
-    nRecentlyPlayedTracks = sessionUser.recent_tracks.length;
-    let today = moment();
-    let recentTracks = sessionUser.recent_tracks.filter( recent => {
-      let moment = parseDate(recent.updated_at);
-      let diff = today.diff(moment, 'days');
-      return (diff < 7);
-    });
-    let recentlyPlayedTrackIds = recentTracks.map(recentTrack => {
-      return recentTrack.track_id;
-    });
     
-
-    let recentlyPlayedTracksIds = randomizeTracks(recentlyPlayedTrackIds).slice(-3);
-    recentlyPlayedTracksIds.forEach(id => {
-      if(state.entities.tracks[id]){
-        recentlyPlayedTracks.push(id);
-      }
-    });
   }
 
   return({
@@ -64,7 +47,8 @@ const mapStateToProps = (state, ownProps) => {
     notFollowedUsers,
     nLikes,
     recentlyPlayedTracks,
-    nRecentlyPlayedTracks
+    nRecentlyPlayedTracks,
+    lastWeekListens
   });
 };
 

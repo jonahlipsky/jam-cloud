@@ -2,6 +2,7 @@ import React from 'react';
 import TracksScrollingDisplay from '../../reuseable_components/tracks_scrolling_display';
 import FourRecentTracks from './four_recent_tracks';
 import DiscoverLikesContainer from './discover_likes_container';
+import DiscoverStats from './discover_stats';
 
 class Discover extends React.Component{
   constructor(props){
@@ -20,7 +21,11 @@ class Discover extends React.Component{
             <FourRecentTracks />
           </div>
 
-          <DiscoverLikesContainer />
+          <div className="discover-stats-and-likes">
+            <DiscoverStats nRecentlyPlayedTracks={this.props.nRecentlyPlayedTracks} 
+              lastWeekListens={this.props.lastWeekListens} lastDayListens={this.props.lastDayListens}/>
+            <DiscoverLikesContainer />
+          </div>
         </div>
       </div>
     )

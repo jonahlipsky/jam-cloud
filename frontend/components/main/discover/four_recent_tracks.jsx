@@ -5,22 +5,22 @@ import RecentTrackItem from '../../reuseable_components/recent_track_item';
 
 const mapStateToProps = state => {
   let currentUserId = state.session.id;
-  let recentlyPlayedIds = state.entities.users[currentUserId].recently_played_track_ids;
-  let randomRecentTrackIds = randomizeTracks(recentlyPlayedIds);
-  randomRecentTrackIds.splice(4);
-  let randomRecentTracks = [];
-  if (randomRecentTrackIds.every(id => { 
+  let recentlyPlayedIds = state.entities.users[currentUserId].recently_played_track_ids.slice(-4);
+  // let randomRecentTrackIds = randomizeTracks(recentlyPlayedIds);
+  // randomRecentTrackIds.splice(4);
+  let recentTracks = [];
+  if (recentlyPlayedIds.every(id => { 
     return Object.keys(state.entities.tracks).includes(String(id));
   })){
-    randomRecentTrackIds.forEach(id => {
+    recentlyPlayedIds.forEach(id => {
       let track = state.entities.tracks[id];
       track.username = state.entities.users[track.user_id].username;
-      randomRecentTracks.push(track);
+      recentTracks.push(track);
     });
   }
     
   return ({
-    randomRecentTracks
+    recentTracks
   });
 };
 
@@ -30,7 +30,7 @@ class FourRecentTracks extends React.Component{
   }
 
   render(){
-    let recentTrackItems = this.props.randomRecentTracks.map( track => {
+    let recentTrackItems = this.props.recentTracks.map( track => {
       return (<RecentTrackItem key={track.id} track={track} />)
     });
     

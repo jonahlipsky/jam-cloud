@@ -18,7 +18,7 @@ RecentTrack.destroy_all
 
 ##USER CREATION
 
-daniel_stern = User.create(username: 'Demo User', password: 'test123', email: 'demo@gmail.com', age: 28, gender: 'Male')
+daniel_stern = User.create(username: 'Daniel Stern', password: 'test123', email: 'demo@gmail.com', age: 28, gender: 'Male')
 daniel_stern.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'about-img-2.jpg')), filename: "about-img-2.jpg")
 daniel_stern.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
@@ -49,34 +49,34 @@ track1.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio',
 track2 = Track.new(title: '02_out_of_town', user_id: daniel_stern.id, album_id: 1, widget_identifier: '265422134')
 track2.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track2.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '02_out_of_town.mp3')), filename: "02_out_of_town.mp3")
-track3 = Track.new(title: '03_pick_me_up', user_id: daniel_stern.id, album_id: 1)
+track3 = Track.new(title: '03_pick_me_up', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422128")
 track3.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track3.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '03_pick_me_up.mp3')), filename: "03_pick_me_up.mp3")
-track4 = Track.new(title: '04_501c3_blues', user_id: daniel_stern.id, album_id: 1)
+track4 = Track.new(title: '04_501c3_blues', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422118")
 track4.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track4.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '04_501c3_blues.mp3')), filename: "04_501c3_blues.mp3")
-track5 = Track.new(title: '05_big_break', user_id: daniel_stern.id, album_id: 1)
+track5 = Track.new(title: '05_big_break', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422111")
 track5.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track5.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '05_big_break.mp3')), filename: "05_big_break.mp3")
-track6 = Track.new(title: '06_beatles_in_my_dreams', user_id: daniel_stern.id, album_id: 1)
+track6 = Track.new(title: '06_beatles_in_my_dreams', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422101")
 track6.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track6.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '06_beatles_in_my_dreams.mp3')), filename: "06_beatles_in_my_dreams.mp3")
-track7 = Track.new(title: '07_problem_1', user_id: daniel_stern.id, album_id: 1)
+track7 = Track.new(title: '07_problem_1', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422093")
 track7.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track7.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '07_problem_1.mp3')), filename: "07_problem_1.mp3")
-track8 = Track.new(title: '08_friend_visit', user_id: daniel_stern.id, album_id: 1)
+track8 = Track.new(title: '08_friend_visit', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422088")
 track8.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track8.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '08_friend_visit.mp3')), filename: "08_friend_visit.mp3")
-track9 = Track.new(title: '09_how_long', user_id: daniel_stern.id, album_id: 1)
+track9 = Track.new(title: '09_how_long', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422080")
 track9.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track9.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '09_how_long.mp3')), filename: "09_how_long.mp3")
-track10 = Track.new(title: '10_for_another_day', user_id: daniel_stern.id, album_id: 1)
+track10 = Track.new(title: '10_for_another_day', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422075")
 track10.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track10.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '10_for_another_day.mp3')), filename: "10_for_another_day.mp3")
-track11 = Track.new(title: '11_i_was_asleep', user_id: daniel_stern.id, album_id: 1)
+track11 = Track.new(title: '11_i_was_asleep', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422068")
 track11.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track11.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '11_i_was_asleep.mp3')), filename: "11_i_was_asleep.mp3")
-track12 = Track.new(title: '12_dogwood', user_id: daniel_stern.id, album_id: 1)
+track12 = Track.new(title: '12_dogwood', user_id: daniel_stern.id, album_id: 1, widget_identifier: "265422063")
 track12.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_stern_cover.jpg')), filename: "daniel_stern_cover.jpg")
 track12.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', '12_dogwood.mp3')), filename: "12_dogwood.mp3")
 
@@ -95,23 +95,23 @@ track12.save
 
 # Daniel wininger
 
-drumhealing1 = Track.new(title: 'Drum Healing 1', user_id: daniel_wininger.id, album_id: 1)
+drumhealing1 = Track.new(title: 'Drum Healing 1', user_id: daniel_wininger.id, album_id: 1, widget_identifier: "577492956%3Fsecret_token%3Ds-xYMBV")
 drumhealing1.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_wininger', 'drum_healing.jpg')), filename: "drum_healing.jpg")
 drumhealing1.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'daniel_wininger', 'drum_healing', 'drum_healing_1.mp3')), filename: "drum_healing_1.mp3")
 
-drumhealing2 = Track.new(title: 'Drum Healing 2', user_id: daniel_wininger.id, album_id: 1)
+drumhealing2 = Track.new(title: 'Drum Healing 2', user_id: daniel_wininger.id, album_id: 1, widget_identifier: "577492929%3Fsecret_token%3Ds-6ngs4")
 drumhealing2.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_wininger', 'drum_healing.jpg')), filename: "drum_healing.jpg")
 drumhealing2.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'daniel_wininger', 'drum_healing', 'drum_healing_2.mp3')), filename: "drum_healing_2.mp3")
 
-drumhealing2bonus = Track.new(title: 'Drum Healing 2 Bonus', user_id: daniel_wininger.id, album_id: 1)
+drumhealing2bonus = Track.new(title: 'Drum Healing 2 Bonus', user_id: daniel_wininger.id, album_id: 1, widget_identifier: "577492944%3Fsecret_token%3Ds-u4De1")
 drumhealing2bonus.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_wininger', 'drum_healing.jpg')), filename: "drum_healing.jpg")
 drumhealing2bonus.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'daniel_wininger', 'drum_healing', 'drum_healing_2_bonus.mp3')), filename: "drum_healing_2_bonus.mp3")
 
-drumhealing3 = Track.new(title: 'Drum Healing 3', user_id: daniel_wininger.id, album_id: 1)
+drumhealing3 = Track.new(title: 'Drum Healing 3', user_id: daniel_wininger.id, album_id: 1, widget_identifier: "577492905%3Fsecret_token%3Ds-HbneC")
 drumhealing3.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_wininger', 'drum_healing_3.jpg')), filename: "drum_healing_3.jpg")
 drumhealing3.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'daniel_wininger', 'drum_healing', 'drum_healing_3.mp3')), filename: "drum_healing_3.mp3")
 
-drumhealing4 = Track.new(title: 'Drum Healing 4', user_id: daniel_wininger.id, album_id: 1)
+drumhealing4 = Track.new(title: 'Drum Healing 4', user_id: daniel_wininger.id, album_id: 1, widget_identifier: "577492890%3Fsecret_token%3Ds-RU64N")
 drumhealing4.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'daniel_wininger', 'drum_healing.jpg')), filename: "drum_healing.jpg")
 drumhealing4.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'daniel_wininger', 'drum_healing', 'drum_healing_4.mp3')), filename: "drum_healing_4.mp3")
 
@@ -123,31 +123,31 @@ drumhealing4.save
 
 # n_p_r
 
-pauls_grove = Track.new(title: 'Pauls Grove', user_id: n_p_r.id, album_id: 1)
+pauls_grove = Track.new(title: 'Pauls Grove', user_id: n_p_r.id, album_id: 1, widget_identifier: "574749918%3Fsecret_token%3Ds-bt0WZ")
 pauls_grove.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 pauls_grove.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'n_p_r', 'NAME', '01_pauls_grove.mp3')), filename: '01_pauls_grove.mp3')
 
-mountain_no1 = Track.new(title: 'Mountain No.1', user_id: n_p_r.id, album_id: 1)
+mountain_no1 = Track.new(title: 'Mountain No.1', user_id: n_p_r.id, album_id: 1, widget_identifier: "574749906%3Fsecret_token%3Ds-p4TjW")
 mountain_no1.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 mountain_no1.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'n_p_r', 'NAME', '02_mountain_no1.mp3')), filename: '02_mountain_no1.mp3')
 
-this_life = Track.new(title: 'This Life', user_id: n_p_r.id, album_id: 1)
+this_life = Track.new(title: 'This Life', user_id: n_p_r.id, album_id: 1, widget_identifier: "574749900%3Fsecret_token%3Ds-6I9vH")
 this_life.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 this_life.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'n_p_r', 'NAME', '03_this_life.mp3')), filename: '03_this_life.mp3')
 
-mountain_no2 = Track.new(title: 'Mountain No. 2', user_id: n_p_r.id, album_id: 1)
+mountain_no2 = Track.new(title: 'Mountain No. 2', user_id: n_p_r.id, album_id: 1, widget_identifier: "574749894%3Fsecret_token%3Ds-zF4g3")
 mountain_no2.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 mountain_no2.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'n_p_r', 'NAME', '04_mountain_no2.mp3')), filename: '04_mountain_no2.mp3')
 
-the_farmers_daughter = Track.new(title: "The Farmer's Daughter", user_id: n_p_r.id, album_id: 1)
+the_farmers_daughter = Track.new(title: "The Farmer's Daughter", user_id: n_p_r.id, album_id: 1, widget_identifier: "574749882%3Fsecret_token%3Ds-d9NFo")
 the_farmers_daughter.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 the_farmers_daughter.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'n_p_r', 'NAME', '05_the_farmers_daughter.mp3')), filename: '05_the_farmers_daughter.mp3')
 
-whats_the_rush = Track.new(title: "What's the Rush?", user_id: n_p_r.id, album_id: 1)
+whats_the_rush = Track.new(title: "What's the Rush?", user_id: n_p_r.id, album_id: 1, widget_identifier: "574749876%3Fsecret_token%3Ds-Mrbct")
 whats_the_rush.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 whats_the_rush.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'n_p_r', 'NAME', '06_whats_the_rush.mp3')), filename: '06_whats_the_rush.mp3')
 
-sister_christmas = Track.new(title: 'Sister Christmas', user_id: n_p_r.id, album_id: 1)
+sister_christmas = Track.new(title: 'Sister Christmas', user_id: n_p_r.id, album_id: 1, widget_identifier: "574749861%3Fsecret_token%3Ds-6lw4a")
 sister_christmas.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 sister_christmas.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'n_p_r', 'NAME', '07_sister_christmas.mp3')), filename: '07_sister_christmas.mp3')
 

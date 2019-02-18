@@ -5,16 +5,18 @@ import RecentTrackItem from '../../reuseable_components/recent_track_item';
 
 const mapStateToProps = state => {
   let currentUserId = state.session.id;
-  let recentlyPlayedIds = state.entities.users[currentUserId].recently_played_track_ids.slice(-4);
   let recentTracks = [];
-  if (recentlyPlayedIds.every(id => { 
-    return Object.keys(state.entities.tracks).includes(String(id));
-  })){
-    recentlyPlayedIds.forEach(id => {
-      let track = state.entities.tracks[id];
-      track.username = state.entities.users[track.user_id].username;
-      recentTracks.push(track);
-    });
+  if(state.entities.users[currentUserId].recently_played_track_ids){
+    let recentlyPlayedIds = state.entities.users[currentUserId].recently_played_track_ids.slice(-4);
+    if (recentlyPlayedIds.every(id => { 
+      return Object.keys(state.entities.tracks).includes(String(id));
+    })){
+      recentlyPlayedIds.forEach(id => {
+        let track = state.entities.tracks[id];
+        track.username = state.entities.users[track.user_id].username;
+        recentTracks.push(track);
+      });
+    }
   }
     
   return ({

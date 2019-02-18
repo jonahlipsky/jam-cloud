@@ -36,7 +36,7 @@ export const fetchUsers = () => dispatch => {
 
 export const signin = user => dispatch => {
   return SESSION_API_UTIl.signin(user).then(
-    user => dispatch(receiveCurrentUser(user)),
+    newUser => dispatch(receiveCurrentUser(newUser)),
     err => dispatch(receiveSessionErrors(err.responseJSON))
   );
 };

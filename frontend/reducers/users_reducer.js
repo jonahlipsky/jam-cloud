@@ -10,9 +10,7 @@ export default (state = {}, action) => {
   let user;
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      let newUser = merge({}, { id: action.currentUser.id, email: action.currentUser.email, 
-        username: action.currentUser.username, track_ids: action.currentUser.track_ids } );
-      return merge({}, state, { [action.currentUser.id]: newUser });
+      return merge(newState, { [action.currentUser.id]: action.currentUser });
     case RECEIVE_ALL_USERS:
       action.users.forEach((user) => {
         let newUser = user;

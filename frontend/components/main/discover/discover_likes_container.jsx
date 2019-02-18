@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
   let nRecentlyPlayedTracks = 0;
   let lastWeekListens = 0;
 
-  if(sessionUser){
+  if(sessionUser && sessionUser.liked_track_ids){
     //getting likes
     nLikes = sessionUser.liked_track_ids.length;
     let lastLikedTracks = sessionUser.liked_track_ids.slice(-3);

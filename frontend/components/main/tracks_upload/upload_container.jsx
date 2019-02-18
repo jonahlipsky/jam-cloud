@@ -12,7 +12,6 @@ const mapStateToProps = state => {
     currentUserTracks.push(state.entities.tracks[id]);
   });
   currentUserTracks = currentUserTracks.length ? currentUserTracks : null;
-  //to do does this work?
   return({
     currentUserTracks
   });
@@ -21,7 +20,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   removeTrack: (track) => dispatch(removeTrack(track)),
   fetchUsers: () => dispatch(fetchUsers())
-
 });
 
 

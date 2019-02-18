@@ -12,7 +12,7 @@ const mapStateToProps = state => {
   let recentlyPlayedTracks = [];
   let lastDayListens = 0;
 
-  if(sessionUser){
+  if(sessionUser && sessionUser.recent_tracks){
     //getting recent track ids
     nRecentlyPlayedTracks = sessionUser.recent_tracks.length;
     let today = moment();

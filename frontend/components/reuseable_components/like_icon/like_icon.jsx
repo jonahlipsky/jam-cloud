@@ -23,7 +23,6 @@ class LikeIcon extends Component{
 
 
   findLike(){
-    // debugger
     let like = this.props.likedObjects.filter(object => {
       if(this.props.type === object.likeable_type && 
         this.props.element.id === object.likeable_id){

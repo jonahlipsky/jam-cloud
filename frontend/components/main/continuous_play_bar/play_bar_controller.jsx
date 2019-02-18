@@ -80,7 +80,6 @@ class PlayBarController extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    // debugger
     if(this.props.trackQueue.soundStatus && prevProps.trackQueue.soundStatus &&
       prevProps.trackQueue.soundStatus[0] != this.props.trackQueue.soundStatus[0]){
       this.setState({soundStatus: this.props.trackQueue.soundStatus[0]});

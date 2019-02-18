@@ -30,15 +30,6 @@ n_p_r = User.create(username: 'n_p_r', password: 'nupur123', email: "nupur@demom
 n_p_r.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 n_p_r.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
-# user1 = User.create(username: 'test123', password: 'test123', email: 'jonahlipsky@protonmail.com', age: 29, gender: 'Male')
-# user1.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
-# user1.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
-
-# daniel_stern.save
-# daniel_wininger.save
-# n_p_r.save
-# user1.save
-
 ## TRACKS
 
 # daniel stern
@@ -162,17 +153,10 @@ sister_christmas.save
 
 ## COMMENTS
 
-comment1 = track1.comments.create(body: "Hey! This is a comment!", author_id: 1)
-comment2 = comment1.child_comments.create(body: "Comment on your comment", author_id: 2, track_id: comment1.track_id )
-comment3 = comment1.child_comments.create(body: "Second Comment on your comment", author_id: 3, track_id: comment1.track_id )
-comment4 = track1.comments.create(body: "Hey! Second Parent Comment!", author_id: 2)
-comment2 = comment4.child_comments.create(body: "Comment on the second comment", author_id: 2, track_id: comment1.track_id )
-comment3 = comment4.child_comments.create(body: "Second Comment on the second comment", author_id: 3, track_id: comment1.track_id )
+comment1 = track1.comments.create(body: "Hey! Great song!", author_id: 2)
+comment2 = comment1.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment1.track_id )
+comment3 = comment1.child_comments.create(body: "Ya it really is tight.", author_id: 3, track_id: comment1.track_id )
+comment4 = track2.comments.create(body: "Keep putting out these songs!", author_id: 3)
+comment2 = comment4.child_comments.create(body: "Will do!", author_id: 2, track_id: comment1.track_id )
+comment3 = comment4.child_comments.create(body: "Good to hear", author_id: 3, track_id: comment1.track_id )
 
-
-
-
-# user2 = User.create(username: 'Jessica', password: 'test123', email: 'jessica@jkj.com', age: 38, gender: 'Female')
-# user3 = User.create(username: 'Alorza', password: 'test123', email: 'alorza@rhodeisland.net', age: 58, gender: 'Male')
-# user2.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
-# user3.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")

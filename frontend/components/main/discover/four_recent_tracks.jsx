@@ -6,8 +6,6 @@ import RecentTrackItem from '../../reuseable_components/recent_track_item';
 const mapStateToProps = state => {
   let currentUserId = state.session.id;
   let recentlyPlayedIds = state.entities.users[currentUserId].recently_played_track_ids.slice(-4);
-  // let randomRecentTrackIds = randomizeTracks(recentlyPlayedIds);
-  // randomRecentTrackIds.splice(4);
   let recentTracks = [];
   if (recentlyPlayedIds.every(id => { 
     return Object.keys(state.entities.tracks).includes(String(id));

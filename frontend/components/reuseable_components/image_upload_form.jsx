@@ -11,7 +11,6 @@ export default ({context, type}) => {
     typeClass = "track-picture-modal";
   }
   
-  // let typeClass = (type === "profileBackground" ? 'profile-background' : 'profile-picture');
 
   return (
     <div className={`image-upload-modal modal-form ${typeClass}`} id="modal-form">

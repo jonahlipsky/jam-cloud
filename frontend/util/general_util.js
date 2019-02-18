@@ -11,7 +11,7 @@ export const parseDate = (date) => {
 
 
 //RANDOM TRACKS METHODS
-//these methods are for finding random tracks from the list of tracks.
+//these methods are for finding random trackIds from the list of trackIds.
 
 export const randomizeTracks = function(trackIds){
   let randomTracks = [];

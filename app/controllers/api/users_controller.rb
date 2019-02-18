@@ -16,7 +16,6 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    # debugger
     @user = User.find_by(id: params[:id])
     if @user.update_attributes(user_params)
       render :show

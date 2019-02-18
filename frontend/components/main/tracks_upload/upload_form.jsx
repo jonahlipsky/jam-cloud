@@ -95,8 +95,6 @@ class UploadForm extends React.Component{
   }
 
   render(){
-    //consider using react-dropzone as things move forward
-    //todo
     let redirect = '';
     if(this.state.redirect){
       redirect = <Redirect to="/you/tracks" />

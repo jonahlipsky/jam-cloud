@@ -91,10 +91,6 @@ class UserShowHeader extends React.Component{
       profileBackgroundUrl = this.props.user.profileBackground;
     } 
 
-    // let modalFormClassName = this.modalType.length ? " " + this.state.modalType : "";
-    //set modal type based on the toggled state that has already been written, 
-    //though not tested yet...
-    //resize the modal form based on this because it needs to be horizontal.
       
     return(
       <div className="user-show-header header">

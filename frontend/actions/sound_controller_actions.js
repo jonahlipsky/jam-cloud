@@ -12,9 +12,6 @@ export const SEND_SOUND_STATUS = "SEND_SOUND_STATUS";
 export const FINISHED_LOADING = "FINISHED_LOADING";
 export const WIDGET_TO_CONTROLLER_SS = "WIDGET_TO_CONTROLLER_SS";
 
-// export const PLAYING = "PLAYING";
-// export const PAUSED = "PAUSED";
-
 export const widgetToControllerSS = (soundStatus, trackId) => ({
   type: WIDGET_TO_CONTROLLER_SS,
   soundStatus,

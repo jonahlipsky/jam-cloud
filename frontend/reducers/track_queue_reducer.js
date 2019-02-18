@@ -23,11 +23,6 @@ export default (state = {}, action) => {
       trackId = action.trackId;
       newState.soundStatus = [soundStatus, trackId];
       return newState;
-    // case WIDGET_TO_CONTROLLER_SS:
-    //   soundStatus = action.soundStatus;
-    //   trackId = action.trackId;
-    //   newState.widgetToControllerSS = [soundStatus, trackId];
-    //   return newState;
     case SEND_CURRENT_PERCENTAGE:
       newState.currentPercentage = action.percentage;
       return newState;

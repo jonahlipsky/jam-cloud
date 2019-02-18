@@ -41,19 +41,9 @@ class RecentTrackItem extends React.Component{
 
   render(){
     let track = this.props.track;
-    // if(track) {
     let{imageUrl, title} = track;
     let [artistName, trackId, userId] = [track.username, track.id, track.user_id];
-    // debugger
-    // } else {
-    //   let imageUrl, 
-    // }
     
-    // let imageUrl = track ? track.imageUrl : '';
-    // let title = track ? track.title : '';
-    // let artistName = artist ? artist.username : '';
-    // let trackId = track ? track.id : 1;
-    // let userId = artist ? artist.id : 1;
     let playButtonClass = this.state.mouseOver ? "play-button" : "play-button hidden";
     let playIcon = this.state.mouseOverPlayButton ? 
       <img src={window.playIconHover} onClick={this.playTrack}/> : 

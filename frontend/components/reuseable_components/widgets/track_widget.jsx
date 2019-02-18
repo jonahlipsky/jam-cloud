@@ -4,7 +4,6 @@ import { pushToFrontOfQueue,
   sendSoundStatus } from '../../../actions/sound_controller_actions';
 
 const mapStateToProps = state => {
-  // let track = {id: 1, widgetIdentifier: "265422144"};
   let soundStatusArray = state.io.trackQueue.soundStatus;
   let firstInQueue = state.io.trackQueue.queue ? state.io.trackQueue.queue[0] : ""
   let percentageComplete = state.io.trackQueue.percentageComplete;

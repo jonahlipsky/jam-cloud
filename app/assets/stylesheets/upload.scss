@@ -81,14 +81,6 @@ $button-hover-orange: rgb(255, 60, 0);
   }
 }
 
-//the following css creates a button where there's a hidden file upload
-//the element structure is: 
-// div.track-upload-container
-  //h2 i.e. title
-  //div.orange-btn.file-upload-box
-    //p
-    //input.file-upload
-
 .file-upload-box {
   display: flex;
   justify-content: center;
@@ -259,7 +251,6 @@ $button-hover-orange: rgb(255, 60, 0);
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  // margin-top: 5px;
 
   .current-username{
 

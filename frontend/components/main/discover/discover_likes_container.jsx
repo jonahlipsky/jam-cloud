@@ -9,8 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   let sessionUser = state.entities.users ? state.entities.users[sessionUserId] : null;
   let likedTracks = [];
   let notFollowedUsers = [];
-  // let notFollowedUserIds = [];
-  // let nFollows = 0;
   let nLikes = 0;
   let recentlyPlayedTracks = [];
   let nRecentlyPlayedTracks = 0;

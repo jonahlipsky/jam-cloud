@@ -30,6 +30,10 @@
     right: 0;
     top: 0;
   }
+
+  .image-container{
+    width: 100%;
+  }
 }
 
 .info-and-play-bar{
@@ -94,6 +98,17 @@
 
   i{
     margin-top: 50px;
+  }
+
+  .image-upload-image-container{
+    height: 360px;
+    width: 360px;
+
+    img{
+      // height: 100%;
+      // width: auto;
+      object-fit: cover;
+    }
   }
 
   .image-upload-modal{

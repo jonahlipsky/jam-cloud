@@ -46,6 +46,10 @@ $button-hover-orange: rgb(255, 60, 0);
 
 //the following style accounts for the /upload route
 
+.track-show-header .file-upload-box{
+  bottom: 15px;
+}
+
 .track-upload-container{
   position: relative;
   width: 70%;
@@ -192,10 +196,10 @@ $button-hover-orange: rgb(255, 60, 0);
     transition: background-color .2s ease-in-out;
     width: 150px;
     margin: auto;
-    bottom: 15px;
     position: absolute;
     border-radius: 2px;
   }
+
   div:hover{
     background-color: white;
   }

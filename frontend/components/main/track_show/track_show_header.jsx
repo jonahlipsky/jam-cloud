@@ -36,8 +36,10 @@ class TrackShowHeader extends React.Component{
   }
 
   cancelUpdateImage(){
-    this.setState({image: null, imageUrl: null});
-    this.toggleModal();
+    return e => {
+      this.setState({image: null, imageUrl: null});
+      this.toggleModal();
+    };
   }
 
   handleSubmit(){
@@ -114,9 +116,9 @@ class TrackShowHeader extends React.Component{
             {updateTime}
           </div>
         </div>
-        <UploadImage context={this} imageUrl={imageUrl} />
+        <UploadImage context={this} type={'image'} imageUrl={imageUrl} />
         <div className={'modal js-modal-close'} id={'modal'}>
-          <ImageUploadForm context={this}/>
+          <ImageUploadForm type={"image"} context={this}/>
           <div className="modal-screen" id={'modal-screen'} onClick={this.toggleModal}>
             <button className="modal-close" >
               <i className="fas fa-times"></i>

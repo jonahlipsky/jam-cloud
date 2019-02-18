@@ -3,10 +3,6 @@ import {connect} from 'react-redux';
 import LikeIconContainer from '../../reuseable_components/like_icon/like_icon_container';
 import { Link } from 'react-router-dom'
 
-const mapDispatchToProps = dispatch => ({
-
-});
-
 class LikedTrackDisplayItem extends Component{
   constructor(props){
     super(props);

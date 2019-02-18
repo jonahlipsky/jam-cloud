@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_193610) do
+ActiveRecord::Schema.define(version: 2019_02_18_152928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,8 @@ ActiveRecord::Schema.define(version: 2019_02_15_193610) do
     t.integer "track_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "track_id"], name: "index_recent_tracks_on_user_id_and_track_id", unique: true
+    t.index ["track_id"], name: "index_recent_tracks_on_track_id"
+    t.index ["user_id"], name: "index_recent_tracks_on_user_id"
   end
 
   create_table "tracks", force: :cascade do |t|

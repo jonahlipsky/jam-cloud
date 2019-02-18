@@ -8,8 +8,8 @@ class UserShowHeader extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      imageUrl: null,
-      imageFile: null,
+      profilePictureUrl: null,
+      profilePictureFile: null,
       profileBackgroundFile: null,
       profileBackgroundUrl: null,
       modalType: ""
@@ -48,8 +48,8 @@ class UserShowHeader extends React.Component{
 
   async handleSubmit(){
     const formData = new FormData();
-    if(this.state.imageFile){
-      formData.append('user[profile_picture]', this.state.imageFile);
+    if(this.state.profilePictureFile){
+      formData.append('user[profile_picture]', this.state.profilePictureFile);
     } else if(this.state.profileBackgroundFile){
       formData.append('user[profile_background]', this.state.profileBackgroundFile);
     }
@@ -78,11 +78,11 @@ class UserShowHeader extends React.Component{
 
   render(){
     let username = this.props.user ? this.props.user.username : "";
-    let imageUrl = "";
-    if(this.state.imageUrl){
-      imageUrl = this.state.imageUrl;
+    let profilePictureUrl = "";
+    if(this.state.profilePictureUrl){
+      profilePictureUrl = this.state.profilePictureUrl;
     } else if (this.props.user){
-      imageUrl = this.props.user.profilePicture;
+      profilePictureUrl = this.props.user.profilePicture;
     } 
     let profileBackgroundUrl = "";
     if(this.state.profileBackgroundUrl){
@@ -108,7 +108,7 @@ class UserShowHeader extends React.Component{
           <p>Upload New Background Image</p>
         </span>
         <div className="user-show-content">
-          <UploadImage context={this} imageUrl={imageUrl} />
+          <UploadImage type={"profilePicture"} context={this} imageUrl={profilePictureUrl} />
           <div className="username-element">
             <h2>{username}</h2>
           </div>

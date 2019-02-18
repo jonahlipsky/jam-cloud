@@ -12,15 +12,5 @@ class Api::RecentTracksController < ApplicationController
     else
       render current_track.errors.full_messages
     end
-    
-    ensure_only_twenty
   end
-
-  def ensure_only_twenty
-    recent_tracks = current_user.recent_tracks
-    if recent_tracks.length > 20 
-      recent_tracks.sort_by { |track| track.updated_at }.first.destroy
-    end
-  end
-
 end

@@ -20,9 +20,13 @@ class PlayBarController extends React.Component{
 
   togglePlay(){
     if (!(this.state.soundStatus === "PLAYING") && this.props.trackQueue.queue.length ){
-      this.setState({ soundStatus: "PLAYING" });
-      this.setLocalInterval();
-      this.props.sendSoundStatus("PLAYING", this.props.trackQueue.queue[0]);
+      
+      this.props.sendSignal();
+      setTimeout(() => {
+        this.setState({ soundStatus: "PLAYING" });
+        this.setLocalInterval();
+        this.props.sendSoundStatus("PLAYING", this.props.trackQueue.queue[0]);
+      }, 100);
     } else if (this.state.soundStatus === "PLAYING" && this.props.trackQueue.queue.length){
       this.props.sendSoundStatus("PAUSED", this.props.trackQueue.queue[0]);
       this.clearLocalInterval();

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { pushToFrontOfQueue, 
+import { pushToFrontOfQueue, sendReceipt,
   sendSoundStatus } from '../../../actions/sound_controller_actions';
 
 const mapStateToProps = state => {
@@ -9,16 +9,22 @@ const mapStateToProps = state => {
   let percentageComplete = state.io.trackQueue.percentageComplete;
   let duration = state.io.trackQueue.duration;
   let currentMilliseconds = percentageComplete * duration / 100;
+  let handshake = state.io.trackQueue.handshake;
+  let signal = state.io.trackQueue.signal;
+
   return({
     soundStatusArray,
     firstInQueue,
-    currentMilliseconds
+    currentMilliseconds,
+    handshake,
+    signal
   });
 };
 
 const mapDispatchToProps = dispatch => ({
   pushToFrontOfQueue: trackId => dispatch(pushToFrontOfQueue(trackId)),
-  sendSoundStatus: (status, trackId) => dispatch(sendSoundStatus(status, trackId))
+  sendSoundStatus: (status, trackId) => dispatch(sendSoundStatus(status, trackId)),
+  sendReceipt: () => dispatch(sendReceipt())
 });
 
 class TrackWidget extends React.Component{
@@ -74,10 +80,18 @@ class TrackWidget extends React.Component{
       this.state.widget.seekTo(this.props.currentMilliseconds);
     } 
     //if the sound status has changed and now it it equal to 'PAUSED', pause the widget
-    if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0]) && 
-        this.props.soundStatusArray[0] === "PAUSED"){
-          this.state.widget.pause();
-    } 
+    if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0]) 
+      && this.props.soundStatusArray[0] === "PAUSED"){
+        this.state.widget.pause();
+    } else if (parseInt(prevProps.firstInQueue) === this.props.track.id 
+      && prevProps.firstInQueue != this.props.firstInQueue){
+        this.state.widget.pause();
+    } else if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0])
+      && this.props.soundStatusArray[0] === "PLAYING" && prevProps.signal && window.handshake
+      && parseInt(this.props.soundStatusArray[1]) === this.props.track.id ){
+        window.handshake = false;
+        this.state.widget.play();
+    }
   }
 
   togglePlayStatus(){

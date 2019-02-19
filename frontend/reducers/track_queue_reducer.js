@@ -1,10 +1,8 @@
 import { GO_TO_NEXT_TRACK, PUSH_TRACK_TO_QUEUE, TOGGLE_SHUFFLE, 
   GO_TO_PREVIOUS_TRACK, PUSH_TO_FRONT_OF_QUEUE, 
   CLEAR_IMMEDIATE, SEND_PERCENTAGE_COMPLETE, SEND_CURRENT_PERCENTAGE,
-  CLEAR_CURRENT_PERCENTAGE, 
-  IMMEDIATE_ON,
-  SEND_SOUND_STATUS,
-  WIDGET_TO_CONTROLLER_SS} from '../actions/sound_controller_actions';
+  CLEAR_CURRENT_PERCENTAGE, IMMEDIATE_ON, SEND_SOUND_STATUS,
+  SEND_SIGNAL, SEND_RECEIPT} from '../actions/sound_controller_actions';
 import { merge } from 'lodash';
 import { randomizeTracks } from '../util/general_util';
 
@@ -19,9 +17,20 @@ export default (state = {}, action) => {
       newState.percentageComplete = action.percentageComplete;
       return newState;
     case SEND_SOUND_STATUS:
+      if(newState.signal){
+        window.handshake = true;
+        newState.signal = false;
+      }
       soundStatus = action.soundStatus;
       trackId = action.trackId;
       newState.soundStatus = [soundStatus, trackId];
+      return newState;
+    case SEND_SIGNAL:
+      debugger
+      newState.signal = true;
+      return newState;
+    case SEND_RECEIPT:
+      newState.handshake = false;
       return newState;
     case SEND_CURRENT_PERCENTAGE:
       newState.currentPercentage = action.percentage;
@@ -83,7 +92,7 @@ export default (state = {}, action) => {
       } else {
         return { queue: [], prevQueue: [], shuffle: false, immediate: false, 
           duration: null, percentageComplete: null, currentPercentage: null, 
-          soundStatus: ["PAUSED", "0"]
+          soundStatus: ["PAUSED", "0"], signal: false, handshake: false
          };
       }
   }

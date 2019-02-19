@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { goToNextTrack, toggleShuffle, 
-  sendSoundStatus, finishedLoading } from '../../../actions/sound_controller_actions';
+  sendSoundStatus, finishedLoading, sendSignal } from '../../../actions/sound_controller_actions';
 import PlayBarController from './play_bar_controller';
 import { fetchTracks } from '../../../actions/track_actions';
 import { fetchUsers } from '../../../actions/session_actions';
@@ -29,7 +29,8 @@ const mapDispatchToProps = dispatch => ({
   fetchTracks: () => dispatch(fetchTracks()),
   fetchUsers: () => dispatch(fetchUsers()),
   sendSoundStatus: (status, trackId) => dispatch(sendSoundStatus(status, trackId)),
-  finishedLoading: trackId => dispatch(finishedLoading(trackId))
+  finishedLoading: trackId => dispatch(finishedLoading(trackId)),
+  sendSignal: () => dispatch(sendSignal())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(PlayBarController);

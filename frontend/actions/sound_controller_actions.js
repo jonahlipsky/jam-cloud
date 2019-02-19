@@ -11,6 +11,16 @@ export const IMMEDIATE_ON = "IMMEDIATE_ON";
 export const SEND_SOUND_STATUS = "SEND_SOUND_STATUS";
 export const FINISHED_LOADING = "FINISHED_LOADING";
 export const WIDGET_TO_CONTROLLER_SS = "WIDGET_TO_CONTROLLER_SS";
+export const SEND_SIGNAL = "SEND_SIGNAL";
+export const SEND_RECEIPT = "SEND_RECEIPT";
+
+export const sendReceipt = () => ({
+  type: SEND_RECEIPT
+});
+
+export const sendSignal = () => ({
+  type: SEND_SIGNAL
+});
 
 export const widgetToControllerSS = (soundStatus, trackId) => ({
   type: WIDGET_TO_CONTROLLER_SS,

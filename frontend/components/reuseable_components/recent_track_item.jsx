@@ -36,7 +36,7 @@ class RecentTrackItem extends React.Component{
   }
 
   playTrack(){
-    this.props.pushToFrontOfQueue(this.props.trackArtistPair[0].id);
+    this.props.pushToFrontOfQueue(this.props.track.id);
   }
 
   render(){

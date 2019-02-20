@@ -1,7 +1,7 @@
 # jam-cloud
 
 ## Live Link!
-[jam-cloud.herokuapp.com](https://jam-cloud.herokuapp.com)
+[JamCloud Live](https://jam-cloud.herokuapp.com "JamCloud Live")
 
 ## What is JamCloud?
 JamCloud is App for listening to your favorite jams -- it is modelled on SoundCloud. You can upload songs, discover new music, and engage with other users through comments and likes. 
@@ -9,8 +9,10 @@ JamCloud is App for listening to your favorite jams -- it is modelled on SoundCl
 ## Technologies Used
 * Ruby on Rails for the backend
 * PostgreSQL for the database
+* Javascript (ES6) for frontend scripts
 * React.js for rendering the frontend
 * Redux.js for managing complex state changes on the frontend
+* HTML / CSS for structuring and styling the frontend
 
 JamCloud runs on a Ruby on Rails backend with a Javascript / React.js frontend. The Redux library is used on the frontend to manage the complex state interactions and changes that the app employs. Optimized queries in the controller methods on the backend ensure that very few database queries ultimately get triggered, which increases performance. Then, data is sent to the frontend as JSON objects which then get received by the redux reducers and merged into the global state of the app. Redux then maps dispatch functions and state changes to the props of the components, which then rerender with the updated props. 
 

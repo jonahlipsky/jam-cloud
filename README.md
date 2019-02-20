@@ -6,6 +6,8 @@
 ## What is JamCloud?
 JamCloud is App for listening to your favorite jams -- it is modelled on SoundCloud. You can upload songs, discover new music, and engage with other users through comments and likes. 
 
+![Discover Page on JamCloud](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/jamcloud-discover-page.png "Discover Page")
+
 ## Technologies Used
 * Ruby on Rails for the backend
 * PostgreSQL for the database
@@ -13,6 +15,8 @@ JamCloud is App for listening to your favorite jams -- it is modelled on SoundCl
 * React.js for rendering the frontend
 * Redux.js for managing complex state changes on the frontend
 * HTML / CSS for structuring and styling the frontend
+
+![Likes and Follows on User Profile Page](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/jam-cloud-likes-and-follows.png "Likes and Follows on User Profile Page")
 
 ## Key Features
 * Continuous Play Progress Bar

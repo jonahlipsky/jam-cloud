@@ -18,8 +18,8 @@ This progress bar tracks the progress of a song through actions dispatch through
 ### SoundCloud Widget synced with Progress Bar 
 I used the SoundCloud widget API to display their widget on my user profile pages. In order to control it and make the widget reusable, I built a react component around it so that it would get passed the correct information and render as the correct widget. I created callback functions that would be triggered when the play or pause events got triggered by the widget to handle signals being sent from the widget to the Progress Bar, and I used conditions in the ComponentDidUpdate lifecycle method to handle signals beings sent from the progress bar to the widget. Implementing this involved the hardest bug I came across while building this App. Read about it below in "Hardest Bug: The Signal and the Handshake".
 
-### Three Stage User Creation
-Account creation is managed through a three stage form. Each form progresses to the next through an action dispatched through redux which causes a re-render in the form component. This allows each piece of information to be verified before moving on to the next.
+### Likes, Comments, and Recently Played Tracks
+I implemented the ability to like and comment on tracks. I also tracked listening history so that I could show stats to a user as well as display some of the tracks that they've listened to recently.
 
 ### Hardest Bug: The Signal and the Handshake
 The following code snippets represent the solution to the hardest problem I faced while creating this app. Specifically, the issue was syncing the SoundCloud widget, which I implemented on my user profile pages, with my own Continous Play Progress Bar. The reason it was tricky was because hitting play on the Progress Bar would cause a rapid re-updating of the widget which would cause a DOM error. I realized the solution was that I needed to make sure the the widget would only get 'played' exactly one time so that it wouldn't overload as it had been. So my solution was called "The signal and the handshake". I sent a "signal" into props 1/10th of a second before sending the SoundStatus which would trigger the widget to play. 

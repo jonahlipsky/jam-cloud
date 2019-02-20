@@ -26,6 +26,9 @@ This progress bar tracks the progress of a song through actions dispatch through
 ### SoundCloud Widget synced with Progress Bar 
 I used the SoundCloud widget API to display their widget on my user profile pages. In order to control it and make the widget reusable, I built a react component around it so that it would get passed the correct information and render as the correct widget. I created callback functions that would be triggered when the play or pause events got triggered by the widget to handle signals being sent from the widget to the Progress Bar, and I used conditions in the ComponentDidUpdate lifecycle method to handle signals beings sent from the progress bar to the widget. Implementing this involved the hardest bug I came across while building this App. Read about it below in "Hardest Bug: The Signal and the Handshake".
 
+![widget and progress bar](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/widget_and_bar.png "Widget and Progress Bar")
+
+
 ### Likes, Comments, and Recently Played Tracks
 I implemented the ability to like and comment on tracks. I also tracked listening history so that I could show stats to a user as well as display some of the tracks that they've listened to recently.
 

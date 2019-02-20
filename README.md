@@ -8,10 +8,20 @@ JamCloud is App for listening to your favorite jams -- it is modelled on SoundCl
 
 ## Key Features
 * Continuous Play Progress Bar
-* Queue managed by progress bar and dispatched actions
-* Three Stage User Creation
+* SoundCloud Widget synced with Progress Bar 
+* Likes, Comments, and Recently Played Tracks
 
-## Hardest Bug: The Signal and the Handshake
+### Continuous Play Progress Bar
+![progress bar](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/progress_bar.png "Progress Bar")
+This progress bar tracks the progress of a song through actions dispatch through redux. While technically the progress of a song is managed by a set interval that updates the style of the progress bar element on the DOM every 100th of a second, the intitializing of that interval is managed by the dispatch actions. The progress bar handles actions that progress to the next song, go back to the previous song, and pause the current track. 
+
+### SoundCloud Widget synced with Progress Bar 
+I used the SoundCloud widget API to display their widget on my user profile pages. In order to control it and make the widget reusable, I built a react component around it so that it would get passed the correct information and render as the correct widget. I created callback functions that would be triggered when the play or pause events got triggered by the widget to handle signals being sent from the widget to the Progress Bar, and I used conditions in the ComponentDidUpdate lifecycle method to handle signals beings sent from the progress bar to the widget. Implementing this involved the hardest bug I came across while building this App. Read about it below in "Hardest Bug: The Signal and the Handshake".
+
+### Three Stage User Creation
+Account creation is managed through a three stage form. Each form progresses to the next through an action dispatched through redux which causes a re-render in the form component. This allows each piece of information to be verified before moving on to the next.
+
+### Hardest Bug: The Signal and the Handshake
 The following code snippets represent the solution to the hardest problem I faced while creating this app. Specifically, the issue was syncing the SoundCloud widget, which I implemented on my user profile pages, with my own Continous Play Progress Bar. The reason it was tricky was because hitting play on the Progress Bar would cause a rapid re-updating of the widget which would cause a DOM error. I realized the solution was that I needed to make sure the the widget would only get 'played' exactly one time so that it wouldn't overload as it had been. So my solution was called "The signal and the handshake". I sent a "signal" into props 1/10th of a second before sending the SoundStatus which would trigger the widget to play. 
 
 ```javascript
@@ -58,13 +68,3 @@ else if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.sound
         this.state.widget.play();
     }
 ```
-
-### Continuous Play Progress Bar
-![progress bar](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/progress_bar.png "Progress Bar")
-This progress bar tracks the progress of a song through actions dispatch through redux. While technically the progress of a song is managed by a set interval that updates the style of the progress bar element on the DOM every 100th of a second, the intitializing of that interval is managed by the dispatch actions. The progress bar handles actions that progress to the next song, go back to the previous song, and pause the current track. 
-
-### Queue managed by progress bar and dispatched actions
-The queue allows for immediate play of a song as well as pushing songs to the end of the queue. An immediately played song will be inserted into the front of the queue and a property "immediate" will be passed down to the sound element which informs it to restart from the beginning of a song. The interval that manages the progress bar is reset. One of several play icons throughout the site allow for the immediately play tracks.
-
-### Three Stage User Creation
-Account creation is managed through a three stage form. Each form progresses to the next through an action dispatched through redux which causes a re-render in the form component. This allows each piece of information to be verified before moving on to the next.

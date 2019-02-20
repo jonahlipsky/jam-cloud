@@ -1,7 +1,7 @@
 # jam-cloud
 
 ## Live Link!
-[jam-cloud.herokuapp.com](https://jam-cloud.herokuapp.com)
+[JamCloud Live](https://jam-cloud.herokuapp.com "JamCloud Live")
 
 ## What is JamCloud?
 JamCloud is App for listening to your favorite jams -- it is modelled on SoundCloud. You can upload songs, discover new music, and engage with other users through comments and likes. 
@@ -9,10 +9,10 @@ JamCloud is App for listening to your favorite jams -- it is modelled on SoundCl
 ## Technologies Used
 * Ruby on Rails for the backend
 * PostgreSQL for the database
+* Javascript (ES6) for frontend scripts
 * React.js for rendering the frontend
 * Redux.js for managing complex state changes on the frontend
-
-JamCloud runs on a Ruby on Rails backend with a Javascript / React.js frontend. The Redux library is used on the frontend to manage the complex state interactions and changes that the app employs. Optimized queries in the controller methods on the backend ensure that very few database queries ultimately get triggered, which increases performance. Then, data is sent to the frontend as JSON objects which then get received by the redux reducers and merged into the global state of the app. Redux then maps dispatch functions and state changes to the props of the components, which then rerender with the updated props. 
+* HTML / CSS for structuring and styling the frontend
 
 ## Key Features
 * Continuous Play Progress Bar
@@ -25,6 +25,9 @@ This progress bar tracks the progress of a song through actions dispatch through
 
 ### SoundCloud Widget synced with Progress Bar 
 I used the SoundCloud widget API to display their widget on my user profile pages. In order to control it and make the widget reusable, I built a react component around it so that it would get passed the correct information and render as the correct widget. I created callback functions that would be triggered when the play or pause events got triggered by the widget to handle signals being sent from the widget to the Progress Bar, and I used conditions in the ComponentDidUpdate lifecycle method to handle signals beings sent from the progress bar to the widget. Implementing this involved the hardest bug I came across while building this App. Read about it below in "Hardest Bug: The Signal and the Handshake".
+
+![widget and progress bar](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/widget_and_bar.png "Widget and Progress Bar")
+
 
 ### Likes, Comments, and Recently Played Tracks
 I implemented the ability to like and comment on tracks. I also tracked listening history so that I could show stats to a user as well as display some of the tracks that they've listened to recently.

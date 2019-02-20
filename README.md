@@ -16,8 +16,6 @@ JamCloud is App for listening to your favorite jams -- it is modelled on SoundCl
 * Redux.js for managing complex state changes on the frontend
 * HTML / CSS for structuring and styling the frontend
 
-![Likes and Follows on User Profile Page](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/jam-cloud-likes-and-follows.png "Likes and Follows on User Profile Page")
-
 ## Key Features
 * Continuous Play Progress Bar
 * SoundCloud Widget synced with Progress Bar 

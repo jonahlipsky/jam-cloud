@@ -26,7 +26,6 @@ export default (state = {}, action) => {
       newState.soundStatus = [soundStatus, trackId];
       return newState;
     case SEND_SIGNAL:
-      debugger
       newState.signal = true;
       return newState;
     case SEND_RECEIPT:

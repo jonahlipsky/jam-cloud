@@ -31,6 +31,7 @@ export default (state = {}, action) => {
       userId = action.user_id;
       let trackPosition = newState[userId].track_ids.indexOf(action.id);
       newState[userId].track_ids.splice(trackPosition, 1);
+      return newState;
     case RECEIVE_NEW_LIKE:
       userId = action.like.user_id;
       user = newState[userId];

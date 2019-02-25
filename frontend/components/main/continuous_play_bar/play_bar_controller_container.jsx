@@ -12,6 +12,8 @@ const mapStateToProps = state => {
   let duration = state.io.trackQueue.duration;
   let percentageComplete = state.io.trackQueue.percentageComplete;
   let currentMilliseconds = Math.floor((percentageComplete / 100) * duration);
+  let soundStatus = state.io.trackQueue.soundStatus[0];
+  let immediate = state.io.trackQueue.immediate;
 
   return({
     trackQueue,
@@ -19,7 +21,9 @@ const mapStateToProps = state => {
     trackIds,
     duration,
     percentageComplete,
-    currentMilliseconds
+    currentMilliseconds,
+    soundStatus,
+    immediate
   });
 };
 

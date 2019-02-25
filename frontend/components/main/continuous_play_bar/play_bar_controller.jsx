@@ -19,18 +19,18 @@ class PlayBarController extends React.Component{
   }
 
   togglePlay(){
-    if (!(this.state.soundStatus === "PLAYING") && this.props.trackQueue.queue.length ){
+    if (!(this.props.soundStatus === "PLAYING") && this.props.trackQueue.queue.length ){
       
       this.props.sendSignal();
       setTimeout(() => {
-        this.setState({ soundStatus: "PLAYING" });
+        // this.setState({ soundStatus: "PLAYING" });
         this.setLocalInterval();
         this.props.sendSoundStatus("PLAYING", this.props.trackQueue.queue[0]);
       }, 100);
-    } else if (this.state.soundStatus === "PLAYING" && this.props.trackQueue.queue.length){
+    } else if (this.props.soundStatus === "PLAYING" && this.props.trackQueue.queue.length){
       this.props.sendSoundStatus("PAUSED", this.props.trackQueue.queue[0]);
       this.clearLocalInterval();
-      this.setState({soundStatus: "PAUSED"});
+      // this.setState({soundStatus: "PAUSED"});
     }
   }
 
@@ -62,7 +62,7 @@ class PlayBarController extends React.Component{
   }
 
   forcePlay(){
-    if(!(this.state.soundStatus === "PLAYING")){
+    if(!(this.props.soundStatus === "PLAYING")){
       this.togglePlay();
     } else {
       this.resetLocalInterval();
@@ -84,9 +84,16 @@ class PlayBarController extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    if(this.props.trackQueue.soundStatus && prevProps.trackQueue.soundStatus &&
-      prevProps.trackQueue.soundStatus[0] != this.props.trackQueue.soundStatus[0]){
-      this.setState({soundStatus: this.props.trackQueue.soundStatus[0]});
+    // if(this.props.trackQueue.soundStatus && prevProps.trackQueue.soundStatus &&
+    //   prevProps.trackQueue.soundStatus[0] != this.props.trackQueue.soundStatus[0]){
+    //   this.setState({soundStatus: this.props.trackQueue.soundStatus[0]});
+    // } 
+    if(this.props.immediate){
+      this.forcePlay();
+    } else if(Math.abs(prevProps.currentMilliseconds - this.props.currentMilliseconds) > 1000 ){
+      this.resetLocalInterval();
+    } else if (this.soundStatus === "PAUSED"){
+      this.clearLocalInterval();
     }
   }
 
@@ -106,7 +113,7 @@ class PlayBarController extends React.Component{
 
   render(){
     let playBarControllerContext = this;
-    let playingBoolean = this.state.soundStatus === "PLAYING";
+    let playingBoolean = this.props.soundStatus === "PLAYING";
     let iconClass = playingBoolean ? "fas fa-pause" : "fas fa-play";
     let toggleBack = this.toggleBack.bind(this);
     let shuffleClass = this.props.shuffle ? "fa fa-random fa-random-selected" : "fa fa-random";

@@ -1,5 +1,4 @@
 import React from 'react';
-import TrackWidget from '../../reuseable_components/widgets/track_widget';
 import UserShowHeaderContainer from './user_show_header_container';
 import UserShowBodyContainer from './user_show_body_container';
 

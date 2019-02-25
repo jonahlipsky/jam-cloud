@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TrackWidget from '../../reuseable_components/widgets/track_widget';
+import TrackWidget from '../../reuseable_components/widgets/track_widget_container';
 import { NavLink } from 'react-router-dom';
 import UserFollowStats from './user_follow_stats';
 import UserLikesContainer from './user_likes_container';

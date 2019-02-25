@@ -24,31 +24,31 @@ class SoundPlay extends React.Component {
       this.props.goToPreviousTrack();
       this.setState({position: 0});
       this.props.toggleBack();
-      this.resetInterval();
+      // this.resetInterval();
     } else if (this.props.backPressed){
       this.setState({ position: 0 });
       this.props.toggleBack();
-      this.resetInterval();
+      // this.resetInterval();
     } else if(playingObject.duration - playingObject.position < 300){
       this.handleSongFinishedPlaying();
     }
   }
 
-  resetInterval(){
-    this.props.playBarControllerContext.resetLocalInterval();
-  }
+  // resetInterval(){
+  //   this.props.playBarControllerContext.resetLocalInterval();
+  // }
 
   componentDidUpdate(){
     if(this.props.immediate){
       this.props.clearImmediate();
       this.setState({position: 0});
-      this.props.forcePlay();
+      // this.props.forcePlay();
     } else if (this.props.currentPercentage && this.props.soundStatus === "PLAYING" ){
       this.props.clearCurrentPercentage();
       let position = Math.floor((this.props.currentPercentage / 100) * this.state.duration);
       this.setState({ position });
       this.props.sendPercentageComplete(this.props.currentPercentage, this.state.duration);
-      this.resetInterval();
+      // this.resetInterval();
     } else if (this.props.currentPercentage){
       this.props.clearCurrentPercentage();
       let position = Math.floor((this.props.currentPercentage / 100) * this.state.duration);
@@ -63,7 +63,7 @@ class SoundPlay extends React.Component {
     if(this.props.soundStatus != "PLAYING"){
       this.props.playBarControllerContext.togglePlay();
     } else {
-      this.resetInterval();
+      // this.resetInterval();
     }
   }
 

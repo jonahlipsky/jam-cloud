@@ -1,31 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import { pushToFrontOfQueue, sendReceipt,
-  sendSoundStatus } from '../../../actions/sound_controller_actions';
 
-const mapStateToProps = state => {
-  let soundStatusArray = state.io.trackQueue.soundStatus;
-  let firstInQueue = state.io.trackQueue.queue ? state.io.trackQueue.queue[0] : ""
-  let percentageComplete = state.io.trackQueue.percentageComplete;
-  let duration = state.io.trackQueue.duration;
-  let currentMilliseconds = percentageComplete * duration / 100;
-  let handshake = state.io.trackQueue.handshake;
-  let signal = state.io.trackQueue.signal;
-
-  return({
-    soundStatusArray,
-    firstInQueue,
-    currentMilliseconds,
-    handshake,
-    signal
-  });
-};
-
-const mapDispatchToProps = dispatch => ({
-  pushToFrontOfQueue: trackId => dispatch(pushToFrontOfQueue(trackId)),
-  sendSoundStatus: (status, trackId) => dispatch(sendSoundStatus(status, trackId)),
-  sendReceipt: () => dispatch(sendReceipt())
-});
 
 class TrackWidget extends React.Component{
   constructor(props){
@@ -36,35 +10,61 @@ class TrackWidget extends React.Component{
     };
   }
   
-
-  setListeners(widget){
-    //CB for when widget is played
-    let pushToQueue = () => {
+  playCB(widget){
+    let pushToQueue = function(){
       let trackId = this.props.track.id;
       if(this.props.firstInQueue != String(trackId)){
         this.props.pushToFrontOfQueue(trackId);
       } else if(this.props.soundStatusArray[0] != "PLAYING"){
         this.props.sendSoundStatus("PLAYING", this.props.track.id);
       }
-    };
-    pushToQueue = pushToQueue.bind(this);
+    }.bind(this);
+    // pushToQueue = pushToQueue.bind(this);
     widget.bind(SC.Widget.Events.PLAY, () => {
       let widgetElement = document.getElementById(`track${this.props.track.id}Widget`);
       SC.Widget(widgetElement).setVolume(0);
       pushToQueue();
     }); 
+  }
 
-    //CB for when the widget gets paused
+  pauseCB(widget){
     let pause = function(){
       if(this.props.soundStatusArray[0] != "PAUSED"){
         this.props.sendSoundStatus("PAUSED", this.props.track.id);
       }
-    };
-    pause = pause.bind(this);
+    }.bind(this);
+    // pause = pause.bind(this);
     widget.bind(SC.Widget.Events.PAUSE, () => {
       pause();
     });
   }
+
+  seekCB(widget){
+    let seek = function(obj){
+    if(String(this.props.soundStatusArray[1]) === String(this.props.track.id)
+      && Math.abs(this.props.currentMilliseconds - obj.currentPosition) > 1500 ){
+        window.seeking = true;
+        this.props.sendCurrentPercentage(obj.relativePosition * 100);
+        setTimeout(() => {
+          window.seeking = false;
+        }, 50);
+    }}.bind(this);
+    widget.bind(SC.Widget.Events.SEEK, obj => {
+      seek(obj);
+    });
+  }
+
+  setListeners(widget){
+    //CB for when widget is played
+    this.playCB(widget);
+
+    //CB for when the widget gets paused
+    this.pauseCB(widget);
+
+    //CB for when the user seeks
+    this.seekCB(widget);
+  }
+
   
   componentDidUpdate(prevProps){
     //if the widget is not present, create the widget and save to state.
@@ -76,8 +76,9 @@ class TrackWidget extends React.Component{
     }
     //if the song is playing and sending progress updates, seek to that positions
     if(prevProps.currentMilliseconds != this.props.currentMilliseconds &&
-        String(this.props.soundStatusArray[1]) === String(this.props.track.id)){ 
-      this.state.widget.seekTo(this.props.currentMilliseconds);
+      String(this.props.soundStatusArray[1]) === String(this.props.track.id) && 
+      !window.seeking){ 
+        this.state.widget.seekTo(this.props.currentMilliseconds);
     } 
     //if the sound status has changed and now it it equal to 'PAUSED', pause the widget
     if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0]) 
@@ -121,4 +122,4 @@ class TrackWidget extends React.Component{
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrackWidget)
+export default TrackWidget;

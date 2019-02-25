@@ -19,7 +19,7 @@ export default ({context, errors}) => {
 
   return(
     <form onSubmit={context.handleSubmit(context.props.formType)}>
-        <UploadImage context={context} imageUrl={imageUrl}/>
+        <UploadImage context={context} imageUrl={imageUrl} type={'image'}/>
         <div className="stage-two-basic-info">
           <div className="fields">
             {uploadErrors}

@@ -1,6 +1,5 @@
 import React from 'react';
 import UploadImage from '../../reuseable_components/upload_image';
-import { Link } from 'react-router-dom';
 
 export default ({context, errors}) => {
   let url = context.state.imageUrl;

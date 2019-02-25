@@ -7,24 +7,13 @@ import { parseWidgetIdentifier } from '../../../util/general_util';
 class UploadForm extends React.Component{
   constructor(props){
     super(props);
-    if(this.props.track){
-      this.state = this.props.track;
-    } else {
-      this.state = {
-        title: "",
-        imageUrl: null,
-        imageFile: null,
-        soundUrl: null,
-        soundFile: null,
-        widgetIdentifier: ""
-      };
-    }
+    this.state = {};
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetUpload = this.resetUpload.bind(this);
   }
 
-  componentDidMount(){
+  resetFields(){
     if(this.props.formType === "Update"){
       let track = this.props.track;
       this.setState({
@@ -35,11 +24,25 @@ class UploadForm extends React.Component{
         soundFile: track.soundFile,
         widgetIdentifier: track.widget_identifier
       });
+    } else {
+      this.setState({
+        title: "",
+        imageUrl: null,
+        imageFile: null,
+        soundUrl: null,
+        soundFile: null,
+        widgetIdentifier: ""
+      });
     }
+  }
+
+  componentDidMount(){
+    this.resetFields();
   }
 
   componentWillUnmount(){
     this.props.incrementStage(0);
+    this.props.clearEditId();
   }
 
   handleInput(field){
@@ -50,6 +53,10 @@ class UploadForm extends React.Component{
 
   resetUpload(){
     this.props.incrementStage(0);
+    this.resetFields();
+    if(this.props.formType === "Update"){
+      this.setState({redirect: true});
+    }
   }
 
   handleFile(field){

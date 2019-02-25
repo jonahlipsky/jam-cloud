@@ -12,8 +12,14 @@ export const FREEZE_LIST_ITEM = "FREEZE_LIST_ITEM";
 export const NO_LIST_ITEM_FROZEN = "NO_LIST_ITEM_FROZEN";
 export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 export const RECEIVE_RECENT_TRACK = "RECEIVE_RECENT_TRACK";
+export const CLEAR_EDIT_ID = "CLEAR_EDIT_ID";
+
 
 //action creators
+
+export const clearEditId = () => ({
+  type: CLEAR_EDIT_ID
+});
 
 const receiveRecentTrack = (recentTrack) => ({
   type: RECEIVE_RECENT_TRACK,

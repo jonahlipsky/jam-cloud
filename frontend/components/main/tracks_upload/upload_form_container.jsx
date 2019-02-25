@@ -1,4 +1,4 @@
-import { postTrack, updateTrack, incrementFileUploadStage } from '../../../actions/track_actions';
+import { postTrack, updateTrack, incrementFileUploadStage, clearEditId } from '../../../actions/track_actions';
 import { connect } from 'react-redux';
 import UploadForm from './upload_form';
 
@@ -27,7 +27,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   postTrack: (formData) => dispatch(postTrack(formData)),
   updateTrack: (formData, id) => dispatch(updateTrack(formData, id)),
-  incrementStage: (prevStage) => dispatch(incrementFileUploadStage(prevStage))
+  incrementStage: (prevStage) => dispatch(incrementFileUploadStage(prevStage)),
+  clearEditId: () => dispatch(clearEditId())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UploadForm);

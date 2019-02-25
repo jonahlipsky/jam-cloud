@@ -81,3 +81,10 @@ else if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.sound
         this.state.widget.play();
     }
 ```
+
+## Future Directions:
+* Create media queries for responsive experience
+* Implement playlists feature
+* Implement genres
+* Implement search bar
+

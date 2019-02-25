@@ -2,13 +2,10 @@ import moment from 'moment';
 
 
 export const parseWidgetIdentifier = widgetString => {
-  debugger
   let beginning = widgetString.indexOf("tracks/") + 7;
   let end = widgetString.indexOf("&color");
   let identifier = widgetString.slice(beginning, end);
-  debugger
   return identifier;
-
 };
 
 

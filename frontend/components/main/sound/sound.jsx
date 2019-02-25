@@ -19,42 +19,21 @@ class SoundPlay extends React.Component {
     this.setState({position: playingObject.position});
     let percentageComplete = ((playingObject.position / playingObject.duration) * 100) || 0;
     this.props.sendPercentageComplete(percentageComplete, playingObject.duration);
-  
-    if(this.props.backPressed && playingObject.position < 1500){
-      this.props.goToPreviousTrack();
-      this.setState({position: 0});
-      this.props.toggleBack();
-      // this.resetInterval();
-    } else if (this.props.backPressed){
-      this.setState({ position: 0 });
-      this.props.toggleBack();
-      // this.resetInterval();
-    } else if(playingObject.duration - playingObject.position < 300){
+    if(playingObject.duration - playingObject.position < 300){
       this.handleSongFinishedPlaying();
     }
   }
 
-  // resetInterval(){
-  //   this.props.playBarControllerContext.resetLocalInterval();
-  // }
 
   componentDidUpdate(){
     if(this.props.immediate){
       this.props.clearImmediate();
       this.setState({position: 0});
-      // this.props.forcePlay();
-    } else if (this.props.currentPercentage && this.props.soundStatus === "PLAYING" ){
-      this.props.clearCurrentPercentage();
-      let position = Math.floor((this.props.currentPercentage / 100) * this.state.duration);
-      this.setState({ position });
-      this.props.sendPercentageComplete(this.props.currentPercentage, this.state.duration);
-      // this.resetInterval();
     } else if (this.props.currentPercentage){
       this.props.clearCurrentPercentage();
       let position = Math.floor((this.props.currentPercentage / 100) * this.state.duration);
       this.setState({ position });
       this.props.sendPercentageComplete(this.props.currentPercentage, this.state.duration);
-      this.props.playBarControllerContext.setProgressBar(this.props.currentPercentage);
     }
   }
 
@@ -62,9 +41,7 @@ class SoundPlay extends React.Component {
     this.props.sendRecentTrack(this.props.currentTrack.id); 
     if(this.props.soundStatus != "PLAYING"){
       this.props.playBarControllerContext.togglePlay();
-    } else {
-      // this.resetInterval();
-    }
+    } 
   }
 
   handleSongLoading(loadingObject){

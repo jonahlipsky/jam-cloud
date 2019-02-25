@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from 'react';
 
 class TrackWidget extends React.Component{
   constructor(props){
@@ -19,7 +18,6 @@ class TrackWidget extends React.Component{
         this.props.sendSoundStatus("PLAYING", this.props.track.id);
       }
     }.bind(this);
-    // pushToQueue = pushToQueue.bind(this);
     widget.bind(SC.Widget.Events.PLAY, () => {
       let widgetElement = document.getElementById(`track${this.props.track.id}Widget`);
       SC.Widget(widgetElement).setVolume(0);
@@ -33,7 +31,6 @@ class TrackWidget extends React.Component{
         this.props.sendSoundStatus("PAUSED", this.props.track.id);
       }
     }.bind(this);
-    // pause = pause.bind(this);
     widget.bind(SC.Widget.Events.PAUSE, () => {
       pause();
     });

@@ -2,6 +2,7 @@ import React from 'react';
 import UploadStageOne from './upload_stage_one';
 import UploadStageTwo from './upload_stage_two';
 import { Redirect } from 'react-router-dom';
+import { parseWidgetIdentifier } from '../../../util/general_util';
 
 class UploadForm extends React.Component{
   constructor(props){
@@ -75,7 +76,8 @@ class UploadForm extends React.Component{
       e.preventDefault();
       const formData = new FormData();
       formData.append('track[title]', that.state.title);
-      formData.append('track[widget_identifier]', that.state.widgetIdentifier)
+      let widgetIdentifier = parseWidgetIdentifier(that.state.widgetIdentifier);
+      formData.append('track[widget_identifier]', widgetIdentifier);
       if (that.state.imageFile){
         formData.append('track[image]', that.state.imageFile);
       } 

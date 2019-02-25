@@ -1,5 +1,17 @@
 import moment from 'moment';
 
+
+export const parseWidgetIdentifier = widgetString => {
+  debugger
+  let beginning = widgetString.indexOf("tracks/") + 7;
+  let end = widgetString.indexOf("&color");
+  let identifier = widgetString.slice(beginning, end);
+  debugger
+  return identifier;
+
+};
+
+
 export const parseDate = (date) => {
   let tIdx = date.indexOf("T");  //T index
   let ymd = date.slice(0,tIdx); //year month day

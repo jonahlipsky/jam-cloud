@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
     });
 
     notFollowedUserIds.forEach(id => {
-      if(state.entities.users[id]){
+      if(state.entities.users[id] && id != String(state.session.id)){
         notFollowedUsers.push(state.entities.users[id]);
       }
     });

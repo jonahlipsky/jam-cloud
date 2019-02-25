@@ -1,33 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { signin, signup, sendStageErrors, clearErrors } from '../../../actions/session_actions';
-import ModalFormVariable from './modal_form_variable';
-import { incrementStage } from '../../../actions/modal_actions';
-import { withRouter } from 'react-router-dom';
-
-
-const mapDispatchToProps = dispatch => ({
-  signin: user => dispatch(signin(user)),
-  signup: user => dispatch(signup(user)),
-  incrementStage: (newStage) => dispatch(incrementStage(newStage)),
-  sendStageErrors: (errors) => dispatch(sendStageErrors(errors)),
-  clearErrors: () => dispatch(clearErrors())
-});
-
-const mapStateToProps = state => {
-  let usersArray = Object.values(state.entities.users);
-  let emails = usersArray.map((user) => {
-    return user.email;
-  });
-  let stage = state.session.stage || 1;
-  
-  return({
-    stage,
-    errors: state.errors.session,
-    emails
-  });
-  
-};
+import ModalFormVariable from './modal_form_variable_container';
 
 class ModalAuthForm extends React.Component {
   constructor(props){
@@ -47,6 +19,8 @@ class ModalAuthForm extends React.Component {
   resetStageAndErrors(){
     this.props.incrementStage(0);
     this.props.clearErrors();
+    this.setState({ email: '', password: '', age: '', gender: '', 
+    username: '', variable1: 'email', variable2: 'password'});
   }
   
   checkEmailPassword(){
@@ -163,4 +137,4 @@ class ModalAuthForm extends React.Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ModalAuthForm));
+export default ModalAuthForm

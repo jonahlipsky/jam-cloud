@@ -18,6 +18,13 @@ class ModalFormVariable extends React.Component{
     };
   }
 
+  componentDidUpdate(){
+    if(this.props.resetAuthForm){
+      this.setState({email: '', password: '', age: '', gender: '--Select Gender--', 
+      username: ''});
+    }
+  }
+
   render(){    
     let var1, var2;
     if(this.props.stage === 1){

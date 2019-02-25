@@ -7,6 +7,11 @@ export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const SEND_STAGE_ERRORS = "SEND_STAGE_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const RECEIVE_UPDATED_USER = "RECEIVE_UPDATED_USER";
+export const TOGGLE_RESET_AUTH_FORM = "RESET_AUTH_FORM";
+
+export const toggleResetAuthForm = () => ({
+  type: TOGGLE_RESET_AUTH_FORM
+});
 
 export const sendStageErrors = (errors) => ({
   type: SEND_STAGE_ERRORS,
@@ -28,7 +33,6 @@ export const updateUser = (formData, userId) => dispatch => {
     errors => dispatch(receiveSessionErrors(errors))
   );
 };
-
 
 export const fetchUsers = () => dispatch => {
   return SESSION_API_UTIl.fetchUsers().then(users => dispatch(receiveAllUsers(users)));

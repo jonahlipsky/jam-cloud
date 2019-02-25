@@ -4,7 +4,7 @@ class TrackWidget extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      widgetOptions: "&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
+      widgetOptions: "&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&sharing=false&show_playcount=false&single_active=false&buying=false&liking=false",
       tracksWidgetUrlPrefix: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/"
     };
   }
@@ -52,16 +52,10 @@ class TrackWidget extends React.Component{
   }
 
   setListeners(widget){
-    //CB for when widget is played
-    this.playCB(widget);
-
-    //CB for when the widget gets paused
-    this.pauseCB(widget);
-
-    //CB for when the user seeks
-    this.seekCB(widget);
+    this.playCB(widget); //CB for when widget is played
+    this.pauseCB(widget); //CB for when the widget gets paused
+    this.seekCB(widget); //CB for when the user seeks
   }
-
   
   componentDidUpdate(prevProps){
     //if the widget is not present, create the widget and save to state.

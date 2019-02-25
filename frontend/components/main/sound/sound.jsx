@@ -58,7 +58,6 @@ class SoundPlay extends React.Component {
       this.setState({ autoLoad: true });
       this.props.goToNextTrack();
     } else {
-      this.props.playBarControllerContext.setState({milliseconds: 0});
       this.props.playBarControllerContext.setProgressBar(0);
       this.props.sendPercentageComplete(0, this.state.duration);
     }

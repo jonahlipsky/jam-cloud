@@ -6,8 +6,7 @@ import regeneratorRuntime from "regenerator-runtime";
 class PlayBarController extends React.Component{
   constructor(props){
     super(props);
-    this.state = {soundStatus: "PAUSED", backPressed: false, 
-      milliseconds: 0, volume: 100};
+    this.state = {soundStatus: "PAUSED", backPressed: false, volume: 100};
     this.togglePlay = this.togglePlay.bind(this);
     this.toggleBack = this.toggleBack.bind(this);
     this.forcePlay = this.forcePlay.bind(this);
@@ -70,6 +69,7 @@ class PlayBarController extends React.Component{
   }
 
   handleForward(){
+    this.props.sendCurrentPercentage(0.1);
     this.props.goToNextTrack();
   }
 

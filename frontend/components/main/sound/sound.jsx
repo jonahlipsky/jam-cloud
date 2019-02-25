@@ -5,8 +5,6 @@ import Sound from 'react-sound';
 //https://medium.com/@jerrysbusiness/playing-a-sound-file-in-a-react-project-bd0ad079ad93
 //https://www.npmjs.com/package/react-sound
 
-
-
 class SoundPlay extends React.Component {
   constructor(props){
     super(props);

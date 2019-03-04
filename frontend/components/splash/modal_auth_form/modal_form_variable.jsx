@@ -30,7 +30,7 @@ class ModalFormVariable extends React.Component{
     if(this.props.stage === 1){
 
       var1=<input id='email' type="text" 
-      placeholder={'Please input your email address'} value={this.state.email}
+      placeholder={'Enter your email'} value={this.state.email}
       onChange={this.handleChange('email', "Var1")}/>
   
       var2=<input id='password' type="password" placeholder="Enter password" 

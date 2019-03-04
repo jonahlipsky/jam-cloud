@@ -55,9 +55,11 @@ class SingleTrackDisplay extends React.Component{
 
     return(
       <div className="single-track-display" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} >
-        <img className="track-main-image" src={imageUrl} />
-        <div className={playButtonClass} onMouseEnter={this.mouseEnterPlayButton} onMouseLeave={this.mouseLeavePlayButton}>
-          {playIcon}
+        <div className="image-play-icon">
+          <img className="track-main-image" src={imageUrl} />
+          <div className={playButtonClass} onMouseEnter={this.mouseEnterPlayButton} onMouseLeave={this.mouseLeavePlayButton}>
+            {playIcon}
+          </div>
         </div>
         <div className="single-track-artist-title">
           <Link className="title" to={`/tracks/${trackId}`}>{title}</Link>

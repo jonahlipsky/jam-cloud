@@ -14,17 +14,18 @@ class Discover extends React.Component{
       <div className="discover-page">
         <div className="discover-tracks-and-stats">
         
-          <div className="discover-tracks-display">
-            <h1>Explore these tracks from Artists on JamCloud!</h1>
-            <TracksScrollingDisplay />
-            <h2>Enjoy more music that you've recently listend to!</h2>
-            <FourRecentTracks />
-          </div>
 
           <div className="discover-stats-and-likes">
             <DiscoverStats nRecentlyPlayedTracks={this.props.nRecentlyPlayedTracks} 
               lastWeekListens={this.props.lastWeekListens} lastDayListens={this.props.lastDayListens}/>
             <DiscoverLikesContainer />
+          </div>
+
+          <div className="discover-tracks-display">
+            <h1>Explore these tracks from Artists on JamCloud!</h1>
+            <TracksScrollingDisplay />
+            <h2>Enjoy more music that you've recently listend to!</h2>
+            <FourRecentTracks />
           </div>
         </div>
       </div>

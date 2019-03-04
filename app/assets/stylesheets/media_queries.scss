@@ -1,0 +1,244 @@
+.page-centered{
+  width: 100%;
+}
+
+.continuous-play-bar-main-frame{
+  width: 85%;
+}
+
+.single-track-display{
+  height: 210px;
+}
+
+.discover-page .single-track-display{
+  height: 240px;
+}
+
+.six-tracks-display{
+  flex-direction: column;
+
+}
+
+.three-tracks{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-auth-btns{
+  right: 0;
+  margin-left: 0px;
+}
+
+.modal-form{
+  margin-left: -125px;
+  width: 250px;
+}
+
+.discover-tracks-and-stats{
+  flex-direction: column;
+}
+
+.tracks-scrolling-display{
+  display: none;
+}
+
+.followed-user-display{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.liked-display-list-item{
+  align-items: flex-start;
+  width: 200px;
+  flex-direction: column;
+}
+.like-and-options{
+  right: 0px;
+  display: flex;
+}
+.liked-display-list-item:last-child{
+  display: none;
+}
+
+.recent-tracks-display{
+  flex-direction: column;
+}
+
+.recent-tracks-two{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+ 
+@media only screen and (min-width: 430px){
+  .six-tracks-display{
+    flex-direction: row;
+  }
+
+  .splash-auth-btns{
+    right: 25px;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  
+  .recent-tracks-display{
+    flex-direction: column;
+  }
+  
+  .recent-tracks-two{
+    flex-direction: row;
+  }
+
+  .liked-display-list-item{
+    width: 200px;
+    flex-direction: row;
+  }
+
+  .liked-display-list-item:last-child{
+    display: flex;
+  }
+  .liked-display-list-item{
+    align-items: center;
+  }
+
+
+}
+
+@media only screen and (min-width: 813px){
+
+  
+  .followed-user-display{
+    display: block;
+    width: 300px;
+  }
+
+  .tracks-scrolling-display{
+    display: block;
+  }
+  
+  .discover-tracks-and-stats{
+    flex-direction: row-reverse;
+  }
+
+  .modal-form{
+    margin-left: -225px;
+    width: 450px;
+  }
+
+  .splash-auth-btns{
+    right: 50px;
+  }
+
+  .six-tracks-display{
+    flex-direction: column;
+  }
+
+  .three-tracks{
+    flex-direction: row;
+  }
+
+  .discover-tracks-display {
+    width: 450px;
+  }
+
+  .tracks-scrolling-display{
+    width: 420px;
+  }
+
+  .scrolling-display{
+    width: 180px;
+  }
+
+  .liked-display-list-item{
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1025px){
+
+  .page-centered{
+    width: 85%;
+  }
+
+  .continuous-play-bar-main-frame{
+    width: 100%;
+  }
+
+  .discover-tracks-display {
+    width: 550px;
+  }
+
+  .tracks-scrolling-display{
+    width: 520px;
+  }
+
+  .scrolling-display{
+    width: 280px;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .discover-tracks-display {
+    width: 650px;
+  }
+
+  .tracks-scrolling-display{
+    width: 620px;
+  }
+
+  .scrolling-display{
+    width: 380px;
+  }
+}
+
+@media only screen and (min-width: 1300px){
+  .discover-tracks-display {
+    width: 750px;
+  }
+
+  .tracks-scrolling-display{
+    width: 720px;
+  }
+
+  .scrolling-display{
+    width: 480px;
+  }
+}
+
+@media only screen and (min-width: 1450px){
+
+  .recent-tracks-display{
+    flex-direction: row;
+  }
+  
+  .recent-tracks-two{
+    flex-direction: row;
+  }
+
+  .six-tracks-display{
+    flex-direction: row;
+  }
+
+  .three-tracks{
+    flex-direction: row;
+  }
+
+  .discover-tracks-display {
+    width: 850px;
+  }
+
+  .tracks-scrolling-display{
+    width: 820px;
+  }
+
+  .scrolling-display{
+    width: 580px;
+  }
+
+}
+

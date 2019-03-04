@@ -2,7 +2,6 @@
 
 .single-track-display{
   width: 180px;
-  height: 225px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -10,6 +9,10 @@
 
   .track-main-image{
     width: 100%;
+  }
+
+  .image-play-icon{
+    position: relative;
   }
 
   .play-button{
@@ -58,8 +61,7 @@
 .six-tracks-display{
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+
   
 }
 
@@ -67,7 +69,6 @@
 
 .tracks-scrolling-display{
   margin: 30px 0;
-  width: 820px;
   height: 220px;
   background: linear-gradient(135deg, rgb(72, 96, 122) 0%, rgb(38, 30, 28) 100%);
   position: relative;
@@ -99,7 +100,6 @@
   position: absolute;
   left: 210px;
   top: 0;
-  width: 580px;
 
   li{
     color: $nav-bar-text-color;
@@ -114,7 +114,6 @@
 
 .recent-tracks-display{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }

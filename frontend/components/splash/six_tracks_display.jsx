@@ -17,9 +17,17 @@ class SixTracksDisplay extends React.Component{
     } else {
       displayedTracks = '';
     }
+
+    let firstThree = displayedTracks.length ? displayedTracks.slice(0, 3) : "";
+    let lastThree = displayedTracks.length ? displayedTracks.slice(3) : "";
     return(
       <div className="six-tracks-display">
-        {displayedTracks}
+        <div className="three-tracks">
+          {firstThree}
+        </div>
+        <div className="three-tracks">
+          {lastThree}
+        </div>
       </div>  
     )
   }

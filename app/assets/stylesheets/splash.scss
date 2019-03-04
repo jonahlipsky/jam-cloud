@@ -54,7 +54,6 @@ $button-orange: #f50;
 .splash-auth-btns{
   position: absolute;
   top: 25px;
-  right: 50px;
   display: flex;
   flex-direction: row;
 
@@ -86,7 +85,6 @@ $button-orange: #f50;
 
 .splash-welcome-text{
   margin: auto;
-  width: 50%;
   text-align: center; 
 
   h1 {
@@ -140,8 +138,6 @@ $button-orange: #f50;
 .modal-form{
   position: fixed;
   left: 50%;
-  margin-left: -225px;
-  width: 450px;
   height: 620px;
   top: -620px;
   background-color: white;
@@ -170,7 +166,7 @@ $button-orange: #f50;
 
     *{
       width: 90%;
-      margin: 10px;
+      margin: 10px 0;
       padding: 7px 9px;
       border-radius: 3px;
     }

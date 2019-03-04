@@ -33,10 +33,16 @@ class FourRecentTracks extends React.Component{
     let recentTrackItems = this.props.recentTracks.map( track => {
       return (<RecentTrackItem key={track.id} track={track} />)
     });
-    
+    let firstTwo = recentTrackItems.slice(0,2);
+    let lastTwo = recentTrackItems.slice(2);
     return(
       <div className="recent-tracks-display">
-        {recentTrackItems}
+        <div className="recent-tracks-two">
+          {firstTwo}
+        </div>
+        <div className="recent-tracks-two">
+          {lastTwo}
+        </div>
       </div>
     )
   }

@@ -2,11 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configuredStore from './store/store';
-import * as session_actions from './actions/session_actions';
-import { incrementStage } from './actions/modal_actions';
-import { fetchTracks, postTrack, removeTrack, updateTrack, sendRecentTrack  } from './actions/track_actions';
-import { fetchTrackComments, createComment} from './actions/comment_actions';
-import { createLike, deleteLike } from './actions/like_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -22,11 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configuredStore();
   }
-
-  window.dispatch = store.dispatch;
-  window.sendRecentTrack = sendRecentTrack;
-  window.createLike = createLike;
-  window.deleteLike = deleteLike;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

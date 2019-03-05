@@ -22,6 +22,12 @@
 .track-show-header{
   background-image: linear-gradient(to right, rgb(161, 67, 250), rgb(206, 6, 179));
 
+  iframe{
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+  }
+
   .image-upload{
     margin: 20px;
     width: 340px;

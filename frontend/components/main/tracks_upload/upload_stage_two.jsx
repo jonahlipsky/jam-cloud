@@ -25,7 +25,6 @@ class UploadStageTwo extends React.Component{
       <div className="stage-two-track-upload-container">
         <div className="track-upload-stage-two-nav">
           <button className={this.handleClassname('basic-info')}><h2>Basic Info</h2></button>
-          <button className={this.handleClassname('metadata')}><h2>Metadata</h2></button>
         </div>
         <div className='track-upload-stage-two-body'>
           {component}

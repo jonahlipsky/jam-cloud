@@ -62,10 +62,6 @@ $button-hover-orange: rgb(255, 60, 0);
   align-items: center;
   justify-content: center;
   
-  h2, div{
-    margin: 10px;
-  }
-
   h2{
     position: absolute;
     top: 25%;
@@ -73,7 +69,6 @@ $button-hover-orange: rgb(255, 60, 0);
 
   div{
     position: absolute;
-    top: 35%;
 
     input {
       padding: 10px;
@@ -123,55 +118,52 @@ $button-hover-orange: rgb(255, 60, 0);
       padding: 15px 0;
       font-weight: 400;
       margin: 0 15px;
-      
     }
+  }
+}
 
+.track-upload-stage-two-body{
+  position: relative;
+  width: 100%;
+
+  .image-upload{
+    width: 200px;
+    height: 200px;
   }
 
-  .track-upload-stage-two-body{
-    position: relative;
-    width: 100%;
+  form{
+    margin-top: 15px;
+    display: flex;
+  }
+}
 
-    .image-upload{
-      width: 200px;
-      height: 200px;
+.stage-two-basic-info{
+  width: 80%;
+
+  .fields{
+    margin: 15px 15px 15px 10px;
+    display: flex;
+    flex-direction: column;
+
+    .form-input-field{
+      width: 100%;
+      border-radius: 3px;
+      border: 1px solid $mid-gray;
+      margin: 10px 0;
+      text-indent: 5px;
+      padding: 2px;
     }
 
-    form{
-      margin-top: 15px;
+    .submit-cancel{
       display: flex;
       flex-direction: row;
+      justify-content: flex-end;
 
-      .stage-two-basic-info{
-        width: 80%;
-
-        .fields{
-          margin: 15px 15px 15px 10px;
-          display: flex;
-          flex-direction: column;
-
-          .form-input-field{
-            width: 100%;
-            border-radius: 3px;
-            border: 1px solid $mid-gray;
-            margin: 10px 0;
-            text-indent: 5px;
-            padding: 2px;
-          }
-
-          .submit-cancel{
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-
-            *{
-              padding: 5px;
-              margin: 5px 0 5px 5px;
-            }
-          }
-        }
+      *{
+        padding: 5px;
+        margin: 5px 0 5px 5px;
       }
-    }    
+    }
   }
 }
 
@@ -183,16 +175,18 @@ $button-hover-orange: rgb(255, 60, 0);
   align-items: center;
   position: relative;
   
-  div {
+  .file-upload-box {
     background-color: rgba(255,255,255,.8);
     transition: background-color .2s ease-in-out;
     width: 150px;
-    margin: auto;
+    left: 50%;
+    margin-left: -75px;
     position: absolute;
+    bottom: 15px;
     border-radius: 2px;
   }
 
-  div:hover{
+  .file-upload-box:hover{
     background-color: white;
   }
 }
@@ -298,6 +292,7 @@ $button-hover-orange: rgb(255, 60, 0);
 }
 
 .track-list-item-option-icons {
+  position: absolute;
   
   .fa, .fas{
     margin: 5px;
@@ -311,11 +306,6 @@ $button-hover-orange: rgb(255, 60, 0);
     border: 1px solid $light-gray;
     border-radius: 3px;
   }
-}
-
-.track-list-item-option-icons{
-  position: absolute;
-  right: 500px;
 }
 
 .ellipsis-options-nav-bar {

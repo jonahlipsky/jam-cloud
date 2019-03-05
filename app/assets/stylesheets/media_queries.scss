@@ -73,8 +73,39 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.track-show-header {
+  iframe {
+    width: 80%;
+  }
+  
+  .image-upload{
+    display: none;
+  }
+}
+
+.track-upload-stage-two-body{
+  form{
+    flex-direction: column;
+  }
+}
  
+.track-list-item-option-icons{
+  left: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-upload-container div{
+  top: 70%;
+  padding: 10;
+}
+
 @media only screen and (min-width: 430px){
+  .track-upload-container div{
+    top: 50%;
+  }
+
   .six-tracks-display{
     flex-direction: row;
   }
@@ -82,9 +113,25 @@
   .splash-auth-btns{
     right: 25px;
   }
+
+  .track-list-item-option-icons{
+    left: 400px;
+    flex-direction: column;
+  }
 }
 
 @media only screen and (min-width: 600px){
+
+  .track-list-item-option-icons{
+    flex-direction: row;
+  }
+
+
+  .track-upload-stage-two-body{
+    form{
+      flex-direction: row;
+    }
+  }
   
   .recent-tracks-display{
     flex-direction: column;
@@ -106,11 +153,26 @@
     align-items: center;
   }
 
-
 }
 
 @media only screen and (min-width: 813px){
 
+  .track-upload-container div{
+    top: 35%;
+    padding: 0;
+  }
+
+  .track-list-item-option-icons{
+    left: 500px;
+  }
+
+  .track-show-header .image-upload{
+    display: block;
+  }
+  
+  .track-show-header iframe{
+    width: 50%;
+  }
   
   .followed-user-display{
     display: block;
@@ -159,7 +221,14 @@
   }
 }
 
+
+
+
 @media only screen and (min-width: 1025px){
+
+  .track-list-item-option-icons{
+    left: 700px;
+  }
 
   .page-centered{
     width: 85%;
@@ -183,6 +252,12 @@
 }
 
 @media only screen and (min-width: 1200px){
+
+  .track-list-item-option-icons{
+    left: 800px;
+  }
+
+
   .discover-tracks-display {
     width: 650px;
   }
@@ -197,6 +272,11 @@
 }
 
 @media only screen and (min-width: 1300px){
+
+  .track-list-item-option-icons{
+    left: 900px;
+  }
+
   .discover-tracks-display {
     width: 750px;
   }
@@ -211,6 +291,10 @@
 }
 
 @media only screen and (min-width: 1450px){
+
+  .track-list-item-option-icons{
+    left: 1000px;
+  }
 
   .recent-tracks-display{
     flex-direction: row;

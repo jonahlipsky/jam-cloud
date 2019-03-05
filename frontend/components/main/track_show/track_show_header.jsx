@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UploadImage from '../../reuseable_components/upload_image';
 import ImageUploadForm from '../../reuseable_components/image_upload_form';
+import TrackWidgetContainer from '../../reuseable_components/widgets/track_widget_container';
 
 class TrackShowHeader extends React.Component{
   constructor(props){
@@ -99,6 +100,8 @@ class TrackShowHeader extends React.Component{
     } else {
       playIcon = <img src={window.playIcon} />
     }
+
+    let trackWidget = this.props.track ? <TrackWidgetContainer track={this.props.track} /> : ""
       
     return(
       <div className="track-show-header header">
@@ -116,6 +119,7 @@ class TrackShowHeader extends React.Component{
             {updateTime}
           </div>
         </div>
+        {trackWidget}
         <UploadImage context={this} type={'image'} imageUrl={imageUrl} />
         <div className={'modal js-modal-close'} id={'modal'}>
           <ImageUploadForm type={"image"} context={this}/>

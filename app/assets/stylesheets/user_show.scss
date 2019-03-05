@@ -33,7 +33,6 @@
   }
 
   .upload-new-background-image{
-    display: flex;
     flex-direction: row;
     position: absolute;
     top: 0;
@@ -98,7 +97,6 @@
 
 .widgets{
   padding: 0 30px;
-  width: 66%;
   border-right: 1px solid $background-gray;
 }
 
@@ -126,7 +124,6 @@
 }
 
 .user-follow-stats{
-  display: flex;
   flex-direction: row;
   border-bottom: 1px solid $background-gray;
   padding-bottom: 10px;

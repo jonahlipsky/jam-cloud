@@ -55,10 +55,12 @@
   width: 200px;
   flex-direction: column;
 }
+
 .like-and-options{
   right: 0px;
   display: flex;
 }
+
 .liked-display-list-item:last-child{
   display: none;
 }
@@ -99,6 +101,22 @@
 .track-upload-container div{
   top: 70%;
   padding: 10;
+}
+
+.user-show-body .like-and-options{
+  top: 120px;
+}
+
+.user-show-body .widgets{
+  width: 50%;
+}
+
+.user-follow-stats{
+  display: none;
+}
+
+.user-show-header .upload-new-background-image{
+  display: none;
 }
 
 @media only screen and (min-width: 430px){
@@ -156,6 +174,18 @@
 }
 
 @media only screen and (min-width: 813px){
+
+  .user-show-header .upload-new-background-image{
+    display: flex;
+  }
+
+  .user-follow-stats{
+    display: flex;
+  }
+
+  .user-show-body .like-and-options{
+    top: 20px;
+  }
 
   .track-upload-container div{
     top: 35%;
@@ -222,9 +252,10 @@
 }
 
 
-
-
 @media only screen and (min-width: 1025px){
+  .user-show-body .widgets{
+    width: 55%;
+  }
 
   .track-list-item-option-icons{
     left: 700px;
@@ -253,6 +284,10 @@
 
 @media only screen and (min-width: 1200px){
 
+  .user-show-body .widgets{
+    width: 60%;
+  }
+
   .track-list-item-option-icons{
     left: 800px;
   }
@@ -272,6 +307,10 @@
 }
 
 @media only screen and (min-width: 1300px){
+
+  .user-show-body .widgets{
+    width: 66%;
+  }
 
   .track-list-item-option-icons{
     left: 900px;

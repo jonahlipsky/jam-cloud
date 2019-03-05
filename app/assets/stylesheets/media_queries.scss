@@ -49,6 +49,10 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  li:nth-child(3){
+    display: none;
+  }
 }
 .liked-display-list-item{
   align-items: flex-start;
@@ -61,8 +65,11 @@
   display: flex;
 }
 
-.liked-display-list-item:last-child{
+.liked-display-list-item{
   display: none;
+}
+.liked-display-list-item:nth-child(1){
+  display: flex;
 }
 
 .recent-tracks-display{
@@ -186,21 +193,22 @@
     flex-direction: row;
   }
 
-  .liked-display-list-item{
-    width: 200px;
-    flex-direction: row;
-  }
-
-  .liked-display-list-item:last-child{
+  .liked-display-list-item:nth-child(2){
     display: flex;
   }
-  .liked-display-list-item{
-    align-items: center;
-  }
-
 }
 
 @media only screen and (min-width: 813px){
+
+  .liked-display-list-item{
+    width: 200px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .liked-display-list-item:nth-child(3){
+    display: flex;
+  }
 
   .queue-information{
     display: flex;

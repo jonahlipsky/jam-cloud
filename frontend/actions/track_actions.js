@@ -72,7 +72,6 @@ const receiveTrack = track => ({
 });
 
 
-
 //Thunk actions
 
 export const sendRecentTrack = trackId => dispatch => {

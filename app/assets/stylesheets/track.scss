@@ -219,19 +219,14 @@
   .username{
     color: black;
   }
-
-
 }
 
 .comment-area{
   width: 100%;
   > p{
     border-bottom: 1px solid $border-gray;
-    padding-bottom: 10px;
-    
+    padding-bottom: 10px; 
   }
-
-
 
   li{
     position: relative;
@@ -338,5 +333,4 @@
   .child-comment .list-item-content{
     margin-left: 20px;
   }
-
 }

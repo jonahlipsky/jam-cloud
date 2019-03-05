@@ -66,12 +66,6 @@ class User < ApplicationRecord
       errors[:profile_picture] << "Profile Picture must be attached"
     end
   end
-
-  # def ensure_profile_background
-  #   unless self.profile_background.attached?
-  #     errors[:profile_background] << "Profile Background must be attached"
-  #   end
-  # end
   
   has_many :comments, 
     foreign_key: :author_id,

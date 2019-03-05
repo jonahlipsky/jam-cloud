@@ -1,14 +1,4 @@
-//https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
-//check this out for styling range inputs specifically for the volume piece.
-//also perhaps refactor the slider.
-
-$button-hover-orange: rgb(255, 60, 0);
-$button-orange: #f50;
-$mid-gray: rgb(60, 60, 60);
-$play-button-gray: #333;
-$light-gray: rgb(150,150,150);
-$lighter-gray: #cecece;
-$background-gray: #f2f2f2;
+@import 'colors';
 
 .continuous-play-bar-background {
   position: fixed;

@@ -45,19 +45,25 @@
   display: none;
 }
 
-.followed-user-display{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-
-  li:nth-child(3){
-    display: none;
-  }
-}
 .liked-display-list-item{
   align-items: flex-start;
   width: 200px;
   flex-direction: column;
+  display: flex;
+}
+
+.user-show-body .liked-display-list-item{
+  flex-direction: row;
+}
+
+.followed-user-display{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  .liked-display-list-item:nth-child(3){
+    display: none;
+  }
 }
 
 .like-and-options{
@@ -65,12 +71,6 @@
   display: flex;
 }
 
-.liked-display-list-item{
-  display: none;
-}
-.liked-display-list-item:nth-child(1){
-  display: flex;
-}
 
 .recent-tracks-display{
   flex-direction: column;
@@ -111,11 +111,9 @@
 }
 
 .user-show-body .like-and-options{
-  top: 120px;
-}
-
-.user-show-body .widgets{
-  width: 50%;
+  top: 70px;
+  right: normal;
+  left: 0;
 }
 
 .user-follow-stats{
@@ -139,6 +137,15 @@
   justify-content: space-around;
 }
 
+.widgets-and-followers{
+  display: flex; 
+  flex-direction: column-reverse;
+}
+
+.followers-following-display{
+  width: 100%;
+}
+
 @media only screen and (min-width: 430px){
 
   .track-upload-container div{
@@ -160,6 +167,7 @@
 }
 
 @media only screen and (min-width: 600px){
+
 
   .progress-bar-container{
     display: flex;
@@ -200,9 +208,18 @@
 
 @media only screen and (min-width: 813px){
 
+
+  .followers-following-display{
+    width: 25%;
+  }
+
+  .widgets-and-followers{
+    flex-direction: row;
+  }
+
   .liked-display-list-item{
     width: 200px;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
   }
 
@@ -227,6 +244,8 @@
   }
 
   .user-show-body .like-and-options{
+    left: inherit;
+    right: 0;
     top: 20px;
   }
 
@@ -250,6 +269,10 @@
   .followed-user-display{
     display: block;
     width: 300px;
+
+    .liked-display-list-item:nth-child(3){
+      display: flex;
+    }
   }
 
   .tracks-scrolling-display{
@@ -378,6 +401,7 @@
 }
 
 @media only screen and (min-width: 1450px){
+
   .control-bar{
     margin-left: 0;
     width: 75%;

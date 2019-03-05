@@ -94,7 +94,7 @@ $background-gray: #f2f2f2;
 
   i{
     color: $play-button-gray;
-    font-size: 10pt;
+    font-size: 14pt;
   }
 
   #play-pause{
@@ -115,7 +115,6 @@ $background-gray: #f2f2f2;
 
 // QUEUE INFORMATION
 .queue-information{
-  display: flex;
   flex-direction: row;
   position: absolute;
   left: 75%;
@@ -150,7 +149,6 @@ $background-gray: #f2f2f2;
 .progress-bar-container{
   width: 100%;
   height: 100%;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -228,8 +226,8 @@ $background-gray: #f2f2f2;
   position: relative;
 
   img {
-    height: 28px;
-    width: 28px;
+    height: 30px;
+    width: 30px;
     padding: 2px;
   }
 

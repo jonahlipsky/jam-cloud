@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import LikeIcon from './like_icon';
 import { createLike, deleteLike } from '../../../actions/like_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
   let sessionUserId = state.session.id;
   let user = state.entities.users[sessionUserId];

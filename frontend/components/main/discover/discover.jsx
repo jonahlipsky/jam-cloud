@@ -13,14 +13,11 @@ class Discover extends React.Component{
     return(
       <div className="discover-page">
         <div className="discover-tracks-and-stats">
-        
-
           <div className="discover-stats-and-likes">
             <DiscoverStats nRecentlyPlayedTracks={this.props.nRecentlyPlayedTracks} 
               lastWeekListens={this.props.lastWeekListens} lastDayListens={this.props.lastDayListens}/>
             <DiscoverLikesContainer />
           </div>
-
           <div className="discover-tracks-display">
             <h1>Explore these tracks from Artists on JamCloud!</h1>
             <TracksScrollingDisplay />

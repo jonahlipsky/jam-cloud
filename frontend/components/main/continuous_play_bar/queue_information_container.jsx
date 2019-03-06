@@ -7,7 +7,7 @@ const mapStateToProps = state => {
   let currentTrackId;
   let currentTrack;
   if(state.io.trackQueue.queue[0]){
-    currentTrackId = state.io.trackQueue.queue[0]; //change this!
+    currentTrackId = state.io.trackQueue.queue[0];
     currentTrack = state.entities.tracks[currentTrackId];
     trackArtist = (currentTrack && state.entities.users[currentTrack.user_id]) ? state.entities.users[currentTrack.user_id].username : "";
   } else {

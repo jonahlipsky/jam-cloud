@@ -34,6 +34,4 @@ class Comment < ApplicationRecord
   has_many :likers,
     through: :likes,
     source: :user
-
-
 end

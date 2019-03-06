@@ -9,7 +9,6 @@ export default ({comment, childComment, childCommentLis, sessionId,
   let date = parseDate(comment.updated_at).fromNow()
   let removeCommentClass = comment.author_id === sessionId ? "fa fa-trash" : "hidden";
 
-
   let turnedOn = turnedOnLis.includes(comment.id) ? true : false;
 
   let replyCommentInput = (<ReplyToComment parentComment={comment} profilePictureCurrentUser={profilePictureCurrentUser} 

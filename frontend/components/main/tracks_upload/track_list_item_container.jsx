@@ -18,7 +18,6 @@ const mapDispatchToProps = dispatch => ({
   freezeListItem: (trackId) => dispatch(freezeListItem(trackId)),
   noListItemFrozen: () => dispatch(noListItemFrozen()),
   clearImmediate: () => dispatch(clearImmediate()),
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackListItem);

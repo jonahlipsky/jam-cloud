@@ -21,7 +21,6 @@ class LikeIcon extends Component{
     }
   }
 
-
   findLike(){
     let like = this.props.likedObjects.filter(object => {
       if(this.props.type === object.likeable_type && 
@@ -59,7 +58,6 @@ class LikeIcon extends Component{
       ) : (
         <i onClick={this.handleLike(type)} className={heartClass}></i>
       )
-
 
     return(
       <>

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 class LikedTrackDisplayItem extends Component{
   constructor(props){
     super(props);
-
   }
 
   render(){

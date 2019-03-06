@@ -21,7 +21,6 @@ const mapStateToProps = state => {
   });
 };
 
-
 const mapDispatchToProps = dispatch => ({
   goToNextTrack: () => dispatch(goToNextTrack()),
   sendPercentageComplete: (percentageComplete, duration) => (

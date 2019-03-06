@@ -6,9 +6,7 @@ import DropdownComponent from './dropdown_component';
 const mapStateToProps = (state, ownProps) => {
   let currentUserId = state.session.id;
   let currentUser = state.entities.users[currentUserId];
-
   let list = [[<p><i className="fas fa-user"></i> Profile</p>, () => ownProps.history.push(`/users/${currentUserId}`)]];
-  
   let headerComponent = currentUser ? (<div className="profile-dropdown">
   <p><img src={currentUser.profilePicture} />{currentUser.username}</p>
   <i className="fa fa-angle-down"></i>
@@ -19,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
     list
   });
 };
-
 
 const ProfileUserDropdown = (props) => {
   return(

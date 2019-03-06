@@ -15,7 +15,6 @@ class ProgressBar extends React.Component{
 
   render(){
 
-    
     return(
       <div className="progress-bar-container" >
         <p className="current-track-time">{this.props.currentTime}</p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBarContainer from '../main/nav_bar/nav_bar_container';
-import { Route, Redirect, NavLink, Switch, Link, HashRouter} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import UploadContainer from './tracks_upload/upload_container';
 import TrackContainer from './track_show/track_container';
 import SignOut from '../route_actions/sign_out';

@@ -10,7 +10,6 @@ export default ({context, type}) => {
   } else {
     typeClass = "track-picture-modal";
   }
-  
 
   return (
     <div className={`image-upload-modal modal-form ${typeClass}`} id="modal-form">

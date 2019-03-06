@@ -6,7 +6,6 @@ import { fetchTracks } from '../../actions/track_actions';
 import TracksScrollingListItem from './tracks_scrolling_list_item';
 
 const mapStateToProps = state => {
-
   let trackArtistPairs = [];
   let queue = state.io.trackQueue.queue;
   if(queue.length){
@@ -22,7 +21,6 @@ const mapStateToProps = state => {
     trackArtistPairs
   });
 };
-
 
 const mapDispatchToProps = dispatch => ({
   pushToFrontOfQueue: trackId => dispatch(pushToFrontOfQueue(trackId)),

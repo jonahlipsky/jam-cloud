@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import UploadImage from '../../reuseable_components/upload_image';
 import ImageUploadForm from '../../reuseable_components/image_upload_form';
 import regeneratorRuntime from 'regenerator-runtime';

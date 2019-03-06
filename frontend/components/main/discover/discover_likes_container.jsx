@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import DiscoverLikes from './discover_likes';
-import { randomizeTracks, parseDate } from '../../../util/general_util';
-import moment from 'moment';
 
-const mapStateToProps = (state, ownProps) => {
+
+const mapStateToProps = (state) => {
   let sessionUserId = state.session.id;
   let sessionUser = state.entities.users ? state.entities.users[sessionUserId] : null;
   let likedTracks = [];
@@ -36,8 +35,6 @@ const mapStateToProps = (state, ownProps) => {
       }
     });
     notFollowedUsers = notFollowedUsers.slice(-3);
-    
-    
   }
 
   return({

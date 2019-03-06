@@ -13,7 +13,6 @@ class UserShow extends React.Component{
       <div className="user-show-container main-content-area">
         <UserShowHeaderContainer />
         <UserShowBodyContainer />
-        
       </div>
     )
   }

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { pushToFrontOfQueue } from '../../actions/sound_controller_actions';
 
-
 const mapDispatchToProps = dispatch => ({
   pushToFrontOfQueue: (trackId) => dispatch(pushToFrontOfQueue(trackId))
 });

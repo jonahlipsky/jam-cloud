@@ -1,6 +1,6 @@
 import React from 'react';
 import UploadFormContainer from './upload_form_container';
-import { Route, Redirect, NavLink, Switch, Link, HashRouter} from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import ShowTracks from './show_tracks';
 
 class Upload extends React.Component{

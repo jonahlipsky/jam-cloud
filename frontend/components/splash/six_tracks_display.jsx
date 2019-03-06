@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import React from 'react';
 import SingleTrackDisplay from '../reuseable_components/single_track_display';
 

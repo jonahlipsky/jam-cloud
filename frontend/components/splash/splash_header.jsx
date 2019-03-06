@@ -48,7 +48,6 @@ class SplashHeader extends React.Component {
     this.props.signin(user);
   }
 
-
   render(){
 
     const formTypeForAuth = this.state.formType;

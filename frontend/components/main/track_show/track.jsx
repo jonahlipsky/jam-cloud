@@ -7,7 +7,6 @@ import regeneratorRuntime from "regenerator-runtime";
 class Track extends React.Component {
   constructor(props){
     super(props);
-
   }
 
   async componentDidMount(){

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { randomizeTracks } from '../../../util/general_util';
 import RecentTrackItem from '../../reuseable_components/recent_track_item';
 
 const mapStateToProps = state => {

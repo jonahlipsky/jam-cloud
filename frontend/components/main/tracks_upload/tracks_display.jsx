@@ -6,7 +6,6 @@ class TracksDisplay extends React.Component{
     super(props);
   }
 
-
   render(){
     let trackListItems = this.props.tracks.map((track, i) => {
       return <TrackListItemContainer key={i} track={track} username={this.props.username} />

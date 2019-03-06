@@ -1,6 +1,5 @@
 import moment from 'moment';
 
-
 export const parseWidgetIdentifier = widgetString => {
   let beginning = widgetString.indexOf("tracks/") + 7;
   let end = widgetString.indexOf("&color");
@@ -17,7 +16,6 @@ export const parseDate = (date) => {
   let parsedDate = moment(mdy, "MM-DD-YYYY");
   return parsedDate;
 };
-
 
 //RANDOM TRACKS METHODS
 //these methods are for finding random trackIds from the list of trackIds.

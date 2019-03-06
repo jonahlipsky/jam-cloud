@@ -57,7 +57,6 @@ export const signup = user => dispatch => (
   )
 );
 
-
 const receiveAllUsers = (users) => ({
   type: RECEIVE_ALL_USERS,
   users

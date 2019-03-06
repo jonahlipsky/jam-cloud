@@ -49,7 +49,6 @@ class SplashHeader extends React.Component {
   }
 
   render(){
-
     const formTypeForAuth = this.state.formType;
     return(
       <div className="splash-image">

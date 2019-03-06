@@ -8,14 +8,16 @@ $button-orange: #f50;
 .splash-image{
   height: 450px;
   width: 100%;
-  margin: auto;
   display: flex;
   position: relative;
   background-size: cover;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
 
   img{
     position: absolute;
-    height: 450px;
+    width: 1250px;
   }
 
   &:before {

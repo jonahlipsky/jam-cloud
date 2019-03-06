@@ -2,12 +2,19 @@ import React from 'react';
 import SixTracksDisplay from './six_tracks_display';
 import { connect } from 'react-redux';
 import { randomizeTracks } from '../../util/general_util';
+import Widget from '../reuseable_components/widgets/track_widget_container';
 
 const mapStateToProps = state => {
 
   let trackArtistPairs = [];
   let users = state.entities.users;
   let trackIds = Object.keys(state.entities.tracks);
+  let featuredTracks = [];
+  if(state.entities.tracks && state.entities.tracks[14]){
+    featuredTracks.push(state.entities.tracks[14]);
+  }
+
+
   if(Object.keys(users).length && trackIds.length){
     let randomTrackIds = randomizeTracks(trackIds);
     let onlyTwelve = trackIds.length > 12 ? randomTrackIds.slice(0, 12) : randomTrackIds;
@@ -20,7 +27,8 @@ const mapStateToProps = state => {
   }
   
   return({
-    trackArtistPairs
+    trackArtistPairs,
+    featuredTracks
   });
 };
 
@@ -40,11 +48,25 @@ class SplashBody extends React.Component{
   render(){
     let firstSix = this.state.firstSix || [];
     let secondSix = this.state.secondSix || [];
+    let featureOne = "";
+
+    if(this.props.featuredTracks.length){
+      featureOne = <li><Widget track={this.props.featuredTracks[0]} /></li>
+    }
+
     return(
       <div className="splash-body">
+        <h1>Listen to this featured track on JamCloud!</h1>
+        <ul className="splash-featured-track">
+          {featureOne}
+        </ul>
+
         <h1>Explore these new tracks uploaded to JamCloud!</h1>
         <SixTracksDisplay tracksAndArtists = {firstSix}/>
         <SixTracksDisplay tracksAndArtists = {secondSix}/>
+
+        
+
       </div>
     )
   }

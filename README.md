@@ -15,6 +15,8 @@ JamCloud is App for listening to your favorite jams -- it is modelled on SoundCl
 * React.js for rendering the frontend
 * Redux.js for managing complex state changes on the frontend
 * HTML / CSS for structuring and styling the frontend
+* ReactSound for rendering Sound
+* SoundCloud Widget Api
 
 ## Key Features
 * Continuous Play Progress Bar
@@ -26,7 +28,7 @@ JamCloud is App for listening to your favorite jams -- it is modelled on SoundCl
 This progress bar tracks the progress of a song through actions dispatch through redux. While technically the progress of a song is managed by a set interval that updates the style of the progress bar element on the DOM every 100th of a second, the intitializing of that interval is managed by the dispatch actions. The progress bar handles actions that progress to the next song, go back to the previous song, and pause the current track. 
 
 ### SoundCloud Widget synced with Progress Bar 
-I used the SoundCloud widget API to display their widget on my user profile pages. In order to control it and make the widget reusable, I built a react component around it so that it would get passed the correct information and render as the correct widget. I created callback functions that would be triggered when the play or pause events got triggered by the widget to handle signals being sent from the widget to the Progress Bar, and I used conditions in the ComponentDidUpdate lifecycle method to handle signals beings sent from the progress bar to the widget. Implementing this involved the hardest bug I came across while building this App. Read about it below in "Hardest Bug: The Signal and the Handshake".
+I used the SoundCloud widget API to display their widget in several places on the site. In order to control it and make the widget reusable, I built a react component around it so that it would get passed the correct information and render as the correct widget. I created callback functions that would be triggered when the play or pause events got triggered by the widget to handle signals being sent from the widget to the Progress Bar, and I used conditions in the ComponentDidUpdate lifecycle method to handle signals beings sent from the progress bar to the widget. Implementing this involved the hardest bug I came across while building this App. Read about it below in "Hardest Bug: The Signal and the Handshake".
 
 ![widget and progress bar](https://github.com/jonahlipsky/jam-cloud/blob/master/app/assets/images/widget_and_bar.png "Widget and Progress Bar")
 

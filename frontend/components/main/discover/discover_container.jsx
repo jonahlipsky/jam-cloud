@@ -43,14 +43,22 @@ const mapStateToProps = state => {
       }
     });
   }
-  
 
+  let featuredTracks = [];
+  if(state.entities.tracks && state.entities.tracks[14]){
+    featuredTracks.push(state.entities.tracks[14]);
+  }
+  if(state.entities.tracks && state.entities.tracks[19]){
+  featuredTracks.push(state.entities.tracks[19]);
+  }
+  
 
   return({
     recentlyPlayedTracks,
     nRecentlyPlayedTracks,
     lastWeekListens,
-    lastDayListens
+    lastDayListens,
+    featuredTracks
   });
 };
 

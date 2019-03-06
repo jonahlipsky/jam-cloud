@@ -146,6 +146,16 @@
   width: 100%;
 }
 
+.discover-page-featured-tracks{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  li{
+    width: 100%;
+  }
+}
+
 @media only screen and (min-width: 430px){
 
   .track-upload-container div{
@@ -252,6 +262,11 @@
     top: 20px;
   }
 
+  .discover-page .like-and-options{
+    right: 10px;
+    top: 100px;
+  }
+
   .track-upload-container div{
     top: 35%;
     padding: 0;
@@ -269,9 +284,21 @@
     width: 50%;
   }
   
-  .followed-user-display{
-    display: block;
-    width: 300px;
+  .user-show-body{
+    .followed-user-display{
+      display: block;
+      width: 300px;
+  
+    .liked-display-list-item:nth-child(3){
+      display: flex;
+    }
+    }
+  }
+
+  .discover-page{
+    .followed-user-display{
+      display: flex;
+    }
 
     .liked-display-list-item:nth-child(3){
       display: flex;

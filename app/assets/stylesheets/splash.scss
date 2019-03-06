@@ -190,9 +190,7 @@ $button-orange: #f50;
   label{
     font-size: 14pt;
   }
-
 }
-
 
 .modal-screen .modal-close {
   position: absolute; 
@@ -219,4 +217,17 @@ $button-orange: #f50;
     font-weight: 400;
     margin: 30px 0;
   }
+
+
+  
+}
+
+.splash-featured-track{
+  display: flex;
+  justify-content: center;
+
+  li{
+    width: 90%;
+  }
+
 }

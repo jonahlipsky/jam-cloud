@@ -121,3 +121,33 @@
 .like-icon{
   cursor: pointer;
 }
+
+.widget-container{
+  position: relative;
+  border: 1px solid red;
+}
+
+.widget-track-image-cover{
+  height: 100%; 
+  border: 1px solid green;
+  width: 165px;
+  top: 0;
+  position: absolute;
+  z-index: 4;
+}
+
+.widget-track-image-cover:hover{
+  .widget-follow-cover{
+    position: absolute;
+    left: 37px;
+    bottom: 20px;
+    width: 90px;
+    height: 30px;
+    background: $button-orange;
+    z-index: 5;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

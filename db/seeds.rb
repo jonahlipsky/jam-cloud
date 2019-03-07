@@ -30,6 +30,10 @@ n_p_r = User.create(username: 'n_p_r', password: 'nupur123', email: "nupur@demom
 n_p_r.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 n_p_r.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
+ethan = User.create(username: 'Ethan Woods', password: 'ethan123', email: 'ethan@demomail.com', age: 29, gender: 'Male')
+ethan.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'ethan_woods', 'ethan_profile.png')), filename: 'ethan_profile.png')
+# ethan.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
+
 ## TRACKS
 
 # daniel stern

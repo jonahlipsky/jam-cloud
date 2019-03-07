@@ -94,6 +94,10 @@ class TrackWidget extends React.Component{
         this.state.widget.pause();
     }
   }
+  
+  handleMouseover(e){
+    e.stopPropagation();
+  }
 
   render(){
     let widget = "";
@@ -106,9 +110,15 @@ class TrackWidget extends React.Component{
         allow="autoplay" src={`${prefix}${widgetIdentifier}${options}`}></iframe>
     }
     return(
-      <>
+
+      <div className="widget-container">      
         {widget}
-      </>
+        <div className="widget-track-image-cover" onMouseOver={this.handleMouseover}>
+          <div className="widget-follow-cover" >
+            
+          </div>
+        </div>
+      </div>
     )
   }
 }

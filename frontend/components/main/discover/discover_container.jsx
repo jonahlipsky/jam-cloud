@@ -58,7 +58,8 @@ const mapStateToProps = state => {
     nRecentlyPlayedTracks,
     lastWeekListens,
     lastDayListens,
-    featuredTracks
+    featuredTracks,
+    sessionUser
   });
 };
 

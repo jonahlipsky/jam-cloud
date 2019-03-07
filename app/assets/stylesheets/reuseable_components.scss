@@ -136,6 +136,10 @@
   z-index: 4;
 }
 
+.widget-follow-cover{
+  display: none;
+}
+
 .widget-track-image-cover:hover{
   .widget-follow-cover{
     position: absolute;

@@ -16,8 +16,8 @@ class Discover extends React.Component{
     if(this.props.featuredTracks.length){
       let trackOne = this.props.featuredTracks[0];
       let trackTwo = this.props.featuredTracks[1];
-      featureOne = <li id={trackOne.id}><Widget track={trackOne}/></li>
-      featureTwo = <li id={trackTwo.id}><Widget track={trackTwo}/></li>
+      featureOne = <li id={trackOne.id}><Widget track={trackOne} user={this.props.sessionUser}/></li>
+      featureTwo = <li id={trackTwo.id}><Widget track={trackTwo} user={this.props.sessionUser}/></li>
     }
     
     return(

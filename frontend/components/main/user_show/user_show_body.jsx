@@ -18,7 +18,7 @@ class UserShowBody extends Component{
       if(track.widget_identifier){
         return(
           <li key={track.id} className="track-widget">
-            <TrackWidget track={track} />
+            <TrackWidget track={track} user={this.props.user}/>
           </li>
         )
       } else {

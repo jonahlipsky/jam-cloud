@@ -21,14 +21,8 @@ class TrackShowHeader extends React.Component{
     this.playTrack = this.playTrack.bind(this);
   }
 
-  componentDidMount(){
-    // debugger
-    // if(this.props.track && this.props.track.imageUrl){
-    //   this.setState({imageUrl: this.props.track.imageUrl});
-    // }
-  }
-
   handleFile(field){
+    debugger
     return e => {
       debugger
       let fileName = field + 'File';
@@ -46,9 +40,10 @@ class TrackShowHeader extends React.Component{
   }
 
   cancelUpdateImage(){
+    let that = this;
     return e => {
-      this.setState({image: null, imageUrl: null});
-      this.toggleModal();
+      that.setState({image: null, imageUrl: null});
+      that.toggleModal();
     };
   }
 

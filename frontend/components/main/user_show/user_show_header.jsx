@@ -46,7 +46,6 @@ class UserShowHeader extends React.Component{
   }
 
   async handleSubmit(){
-    debugger
     const formData = new FormData();
     if(this.state.profilePictureFile){
       formData.append('user[profile_picture]', this.state.profilePictureFile);
@@ -91,7 +90,6 @@ class UserShowHeader extends React.Component{
       profileBackgroundUrl = this.props.user.profileBackground;
     } 
 
-      
     return(
       <div className="user-show-header header">
         <div className="background-image">

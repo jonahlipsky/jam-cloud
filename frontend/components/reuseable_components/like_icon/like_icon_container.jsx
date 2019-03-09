@@ -3,22 +3,24 @@ import LikeIcon from './like_icon';
 import { createLike, deleteLike } from '../../../actions/like_actions';
 
 const mapStateToProps = (state) => {
-
   let sessionUserId = state.session.id;
-  let user = state.entities.users[sessionUserId];
-  let likeIds = user.liked_object_ids;
   let likedObjects = [];
-  likeIds.forEach(id => {
-    state.entities.likes[id] ? likedObjects.push(state.entities.likes[id]) : null;
-  }); 
-
   let likedObjectIds = {};
-  if(user){
-    likedObjectIds.comments = user.liked_comment_ids;
-    likedObjectIds.tracks = user.liked_track_ids;
-    likedObjectIds.users = user.followed_user_ids;
+  if(sessionUserId){
+    let user = state.entities.users[sessionUserId];
+    let likeIds = user.liked_object_ids;
+    likeIds.forEach(id => {
+      state.entities.likes[id] ? likedObjects.push(state.entities.likes[id]) : null;
+    }); 
+  
+    if(user){
+      likedObjectIds.comments = user.liked_comment_ids;
+      likedObjectIds.tracks = user.liked_track_ids;
+      likedObjectIds.users = user.followed_user_ids;
+    }
   }
 
+  debugger
   return({
     likedObjectIds,
     likedObjects,

@@ -53,6 +53,7 @@ class PlayBarController extends React.Component{
   async componentDidMount(){
     await this.props.fetchUsers();
     await this.props.fetchTracks();
+    await this.props.fetchAllLikes();
     this.toggleShuffle(this.props.trackIds, true);
   }
 

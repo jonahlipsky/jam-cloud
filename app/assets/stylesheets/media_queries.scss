@@ -160,9 +160,21 @@
   display: none;
 }
 
+.track-title-widget-cover{
+  left: 55px;
+}
+
+.n-likes{
+  padding: 30px 0 10px 0;
+}
+
 @media only screen and (min-width: 400px){
   .widget-track-image-cover{
     display: block;
+  }
+
+  .track-title-widget-cover{
+    left: 220px;
   }
 }
 
@@ -227,6 +239,9 @@
 }
 
 @media only screen and (min-width: 813px){
+  .n-likes{
+    padding: 50px 0 10px 0;
+  }
 
   .user-show-body .widgets{
     width: 50%;

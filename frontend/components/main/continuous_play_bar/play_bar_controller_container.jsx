@@ -5,6 +5,7 @@ import { goToNextTrack, toggleShuffle,
 import PlayBarController from './play_bar_controller';
 import { fetchTracks } from '../../../actions/track_actions';
 import { fetchUsers } from '../../../actions/session_actions';
+import { fetchAllLikes } from '../../../actions/like_actions';
 
 const mapStateToProps = state => {
   let shuffle = state.io.trackQueue.shuffle;
@@ -37,7 +38,8 @@ const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
   sendSoundStatus: (status, trackId) => dispatch(sendSoundStatus(status, trackId)),
   finishedLoading: trackId => dispatch(finishedLoading(trackId)),
-  sendSignal: () => dispatch(sendSignal())
+  sendSignal: () => dispatch(sendSignal()),
+  fetchAllLikes: () => dispatch(fetchAllLikes())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(PlayBarController);

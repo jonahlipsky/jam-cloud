@@ -36,28 +36,35 @@ class LikeIcon extends Component{
   handleLike(type){
     let that = this;
     return e => {
+      debugger
       if(that.likedObject()){
+        debugger
         let like = that.findLike();
         if(like) that.props.deleteLike(like);
       } else if(that.likedObject() === false) {
+        debugger
         that.props.createLike(type, that.props.element.id);
       }
     };
   }
 
   render(){
-    let type = this.props.type;
-    let liked = this.likedObject();
-    let heartClass = liked ? "fas fa-heart like-icon liked" : "fas fa-heart like-icon";
-    let followText = liked ? "Following" : "Follow";
-    let followingClass = liked ? "following-user-container like-icon followed" : "following-user-container like-icon";
-    let icon = this.props.type === "User" ? (
-        <div onClick={this.handleLike(type)} className={followingClass}>
-          {followText}
-        </div>
-      ) : (
-        <i onClick={this.handleLike(type)} className={heartClass}></i>
-      )
+
+    let icon = "";
+    if(this.props.sessionUserId){
+      let type = this.props.type;
+      let liked = this.likedObject();
+      let heartClass = liked ? "fas fa-heart like-icon liked" : "fas fa-heart like-icon";
+      let followText = liked ? "Following" : "Follow";
+      let followingClass = liked ? "following-user-container like-icon followed" : "following-user-container like-icon";
+      icon = this.props.type === "User" ? (
+          <div onClick={this.handleLike(type)} className={followingClass}>
+            {followText}
+          </div>
+        ) : (
+          <i onClick={this.handleLike(type)} className={heartClass}></i>
+        )
+    }
 
     return(
       <>

@@ -125,6 +125,17 @@
 .widget-container{
   position: relative;
   border: 1px solid red;
+
+  .fa-heart{
+    display: none;
+    position: absolute;
+    right: 25px;
+    bottom: 10px;
+  }
+}
+
+.widget-container:hover .fa-heart{
+  display: block;
 }
 
 .widget-track-image-cover{
@@ -146,7 +157,6 @@
   z-index: 5;
   justify-content: center;
   align-items: center;
-  
 }
 
 .widget-track-image-cover:hover{
@@ -161,4 +171,28 @@
     justify-content: center;
     align-items: center;
   }
+}
+
+.sound-cloud-cover{
+  position: absolute;
+  width: 115px;
+  height: 30px;
+  border: 1px solid blue;
+  right: 5px;
+  top: 5px;
+}
+
+.track-title-widget-cover{
+  position: absolute;
+  width: 200px;
+  height: 25px;
+  border: 1px solid blue;
+  top: 10px;
+  cursor: pointer;
+
+}
+
+.liked-track-display{
+  display: flex;
+  justify-content: space-around;
 }

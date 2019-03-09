@@ -1,5 +1,6 @@
 import React from 'react';
 import LikeIconContainer from '../like_icon/like_icon_container';
+import { Link } from 'react-router-dom';
 
 class TrackWidget extends React.Component{
   constructor(props){
@@ -96,6 +97,8 @@ class TrackWidget extends React.Component{
     }
   }
 
+
+
   render(){
     let widget = "";
     if(this.props.track){
@@ -110,6 +113,7 @@ class TrackWidget extends React.Component{
     if(this.props.user){
       followIcon = <LikeIconContainer element={this.props.user} type={"User"}/>
     }
+    let trackLikeIcon = <LikeIconContainer element={this.props.track} type={"Track"}/>
     return(
       <div className="widget-container">      
         {widget}
@@ -118,6 +122,9 @@ class TrackWidget extends React.Component{
             {followIcon}
           </div>
         </div>
+        {trackLikeIcon}
+        <div className="sound-cloud-cover"></div>
+        <Link className="track-title-widget-cover" to={`/tracks/${this.props.track.id}`}></Link>
       </div>
     )
   }

@@ -57,26 +57,6 @@ class TrackWidget extends React.Component{
     this.pauseCB(widget); //CB for when the widget gets paused
     this.seekCB(widget); //CB for when the user seeks
   }
-
-  componentDidMount(){
-
-    //What I am attempting to do here is to listen for when the widget gets smaller than the threshold
-    //that the soundcloud widget has for vanishing the image. When this happens, remove that element from 
-    //the DOM.
-
-    //OR
-
-    //simply prevent the appearance of the default follow and put my own follows in places where I will
-    //be fine with them existing. such as below the waveform. 
-    //the likes and follows could be right next to each other.
-    
-    // let widgetParent = document.getElementById(`track${this.props.track.id}Widget`).parentElement;
-    // widgetParent.addEventListener('resize', () => {
-    //   if(widgetParent.style.)
-    // });
-    // debugger
-
-  }
   
   componentDidUpdate(prevProps){
     //if the widget is not present, create the widget and save to state.
@@ -115,10 +95,6 @@ class TrackWidget extends React.Component{
         this.state.widget.pause();
     }
   }
-  
-  handleMouseover(e){
-    e.stopPropagation();
-  }
 
   render(){
     let widget = "";
@@ -130,16 +106,16 @@ class TrackWidget extends React.Component{
       widget = <iframe id={id} width="100%" height="166" scrolling="no" frameBorder="no" 
         allow="autoplay" src={`${prefix}${widgetIdentifier}${options}`}></iframe>
     }
-    let likeIcon = "";
+    let followIcon = "";
     if(this.props.user){
-      likeIcon = <LikeIconContainer element={this.props.user} type={"User"}/>
+      followIcon = <LikeIconContainer element={this.props.user} type={"User"}/>
     }
     return(
       <div className="widget-container">      
         {widget}
-        <div className="widget-track-image-cover" onMouseOver={this.handleMouseover}>
+        <div className="widget-track-image-cover">
           <div className="widget-follow-cover" >
-            {likeIcon}
+            {followIcon}
           </div>
         </div>
       </div>

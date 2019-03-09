@@ -156,6 +156,16 @@
   }
 }
 
+.widget-track-image-cover{
+  display: none;
+}
+
+@media only screen and (min-width: 400px){
+  .widget-track-image-cover{
+    display: block;
+  }
+}
+
 @media only screen and (min-width: 430px){
 
   .track-upload-container div{

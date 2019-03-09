@@ -14,7 +14,6 @@ export default ({context, type}) => {
     typeClass = "track-picture-modal";
   }
 
-  debugger
   return (
     <div className={`image-upload-modal modal-form ${typeClass}`} id="modal-form">
       <div className="image-upload-image-container">

@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  updateTrack: formData => dispatch(updateTrack(formData)),
+  updateTrack: (formData, id) => dispatch(updateTrack(formData, id)),
   pushToFrontOfQueue: trackId => dispatch(pushToFrontOfQueue(trackId))
 });
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UploadImage from '../../reuseable_components/upload_image';
-import ImageUploadForm from '../../reuseable_components/image_upload_form';
 import TrackWidgetContainer from '../../reuseable_components/widgets/track_widget_container';
 
 class TrackShowHeader extends React.Component{
@@ -11,27 +10,25 @@ class TrackShowHeader extends React.Component{
     this.state = {
       imageUrl: null,
       imageFile: null,
-      playIcon: "playIcon",
-      modalType: ""
+      playIcon: "playIcon"
     };
 
     this.toggleModal = this.toggleModal.bind(this);
     this.cancelUpdateImage = this.cancelUpdateImage.bind(this);
-    this.handleSubmit = this.handleFile.bind(this);
+    this.submitImageFile = this.submitImageFile.bind(this);
+    this.handleFile = this.handleFile.bind(this)
     this.playTrack = this.playTrack.bind(this);
   }
 
   handleFile(field){
-    debugger
     return e => {
-      debugger
       let fileName = field + 'File';
       let urlName = field + 'Url';
       const file = e.currentTarget.files[0];
       const fileReader = new FileReader();
       fileReader.onloadend = () => {
         this.setState({[fileName]: file, [urlName]: fileReader.result});
-        this.toggleModal('Update Image');
+        this.toggleModal();
       };
       if(file){
         fileReader.readAsDataURL(file);
@@ -40,22 +37,11 @@ class TrackShowHeader extends React.Component{
   }
 
   cancelUpdateImage(){
-    let that = this;
-    return e => {
-      that.setState({image: null, imageUrl: null});
-      that.toggleModal();
-    };
+    this.setState({image: null, imageUrl: null});
+    this.toggleModal();
   }
 
-  handleSubmit(){
-    debugger
-    const formData = new FormData();
-    formData.append('track[image]', that.state.imageFile);
-    this.props.updateTrack(formData, this.props.track.id);
-  }
-
-  toggleModal(type=""){
-    this.setState({modalType: type});
+  toggleModal(){
     const modalForm = document.getElementById('modal-form');
     const modal = document.getElementById('modal');
     if(modal.classList.contains('js-modal-close')){
@@ -83,6 +69,13 @@ class TrackShowHeader extends React.Component{
 
   removeIconHover(){
     this.setState({playIcon: "playIcon"});
+  }
+
+  submitImageFile(){
+    const formData = new FormData();
+    formData.append('track[image]', this.state.imageFile);
+    this.props.updateTrack(formData, this.props.track.id);
+    this.toggleModal();
   }
 
   render(){
@@ -126,8 +119,19 @@ class TrackShowHeader extends React.Component{
         </div>
         {trackWidget}
         <UploadImage context={this} type={'image'} imageUrl={imageUrl} />
-        <div className={'modal js-modal-close'} id={'modal'}>
-          <ImageUploadForm type={"image"} context={this}/>
+        <div className={'modal js-modal-close'} id='modal'>
+          
+
+          <div className={`image-upload-modal modal-form track-picture-modal`} id="modal-form">
+            <div className="image-upload-image-container">
+              <img src={this.state.imageUrl}/>
+            </div>
+            <div className="cancel-submit">
+              <button className="cancel" onClick={this.cancelUpdateImage}>cancel</button>
+              <button id="submit" onClick={this.submitImageFile}>Save</button>
+            </div>
+          </div>
+
           <div className="modal-screen" id={'modal-screen'} onClick={e => this.toggleModal("image")}>
             <button className="modal-close" >
               <i className="fas fa-times"></i>

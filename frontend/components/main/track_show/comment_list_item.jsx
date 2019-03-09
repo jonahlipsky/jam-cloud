@@ -1,6 +1,7 @@
 import React from 'react';
 import { parseDate } from '../../../util/general_util';
 import ReplyToComment from './reply_to_comment_input';
+import LikeIconContainer from '../../reuseable_components/like_icon/like_icon_container';
 
 export default ({comment, childComment, childCommentLis, sessionId, 
   profilePictureCurrentUser, turnedOnLis, resetTurnedOnLis, addListItem, removeComment}) => {
@@ -25,6 +26,7 @@ export default ({comment, childComment, childCommentLis, sessionId,
         <div className="date-and-options">
           <p className="date">{date}</p>
           <div className="options">
+            <LikeIconContainer element={comment} type={"Comment"}/>
             <p className="reply-option" onClick={addListItem(comment.id)}><i className="fa fa-reply" aria-hidden="true"></i> Reply</p>
             <i className={removeCommentClass} aria-hidden="true" onClick={removeComment(comment)}></i>
           </div>

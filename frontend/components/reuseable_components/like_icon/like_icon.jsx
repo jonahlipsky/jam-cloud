@@ -36,13 +36,11 @@ class LikeIcon extends Component{
   handleLike(type){
     let that = this;
     return e => {
-      debugger
+      e.stopPropagation();
       if(that.likedObject()){
-        debugger
         let like = that.findLike();
         if(like) that.props.deleteLike(like);
       } else if(that.likedObject() === false) {
-        debugger
         that.props.createLike(type, that.props.element.id);
       }
     };

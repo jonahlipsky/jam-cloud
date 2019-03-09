@@ -101,6 +101,15 @@
   left: 210px;
   top: 0;
 
+  ul{
+    position: relative;
+  }
+
+  .like-icon{
+    position: absolute;
+    right: 15px;
+  }
+
   li{
     color: $nav-bar-text-color;
     border-bottom: 1px solid $light-gray;
@@ -124,7 +133,6 @@
 
 .widget-container{
   position: relative;
-  border: 1px solid red;
 
   .fa-heart{
     display: none;
@@ -140,7 +148,6 @@
 
 .widget-track-image-cover{
   height: 100%; 
-  border: 1px solid green;
   width: 165px;
   top: 0;
   position: absolute;
@@ -177,7 +184,6 @@
   position: absolute;
   width: 115px;
   height: 30px;
-  border: 1px solid blue;
   right: 5px;
   top: 5px;
 }
@@ -186,13 +192,8 @@
   position: absolute;
   width: 200px;
   height: 25px;
-  border: 1px solid blue;
   top: 10px;
   cursor: pointer;
 
 }
 
-.liked-track-display{
-  display: flex;
-  justify-content: space-around;
-}

@@ -20,6 +20,13 @@ class TrackShowHeader extends React.Component{
     this.playTrack = this.playTrack.bind(this);
   }
 
+  componentDidMount(){
+    debugger
+    if(this.props.track && this.props.track.imageUrl){
+      this.setState({imageUrl: this.props.track.imageUrl});
+    }
+  }
+
   handleFile(field){
     return e => {
       let fileName = field + 'File';
@@ -101,7 +108,7 @@ class TrackShowHeader extends React.Component{
       playIcon = <img src={window.playIcon} />
     }
 
-    let trackWidget = this.props.track ? <TrackWidgetContainer track={this.props.track} /> : ""
+    let trackWidget = this.props.track && this.props.artist ? <TrackWidgetContainer track={this.props.track} user={this.props.artist} /> : ""
       
     return(
       <div className="track-show-header header">

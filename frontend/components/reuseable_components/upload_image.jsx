@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default ({imageUrl, context, type}) => (
+export default ({imageUrl, context, type}) => {
+  debugger
+  return (
     <div className="image-upload">
       <div className="image-container">
         <img src={imageUrl} />
@@ -11,5 +13,4 @@ export default ({imageUrl, context, type}) => (
         <p><i className="fas fa-camera"></i> Upload Image</p>
       </div>
     </div>
-
-)
+)}

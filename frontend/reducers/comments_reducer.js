@@ -33,7 +33,7 @@ export default (state = {}, action) => {
       return newState;
     case RECEIVE_NEW_LIKE:
       if(action.like.likeable_type === "Comment" && newState[action.like.likeable_id]){
-        comment = newState[action.like.likeable_id];
+        let comment = newState[action.like.likeable_id];
         comment.likes += 1;
         comment.liker_ids.push(action.like.user_id);
         newState[action.like.likeable_id] = comment;
@@ -41,7 +41,7 @@ export default (state = {}, action) => {
       return newState;
     case DELETE_LIKE:
       if(action.like.likeable_type === "Comment" && newState[action.like.likeable_id]){
-        comment = newState[action.like.likeable_id];
+        let comment = newState[action.like.likeable_id];
         comment.likes -= 1;
         comment.liker_ids = comment.liker_ids.filter(id => {
           return (id != action.like.user_id);

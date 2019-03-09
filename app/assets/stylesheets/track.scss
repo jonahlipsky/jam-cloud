@@ -4,6 +4,7 @@
 .track-show-page{
   width: 100%;
   margin-top: 50px;
+  min-height: 1000px;
 
 }
 
@@ -22,7 +23,7 @@
 .track-show-header{
   background-image: linear-gradient(to right, rgb(161, 67, 250), rgb(206, 6, 179));
 
-  iframe{
+  .widget-container{
     position: absolute;
     left: 40px;
     bottom: 40px;
@@ -197,6 +198,10 @@
     margin-right: 4px;
   }
 
+  .liked{
+    color: $button-orange;
+  }
+
 
   p{
     color: $light-gray;
@@ -334,3 +339,16 @@
     margin-left: 20px;
   }
 }
+
+
+// .track-show-header{
+//   .widget-container{
+//     width: 100%;
+//     height: 200px;
+//   }
+  
+//   iframe{
+//     width: 100%;
+//     height: 100%;
+//   }
+// }

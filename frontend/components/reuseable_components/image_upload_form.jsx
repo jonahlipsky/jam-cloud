@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default ({context, type}) => {
+  debugger
   let image = type === "profileBackground" ? context.state.profileBackgroundUrl : context.state.imageUrl;
   let typeClass;
   if(type === "profileBackground"){

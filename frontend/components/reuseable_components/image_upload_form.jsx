@@ -1,14 +1,16 @@
 import React from 'react';
 
 export default ({context, type}) => {
-  debugger
-  let image = type === "profileBackground" ? context.state.profileBackgroundUrl : context.state.imageUrl;
+  let image;
   let typeClass;
   if(type === "profileBackground"){
+    image = context.state.profileBackgroundUrl;
     typeClass = 'profile-background';
   } else if (type === "profilePicture"){
+    image = context.state.profilePictureUrl;
     typeClass="profile-picture";
   } else {
+    image = context.state.imageUrl;
     typeClass = "track-picture-modal";
   }
 

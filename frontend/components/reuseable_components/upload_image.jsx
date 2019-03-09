@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default ({imageUrl, context, type}) => {
-  debugger
   return (
     <div className="image-upload">
       <div className="image-container">

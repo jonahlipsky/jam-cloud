@@ -108,6 +108,9 @@
   }
 
   .image-upload-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 360px;
     width: 360px;
 

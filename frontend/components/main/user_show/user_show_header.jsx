@@ -46,6 +46,7 @@ class UserShowHeader extends React.Component{
   }
 
   async handleSubmit(){
+    debugger
     const formData = new FormData();
     if(this.state.profilePictureFile){
       formData.append('user[profile_picture]', this.state.profilePictureFile);

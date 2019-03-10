@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import TracksDisplay from './tracks_display';
-import { fetchTracks } from '../../../actions/track_actions';
 
 const mapStateToProps = state => {
   let curUserId = state.session.id;
@@ -17,8 +16,5 @@ const mapStateToProps = state => {
   });
 };
 
-const mapDispatchToProps = dispatch => ({
-  fetchTracks: () => dispatch(fetchTracks())
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(TracksDisplay);
+export default connect(mapStateToProps)(TracksDisplay);

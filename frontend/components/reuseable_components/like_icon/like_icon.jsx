@@ -37,21 +37,29 @@ class LikeIcon extends Component{
     let that = this;
     return e => {
       e.stopPropagation();
-      if(that.likedObject()){
+      if(that.state.liked){
         let like = that.findLike();
-        if(like) that.props.deleteLike(like);
-      } else if(that.likedObject() === false) {
+        if(like){
+          that.setState({liked: false});
+          that.props.deleteLike(like);
+        }
+      } else {
+        that.setState({liked: true});
         that.props.createLike(type, that.props.element.id);
       }
     };
   }
 
-  render(){
+  componentDidMount(){
+    let liked = this.likedObject();
+    this.setState({liked});
+  }
 
+  render(){
     let icon = "";
     if(this.props.sessionUserId){
+      let liked = this.state.liked;
       let type = this.props.type;
-      let liked = this.likedObject();
       let heartClass = liked ? "fas fa-heart like-icon liked" : "fas fa-heart like-icon";
       let followText = liked ? "Following" : "Follow";
       let followingClass = liked ? "following-user-container like-icon followed" : "following-user-container like-icon";

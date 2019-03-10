@@ -1,7 +1,7 @@
 import { withRouter } from 'react-router-dom';
 import { incrementStage } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import { fetchUsers, signin, toggleResetAuthForm } from '../../actions/session_actions';
+import { signin, toggleResetAuthForm } from '../../actions/session_actions';
 import SplashHeader from './splash_header';
 
 const mapStateToProps = state => ({
@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   incrementStage: (prevStage) => dispatch(incrementStage(prevStage)),
-  fetchUsers: () => dispatch(fetchUsers()),
   signin: (user) => dispatch(signin(user)),
   toggleResetAuthForm: () => dispatch(toggleResetAuthForm())
 });

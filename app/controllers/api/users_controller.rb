@@ -4,9 +4,6 @@ class Api::UsersController < ApplicationController
     unless @user.profile_picture.attached?
       @user.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'empty_profile.png')), filename: "empty_profile.png")
     end
-    # unless @user.profile_background.attached?
-    #   @user.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
-    # end
     if @user.save
       login(@user)
       render :show
@@ -25,10 +22,9 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    debugger
     @users = User.with_attached_profile_picture.with_attached_profile_background.all.includes(:tracks, :likes, :liked_objects, 
       :recently_played_tracks, :followers, :followed_users, 
-      :liked_tracks, :liked_comments).order('tracks.id ASC')
+      :liked_tracks, :liked_comments)
   end
 
   private

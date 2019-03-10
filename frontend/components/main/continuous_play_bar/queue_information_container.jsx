@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import QueueInformation from './queue_information';
-import { fetchUsers } from '../../../actions/session_actions';
 
 const mapStateToProps = state => {
   let trackArtist;
@@ -20,9 +19,6 @@ const mapStateToProps = state => {
   });
 };
 
-const mapDispatchToProps = dispatch => ({
-  fetchUsers: () => dispatch(fetchUsers())
 
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(QueueInformation);
+export default connect(mapStateToProps)(QueueInformation);

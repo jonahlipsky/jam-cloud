@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { pushToFrontOfQueue, immediateOn } from '../../actions/sound_controller_actions';
-import { fetchUsers } from '../../actions/session_actions';
-import { fetchTracks } from '../../actions/track_actions';
 import TracksScrollingListItem from './tracks_scrolling_list_item';
 
 const mapStateToProps = state => {
@@ -24,8 +22,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   pushToFrontOfQueue: trackId => dispatch(pushToFrontOfQueue(trackId)),
-  fetchUsers: () => dispatch(fetchUsers()),
-  fetchTracks: () => dispatch(fetchTracks()),
   immediateOn: () => dispatch(immediateOn())
 });
 

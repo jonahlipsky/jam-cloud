@@ -1,7 +1,6 @@
 import React from 'react';
 import TrackShowHeaderContainer from './track_show_header_container';
 import TrackShowBodyContainer from './track_show_body_container';
-import regeneratorRuntime from "regenerator-runtime";
 
 
 class Track extends React.Component {
@@ -9,11 +8,9 @@ class Track extends React.Component {
     super(props);
   }
 
-  // async componentDidMount(){
-  //   await this.props.fetchUsers();
-  //   await this.props.fetchTracks();
-  //   this.props.fetchTrackComments(this.props.track.id);
-  // }
+  componentDidMount(){
+    this.props.fetchTrackComments(this.props.track.id);
+  }
 
   componentWillUnmount(){
     this.props.clearComments();

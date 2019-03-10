@@ -110,10 +110,11 @@ class TrackWidget extends React.Component{
         allow="autoplay" src={`${prefix}${widgetIdentifier}${options}`}></iframe>
     }
     let followIcon = "";
+    let trackLikeIcon = "";
     if(this.props.user){
       followIcon = <LikeIconContainer element={this.props.user} type={"User"}/>
+      trackLikeIcon = <LikeIconContainer element={this.props.track} type={"Track"}/>
     }
-    let trackLikeIcon = <LikeIconContainer element={this.props.track} type={"Track"}/>
     return(
       <div className="widget-container">      
         {widget}

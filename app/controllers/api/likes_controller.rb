@@ -7,7 +7,7 @@ class Api::LikesController < ApplicationController
       comment = Comment.find_by(id: params[:likeable_id])
       @like = Like.new(likeable: comment)
     elsif params[:likeable_type] == "User"
-      user = User.find_by(id: params[:likeable_id])
+      user = User.find(params[:likeable_id])
       @like = Like.new(likeable: user)
     else
       render json: 'Error, likeable type not found', status: 422

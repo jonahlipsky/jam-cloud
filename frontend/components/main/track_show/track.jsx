@@ -9,11 +9,11 @@ class Track extends React.Component {
     super(props);
   }
 
-  async componentDidMount(){
-    await this.props.fetchUsers();
-    await this.props.fetchTracks();
-    this.props.fetchTrackComments(this.props.track.id);
-  }
+  // async componentDidMount(){
+  //   await this.props.fetchUsers();
+  //   await this.props.fetchTracks();
+  //   this.props.fetchTrackComments(this.props.track.id);
+  // }
 
   componentWillUnmount(){
     this.props.clearComments();

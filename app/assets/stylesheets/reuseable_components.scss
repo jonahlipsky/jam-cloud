@@ -13,6 +13,8 @@
 
   .image-play-icon{
     position: relative;
+    max-height: 180px;
+    overflow: hidden;
   }
 
   .play-button{

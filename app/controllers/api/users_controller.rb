@@ -25,10 +25,10 @@ class Api::UsersController < ApplicationController
   end
 
   def index
+    debugger
     @users = User.with_attached_profile_picture.with_attached_profile_background.all.includes(:tracks, :likes, :liked_objects, 
       :recently_played_tracks, :followers, :followed_users, 
       :liked_tracks, :liked_comments).order('tracks.id ASC')
-    render :index
   end
 
   private

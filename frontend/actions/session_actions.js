@@ -47,7 +47,7 @@ export const signin = user => dispatch => {
   
   
 export const signout = () => dispatch => (
-  SESSION_API_UTIl.signout().then(user => dispatch(signoutCurrentUser()))
+  SESSION_API_UTIl.signout().then(() => dispatch(signoutCurrentUser()))
 );
 
 export const signup = user => dispatch => (

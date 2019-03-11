@@ -45,7 +45,7 @@ class LikeIcon extends Component{
         }
       } else {
         that.setState({liked: true});
-        that.props.createLike(type, that.props.element.id);
+        that.props.createLike(type, that.props.element.id, that.props.sessionUserId);
       }
     };
   }

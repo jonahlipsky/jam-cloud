@@ -1,8 +1,9 @@
-export const createLike = (likeableType, likeableId) => ($.ajax({
+export const createLike = (likeableType, likeableId, sessionId) => ($.ajax({
   method: 'POST',
   url: '/api/likes',
   data: { likeable_id: likeableId, 
-    likeable_type: likeableType }
+    likeable_type: likeableType,
+    current_user_id: sessionId }
 }));
 
 export const deleteLike = like_id => ($.ajax({

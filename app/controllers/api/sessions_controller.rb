@@ -13,7 +13,7 @@ class Api::SessionsController < ApplicationController
   def destroy
     @user = current_user
     logout!
-    render 'api/users/show'
+    render body: nil, status: :no_content
   end
 
 end

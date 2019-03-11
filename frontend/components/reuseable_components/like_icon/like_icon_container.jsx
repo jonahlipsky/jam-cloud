@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import LikeIcon from './like_icon';
-import { createLike, deleteLike } from '../../../actions/like_actions';
+import { deleteLike } from '../../../actions/like_actions';
+import { createLike } from '../../../actions/like_actions';
 
 const mapStateToProps = (state) => {
   let sessionUserId = state.session.id;
@@ -28,7 +29,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createLike: (likeableType, likeableId) => dispatch(createLike(likeableType, likeableId)),
+  createLike: (likeableType, likeableId, sessionUserId) => dispatch(createLike(likeableType, likeableId, sessionUserId)),
   deleteLike: like => dispatch(deleteLike(like))
 });
 

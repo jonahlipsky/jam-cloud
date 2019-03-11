@@ -30,9 +30,9 @@ n_p_r = User.create(username: 'n_p_r', password: 'nupur123', email: "nupur@demom
 n_p_r.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'n_p_r', 'cover.png')), filename: 'cover.png')
 n_p_r.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
-ethan = User.create(username: 'Ethan Woods', password: 'ethan123', email: 'ethan@demomail.com', age: 29, gender: 'Male')
-ethan.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'ethan_woods', 'ethan_profile.png')), filename: 'ethan_profile.png')
-# ethan.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
+ethan_woods = User.create(username: 'Ethan Woods', password: 'ethan123', email: 'ethan@demomail.com', age: 29, gender: 'Male')
+ethan_woods.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'ethan_woods', 'ethan_profile.png')), filename: 'ethan_profile.png')
+ethan_woods.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
 ## TRACKS
 
@@ -154,13 +154,49 @@ the_farmers_daughter.save
 whats_the_rush.save
 sister_christmas.save
 
+red_river_valley = Track.new(title: 'Red River Valley', user_id: ethan_woods.id, album_id: 1, widget_identifier: '588111804%3Fsecret_token%3Ds-uWWwV')
+red_river_valley.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'ethan_woods', 'bibi_album_art.jpg')), filename: "bibi_album_art.jpg")
+red_river_valley.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'ethan_woods', 'red_river_valley.mp3')), filename: "red_river_valley.mp3")
+blinking_into_river = Track.new(title: 'Blinking Into River', user_id: ethan_woods.id, album_id: 1, widget_identifier: '588111789%3Fsecret_token%3Ds-GL2nm')
+blinking_into_river.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'ethan_woods', 'bibi_album_art.jpg')), filename: "bibi_album_art.jpg")
+blinking_into_river.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'ethan_woods', 'blinking_into_river.mp3')), filename: "blinking_into_river.mp3")
+disney_doozy = Track.new(title: 'disney_doozy', user_id: ethan_woods.id, album_id: 1, widget_identifier: "588111780%3Fsecret_token%3Ds-26Az3")
+disney_doozy.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'ethan_woods', 'bibi_album_art.jpg')), filename: "bibi_album_art.jpg")
+disney_doozy.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'ethan_woods', 'disney_doozy.mp3')), filename: "disney_doozy.mp3")
+witchy_stone_fruit = Track.new(title: 'witchy_stone_fruit', user_id: ethan_woods.id, album_id: 1, widget_identifier: "588111765%3Fsecret_token%3Ds-PelCD")
+witchy_stone_fruit.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'ethan_woods', 'bibi_album_art.jpg')), filename: "bibi_album_art.jpg")
+witchy_stone_fruit.sound_file.attach(io: File.open(Rails.root.join('app', 'assets', 'audio', 'ethan_woods', 'witchy_stone_fruit.mp3')), filename: "witchy_stone_fruit.mp3")
 
-## COMMENTS
+red_river_valley.save
+blinking_into_river.save
+disney_doozy.save
+witchy_stone_fruit.save
 
-comment1 = track1.comments.create(body: "Hey! Great song!", author_id: 2)
-comment2 = comment1.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment1.track_id )
-comment3 = comment1.child_comments.create(body: "Ya it really is tight.", author_id: 3, track_id: comment1.track_id )
-comment4 = track2.comments.create(body: "Keep putting out these songs!", author_id: 3)
-comment2 = comment4.child_comments.create(body: "Will do!", author_id: 2, track_id: comment1.track_id )
-comment3 = comment4.child_comments.create(body: "Good to hear", author_id: 3, track_id: comment1.track_id )
+# Daneil Stern Comments
 
+# comment1 = track1.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment2 = comment1.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment1.track_id )
+# comment3 = comment1.child_comments.create(body: "Ya it really is tight.", author_id: 3, track_id: comment1.track_id )
+# comment4 = track2.comments.create(body: "Keep putting out these songs!", author_id: 3)
+# comment5 = comment4.child_comments.create(body: "Will do!", author_id: 2, track_id: comment1.track_id )
+# comment6 = comment4.child_comments.create(body: "Good to hear", author_id: 3, track_id: comment1.track_id )
+# comment7 = track3.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment8 = comment7.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment7.track_id )
+# comment9 = track4.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment10 = comment9.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment9.track_id )
+# comment11 = track5.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment12 = comment11.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment11.track_id )
+# comment13 = track6.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment14 = comment13.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment13.track_id )
+# comment15 = track7.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment16 = comment15.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment15.track_id )
+# comment17 = track8.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment18 = comment17.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment17.track_id )
+# comment19 = track9.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment20 = comment19.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment19.track_id )
+# comment21 = track10.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment22 = comment21.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment21.track_id )
+# comment23 = track11.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment24 = comment23.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment23.track_id )
+# comment25 = track12.comments.create(body: "Hey! Great song!", author_id: 2)
+# comment26 = comment25.child_comments.create(body: "Thanks so much!", author_id: 1, track_id: comment25.track_id )

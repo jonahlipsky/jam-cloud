@@ -67,24 +67,27 @@ class TrackWidget extends React.Component{
       this.setState({widget});
       this.setListeners(widget);
     }
-    //if the song is playing and sending progress updates, seek to that positions
-    if(prevProps.currentMilliseconds != this.props.currentMilliseconds &&
-      String(this.props.soundStatusArray[1]) === String(this.props.track.id) && 
-      !window.seeking){ 
-        this.state.widget.seekTo(this.props.currentMilliseconds);
-    } 
-    //if the sound status has changed and now it it equal to 'PAUSED', pause the widget
-    if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0]) 
-      && this.props.soundStatusArray[0] === "PAUSED"){
-        this.state.widget.pause();
-    } else if (parseInt(prevProps.firstInQueue) === this.props.track.id 
-      && prevProps.firstInQueue != this.props.firstInQueue){
-        this.state.widget.pause();
-    } else if (this.state.widget && (prevProps.soundStatusArray[0] != this.props.soundStatusArray[0])
-      && this.props.soundStatusArray[0] === "PLAYING" && prevProps.signal && window.handshake
-      && parseInt(this.props.soundStatusArray[1]) === this.props.track.id ){
-        window.handshake = false;
-        this.state.widget.play();
+
+    if(this.state.widget){
+      //if the song is playing and sending progress updates, seek to that positions
+      if(prevProps.currentMilliseconds != this.props.currentMilliseconds &&
+        String(this.props.soundStatusArray[1]) === String(this.props.track.id) && 
+        !window.seeking){ 
+          this.state.widget.seekTo(this.props.currentMilliseconds);
+      } 
+      //if the sound status has changed and now it it equal to 'PAUSED', pause the widget
+      if ((prevProps.soundStatusArray[0] != this.props.soundStatusArray[0]) 
+        && this.props.soundStatusArray[0] === "PAUSED"){
+          this.state.widget.pause();
+      } else if (parseInt(prevProps.firstInQueue) === this.props.track.id 
+        && prevProps.firstInQueue != this.props.firstInQueue){
+          this.state.widget.pause();
+      } else if ((prevProps.soundStatusArray[0] != this.props.soundStatusArray[0])
+        && this.props.soundStatusArray[0] === "PLAYING" && prevProps.signal && window.handshake
+        && parseInt(this.props.soundStatusArray[1]) === this.props.track.id ){
+          window.handshake = false;
+          this.state.widget.play();
+      }
     }
   }
 

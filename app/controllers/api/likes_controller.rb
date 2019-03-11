@@ -13,7 +13,7 @@ class Api::LikesController < ApplicationController
       render json: 'Error, likeable type not found', status: 422
       return
     end
-    @like.user_id = current_user.id
+    @like.user_id = params[:current_user_id]
     if @like.save
       render :show
     else
@@ -22,7 +22,7 @@ class Api::LikesController < ApplicationController
   end
 
   def index
-    @likes = Like.all
+    @likes = Like.all.includes(:user, :likeable)
   end
 
   def destroy
@@ -31,9 +31,4 @@ class Api::LikesController < ApplicationController
     render body: nil, status: :no_content
   end
 
-  private
-
-  def like_params
-    params.require(:like).permit(:track_id)
-  end
 end

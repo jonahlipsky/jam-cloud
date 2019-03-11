@@ -10,8 +10,17 @@ const mapStateToProps = state => {
   let users = state.entities.users;
   let trackIds = Object.keys(state.entities.tracks);
   let featuredTracks = [];
-  if(state.entities.tracks && state.entities.tracks[14]){
-    featuredTracks.push(state.entities.tracks[14]);
+
+  let trackKeys = Object.keys(state.entities.tracks);
+  let drumHealing2Id = -1;
+  trackKeys.forEach(key => {
+    if(state.entities.tracks[key] && state.entities.tracks[key].title === "Drum Healing 2"){
+      drumHealing2Id = key;
+    }
+  });
+
+  if(state.entities.tracks && state.entities.tracks[drumHealing2Id]){
+    featuredTracks.push(state.entities.tracks[drumHealing2Id]);
   }
 
 

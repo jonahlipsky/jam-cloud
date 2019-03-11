@@ -44,12 +44,25 @@ const mapStateToProps = state => {
     });
   }
 
+  let trackKeys = Object.keys(state.entities.tracks);
+  let mountain2Id = -1;
+  let redRiverId = -1;
+  trackKeys.forEach(key => {
+    if(state.entities.tracks[key] && state.entities.tracks[key].title === "Blinking Into River"){
+      redRiverId = key;
+    } else if (state.entities.tracks[key] && state.entities.tracks[key].title === "Mountain No. 2"){
+      mountain2Id = key;
+    }
+  });
+
+
+
   let featuredTracks = [];
-  if(state.entities.tracks && state.entities.tracks[14]){
-    featuredTracks.push(state.entities.tracks[14]);
+  if(state.entities.tracks && state.entities.tracks[mountain2Id]){
+    featuredTracks.push(state.entities.tracks[mountain2Id]);
   }
-  if(state.entities.tracks && state.entities.tracks[19]){
-  featuredTracks.push(state.entities.tracks[19]);
+  if(state.entities.tracks && state.entities.tracks[redRiverId]){
+  featuredTracks.push(state.entities.tracks[redRiverId]);
   }
   
 

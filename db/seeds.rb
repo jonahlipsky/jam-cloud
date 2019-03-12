@@ -19,7 +19,7 @@ RecentTrack.destroy_all
 ##USER CREATION
 
 daniel_stern = User.create(username: 'Daniel Stern', password: 'test123', email: 'demo@gmail.com', age: 28, gender: 'Male')
-daniel_stern.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'about-img-2.jpg')), filename: "about-img-2.jpg")
+daniel_stern.profile_picture.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'daniel_stern_profile.png')), filename: "daniel_stern_profile.png")
 daniel_stern.profile_background.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'demo_user', 'tesseract.jpg')), filename: "tesseract.jpg")
 
 daniel_wininger = User.create(username: 'Daniel Wininger', password: 'wininger123', email: "danielwininger@demomail.com", age: 30, gender: 'Male')

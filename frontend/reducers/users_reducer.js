@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { RECEIVE_CURRENT_USER, RECEIVE_ALL_USERS } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, RECEIVE_ALL_USERS, RECEIVE_UPDATED_USER } from '../actions/session_actions';
 import { REMOVE_TRACK, RECEIVE_TRACK, RECEIVE_RECENT_TRACK } from '../actions/track_actions';
 import { DELETE_LIKE, RECEIVE_NEW_LIKE } from '../actions/like_actions';
 
@@ -17,6 +17,8 @@ export default (state = {}, action) => {
         newState = merge(newState, {[user.id]: newUser});
       });
       return newState;
+    case RECEIVE_UPDATED_USER:
+      return merge(newState, { [action.user.id]: action.user });
     case RECEIVE_RECENT_TRACK:
       let recent = action.recentTrack;
       if(!newState[recent.user_id].recently_played_track_ids.includes(recent.track_id)){

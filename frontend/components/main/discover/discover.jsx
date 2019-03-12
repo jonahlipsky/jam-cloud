@@ -14,10 +14,10 @@ class Discover extends React.Component{
     let featureOne = "";
     let featureTwo = "";
     if(this.props.featuredTracks.length){
-      let trackOne = this.props.featuredTracks[0];
-      let trackTwo = this.props.featuredTracks[1];
-      featureOne = <li id={trackOne.id}><Widget track={trackOne} user={this.props.sessionUser}/></li>
-      featureTwo = <li id={trackTwo.id}><Widget track={trackTwo} user={this.props.sessionUser}/></li>
+      let trackOne = this.props.featuredTracks[0][0];
+      let trackTwo = this.props.featuredTracks[1][0];
+      featureOne = <li id={trackOne.id}><Widget track={trackOne} user={this.props.featuredTracks[0][1]}/></li>
+      featureTwo = <li id={trackTwo.id}><Widget track={trackTwo} user={this.props.featuredTracks[1][1]}/></li>
     }
     
     return(

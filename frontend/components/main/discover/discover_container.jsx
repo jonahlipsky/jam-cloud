@@ -59,10 +59,14 @@ const mapStateToProps = state => {
 
   let featuredTracks = [];
   if(state.entities.tracks && state.entities.tracks[mountain2Id]){
-    featuredTracks.push(state.entities.tracks[mountain2Id]);
+    let track = state.entities.tracks[mountain2Id];
+    let artist = state.entities.users[track.user_id];
+    featuredTracks.push([track, artist]);
   }
   if(state.entities.tracks && state.entities.tracks[redRiverId]){
-  featuredTracks.push(state.entities.tracks[redRiverId]);
+    let track = state.entities.tracks[redRiverId];
+    let artist = state.entities.users[track.user_id];
+    featuredTracks.push([track, artist]);
   }
   
 

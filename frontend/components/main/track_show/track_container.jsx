@@ -4,6 +4,7 @@ import Track from './track';
 import { fetchTrackComments, clearComments } from '../../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   let trackId = ownProps.match.params.trackId;
   let track = state.entities.tracks[trackId] || null;
   let title = track ? track.title : null;

@@ -9,7 +9,9 @@ class Track extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchTrackComments(this.props.track.id);
+    if(this.props.track){
+      this.props.fetchTrackComments(this.props.track.id);
+    }
   }
 
   componentWillUnmount(){

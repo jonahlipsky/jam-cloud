@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :tracks, only: [:index, :create, :show, :destroy, :update] do 
       resources :comments, only: [:create]
       resource :recent_tracks, only: [:create]
+
+      collection do
+        get '/search', to: "tracks#search"
+      end
     end
 
     resources :likes, only: [:create, :destroy, :show, :index]

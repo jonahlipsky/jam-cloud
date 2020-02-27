@@ -37,6 +37,12 @@ class Api::TracksController < ApplicationController
     render body: nil, status: :no_content
   end
 
+  def search
+    query_string = params[:search]
+    debugger
+    # Track.where('')
+  end
+
   private
 
   def track_params

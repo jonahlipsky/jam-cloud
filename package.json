@@ -14,7 +14,7 @@
   "dependencies": {
     "fontawesome": "^5.6.3",
     "lodash": "^4.17.13",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-onclickoutside": "^6.7.1",

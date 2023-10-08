@@ -1,6 +1,6 @@
 # jam-cloud
 
-I built this full stack application for App Academy, a software engineering bootcamp I did in 2019. It is currently archived. Please see screenshots and descriptions of the features it implemented below.
+This is a web application built during my time at App Academy, a full-stack Coding Bootcamp. It uses React/Redux, Javascript, Ruby on Rails and SQL. The project is now archived, although many of the features are memorialized below in the description and screenshots.
 
 ## What is JamCloud?
 JamCloud is App for listening to your favorite jams -- it is modelled on SoundCloud. You can upload songs, discover new music, and engage with other users through comments and likes. 

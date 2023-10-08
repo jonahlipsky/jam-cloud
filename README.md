@@ -1,7 +1,7 @@
 # jam-cloud
 
-## Live Link!
-[JamCloud Live](https://jam-cloud.herokuapp.com "JamCloud Live")
+## Archived!
+This project was the full-stack application I built for App Academy in 2019. It is currently archived and is no longer online. Please see below for screenshots and description of the features it implemented!
 
 ## What is JamCloud?
 JamCloud is App for listening to your favorite jams -- it is modelled on SoundCloud. You can upload songs, discover new music, and engage with other users through comments and likes. 
